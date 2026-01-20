@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Halo Pro — Professional Film Emulation</title>
+  <meta name="description" content="A specialized tool for photographers and colorists seeking authentic film halation beyond what standard grading software provides.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,500;1,8..60,300;1,8..60,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Hero -->
+  <header class="hero">
+    <div class="hero-glow"></div>
+    
+    <p class="label fade-in" style="animation-delay: 0.2s">Professional Film Emulation</p>
+    
+    <h1 class="hero-title fade-in glow" style="animation-delay: 0.4s">Halo Pro</h1>
+    
+    <p class="hero-subtitle fade-in" style="animation-delay: 0.6s">
+      A specialized tool for photographers and colorists seeking authentic 
+      film halation beyond what standard grading software provides.
+    </p>
+
+    <div class="hero-image slide-up" style="animation-delay: 0.8s">
+      <div class="hero-image-wrapper">
+        <img src="https://i.ibb.co/Xf7yvNgG/HALO-PRO-0-3.jpg" alt="Halo Pro Interface">
+        <div class="hero-image-overlay"></div>
+      </div>
+      <p class="hero-image-caption">Interface Preview — Version 0.3</p>
+    </div>
+  </header>
+
+  <!-- What It Does -->
+  <section class="section section--narrow">
+    <h2 class="label">What It Does</h2>
+    
+    <p class="lead">
+      Halo Pro simulates <em>halation</em> — the characteristic glow that occurs 
+      when bright light sources bleed through film emulsion layers.
+    </p>
+    
+    <div class="divider"></div>
+    
+    <p class="body-text">
+      Unlike simple bloom or glow effects, this uses 32-bit float processing 
+      to accurately model the physics of light interaction with film grain structure. 
+      The application handles complex mathematical calculations while maintaining 
+      smooth, responsive performance through GPU acceleration and intelligent caching.
+    </p>
+  </section>
+
+  <!-- Features -->
+  <section class="section section--wide">
+    <h2 class="label label--center">Core Features</h2>
+    
+    <div class="feature-grid">
+      <div class="feature-card">
+        <h3 class="feature-title">Halation Engine</h3>
+        <p class="feature-text">
+          Multi-pass processing with variable spread and color channel control. 
+          Independent adjustments for highlight threshold, diffusion radius, 
+          and chromatic response.
+        </p>
+      </div>
+      
+      <div class="feature-card">
+        <h3 class="feature-title">Mist & Diffusion</h3>
+        <p class="feature-text">
+          Optical diffusion simulation including bloom characteristics, 
+          contrast reduction mapping, and film-accurate softening curves.
+        </p>
+      </div>
+      
+      <div class="feature-card">
+        <h3 class="feature-title">Film Response</h3>
+        <p class="feature-text">
+          Complete signal chain with highlight rolloff, toe compression, 
+          and grain modeling. LUT integration for established workflows.
+        </p>
+      </div>
+      
+      <div class="feature-card">
+        <h3 class="feature-title">Precision Masking</h3>
+        <p class="feature-text">
+          Non-destructive luminosity and color range selection with 
+          feathering controls. Isolate effects to specific tonal ranges.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing -->
+  <section class="section section--wide">
+    <h2 class="label label--center">Pricing</h2>
+    
+    <div class="pricing-grid">
+      <div class="pricing-card">
+        <p class="pricing-label">Free Version</p>
+        <h3 class="pricing-title">Complete Toolkit</h3>
+        <p class="pricing-text">
+          Full halation, mist, and film simulation with masking capabilities. 
+          Includes LUT support and full bit-depth import/export.
+        </p>
+      </div>
+      
+      <div class="pricing-card pricing-card--pro">
+        <p class="pricing-label pricing-label--pro">Professional</p>
+        <h3 class="pricing-title">Extended Workflow</h3>
+        <p class="pricing-text">
+          Lightroom plugin integration, batch processing for video sequences, 
+          and priority access to updates and new features.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- System Requirements -->
+  <section class="section section--narrow">
+    <h2 class="label">System Requirements</h2>
+    
+    <div class="requirements-block">
+      <h3 class="requirements-title">Currently Supported</h3>
+      <ul class="requirements-list">
+        <li>macOS with Apple Silicon (M1–M5)</li>
+        <li>Minimum: 8GB RAM, macOS 12.0+</li>
+        <li>Recommended: 16GB+ RAM for high-resolution workflows</li>
+      </ul>
+    </div>
+    
+    <div class="requirements-block">
+      <h3 class="requirements-title requirements-title--planned">Planned Support</h3>
+      <ul class="requirements-list requirements-list--planned">
+        <li>Windows with CUDA acceleration</li>
+        <li>Intel Mac with Vulkan support</li>
+        <li>Additional platforms based on demand</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Installation -->
+  <section class="section section--narrow">
+    <h2 class="label">Installation</h2>
+    
+    <div class="steps">
+      <div class="step">
+        <span class="step-number">01</span>
+        <span class="step-text">Download the application package</span>
+      </div>
+      <div class="step">
+        <span class="step-number">02</span>
+        <span class="step-text">Move to the Applications folder</span>
+      </div>
+      <div class="step">
+        <span class="step-number">03</span>
+        <span class="step-text">Right-click and select "Open" on first launch</span>
+      </div>
+      <div class="step">
+        <span class="step-number">04</span>
+        <span class="step-text">Allow initial startup time for macOS verification</span>
+      </div>
+      <div class="step">
+        <span class="step-number">05</span>
+        <span class="step-text">Configure Lightroom integration if using Pro</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Status -->
+  <section class="section section--narrow section--status">
+    <p class="label label--muted">Beta</p>
+    <p class="status-text">
+      This application is currently in beta. While extensively tested for core 
+      functionality, users may encounter edge cases. Feedback is actively 
+      incorporated into development priorities.
+    </p>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p class="footer-label">Created by</p>
+    <p class="footer-name">Alric Ljunghager</p>
+    <div class="footer-links">
+      <a href="mailto:alric.ljunghager@gmail.com">alric.ljunghager@gmail.com</a>
+      <a href="https://www.instagram.com/alric.ljunghager/" class="footer-link--accent">@alric.ljunghager</a>
+    </div>
+    <p class="footer-copyright">© 2025</p>
+  </footer>
+
+</body>
+</html>
