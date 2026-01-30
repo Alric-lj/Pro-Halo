@@ -547,6 +547,103 @@ body {
   color: rgba(232, 228, 223, 0.7);
 }
 
+/* Timeline */
+.timeline-year {
+  margin-bottom: 4rem;
+}
+
+.timeline-year:last-child {
+  margin-bottom: 0;
+}
+
+.timeline-year-title {
+  font-size: 3rem;
+  font-weight: 300;
+  color: #ff934f;
+  margin-bottom: 0.25rem;
+}
+
+.timeline-year-subtitle {
+  font-family: "DM Sans", sans-serif;
+  font-size: 0.85rem;
+  color: rgba(232, 228, 223, 0.5);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  margin-bottom: 2rem;
+}
+
+.timeline-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.timeline-card {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.01) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 2px;
+  padding: 1.5rem;
+  position: relative;
+  margin-top: 10px;
+}
+
+.timeline-card--current {
+  border-color: rgba(255, 147, 79, 0.5);
+  background: linear-gradient(135deg, rgba(255, 147, 79, 0.08) 0%, rgba(255, 147, 79, 0.02) 100%);
+}
+
+.timeline-card--future {
+  border-color: rgba(232, 228, 223, 0.15);
+  background: linear-gradient(135deg, rgba(232, 228, 223, 0.03) 0%, rgba(232, 228, 223, 0.01) 100%);
+}
+
+.timeline-badge {
+  position: absolute;
+  top: -10px;
+  left: 1rem;
+  font-family: "DM Sans", sans-serif;
+  font-size: 0.55rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.25rem 0.6rem;
+  border-radius: 2px;
+}
+
+.timeline-badge--done {
+  color: #0a0a0a;
+  background: rgba(100, 200, 130, 0.9);
+}
+
+.timeline-badge--current {
+  color: #0a0a0a;
+  background: linear-gradient(135deg, #ff934f, #ff7a2e);
+}
+
+.timeline-badge--upcoming {
+  color: #0a0a0a;
+  background: rgba(232, 228, 223, 0.8);
+}
+
+.timeline-badge--future {
+  color: rgba(232, 228, 223, 0.8);
+  background: rgba(232, 228, 223, 0.15);
+}
+
+.timeline-card-title {
+  font-size: 0.95rem;
+  font-weight: 400;
+  margin-bottom: 0.5rem;
+  color: #e8e4df;
+}
+
+.timeline-card-text {
+  font-family: "DM Sans", sans-serif;
+  font-size: 0.8rem;
+  color: rgba(232, 228, 223, 0.5);
+  line-height: 1.6;
+}
+
 .tier-card {
   background: linear-gradient(135deg, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.01) 100%);
   border: 1px solid rgba(255, 255, 255, 0.08);
@@ -781,8 +878,17 @@ body {
   }
 
   .tab-button {
-    padding: 0.5rem 1rem;
-    font-size: 0.7rem;
+    padding: 0.5rem 0.75rem;
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+  }
+
+  .timeline-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .timeline-year-title {
+    font-size: 2.5rem;
   }
 
   .hero {

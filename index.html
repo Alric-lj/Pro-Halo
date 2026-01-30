@@ -66,6 +66,7 @@
   <!-- Tab Navigation -->
   <nav class="tabs">
     <button class="tab-button active" data-tab="home">Home</button>
+    <button class="tab-button" data-tab="development">Development</button>
     <button class="tab-button" data-tab="supporter">Supporter</button>
   </nav>
 
@@ -96,22 +97,28 @@
     </div>
   </header>
 
-  <!-- What It Does -->
+  <!-- Why? -->
   <section class="section section--narrow">
-    <h2 class="label">What It Does</h2>
-    
+    <h2 class="label">Why?</h2>
+
     <p class="lead">
-      Halo Pro simulates <em>halation</em> — the characteristic glow that occurs 
-      when bright light sources bleed through film emulsion layers.
+      Halo Pro is a niche application that focuses on <em>halation precision</em> and creative expression.
     </p>
-    
+
     <div class="divider"></div>
-    
+
     <p class="body-text">
-      Unlike simple bloom or glow effects, this uses 32-bit float processing 
-      to accurately model the physics of light interaction with film grain structure. 
-      The application handles complex mathematical calculations while maintaining 
-      smooth, responsive performance through GPU acceleration and intelligent caching.
+      Other applications like Dehancer and Filmic do a lot of steps to emulate film, but Halo Pro specializes on the hardest part of emulating the film look — the halation effect. The soft glowy edges adding range and a magic feel to the image.
+    </p>
+
+    <p class="body-text" style="margin-top: 1.5rem;">
+      Furthermore, other software is only 8-bit precision which works great for film but for photo it's simply not matching the quality photographers expect. With 32-bit float, the gradients and blurred colors get integrated into the image rather than slapped on. 32-bit also allows you to add halation at any time in your workflow — you're not limited to adding it as the last step before exporting.
+    </p>
+
+    <div class="divider"></div>
+
+    <p class="body-text">
+      The project was started by solo developer and professional photographer Alric Ljunghager in 2024, entered beta in February 2026, and is explicitly built for M-series macOS computers. Expected to remain in beta until 2027, with Windows/CUDA support planned.
     </p>
   </section>
 
@@ -242,6 +249,263 @@
   </section>
 
   </div><!-- End Tab: Home -->
+
+  <!-- Tab: Development -->
+  <div id="tab-development" class="tab-content">
+
+    <!-- Development Hero -->
+    <header class="hero hero--supporter">
+      <div class="hero-glow"></div>
+      <p class="label fade-in" style="animation-delay: 0.2s">Development Timeline</p>
+      <h1 class="hero-title fade-in glow" style="animation-delay: 0.4s">Development & Updates</h1>
+      <p class="hero-subtitle fade-in" style="animation-delay: 0.6s">
+        Follow the journey from research to release. Halo Pro is being built with precision and care.
+      </p>
+    </header>
+
+    <!-- Timeline -->
+    <section class="section section--wide">
+
+      <!-- 2024 -->
+      <div class="timeline-year">
+        <h2 class="timeline-year-title">2024</h2>
+        <p class="timeline-year-subtitle">Research & Foundation</p>
+        <div class="timeline-grid">
+          <div class="timeline-card">
+            <span class="timeline-badge timeline-badge--done">Done</span>
+            <h3 class="timeline-card-title">Halation Research</h3>
+            <p class="timeline-card-text">In-depth study of film halation characteristics and light behavior through emulsion layers.</p>
+          </div>
+          <div class="timeline-card">
+            <span class="timeline-badge timeline-badge--done">Done</span>
+            <h3 class="timeline-card-title">Halation Emulation</h3>
+            <p class="timeline-card-text">Core halation emulation functions developed with accurate light diffusion modeling.</p>
+          </div>
+          <div class="timeline-card">
+            <span class="timeline-badge timeline-badge--done">Done</span>
+            <h3 class="timeline-card-title">Mist Emulation</h3>
+            <p class="timeline-card-text">Optical mist and diffusion simulation functions for film-accurate softening.</p>
+          </div>
+          <div class="timeline-card">
+            <span class="timeline-badge timeline-badge--done">Done</span>
+            <h3 class="timeline-card-title">Masking System</h3>
+            <p class="timeline-card-text">Precision masking functions for selective effect application.</p>
+          </div>
+          <div class="timeline-card">
+            <span class="timeline-badge timeline-badge--done">Done</span>
+            <h3 class="timeline-card-title">Slider-Based UI</h3>
+            <p class="timeline-card-text">Intuitive slider-based user interface for precise control.</p>
+          </div>
+          <div class="timeline-card">
+            <span class="timeline-badge timeline-badge--done">Done</span>
+            <h3 class="timeline-card-title">16-Bit Emulation</h3>
+            <p class="timeline-card-text">Initial 16-bit processing pipeline implementation.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2025 -->
+      <div class="timeline-year">
+        <h2 class="timeline-year-title">2025</h2>
+        <p class="timeline-year-subtitle">Alpha Development</p>
+        <div class="timeline-grid">
+          <div class="timeline-card">
+            <span class="timeline-badge timeline-badge--done">Done</span>
+            <h3 class="timeline-card-title">Resolution Scaling</h3>
+            <p class="timeline-card-text">Dynamic resolution scaling for optimal performance across image sizes.</p>
+          </div>
+          <div class="timeline-card">
+            <span class="timeline-badge timeline-badge--done">Done</span>
+            <h3 class="timeline-card-title">GPU Calculation</h3>
+            <p class="timeline-card-text">GPU-accelerated processing for real-time performance.</p>
+          </div>
+          <div class="timeline-card">
+            <span class="timeline-badge timeline-badge--done">Done</span>
+            <h3 class="timeline-card-title">Alpha Launch</h3>
+            <p class="timeline-card-text">First alpha build released for internal testing.</p>
+          </div>
+          <div class="timeline-card">
+            <span class="timeline-badge timeline-badge--done">Done</span>
+            <h3 class="timeline-card-title">32-Bit Accuracy</h3>
+            <p class="timeline-card-text">Full 32-bit float precision on all parameters for professional quality.</p>
+          </div>
+          <div class="timeline-card">
+            <span class="timeline-badge timeline-badge--done">Done</span>
+            <h3 class="timeline-card-title">Color Management</h3>
+            <p class="timeline-card-text">sRGB and ProPhoto RGB color space support.</p>
+          </div>
+          <div class="timeline-card">
+            <span class="timeline-badge timeline-badge--done">Done</span>
+            <h3 class="timeline-card-title">File Format Support</h3>
+            <p class="timeline-card-text">TIF/PNG 8-16bit and JPG 8-bit import/export.</p>
+          </div>
+          <div class="timeline-card">
+            <span class="timeline-badge timeline-badge--done">Done</span>
+            <h3 class="timeline-card-title">LUT System</h3>
+            <p class="timeline-card-text">Full LUT integration for established color workflows.</p>
+          </div>
+          <div class="timeline-card">
+            <span class="timeline-badge timeline-badge--done">Done</span>
+            <h3 class="timeline-card-title">Presets System</h3>
+            <p class="timeline-card-text">Save and load presets for quick workflow access.</p>
+          </div>
+          <div class="timeline-card">
+            <span class="timeline-badge timeline-badge--done">Done</span>
+            <h3 class="timeline-card-title">Licence System</h3>
+            <p class="timeline-card-text">Licence key activation and validation system.</p>
+          </div>
+          <div class="timeline-card">
+            <span class="timeline-badge timeline-badge--done">Done</span>
+            <h3 class="timeline-card-title">Manual</h3>
+            <p class="timeline-card-text">Comprehensive user manual and documentation.</p>
+          </div>
+          <div class="timeline-card">
+            <span class="timeline-badge timeline-badge--done">Done</span>
+            <h3 class="timeline-card-title">Slider Guides</h3>
+            <p class="timeline-card-text">Visual guides for slider parameters and ranges.</p>
+          </div>
+          <div class="timeline-card">
+            <span class="timeline-badge timeline-badge--done">Done</span>
+            <h3 class="timeline-card-title">Tips & Tricks Guide</h3>
+            <p class="timeline-card-text">Best practices and workflow tips for users.</p>
+          </div>
+          <div class="timeline-card">
+            <span class="timeline-badge timeline-badge--done">Done</span>
+            <h3 class="timeline-card-title">Metadata Handler</h3>
+            <p class="timeline-card-text">EXIF and metadata preservation during processing.</p>
+          </div>
+          <div class="timeline-card">
+            <span class="timeline-badge timeline-badge--done">Done</span>
+            <h3 class="timeline-card-title">Lightroom Plugin</h3>
+            <p class="timeline-card-text">Lightroom and Lightroom Classic plugin workflow integration.</p>
+          </div>
+          <div class="timeline-card">
+            <span class="timeline-badge timeline-badge--done">Done</span>
+            <h3 class="timeline-card-title">Batch Workflow</h3>
+            <p class="timeline-card-text">Batch processing UI for multiple images and sequences.</p>
+          </div>
+          <div class="timeline-card">
+            <span class="timeline-badge timeline-badge--done">Done</span>
+            <h3 class="timeline-card-title">Vector LUT Research</h3>
+            <p class="timeline-card-text">Experimentation for future vector-based LUT implementation.</p>
+          </div>
+          <div class="timeline-card">
+            <span class="timeline-badge timeline-badge--done">Done</span>
+            <h3 class="timeline-card-title">Noise System</h3>
+            <p class="timeline-card-text">Film grain and noise simulation system.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2026 -->
+      <div class="timeline-year">
+        <h2 class="timeline-year-title">2026</h2>
+        <p class="timeline-year-subtitle">Beta Launch</p>
+        <div class="timeline-grid">
+          <div class="timeline-card">
+            <span class="timeline-badge timeline-badge--done">Done</span>
+            <h3 class="timeline-card-title">Tile-Based Rendering</h3>
+            <p class="timeline-card-text">Tile-based GPU rendering for efficient memory usage.</p>
+          </div>
+          <div class="timeline-card">
+            <span class="timeline-badge timeline-badge--done">Done</span>
+            <h3 class="timeline-card-title">Memory Optimization</h3>
+            <p class="timeline-card-text">Optimized memory management for large files.</p>
+          </div>
+          <div class="timeline-card">
+            <span class="timeline-badge timeline-badge--done">Done</span>
+            <h3 class="timeline-card-title">Website Launch</h3>
+            <p class="timeline-card-text">Official website halopro.app launched.</p>
+          </div>
+          <div class="timeline-card">
+            <span class="timeline-badge timeline-badge--done">Done</span>
+            <h3 class="timeline-card-title">LUT Pipeline</h3>
+            <p class="timeline-card-text">LUT render pipeline with before/after halation and mist options.</p>
+          </div>
+          <div class="timeline-card">
+            <span class="timeline-badge timeline-badge--done">Done</span>
+            <h3 class="timeline-card-title">Free vs Licence</h3>
+            <p class="timeline-card-text">Free version and licenced Pro version separation.</p>
+          </div>
+          <div class="timeline-card">
+            <span class="timeline-badge timeline-badge--done">Done</span>
+            <h3 class="timeline-card-title">Bug Report System</h3>
+            <p class="timeline-card-text">In-app bug reporting for user feedback.</p>
+          </div>
+          <div class="timeline-card timeline-card--current">
+            <span class="timeline-badge timeline-badge--current">Current</span>
+            <h3 class="timeline-card-title">Beta 1 Launch</h3>
+            <p class="timeline-card-text">Halo Pro Beta 1 public release — February 2026.</p>
+          </div>
+          <div class="timeline-card">
+            <span class="timeline-badge timeline-badge--upcoming">Upcoming</span>
+            <h3 class="timeline-card-title">Optimizations</h3>
+            <p class="timeline-card-text">Performance optimizations based on user feedback.</p>
+          </div>
+          <div class="timeline-card">
+            <span class="timeline-badge timeline-badge--upcoming">Upcoming</span>
+            <h3 class="timeline-card-title">Bug Fixes</h3>
+            <p class="timeline-card-text">Collecting and fixing user-reported bugs.</p>
+          </div>
+          <div class="timeline-card">
+            <span class="timeline-badge timeline-badge--upcoming">Upcoming</span>
+            <h3 class="timeline-card-title">Online Presets</h3>
+            <p class="timeline-card-text">Online preset system for easy sharing and updates.</p>
+          </div>
+          <div class="timeline-card">
+            <span class="timeline-badge timeline-badge--upcoming">Upcoming</span>
+            <h3 class="timeline-card-title">Advanced Noise</h3>
+            <p class="timeline-card-text">Advanced noise functions for detailed grain control.</p>
+          </div>
+          <div class="timeline-card">
+            <span class="timeline-badge timeline-badge--upcoming">Upcoming</span>
+            <h3 class="timeline-card-title">Vector LUT</h3>
+            <p class="timeline-card-text">Vector-based LUT system implementation.</p>
+          </div>
+          <div class="timeline-card">
+            <span class="timeline-badge timeline-badge--upcoming">Upcoming</span>
+            <h3 class="timeline-card-title">Ambassador Program</h3>
+            <p class="timeline-card-text">Ambassador preset program for community creators.</p>
+          </div>
+          <div class="timeline-card">
+            <span class="timeline-badge timeline-badge--upcoming">Upcoming</span>
+            <h3 class="timeline-card-title">Motion Picture</h3>
+            <p class="timeline-card-text">ProRes and MOV video format support.</p>
+          </div>
+          <div class="timeline-card">
+            <span class="timeline-badge timeline-badge--upcoming">Upcoming</span>
+            <h3 class="timeline-card-title">DaVinci Plugin</h3>
+            <p class="timeline-card-text">DaVinci Resolve plugin integration.</p>
+          </div>
+          <div class="timeline-card">
+            <span class="timeline-badge timeline-badge--upcoming">Upcoming</span>
+            <h3 class="timeline-card-title">Windows Support</h3>
+            <p class="timeline-card-text">Windows version with CUDA acceleration.</p>
+          </div>
+          <div class="timeline-card">
+            <span class="timeline-badge timeline-badge--upcoming">Upcoming</span>
+            <h3 class="timeline-card-title">Mac x86 Support</h3>
+            <p class="timeline-card-text">Intel Mac support for older systems.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2027 -->
+      <div class="timeline-year">
+        <h2 class="timeline-year-title">2027</h2>
+        <p class="timeline-year-subtitle">Full Release</p>
+        <div class="timeline-grid">
+          <div class="timeline-card timeline-card--future">
+            <span class="timeline-badge timeline-badge--future">Planned</span>
+            <h3 class="timeline-card-title">Version 1.0</h3>
+            <p class="timeline-card-text">Halo Pro exits beta — full stable release.</p>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+  </div><!-- End Tab: Development -->
 
   <!-- Tab: Supporter -->
   <div id="tab-supporter" class="tab-content">
