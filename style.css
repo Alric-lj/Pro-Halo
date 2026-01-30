@@ -859,6 +859,133 @@ body {
   box-shadow: 0 4px 20px rgba(255, 98, 106, 0.2);
 }
 
+/* Before/After Comparison Slider */
+.comparison-container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.comparison-switcher {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.comparison-switch {
+  font-family: "DM Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(232, 228, 223, 0.5);
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 0.6rem 1.5rem;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.comparison-switch:hover {
+  color: rgba(232, 228, 223, 0.8);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.comparison-switch.active {
+  color: #ff934f;
+  border-color: rgba(255, 147, 79, 0.5);
+}
+
+.comparison-slider {
+  position: relative;
+  overflow: hidden;
+  border-radius: 4px;
+  cursor: ew-resize;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+}
+
+.comparison-img {
+  width: 100%;
+  display: block;
+}
+
+.comparison-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.comparison-overlay .comparison-img--before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: auto;
+  max-width: none;
+}
+
+.comparison-range {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: ew-resize;
+  z-index: 10;
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.comparison-handle {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 3px;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.9);
+  transform: translateX(-50%);
+  pointer-events: none;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+}
+
+.comparison-handle::before,
+.comparison-handle::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  width: 0;
+  height: 0;
+  border: 8px solid transparent;
+}
+
+.comparison-handle::before {
+  left: -18px;
+  border-right-color: rgba(255, 255, 255, 0.9);
+  transform: translateY(-50%);
+}
+
+.comparison-handle::after {
+  right: -18px;
+  border-left-color: rgba(255, 255, 255, 0.9);
+  transform: translateY(-50%);
+}
+
+.comparison-labels {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1rem;
+  font-family: "DM Sans", sans-serif;
+  font-size: 0.75rem;
+  color: rgba(232, 228, 223, 0.4);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+}
+
 /* Responsive */
 @media (max-width: 900px) {
   .tier-grid {

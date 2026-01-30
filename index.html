@@ -97,6 +97,36 @@
     </div>
   </header>
 
+  <!-- Before/After Comparison -->
+  <section class="section section--wide">
+    <h2 class="label label--center">See the Difference</h2>
+
+    <div class="comparison-container">
+      <!-- Example Switcher -->
+      <div class="comparison-switcher">
+        <button class="comparison-switch active" data-example="1">Example 1</button>
+        <button class="comparison-switch" data-example="2">Example 2</button>
+      </div>
+
+      <!-- Slider -->
+      <div class="comparison-slider">
+        <img src="Before after/HALO PRO Exampel 1 AFTER HALATION EMULATION.jpg"
+             alt="After Halation" class="comparison-img comparison-img--after">
+        <div class="comparison-overlay">
+          <img src="Before after/HALO PRO Exampel 1 BEFORE.jpg"
+               alt="Before" class="comparison-img comparison-img--before">
+        </div>
+        <input type="range" min="0" max="100" value="50" class="comparison-range">
+        <div class="comparison-handle"></div>
+      </div>
+
+      <div class="comparison-labels">
+        <span>Before</span>
+        <span>After</span>
+      </div>
+    </div>
+  </section>
+
   <!-- Why? -->
   <section class="section section--narrow">
     <h2 class="label">Why?</h2>
@@ -748,6 +778,54 @@
         window.scrollTo({ top: 0, behavior: 'smooth' });
       });
     });
+
+    // Comparison slider functionality
+    const comparisonSlider = document.querySelector('.comparison-slider');
+    if (comparisonSlider) {
+      const range = comparisonSlider.querySelector('.comparison-range');
+      const overlay = comparisonSlider.querySelector('.comparison-overlay');
+      const handle = comparisonSlider.querySelector('.comparison-handle');
+      const afterImg = comparisonSlider.querySelector('.comparison-img--after');
+      const beforeImg = comparisonSlider.querySelector('.comparison-img--before');
+      const switches = document.querySelectorAll('.comparison-switch');
+
+      // Image pairs
+      const examples = {
+        '1': {
+          before: 'Before after/HALO PRO Exampel 1 BEFORE.jpg',
+          after: 'Before after/HALO PRO Exampel 1 AFTER HALATION EMULATION.jpg'
+        },
+        '2': {
+          before: 'Before after/HALO PRO Exampel 2 BEFORE.jpg',
+          after: 'Before after/HALO PRO Exampel 2 AFTER HALATION EMULATION.jpg'
+        }
+      };
+
+      // Slider movement
+      range.addEventListener('input', (e) => {
+        const value = e.target.value;
+        overlay.style.width = value + '%';
+        handle.style.left = value + '%';
+      });
+
+      // Example switching
+      switches.forEach(btn => {
+        btn.addEventListener('click', () => {
+          const example = btn.dataset.example;
+
+          switches.forEach(s => s.classList.remove('active'));
+          btn.classList.add('active');
+
+          afterImg.src = examples[example].after;
+          beforeImg.src = examples[example].before;
+
+          // Reset slider to middle
+          range.value = 50;
+          overlay.style.width = '50%';
+          handle.style.left = '50%';
+        });
+      });
+    }
   </script>
 
 </body>
