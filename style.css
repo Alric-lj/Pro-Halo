@@ -10,6 +10,10 @@
   color: #fff;
 }
 
+html {
+  overflow-x: hidden;
+}
+
 body {
   min-height: 100vh;
   background-color: #0a0a0a;
@@ -17,6 +21,11 @@ body {
   font-family: "Source Serif 4", Georgia, serif;
   line-height: 1.7;
   overflow-x: hidden;
+  width: 100%;
+}
+
+img, video, iframe {
+  max-width: 100%;
 }
 
 /* Typography */
@@ -129,6 +138,7 @@ body {
   transform: translate(-50%, -50%);
   width: 800px;
   height: 800px;
+  max-width: 200vw;
   background: radial-gradient(circle, rgba(255, 147, 79, 0.06) 0%, transparent 60%);
   pointer-events: none;
 }
@@ -1043,5 +1053,42 @@ body {
 
   .cta-heading {
     font-size: 1.5rem;
+  }
+
+  .comparison-container {
+    max-width: 100%;
+  }
+
+  .hero-image {
+    max-width: 100%;
+  }
+}
+
+/* Extra small screens */
+@media (max-width: 480px) {
+  .section {
+    padding: 3rem 1rem;
+  }
+
+  .hero {
+    padding: 2rem 1rem;
+    padding-top: 4.5rem;
+  }
+
+  .tabs {
+    padding: 0.5rem 0.5rem;
+  }
+
+  .tab-button {
+    padding: 0.5rem 0.5rem;
+    font-size: 0.6rem;
+  }
+
+  .tier-buttons {
+    flex-direction: column;
+  }
+
+  .tier-buttons .tier-button {
+    width: 100%;
   }
 }
