@@ -1,0 +1,5 @@
+# Halo Pro — allow all crawlers, including AI assistants
+User-agent: *
+Allow: /
+
+Sitemap: https://halopro.app/sitemap.xml
