@@ -47,11 +47,11 @@ The site uses a **tab-based navigation** system with three main sections:
 - Status badges for each milestone (Completed, In Progress, Planned)
 - Visual progress tracking
 
-### Supporter Tab
-- Subscription tiers (Patreon-based)
+### Download Tab
+- Subscription tiers (Gumroad)
 - One-time purchase options (Gumroad)
 - Free version information
-- Dual CTA buttons linking to both platforms
+- All CTAs link to Gumroad
 
 ---
 
@@ -98,7 +98,7 @@ Development milestones displayed as cards with:
 Supporter tiers featuring:
 - Tier name and price
 - Feature lists
-- Dual CTA buttons (Gumroad + Patreon)
+- Download button (Gumroad)
 
 ---
 
@@ -106,8 +106,8 @@ Supporter tiers featuring:
 
 | Platform | URL |
 |----------|-----|
-| Patreon | https://www.patreon.com/HaloPro |
-| Gumroad | https://alriclj.gumroad.com/l/xcngmg |
+| Gumroad (product) | https://alriclj.gumroad.com/l/HALO_PRO?layout=profile |
+| Gumroad (tiers) | https://alriclj.gumroad.com/l/xcngmg |
 | Contact Email | alric.ljunghager@gmail.com |
 | Instagram | @alric.ljunghager |
 
