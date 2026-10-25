@@ -667,7 +667,12 @@
     }
   }
 
-  function loop(time) { frame(time); if (running && !reduce) raf = requestAnimationFrame(loop); }
+  // 30 fps is enough for a slow pulse and grain, and halves the work on phones
+  let last = -1e9;
+  function loop(time) {
+    if (time - last >= 32) { last = time; frame(time); }
+    if (running && !reduce) raf = requestAnimationFrame(loop);
+  }
   layout(); loop(0);
   window.addEventListener('resize', () => { layout(); if (reduce) frame(0); });
   new IntersectionObserver(es => es.forEach(e => {
