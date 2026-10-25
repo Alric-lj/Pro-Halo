@@ -221,7 +221,8 @@ p { margin: 0 0 1em; }
 .band { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
 .band figure { margin: 0; }
 .band canvas { width: 100%; height: auto; border-radius: 6px; background: #000; }
-.band figcaption { display: flex; justify-content: space-between; margin-top: 14px; }
+.band figcaption { display: flex; gap: 14px; margin-top: 14px; }
+.band figcaption .mono + .mono { color: var(--fg-2); }
 .band-ctrl { display: grid; grid-template-columns: 5fr 7fr; gap: 64px; margin-top: 40px; align-items: start; }
 .band-ctrl p { color: var(--fg-2); font-size: 15px; margin: 0; }
 .range-row label { display: flex; justify-content: space-between; margin-bottom: 12px; }
