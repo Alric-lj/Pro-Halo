@@ -579,6 +579,8 @@
     g.yel = top + 9 * s; g.green = top + 12 * s; g.red = top + 21 * s; g.base = top + 30 * s;
     g.t = t; g.back = g.base + g.t;
     g.label = !mobile;
+    // short desktop screens: the film reaches the buttons, so its layers fade out before them
+    g.mask = !mobile && top < copyEnd + 16 ? copy.lastElementChild.getBoundingClientRect().right - r.left + 24 : 0;
     G = g;
   }
 
@@ -605,6 +607,11 @@
     band(g.base, g.back, 'rgba(255,255,255,.012)');
     [g.blue, g.yel, g.green, g.red, g.base].forEach(y => hline(y, 'rgba(255,255,255,.06)'));
     hline(g.back, 'rgba(255,255,255,.16)');
+    if (g.mask) {
+      const m = ctx.createLinearGradient(g.mask, 0, g.mask + 240, 0);
+      m.addColorStop(0, '#070707'); m.addColorStop(1, 'rgba(7,7,7,0)');
+      ctx.fillStyle = m; ctx.fillRect(0, g.blue - 1, g.mask + 240, g.back - g.blue + 2);
+    }
 
     ctx.globalCompositeOperation = 'lighter';
 
