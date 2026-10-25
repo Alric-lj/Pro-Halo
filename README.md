@@ -1,138 +1,58 @@
 # Halo Pro Website
 
-Marketing and landing page for **Halo Pro** - a professional halation & mist emulation application for photographers and colorists.
+Marketing / launch page for **Halo Pro** — film halation & mist emulation for macOS (Apple Silicon).
 
 - **Live URL:** https://halopro.app
-- **GitHub Repo:** https://github.com/Alric-lj/Pro-Halo
+- **Repo:** https://github.com/Alric-lj/Pro-Halo
+- **Current:** Version 1.0 launch page, September 2026 (lab-paper theme)
 
----
-
-## Repository Structure
+## Structure
 
 ```
-HALO PRO WEBSITE 0.1/
-├── index.html              # Main single-page site (all tabs)
-├── style.css               # All styles
-├── favicon.svg             # Site favicon
-├── CNAME                   # GitHub Pages custom domain (halopro.app)
-├── og-image-template.html  # Open Graph image template
-├── Before after/           # Comparison slider images
-│   ├── HALO PRO Exampel 1 BEFORE.jpg
-│   ├── HALO PRO Exampel 1 AFTER HALATION EMULATION.jpg
-│   ├── HALO PRO Exampel 2 BEFORE.jpg
-│   └── HALO PRO Exampel 2 AFTER HALATION EMULATION.jpg
-├── Support tab.html        # (unused/draft)
-├── Support tab 2.html      # (unused/draft)
-└── .claude/                # Claude Code settings
+index.html            # Single page, all sections + inline JS (compare slider, "beyond the slider" demo)
+style.css             # All styles. Light "lab paper" theme, ink drawings, stamps
+img/                  # Web-optimised images (hero-wave.jpg, ex1/ex2 before/after)
+Before after/         # Original comparison JPGs (source for img/)
+favicon.svg, apple-touch-icon.png, og-image.png
+CNAME, robots.txt, sitemap.xml
+_old/                 # Previous (dark, tabbed) site for reference
 ```
 
----
+## Sections
 
-## Site Architecture
+1. Hero — v1.0 stamp, wave print, buy / free CTAs
+2. No. 01 What halation is — SVG film cross-section (3 emulsion layers) + live canvas "halation lab" (threshold / spread / dye / roll-off)
+3. No. 02 Why float — canvas banding comparison (quantised vs continuous, exaggeration slider) + falloff graph
+4. Fig. 03 Before / after slider (two examples)
+5. No. 04 Use cases — Analog / Realistic / Experimental
+6. No. 05 Legroom — interactive "type past the slider" demo + dial drawing
+7. No. 06 Processing line — roller-transport processor SVG mapped to the pipeline
+8. No. 07 Pricing — Free / €20 / €60 (Gumroad deep links) + honesty box
+9. No. 08 Requirements, enlarger SVG, log
+9. CTA, footer
 
-The site uses a **tab-based navigation** system with three main sections:
+## Design
 
-### Home Tab
-- Hero section with tagline
-- Before/after comparison slider (interactive image comparison)
-- "Why Halo Pro?" feature highlights
-- Features overview
-- Pricing summary
-- System Requirements
-- Installation instructions
-- Development Status indicator
+- Paper `#ecebe6` (cool grey-white), ink `#15171a`, halation crimson `#c8323f`, stamp red `#b3202f`, pencil notes `#4d5157`
+- Fonts (Google): Source Serif 4 (text), IBM Plex Mono (labels), Caveat (handwritten notes)
+- Drawings are inline SVG using the `.ink`, `.ink-thin`, `.ink-dash`, `.glow-stroke` classes
+- Subtle animations (rollers, film path, lamp, needle) respect `prefers-reduced-motion`
 
-### Development Tab
-- Timeline of development milestones (2024-2027)
-- Status badges for each milestone (Completed, In Progress, Planned)
-- Visual progress tracking
+## Links
 
-### Download Tab
-- Subscription tiers (Gumroad)
-- One-time purchase options (Gumroad)
-- Free version information
-- All CTAs link to Gumroad
+| | |
+|---|---|
+| Gumroad product | https://alriclj.gumroad.com/l/HALO_PRO?layout=profile |
+| Pro (€20) | `?variant=Halo%20Pro&wanted=true` |
+| Organisation (€60) | `?variant=Halo%20Pro%20-%20Organisation&wanted=true` |
+| Free | `?variant=Halo%20Pro%20-%20FREE&wanted=true` |
 
----
+## Deploy
 
-## Technical Details
+Push to `main` — GitHub Pages serves it. No build step.
 
-### Stack
-- **Static HTML/CSS/JS** - No build tools or frameworks
-- **Hosting:** GitHub Pages with custom domain
+## To update
 
-### Typography
-- **Headings:** Source Serif 4 (Google Fonts)
-- **Body:** DM Sans (Google Fonts)
-
-### Color Scheme
-| Color | Hex | Usage |
-|-------|-----|-------|
-| Background | `#0a0a0a` | Main dark background |
-| Accent | `#ff934f` | Orange highlights, CTAs |
-| Text | `#ffffff` | Primary text |
-| Muted | `#888888` | Secondary text |
-
-### Responsive Design
-- Mobile breakpoints at 768px and 480px
-- Flexible grid layouts
-- Touch-friendly navigation
-
----
-
-## Key Components
-
-### Tab Navigation
-Vanilla JavaScript tab system in `index.html`. Tabs are switched by adding/removing `.active` classes on tab buttons and content panels.
-
-### Before/After Comparison Slider
-Interactive image comparison component using a draggable slider. Located in the Home tab hero section. Images stored in `Before after/` directory.
-
-### Timeline Cards
-Development milestones displayed as cards with:
-- Date badges
-- Status indicators (Completed/In Progress/Planned)
-- Description text
-
-### Pricing Tier Cards
-Supporter tiers featuring:
-- Tier name and price
-- Feature lists
-- Download button (Gumroad)
-
----
-
-## External Links
-
-| Platform | URL |
-|----------|-----|
-| Gumroad (product) | https://alriclj.gumroad.com/l/HALO_PRO?layout=profile |
-| Gumroad (tiers) | https://alriclj.gumroad.com/l/xcngmg |
-| Contact Email | alric.ljunghager@gmail.com |
-| Instagram | @alric.ljunghager |
-
----
-
-## Development
-
-### Local Development
-Simply open `index.html` in a browser. No build step required.
-
-### Deployment
-Push to `main` branch - GitHub Pages automatically deploys.
-
-### Making Changes
-1. Edit `index.html` for content/structure
-2. Edit `style.css` for styling
-3. Commit and push to deploy
-
----
-
-## SEO & Meta
-
-The site includes:
-- Open Graph meta tags for social sharing
-- Twitter Card meta tags
-- Structured data (JSON-LD)
-- Favicon (SVG)
-- Custom OG image template (`og-image-template.html`)
+- Version / date: hero stamps, JSON-LD `softwareVersion`/`datePublished`, footer, log list
+- Prices: the three `.tier` cards + JSON-LD offers
+- Images: drop new JPGs in `img/` and update `ex` map in the inline script

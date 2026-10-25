@@ -3,716 +3,765 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Halo Pro — Professional Halation & Mist Emulation</title>
-  <meta name="description" content="A specialized tool for photographers and colorists seeking authentic film halation beyond what standard grading software provides.">
+  <title>Halo Pro — Halation, from the physics up</title>
+  <meta name="description" content="Halo Pro rebuilds film halation the way it actually happens: light reaching the back of the base, reflecting, and exposing the red layer a second time. 32-bit float, macOS, Lightroom Classic. Free version, €20 to own.">
 
-  <!-- SEO -->
   <meta name="google-site-verification" content="m87F7Zbu0O230_lW5n8nTsTzLPGEMhRxXqTcFc4xu2E">
   <link rel="canonical" href="https://halopro.app/">
   <meta name="robots" content="index, follow">
   <meta name="author" content="Alric Ljunghager">
-  <meta name="keywords" content="halation, film emulation, photo editing, color grading, film grain, photography, colorist, lightroom plugin, macOS">
+  <meta name="theme-color" content="#070707">
 
-  <!-- Open Graph / Social Sharing -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://halopro.app/">
-  <meta property="og:title" content="Halo Pro — Professional Halation & Mist Emulation">
-  <meta property="og:description" content="A specialized tool for photographers and colorists seeking authentic film halation beyond what standard grading software provides.">
+  <meta property="og:title" content="Halo Pro — Halation, from the physics up">
+  <meta property="og:description" content="Light goes in. Some of it comes back. A macOS app that models film halation in 32-bit float.">
   <meta property="og:image" content="https://halopro.app/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:site_name" content="Halo Pro">
-
-  <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Halo Pro — Professional Halation & Mist Emulation">
-  <meta name="twitter:description" content="A specialized tool for photographers and colorists seeking authentic film halation beyond what standard grading software provides.">
+  <meta name="twitter:title" content="Halo Pro — Halation, from the physics up">
+  <meta name="twitter:description" content="Light goes in. Some of it comes back. A macOS app that models film halation in 32-bit float.">
   <meta name="twitter:image" content="https://halopro.app/og-image.png">
 
-  <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
 
-  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,500;1,8..60,300;1,8..60,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500&family=IBM+Plex+Mono:wght@400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 
-  <!-- Structured Data -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
     "name": "Halo Pro",
+    "softwareVersion": "1.0",
+    "datePublished": "2026-09",
     "applicationCategory": "MultimediaApplication",
-    "operatingSystem": "macOS",
-    "description": "A specialized tool for photographers and colorists seeking authentic film halation beyond what standard grading software provides.",
+    "operatingSystem": "macOS 12+ (Apple Silicon)",
+    "description": "Film halation and mist for photographers, modelled on how halation forms in film and processed in 32-bit float. Standalone app with Lightroom Classic integration and batch export.",
     "url": "https://halopro.app",
-    "author": {
-      "@type": "Person",
-      "name": "Alric Ljunghager"
-    },
-    "offers": {
-      "@type": "Offer",
-      "price": "0",
-      "priceCurrency": "EUR",
-      "description": "Free version with full features"
-    }
+    "author": { "@type": "Person", "name": "Alric Ljunghager" },
+    "offers": [
+      { "@type": "Offer", "price": "0", "priceCurrency": "EUR", "name": "Halo Pro — Free" },
+      { "@type": "Offer", "price": "20", "priceCurrency": "EUR", "name": "Halo Pro" },
+      { "@type": "Offer", "price": "60", "priceCurrency": "EUR", "name": "Halo Pro — Organisation" }
+    ]
   }
   </script>
 </head>
 <body>
 
-  <!-- Tab Navigation -->
-  <nav class="tabs">
-    <button class="tab-button active" data-tab="home">Home</button>
-    <button class="tab-button" data-tab="development">Development</button>
-    <button class="tab-button" data-tab="supporter">Download</button>
-  </nav>
+<nav class="nav">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="Halo Pro">
+      <svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="7.5" fill="none" stroke="#ff3d22" stroke-width="1.2" opacity=".85"/><circle cx="10" cy="10" r="2.4" fill="#fff4ea"/></svg>
+      <strong>Halo Pro</strong><span>1.0</span>
+    </a>
+    <ul>
+      <li><a href="#physics">Physics</a></li>
+      <li><a href="#scale">Scale</a></li>
+      <li><a href="#model">Controls</a></li>
+      <li><a href="#float">Float</a></li>
+      <li><a href="#pricing">Pricing</a></li>
+    </ul>
+    <a class="btn" href="https://alriclj.gumroad.com/l/HALO_PRO?variant=Halo%20Pro&amp;wanted=true">Buy · €20</a>
+  </div>
+</nav>
 
-  <!-- Tab: Home -->
-  <div id="tab-home" class="tab-content active">
-
-  <!-- Hero -->
-  <header class="hero">
-    <div class="hero-glow"></div>
-    
-    <p class="label fade-in" style="animation-delay: 0.2s">Professional Halation & Mist Emulation</p>
-    
-    <h1 class="hero-title fade-in glow" style="animation-delay: 0.4s">Halo Pro</h1>
-    
-    <p class="hero-subtitle fade-in" style="animation-delay: 0.6s">
-      A specialized tool for photographers and colorists seeking authentic
-      film halation beyond what standard grading software provides.
-    </p>
-
-    <a href="https://alriclj.gumroad.com/l/HALO_PRO?layout=profile" class="cta-button fade-in" style="animation-delay: 0.7s">Buy the App</a>
-
-    <div class="hero-image slide-up" style="animation-delay: 0.9s">
-      <div class="hero-image-wrapper">
-        <img src="https://i.ibb.co/Xf7yvNgG/HALO-PRO-0-3.jpg" alt="Halo Pro Interface">
-        <div class="hero-image-overlay"></div>
-      </div>
-      <p class="hero-image-caption">Interface Preview — Version 0.3</p>
+<!-- ============ HERO ============ -->
+<header class="hero" id="top">
+  <canvas id="hero-cv" aria-hidden="true"></canvas>
+  <div class="wrap hero-copy">
+    <p class="mono" style="margin-bottom:28px">Halo Pro 1.0 &nbsp;·&nbsp; macOS &nbsp;·&nbsp; Apple Silicon</p>
+    <h1>Halation is light that <em>comes back.</em></h1>
+    <p class="hero-sub">Halo Pro rebuilds what happens behind the emulsion — light reaching the back of the film base, reflecting, and exposing the red layer a second time. Computed in 32-bit float, on your Mac.</p>
+    <div class="hero-cta">
+      <a class="btn btn--solid" href="https://alriclj.gumroad.com/l/HALO_PRO?variant=Halo%20Pro&amp;wanted=true">Buy · €20 once</a>
+      <a class="link" href="https://alriclj.gumroad.com/l/HALO_PRO?variant=Halo%20Pro%20-%20FREE&amp;wanted=true">Free version</a>
     </div>
-  </header>
+  </div>
+  <div class="hero-foot">
+    <div class="wrap">
+      <span class="mono">Simulated: a point of light on colour negative, no backing</span>
+      <a class="mono" href="#physics" style="text-decoration:none">Scroll — how it happens ↓</a>
+    </div>
+  </div>
+</header>
 
-  <!-- Before/After Comparison -->
-  <section class="section section--wide">
-    <h2 class="label label--center">See the Difference</h2>
-
-    <div class="comparison-container">
-      <!-- Example Switcher -->
-      <div class="comparison-switcher">
-        <button class="comparison-switch active" data-example="1">Example 1</button>
-        <button class="comparison-switch" data-example="2">Example 2</button>
-      </div>
-
-      <!-- Slider -->
-      <div class="comparison-slider">
-        <img src="Before after/HALO PRO Exampel 1 AFTER HALATION EMULATION.jpg"
-             alt="After Halation" class="comparison-img comparison-img--after">
-        <div class="comparison-overlay">
-          <img src="Before after/HALO PRO Exampel 1 BEFORE.jpg"
-               alt="Before" class="comparison-img comparison-img--before">
-        </div>
-        <input type="range" min="0" max="100" value="50" class="comparison-range">
-        <div class="comparison-handle"></div>
-      </div>
-
-      <div class="comparison-labels">
-        <span>Before</span>
-        <span>After</span>
+<!-- ============ 01 LIGHT PATH ============ -->
+<section class="section" id="physics">
+  <div class="wrap">
+    <div class="s-head">
+      <span class="mono s-index"><b>01</b>Light path</span>
+      <div>
+        <h2 class="s-title">Down through the emulsion. <em>Back off the base.</em></h2>
+        <p class="s-intro">Halation isn't a glow added on top of a photo. It's a second exposure, made from behind, by light that already passed through. Five steps, a few hundredths of a millimetre.</p>
       </div>
     </div>
-  </section>
 
-  <!-- Why? -->
-  <section class="section section--narrow">
-    <h2 class="label">Why?</h2>
-
-    <p class="lead">
-      Halo Pro is a niche application that focuses on <em>halation precision</em> and creative expression.
-    </p>
-
-    <div class="divider"></div>
-
-    <p class="body-text">
-      Other applications like Dehancer and Filmic do a lot of steps to emulate film, but Halo Pro specializes on the hardest part of emulating the film look — the halation effect. The soft glowy edges adding range and a magic feel to the image.
-    </p>
-
-    <p class="body-text" style="margin-top: 1.5rem;">
-      Furthermore, other software is only 8-bit precision which works great for film but for photo it's simply not matching the quality photographers expect. With 32-bit float, the gradients and blurred colors get integrated into the image rather than slapped on. 32-bit also allows you to add halation at any time in your workflow — you're not limited to adding it as the last step before exporting.
-    </p>
-
-    <div class="divider"></div>
-
-    <p class="body-text">
-      The project was started by solo developer and professional photographer Alric Ljunghager in 2024, entered beta in February 2026, and is explicitly built for M-series macOS computers. Expected to remain in beta until 2027, with Windows/CUDA support planned.
-    </p>
-  </section>
-
-  <!-- Features -->
-  <section class="section section--wide">
-    <h2 class="label label--center">Core Features</h2>
-    
-    <div class="feature-grid">
-      <div class="feature-card">
-        <h3 class="feature-title">Halation Engine</h3>
-        <p class="feature-text">
-          Multi-pass processing with variable spread and color channel control. 
-          Independent adjustments for highlight threshold, diffusion radius, 
-          and chromatic response.
-        </p>
-      </div>
-      
-      <div class="feature-card">
-        <h3 class="feature-title">Mist & Diffusion</h3>
-        <p class="feature-text">
-          Optical diffusion simulation including bloom characteristics, 
-          contrast reduction mapping, and film-accurate softening curves.
-        </p>
-      </div>
-      
-      <div class="feature-card">
-        <h3 class="feature-title">Film Response</h3>
-        <p class="feature-text">
-          Complete signal chain with highlight rolloff, toe compression, 
-          and grain modeling. LUT integration for established workflows.
-        </p>
-      </div>
-      
-      <div class="feature-card">
-        <h3 class="feature-title">Precision Masking</h3>
-        <p class="feature-text">
-          Non-destructive luminosity and color range selection with 
-          feathering controls. Isolate effects to specific tonal ranges.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Pricing -->
-  <section class="section section--wide">
-    <h2 class="label label--center">Pricing</h2>
-    
-    <div class="pricing-grid">
-      <div class="pricing-card">
-        <p class="pricing-label">Free Version</p>
-        <h3 class="pricing-title">Complete Toolkit</h3>
-        <p class="pricing-text">
-          Full halation, mist, and film simulation with masking capabilities. 
-          Includes LUT support and full bit-depth import/export.
-        </p>
-      </div>
-      
-      <div class="pricing-card pricing-card--pro">
-        <p class="pricing-label pricing-label--pro">Professional</p>
-        <h3 class="pricing-title">Extended Workflow</h3>
-        <p class="pricing-text">
-          Lightroom plugin integration, batch processing for video sequences, 
-          and priority access to updates and new features.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <!-- System Requirements -->
-  <section class="section section--narrow">
-    <h2 class="label">System Requirements</h2>
-    
-    <div class="requirements-block">
-      <h3 class="requirements-title">Currently Supported</h3>
-      <ul class="requirements-list">
-        <li>macOS with Apple Silicon (M1–M5)</li>
-        <li>Minimum: 8GB RAM, macOS 12.0+</li>
-        <li>Recommended: 16GB+ RAM for high-resolution workflows</li>
-      </ul>
-    </div>
-    
-    <div class="requirements-block">
-      <h3 class="requirements-title requirements-title--planned">Planned Support</h3>
-      <ul class="requirements-list requirements-list--planned">
-        <li>Windows with CUDA acceleration</li>
-        <li>Intel Mac with Vulkan support</li>
-        <li>Additional platforms based on demand</li>
-      </ul>
-    </div>
-  </section>
-
-  <!-- Installation -->
-  <section class="section section--narrow">
-    <h2 class="label">Installation</h2>
-    
-    <div class="steps">
-      <div class="step">
-        <span class="step-number">01</span>
-        <span class="step-text">Download the application package</span>
-      </div>
-      <div class="step">
-        <span class="step-number">02</span>
-        <span class="step-text">Move to the Applications folder</span>
-      </div>
-      <div class="step">
-        <span class="step-number">03</span>
-        <span class="step-text">Right-click and select "Open" on first launch</span>
-      </div>
-      <div class="step">
-        <span class="step-number">04</span>
-        <span class="step-text">Allow initial startup time for macOS verification</span>
-      </div>
-      <div class="step">
-        <span class="step-number">05</span>
-        <span class="step-text">Configure Lightroom integration if using Pro</span>
-      </div>
-    </div>
-  </section>
-
-  <!-- Status -->
-  <section class="section section--narrow section--status">
-    <p class="label label--muted">Beta</p>
-    <p class="status-text">
-      This application is currently in beta. While extensively tested for core 
-      functionality, users may encounter edge cases. Feedback is actively 
-      incorporated into development priorities.
-    </p>
-  </section>
-
-  </div><!-- End Tab: Home -->
-
-  <!-- Tab: Development -->
-  <div id="tab-development" class="tab-content">
-
-    <!-- Development Hero -->
-    <header class="hero hero--supporter">
-      <div class="hero-glow"></div>
-      <p class="label fade-in" style="animation-delay: 0.2s">Development Timeline</p>
-      <h1 class="hero-title fade-in glow" style="animation-delay: 0.4s">Development & Updates</h1>
-      <p class="hero-subtitle fade-in" style="animation-delay: 0.6s">
-        Follow the journey from research to release. Halo Pro is being built with precision and care.
-      </p>
-    </header>
-
-    <!-- Timeline -->
-    <section class="section section--wide">
-
-      <!-- 2024 -->
-      <div class="timeline-year">
-        <h2 class="timeline-year-title">2024</h2>
-        <p class="timeline-year-subtitle">Research & Foundation</p>
-        <div class="timeline-grid">
-          <div class="timeline-card">
-            <span class="timeline-badge timeline-badge--done">Done</span>
-            <h3 class="timeline-card-title">Halation Research</h3>
-            <p class="timeline-card-text">In-depth study of film halation characteristics and light behavior through emulsion layers.</p>
-          </div>
-          <div class="timeline-card">
-            <span class="timeline-badge timeline-badge--done">Done</span>
-            <h3 class="timeline-card-title">Halation Emulation</h3>
-            <p class="timeline-card-text">Core halation emulation functions developed with accurate light diffusion modeling.</p>
-          </div>
-          <div class="timeline-card">
-            <span class="timeline-badge timeline-badge--done">Done</span>
-            <h3 class="timeline-card-title">Mist Emulation</h3>
-            <p class="timeline-card-text">Optical mist and diffusion simulation functions for film-accurate softening.</p>
-          </div>
-          <div class="timeline-card">
-            <span class="timeline-badge timeline-badge--done">Done</span>
-            <h3 class="timeline-card-title">Masking System</h3>
-            <p class="timeline-card-text">Precision masking functions for selective effect application.</p>
-          </div>
-          <div class="timeline-card">
-            <span class="timeline-badge timeline-badge--done">Done</span>
-            <h3 class="timeline-card-title">Slider-Based UI</h3>
-            <p class="timeline-card-text">Intuitive slider-based user interface for precise control.</p>
-          </div>
-          <div class="timeline-card">
-            <span class="timeline-badge timeline-badge--done">Done</span>
-            <h3 class="timeline-card-title">16-Bit Emulation</h3>
-            <p class="timeline-card-text">Initial 16-bit processing pipeline implementation.</p>
+    <div class="path">
+      <div class="path-fig">
+        <svg class="pathfig" id="pathfig" viewBox="0 0 900 390" data-vb-mobile="150 20 680 340" role="img" aria-label="Cross-section of colour negative film. A ray of light enters from the top, passes the blue, green and red sensitive layers and the clear base, reflects off the back of the base, and returns to expose the red layer a second time, forming a ring around the source.">
+<defs>
+  <filter id="soft" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="3"/></filter>
+  <filter id="soft2" x="-50%" y="-200%" width="200%" height="500%"><feGaussianBlur stdDeviation="6"/></filter>
+  <linearGradient id="beamfade" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#fff4ea" stop-opacity="0"/><stop offset=".5" stop-color="#fff4ea" stop-opacity=".9"/><stop offset="1" stop-color="#fff4ea"/>
+  </linearGradient>
+</defs>
+<rect class="lay" x="150" y="66" width="680" height="6" fill="rgba(255,255,255,.03)"/>
+<rect class="lay" x="150" y="72" width="680" height="24" fill="rgba(91,124,255,.10)"/>
+<text class="lay-label" x="138" y="87.3" text-anchor="end">Blue-sensitive</text>
+<rect class="lay" x="150" y="96" width="680" height="8" fill="rgba(255,210,60,.10)"/>
+<text class="lay-label" x="138" y="103.3" text-anchor="end">Yellow filter</text>
+<rect class="lay" x="150" y="104" width="680" height="24" fill="rgba(63,208,124,.08)"/>
+<text class="lay-label" x="138" y="119.3" text-anchor="end">Green-sensitive</text>
+<rect class="lay" x="150" y="128" width="680" height="24" fill="rgba(255,61,34,.12)"/>
+<text class="lay-label" x="138" y="143.3" text-anchor="end">Red-sensitive</text>
+<rect class="lay" x="150" y="152" width="680" height="140" fill="rgba(255,255,255,.025)"/>
+<text class="lay-label" x="138" y="225.0" text-anchor="end">Base</text>
+<text class="lay-label" x="138" y="239.0" text-anchor="end">clear triacetate</text>
+<text class="lay-label" x="138" y="301.3" text-anchor="end">Back surface</text>
+<rect class="lay backing" x="150" y="292" width="680" height="12"/>
+<text class="lay-label lay-label--hi label-nobacking" x="490" y="328" text-anchor="middle">No backing — the back surface acts as a mirror</text>
+<text class="lay-label lay-label--hi label-remjet" x="490" y="328" text-anchor="middle">Remjet — carbon black absorbs the light</text>
+<path class="dim" d="M840 66 H844 V152 H840"/>
+<text class="dim-text" x="850" y="112.0" >≈ 0.02 mm</text>
+<path class="dim" d="M840 155 H844 V292 H840"/>
+<text class="dim-text" x="850" y="225.0">t ≈ 0.13 mm</text>
+<g class="g g1">
+<line x1="490" y1="0" x2="490" y2="152" stroke="#fff4ea" stroke-width="7" opacity=".35" filter="url(#soft)"/>
+<line class="ray" x1="490" y1="0" x2="490" y2="152" stroke="url(#beamfade)"/>
+<ellipse cx="490" cy="100" rx="26" ry="3" fill="#5b7cff" opacity=".8" filter="url(#soft)"/>
+<g class="n n1"><path class="dim" d="M520 100 L560 30 H574"/><text class="note" x="580" y="33">Blue stops at the yellow filter</text></g>
+</g>
+<g class="g g2">
+<line x1="490" y1="152" x2="490" y2="292" stroke="#ffd9c4" stroke-width="1.2" opacity=".55"/>
+<ellipse cx="490" cy="152" rx="16" ry="5" fill="#fff4ea" opacity=".7" filter="url(#soft)"/>
+<circle cx="490" cy="152" r="3" fill="#fff4ea"/>
+<g class="n n2"><path class="dim" d="M498 156 L560 30 H574"/><text class="note" x="580" y="33">Leftover light scatters into the base</text></g>
+</g>
+<g class="g g3">
+<line class="ray-down ray-weak" x1="490" y1="152" x2="460.2" y2="292"/>
+<line class="ray-down ray-weak" x1="490" y1="152" x2="519.8" y2="292"/>
+<line class="ray-down ray-weak" x1="490" y1="152" x2="427.7" y2="292"/>
+<line class="ray-down ray-weak" x1="490" y1="152" x2="552.3" y2="292"/>
+<line class="ray-down ray-weak" x1="490" y1="152" x2="395.6" y2="292"/>
+<line class="ray-down ray-weak" x1="490" y1="152" x2="584.4" y2="292"/>
+<line class="ray-down" x1="490" y1="152" x2="345.0" y2="292"/>
+<circle cx="345.0" cy="292" r="2.2" fill="#ffd9c4"/>
+<line class="ray-down" x1="490" y1="152" x2="635.0" y2="292"/>
+<circle cx="635.0" cy="292" r="2.2" fill="#ffd9c4"/>
+<line class="ray-down" x1="490" y1="152" x2="323.2" y2="292"/>
+<circle cx="323.2" cy="292" r="2.2" fill="#ffd9c4"/>
+<line class="ray-down" x1="490" y1="152" x2="656.8" y2="292"/>
+<circle cx="656.8" cy="292" r="2.2" fill="#ffd9c4"/>
+<line class="crit" x1="490" y1="152" x2="364.8" y2="292"/>
+<line class="crit" x1="490" y1="152" x2="615.2" y2="292"/>
+<path class="crit" style="stroke-dasharray:none" d="M490 198 A46 46 0 0 0 520.7 186.3"/>
+<text class="crit-text" x="506" y="220">θc ≈ 42°</text>
+<g class="n n3"><text class="note" x="580" y="33" style="fill:#ff9440">Steeper than θc: totally reflected</text></g>
+</g>
+<g class="g g4">
+<line class="ray-up" x1="460.2" y1="292" x2="430.5" y2="152" opacity="0.3"/>
+<ellipse cx="430.5" cy="140.0" rx="10" ry="7" fill="#ff3d22" opacity="0.35" filter="url(#soft2)"/>
+<line class="ray-up" x1="519.8" y1="292" x2="549.5" y2="152" opacity="0.3"/>
+<ellipse cx="549.5" cy="140.0" rx="10" ry="7" fill="#ff3d22" opacity="0.35" filter="url(#soft2)"/>
+<line class="ray-up" x1="427.7" y1="292" x2="365.3" y2="152" opacity="0.3"/>
+<ellipse cx="365.3" cy="140.0" rx="10" ry="7" fill="#ff3d22" opacity="0.35" filter="url(#soft2)"/>
+<line class="ray-up" x1="552.3" y1="292" x2="614.7" y2="152" opacity="0.3"/>
+<ellipse cx="614.7" cy="140.0" rx="10" ry="7" fill="#ff3d22" opacity="0.35" filter="url(#soft2)"/>
+<line class="ray-up" x1="395.6" y1="292" x2="301.1" y2="152" opacity="0.3"/>
+<ellipse cx="301.1" cy="140.0" rx="10" ry="7" fill="#ff3d22" opacity="0.35" filter="url(#soft2)"/>
+<line class="ray-up" x1="584.4" y1="292" x2="678.9" y2="152" opacity="0.3"/>
+<ellipse cx="678.9" cy="140.0" rx="10" ry="7" fill="#ff3d22" opacity="0.35" filter="url(#soft2)"/>
+<line class="ray-up" x1="345.0" y1="292" x2="200.1" y2="152" opacity="1"/>
+<ellipse cx="200.1" cy="140.0" rx="16" ry="7" fill="#ff3d22" opacity="0.95" filter="url(#soft2)"/>
+<line class="ray-up" x1="635.0" y1="292" x2="779.9" y2="152" opacity="1"/>
+<ellipse cx="779.9" cy="140.0" rx="16" ry="7" fill="#ff3d22" opacity="0.95" filter="url(#soft2)"/>
+<line class="ray-up" x1="323.2" y1="292" x2="156.3" y2="152" opacity="1"/>
+<ellipse cx="156.3" cy="140.0" rx="16" ry="7" fill="#ff3d22" opacity="0.95" filter="url(#soft2)"/>
+<line class="ray-up" x1="656.8" y1="292" x2="823.7" y2="152" opacity="1"/>
+<ellipse cx="823.7" cy="140.0" rx="16" ry="7" fill="#ff3d22" opacity="0.95" filter="url(#soft2)"/>
+<line class="ray-up" x1="364.8" y1="292" x2="239.6" y2="152" opacity="1"/>
+<ellipse cx="239.6" cy="140.0" rx="16" ry="7" fill="#ff3d22" opacity="0.95" filter="url(#soft2)"/>
+<line class="ray-up" x1="615.2" y1="292" x2="740.4" y2="152" opacity="1"/>
+<ellipse cx="740.4" cy="140.0" rx="16" ry="7" fill="#ff3d22" opacity="0.95" filter="url(#soft2)"/>
+<line x1="239.6" y1="128" x2="239.6" y2="152" stroke="#ff3d22" stroke-width="2"/>
+<line x1="740.4" y1="128" x2="740.4" y2="152" stroke="#ff3d22" stroke-width="2"/>
+<path class="dim" style="stroke:#ff3d22" d="M490 48 V54 M490 51 H740.4 M740.4 48 V54"/>
+<line x1="740.4" y1="54" x2="740.4" y2="128" stroke="#ff3d22" stroke-dasharray="2 3" opacity=".6"/>
+<text class="crit-text" style="fill:#ff3d22" x="615.2" y="43" text-anchor="middle">r ≈ 2t · tan θc — the ring</text>
+</g>
+<g class="absorb">
+<path d="M457.2 295 l6 6 M463.2 295 l-6 6" stroke="#6c6964" stroke-width="1"/>
+<path d="M516.8 295 l6 6 M522.8 295 l-6 6" stroke="#6c6964" stroke-width="1"/>
+<path d="M424.7 295 l6 6 M430.7 295 l-6 6" stroke="#6c6964" stroke-width="1"/>
+<path d="M549.3 295 l6 6 M555.3 295 l-6 6" stroke="#6c6964" stroke-width="1"/>
+<path d="M392.6 295 l6 6 M398.6 295 l-6 6" stroke="#6c6964" stroke-width="1"/>
+<path d="M581.4 295 l6 6 M587.4 295 l-6 6" stroke="#6c6964" stroke-width="1"/>
+<path d="M342.0 295 l6 6 M348.0 295 l-6 6" stroke="#6c6964" stroke-width="1"/>
+<path d="M632.0 295 l6 6 M638.0 295 l-6 6" stroke="#6c6964" stroke-width="1"/>
+<path d="M320.2 295 l6 6 M326.2 295 l-6 6" stroke="#6c6964" stroke-width="1"/>
+<path d="M653.8 295 l6 6 M659.8 295 l-6 6" stroke="#6c6964" stroke-width="1"/>
+</g>
+</svg>
+        <div class="fig-row">
+          <span class="mono">Cross-section · layers not to scale</span>
+          <div class="toggle" role="group" aria-label="Film backing">
+            <button type="button" class="is-on" data-backing="none">No backing</button>
+            <button type="button" data-backing="remjet">Remjet</button>
           </div>
         </div>
       </div>
 
-      <!-- 2025 -->
-      <div class="timeline-year">
-        <h2 class="timeline-year-title">2025</h2>
-        <p class="timeline-year-subtitle">Alpha Development</p>
-        <div class="timeline-grid">
-          <div class="timeline-card">
-            <span class="timeline-badge timeline-badge--done">Done</span>
-            <h3 class="timeline-card-title">Resolution Scaling</h3>
-            <p class="timeline-card-text">Dynamic resolution scaling for optimal performance across image sizes.</p>
-          </div>
-          <div class="timeline-card">
-            <span class="timeline-badge timeline-badge--done">Done</span>
-            <h3 class="timeline-card-title">GPU Calculation</h3>
-            <p class="timeline-card-text">GPU-accelerated processing for real-time performance.</p>
-          </div>
-          <div class="timeline-card">
-            <span class="timeline-badge timeline-badge--done">Done</span>
-            <h3 class="timeline-card-title">Alpha Launch</h3>
-            <p class="timeline-card-text">First alpha build released for internal testing.</p>
-          </div>
-          <div class="timeline-card">
-            <span class="timeline-badge timeline-badge--done">Done</span>
-            <h3 class="timeline-card-title">32-Bit Accuracy</h3>
-            <p class="timeline-card-text">Full 32-bit float precision on all parameters for professional quality.</p>
-          </div>
-          <div class="timeline-card">
-            <span class="timeline-badge timeline-badge--done">Done</span>
-            <h3 class="timeline-card-title">Color Management</h3>
-            <p class="timeline-card-text">sRGB and ProPhoto RGB color space support.</p>
-          </div>
-          <div class="timeline-card">
-            <span class="timeline-badge timeline-badge--done">Done</span>
-            <h3 class="timeline-card-title">File Format Support</h3>
-            <p class="timeline-card-text">TIF/PNG 8-16bit and JPG 8-bit import/export.</p>
-          </div>
-          <div class="timeline-card">
-            <span class="timeline-badge timeline-badge--done">Done</span>
-            <h3 class="timeline-card-title">LUT System</h3>
-            <p class="timeline-card-text">Full LUT integration for established color workflows.</p>
-          </div>
-          <div class="timeline-card">
-            <span class="timeline-badge timeline-badge--done">Done</span>
-            <h3 class="timeline-card-title">Presets System</h3>
-            <p class="timeline-card-text">Save and load presets for quick workflow access.</p>
-          </div>
-          <div class="timeline-card">
-            <span class="timeline-badge timeline-badge--done">Done</span>
-            <h3 class="timeline-card-title">Licence System</h3>
-            <p class="timeline-card-text">Licence key activation and validation system.</p>
-          </div>
-          <div class="timeline-card">
-            <span class="timeline-badge timeline-badge--done">Done</span>
-            <h3 class="timeline-card-title">Manual</h3>
-            <p class="timeline-card-text">Comprehensive user manual and documentation.</p>
-          </div>
-          <div class="timeline-card">
-            <span class="timeline-badge timeline-badge--done">Done</span>
-            <h3 class="timeline-card-title">Slider Guides</h3>
-            <p class="timeline-card-text">Visual guides for slider parameters and ranges.</p>
-          </div>
-          <div class="timeline-card">
-            <span class="timeline-badge timeline-badge--done">Done</span>
-            <h3 class="timeline-card-title">Tips & Tricks Guide</h3>
-            <p class="timeline-card-text">Best practices and workflow tips for users.</p>
-          </div>
-          <div class="timeline-card">
-            <span class="timeline-badge timeline-badge--done">Done</span>
-            <h3 class="timeline-card-title">Metadata Handler</h3>
-            <p class="timeline-card-text">EXIF and metadata preservation during processing.</p>
-          </div>
-          <div class="timeline-card">
-            <span class="timeline-badge timeline-badge--done">Done</span>
-            <h3 class="timeline-card-title">Lightroom Plugin</h3>
-            <p class="timeline-card-text">Lightroom and Lightroom Classic plugin workflow integration.</p>
-          </div>
-          <div class="timeline-card">
-            <span class="timeline-badge timeline-badge--done">Done</span>
-            <h3 class="timeline-card-title">Batch Workflow</h3>
-            <p class="timeline-card-text">Batch processing UI for multiple images and sequences.</p>
-          </div>
-          <div class="timeline-card">
-            <span class="timeline-badge timeline-badge--done">Done</span>
-            <h3 class="timeline-card-title">Vector LUT Research</h3>
-            <p class="timeline-card-text">Experimentation for future vector-based LUT implementation.</p>
-          </div>
-          <div class="timeline-card">
-            <span class="timeline-badge timeline-badge--done">Done</span>
-            <h3 class="timeline-card-title">Noise System</h3>
-            <p class="timeline-card-text">Film grain and noise simulation system.</p>
-          </div>
+      <div class="path-steps">
+        <article class="step" data-step="1">
+          <span class="mono">01 / Entry</span>
+          <h3>Light enters the emulsion.</h3>
+          <p>A colour negative is three light-sensitive layers stacked on a clear base. Blue is recorded on top, then a <strong>yellow filter</strong> stops any remaining blue from going deeper. Green and red pass on.</p>
+        </article>
+        <article class="step" data-step="2">
+          <span class="mono">02 / Through</span>
+          <h3>Some of it doesn't stop.</h3>
+          <p>A bright source has more light than the emulsion can absorb. What's left scatters at the bottom of the red layer and travels on — at every angle — into roughly <strong>0.13 mm of clear plastic</strong>.</p>
+        </article>
+        <article class="step" data-step="3">
+          <span class="mono">03 / The mirror</span>
+          <h3>The back of the base is a mirror.</h3>
+          <p>Where the base meets air, light steeper than the <strong>critical angle — about 42° for n ≈ 1.5</strong> — can't get out. It's totally reflected, straight back up. Shallower light mostly escapes. This boundary is where halation is born.</p>
+        </article>
+        <article class="step" data-step="4">
+          <span class="mono">04 / Return</span>
+          <h3>It hits red first. That's why it's red.</h3>
+          <p>The returning light enters the emulsion from below, and the first layer it meets is the <strong>red-sensitive</strong> one. It lands in a ring around the source, at a distance set by the base thickness. Only the strongest light makes it further, into green — which pushes the hottest cores toward orange.</p>
+        </article>
+        <article class="step" data-step="5">
+          <span class="mono">05 / The backing</span>
+          <h3>Film is designed to prevent this.</h3>
+          <p>Still film has an <strong>anti-halation layer</strong> that soaks up most of it. Motion-picture stock uses <strong>remjet</strong> — a carbon-black coat on the back of the base. Strip the remjet, as Cinestill does, and the mirror is back at full strength. Flip the switch under the diagram.</p>
+        </article>
+
+        <div class="formula">
+          <span class="eq">r ≈ 2 · t · tan <i>θc</i></span>
+          <p>Ring radius from base thickness <i>t</i> and critical angle <i>θc</i>.</p>
+          <span class="eq">≈ 2 · 0.13 · 0.89 ≈ 0.23 mm</span>
+          <p>Fractions of a millimetre on the film — visible because the source is so much brighter than its surroundings.</p>
         </div>
       </div>
-
-      <!-- 2026 -->
-      <div class="timeline-year">
-        <h2 class="timeline-year-title">2026</h2>
-        <p class="timeline-year-subtitle">Beta Launch</p>
-        <div class="timeline-grid">
-          <div class="timeline-card">
-            <span class="timeline-badge timeline-badge--done">Done</span>
-            <h3 class="timeline-card-title">Tile-Based Rendering</h3>
-            <p class="timeline-card-text">Tile-based GPU rendering for efficient memory usage.</p>
-          </div>
-          <div class="timeline-card">
-            <span class="timeline-badge timeline-badge--done">Done</span>
-            <h3 class="timeline-card-title">Memory Optimization</h3>
-            <p class="timeline-card-text">Optimized memory management for large files.</p>
-          </div>
-          <div class="timeline-card">
-            <span class="timeline-badge timeline-badge--done">Done</span>
-            <h3 class="timeline-card-title">Website Launch</h3>
-            <p class="timeline-card-text">Official website halopro.app launched.</p>
-          </div>
-          <div class="timeline-card">
-            <span class="timeline-badge timeline-badge--done">Done</span>
-            <h3 class="timeline-card-title">LUT Pipeline</h3>
-            <p class="timeline-card-text">LUT render pipeline with before/after halation and mist options.</p>
-          </div>
-          <div class="timeline-card">
-            <span class="timeline-badge timeline-badge--done">Done</span>
-            <h3 class="timeline-card-title">Free vs Licence</h3>
-            <p class="timeline-card-text">Free version and licenced Pro version separation.</p>
-          </div>
-          <div class="timeline-card">
-            <span class="timeline-badge timeline-badge--done">Done</span>
-            <h3 class="timeline-card-title">Bug Report System</h3>
-            <p class="timeline-card-text">In-app bug reporting for user feedback.</p>
-          </div>
-          <div class="timeline-card timeline-card--current">
-            <span class="timeline-badge timeline-badge--current">Current</span>
-            <h3 class="timeline-card-title">Beta 1 Launch</h3>
-            <p class="timeline-card-text">Halo Pro Beta 1 public release — February 2026.</p>
-          </div>
-          <div class="timeline-card">
-            <span class="timeline-badge timeline-badge--upcoming">Upcoming</span>
-            <h3 class="timeline-card-title">Optimizations</h3>
-            <p class="timeline-card-text">Performance optimizations based on user feedback.</p>
-          </div>
-          <div class="timeline-card">
-            <span class="timeline-badge timeline-badge--upcoming">Upcoming</span>
-            <h3 class="timeline-card-title">Bug Fixes</h3>
-            <p class="timeline-card-text">Collecting and fixing user-reported bugs.</p>
-          </div>
-          <div class="timeline-card">
-            <span class="timeline-badge timeline-badge--upcoming">Upcoming</span>
-            <h3 class="timeline-card-title">Online Presets</h3>
-            <p class="timeline-card-text">Online preset system for easy sharing and updates.</p>
-          </div>
-          <div class="timeline-card">
-            <span class="timeline-badge timeline-badge--upcoming">Upcoming</span>
-            <h3 class="timeline-card-title">Advanced Noise</h3>
-            <p class="timeline-card-text">Advanced noise functions for detailed grain control.</p>
-          </div>
-          <div class="timeline-card">
-            <span class="timeline-badge timeline-badge--upcoming">Upcoming</span>
-            <h3 class="timeline-card-title">Vector LUT</h3>
-            <p class="timeline-card-text">Vector-based LUT system implementation.</p>
-          </div>
-          <div class="timeline-card">
-            <span class="timeline-badge timeline-badge--upcoming">Upcoming</span>
-            <h3 class="timeline-card-title">Ambassador Program</h3>
-            <p class="timeline-card-text">Ambassador preset program for community creators.</p>
-          </div>
-          <div class="timeline-card">
-            <span class="timeline-badge timeline-badge--upcoming">Upcoming</span>
-            <h3 class="timeline-card-title">Motion Picture</h3>
-            <p class="timeline-card-text">ProRes and MOV video format support.</p>
-          </div>
-          <div class="timeline-card">
-            <span class="timeline-badge timeline-badge--upcoming">Upcoming</span>
-            <h3 class="timeline-card-title">DaVinci Plugin</h3>
-            <p class="timeline-card-text">DaVinci Resolve plugin integration.</p>
-          </div>
-          <div class="timeline-card">
-            <span class="timeline-badge timeline-badge--upcoming">Upcoming</span>
-            <h3 class="timeline-card-title">Windows Support</h3>
-            <p class="timeline-card-text">Windows version with CUDA acceleration.</p>
-          </div>
-          <div class="timeline-card">
-            <span class="timeline-badge timeline-badge--upcoming">Upcoming</span>
-            <h3 class="timeline-card-title">Mac x86 Support</h3>
-            <p class="timeline-card-text">Intel Mac support for older systems.</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- 2027 -->
-      <div class="timeline-year">
-        <h2 class="timeline-year-title">2027</h2>
-        <p class="timeline-year-subtitle">Full Release</p>
-        <div class="timeline-grid">
-          <div class="timeline-card timeline-card--future">
-            <span class="timeline-badge timeline-badge--future">Planned</span>
-            <h3 class="timeline-card-title">Version 1.0</h3>
-            <p class="timeline-card-text">Halo Pro exits beta — full stable release.</p>
-          </div>
-        </div>
-      </div>
-
-    </section>
-
-  </div><!-- End Tab: Development -->
-
-  <!-- Tab: Supporter -->
-  <div id="tab-supporter" class="tab-content">
-
-    <!-- Supporter Hero -->
-    <header class="hero hero--supporter">
-      <div class="hero-glow"></div>
-      <p class="label fade-in" style="animation-delay: 0.2s">Download</p>
-      <h1 class="hero-title fade-in glow" style="animation-delay: 0.4s">Download Halo Pro</h1>
-      <p class="hero-subtitle fade-in" style="animation-delay: 0.6s">
-        Buy the professional halation emulation app, or try the free version. All downloads on Gumroad.
-      </p>
-    </header>
-
-    <!-- Pricing Tiers -->
-    <section class="section section--wide">
-
-      <!-- One-Time Purchase Section -->
-      <div class="purchase-section">
-        <h2 class="label label--center">One-Time Purchase</h2>
-        <p class="purchase-subtitle">Buy once, own forever.</p>
-
-        <div class="tier-grid tier-grid--purchase">
-          <div class="tier-card tier-card--badge">
-            <span class="tier-badge">1 User</span>
-            <h3 class="tier-name">Halo Pro</h3>
-            <p class="tier-price">€20+</p>
-            <p class="tier-period">one-time</p>
-            <ul class="tier-features">
-              <li>Commercial use, single user</li>
-              <li>Full standalone app + Lightroom plugin & batch mode</li>
-              <li>LUT system, presets & frequent updates</li>
-            </ul>
-            <div class="tier-buttons">
-              <a href="https://alriclj.gumroad.com/l/HALO_PRO?variant=Halo%20Pro&wanted=true" class="tier-button tier-button--gumroad">Download</a>
-            </div>
-          </div>
-
-          <div class="tier-card">
-            <h3 class="tier-name">Halo Pro — Organisation</h3>
-            <p class="tier-price">€60+</p>
-            <p class="tier-period">one-time</p>
-            <ul class="tier-features">
-              <li>Commercial use at scale, multiple users</li>
-              <li>Full standalone app + Lightroom plugin & batch mode</li>
-              <li>LUT system, presets & frequent updates</li>
-            </ul>
-            <div class="tier-buttons">
-              <a href="https://alriclj.gumroad.com/l/HALO_PRO?variant=Halo%20Pro%20-%20Organisation&wanted=true" class="tier-button tier-button--gumroad">Download</a>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Free Version Section -->
-      <div class="purchase-section">
-        <h2 class="label label--center">Free Version</h2>
-        <p class="purchase-subtitle">Try Halo Pro before buying or supporting, or use it for lighter workflow demands — a free app with powerful halation and mist emulation.</p>
-
-        <div class="tier-grid tier-grid--free">
-          <div class="tier-card tier-card--free tier-card--badge">
-            <span class="tier-badge tier-badge--free">Free</span>
-            <h3 class="tier-name">Halo Pro — Free</h3>
-            <p class="tier-price">€0+</p>
-            <p class="tier-period">personal use</p>
-            <ul class="tier-features">
-              <li>Full standalone app — all tools, no watermarks</li>
-              <li>Halation & mist simulation</li>
-              <li>Lightroom plugin & batch mode require the paid version</li>
-            </ul>
-            <div class="tier-buttons">
-              <a href="https://alriclj.gumroad.com/l/HALO_PRO?variant=Halo%20Pro%20-%20FREE&wanted=true" class="tier-button tier-button--gumroad">Download</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- CTA -->
-    <section class="section section--narrow section--cta">
-      <h2 class="cta-heading">Get Halo Pro</h2>
-      <p class="cta-text">
-        Buy the professional halation emulation app, or try the free version — all downloads on Gumroad.
-      </p>
-      <div class="cta-buttons">
-        <a href="https://alriclj.gumroad.com/l/HALO_PRO?layout=profile" class="cta-button">Download</a>
-      </div>
-    </section>
-
-  </div><!-- End Tab: Supporter -->
-
-  <!-- Footer -->
-  <footer class="footer">
-    <p class="footer-label">Created by</p>
-    <p class="footer-name">Alric Ljunghager</p>
-    <div class="footer-links">
-      <a href="mailto:alric.ljunghager@gmail.com">alric.ljunghager@gmail.com</a>
-      <a href="https://www.instagram.com/alric.ljunghager/" class="footer-link--accent">@alric.ljunghager</a>
     </div>
-    <p class="footer-copyright">© 2025</p>
-  </footer>
+  </div>
+</section>
 
-  <script>
-    // Tab switching functionality
-    const tabButtons = document.querySelectorAll('.tab-button');
-    const tabContents = document.querySelectorAll('.tab-content');
+<!-- ============ 02 SCALE ============ -->
+<section class="section" id="scale">
+  <div class="wrap">
+    <div class="s-head">
+      <span class="mono s-index"><b>02</b>Scale</span>
+      <div>
+        <h2 class="s-title">The halo belongs to the film, <em>not the frame.</em></h2>
+        <p class="s-intro">How far the light travels sideways is set by the base, not by the picture. Put the same film in a bigger camera and the halo stays the same physical size while the frame grows around it. It's why 35 mm glows and large format barely does.</p>
+      </div>
+    </div>
 
-    tabButtons.forEach(button => {
-      button.addEventListener('click', () => {
-        const targetTab = button.dataset.tab;
+    <div class="scale">
+      <div>
+        <svg viewBox="0 0 600 400" role="img" aria-label="Three film frames drawn to scale around the same light source: 35 mm, 6×7 and 4×5 inch. The halo is the same physical size in all three, so it is relatively largest on 35 mm.">
+<defs><radialGradient id="halo" cx="50%" cy="50%" r="50%">
+  <stop offset="0" stop-color="#fff4ea"/>
+  <stop offset=".12" stop-color="#ffb37a" stop-opacity=".9"/>
+  <stop offset=".3" stop-color="#ff3d22" stop-opacity=".35"/>
+  <stop offset=".62" stop-color="#ff3d22" stop-opacity=".75"/>
+  <stop offset=".75" stop-color="#ff3d22" stop-opacity=".18"/>
+  <stop offset="1" stop-color="#ff3d22" stop-opacity="0"/>
+</radialGradient></defs>
+<rect class="frame" data-f="f45" x="102.0" y="41.6" width="396.0" height="316.8"/>
+<text class="frame-label" data-f="f45" x="110.0" y="57.6">4 × 5 IN</text>
+<rect class="frame" data-f="f67" x="184.5" y="107.6" width="231.0" height="184.8"/>
+<text class="frame-label" data-f="f67" x="192.5" y="123.6">6 × 7</text>
+<rect class="frame" data-f="f35" x="240.6" y="160.4" width="118.8" height="79.2"/>
+<text class="frame-label" data-f="f35" x="248.6" y="176.4">35 MM</text>
+<circle cx="300" cy="200" r="17" fill="url(#halo)"/>
+<circle cx="300" cy="200" r="2.2" fill="#fff4ea"/>
+</svg>
+        <p class="mono" style="margin-top:16px">Frames to scale · halo enlarged for visibility, identical in all three</p>
+      </div>
+      <div>
+        <p style="color:var(--fg-2)">Halo Pro sets <strong style="color:var(--fg);font-weight:400">Spread</strong> as a percentage of the image's short side, so a look travels with the picture at any resolution. Emulating a format? Scale the spread by the frame:</p>
+        <ul class="fmt" id="fmt">
+          <li data-f="f35" class="is-on"><span>35 mm</span><span class="mono">24 mm side</span><b>× 1.00</b></li>
+          <li data-f="f67"><span>6 × 7</span><span class="mono">56 mm side</span><b>× 0.43</b></li>
+          <li data-f="f45"><span>4 × 5 in</span><span class="mono">96 mm side</span><b>× 0.25</b></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
 
-        // Update button states
-        tabButtons.forEach(btn => btn.classList.remove('active'));
-        button.classList.add('active');
+<!-- ============ 03 BEFORE / AFTER ============ -->
+<section class="section" id="compare">
+  <div class="wrap">
+    <div class="s-head">
+      <span class="mono s-index"><b>03</b>Result</span>
+      <div>
+        <h2 class="s-title">Same file. <em>One pass.</em></h2>
+        <p class="s-intro">Digital files, one halation pass each — no mist, no LUT, no grain. Watch the highlights, not the frame.</p>
+      </div>
+    </div>
+    <div class="cmp-bar">
+      <span class="mono">Drag to compare</span>
+      <div class="toggle" id="cmp-switch" style="margin:0">
+        <button type="button" class="is-on" data-ex="1">Saab, panning</button>
+        <button type="button" data-ex="2">Snow, backlit</button>
+      </div>
+    </div>
+    <div class="cmp" id="cmp">
+      <img class="cmp-after" src="img/ex1-after.jpg" alt="After: Halo Pro halation" loading="lazy">
+      <img class="cmp-before" src="img/ex1-before.jpg" alt="Before: original file" loading="lazy">
+      <div class="cmp-handle"></div>
+      <span class="mono cmp-tag cmp-tag--l">Before</span>
+      <span class="mono cmp-tag cmp-tag--r">Halo Pro</span>
+      <input class="cmp-range" type="range" min="0" max="100" value="50" aria-label="Compare before and after">
+    </div>
+  </div>
+</section>
 
-        // Update content visibility
-        tabContents.forEach(content => {
-          content.classList.remove('active');
-          if (content.id === `tab-${targetTab}`) {
-            content.classList.add('active');
-          }
-        });
+<!-- ============ 04 MODEL → CONTROLS ============ -->
+<section class="section" id="model">
+  <div class="wrap">
+    <div class="s-head">
+      <span class="mono s-index"><b>04</b>Controls</span>
+      <div>
+        <h2 class="s-title">Every control is a piece of <em>the physics.</em></h2>
+        <p class="s-intro">No single "amount" slider. Each stage of the light path has its own handle, named in plain words, with the physics in the tooltip. Simple mode shows the first four; Advanced shows the rest.</p>
+      </div>
+    </div>
 
-        // Scroll to top
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      });
-    });
+    <div class="model-head"><span></span><span class="mono">In the film</span><span class="mono">In Halo Pro</span></div>
+    <div class="model">
+      <div class="model-row"><span class="mono">Source</span>
+        <div><h4>Only bright light survives the trip</h4><p>Most light is absorbed on the way down. Only highlights have enough left to reach the base and come back.</p></div>
+        <div><h4>Threshold + feather</h4><p>Decides which pixels are sources, and how soft that cut is.</p></div></div>
+      <div class="model-row"><span class="mono">Distance</span>
+        <div><h4>Sideways travel in the base</h4><p>Set by base thickness and angle — a property of the film stock.</p></div>
+        <div><h4>Glow size · spread</h4><p>A percentage of the frame, so it scales with the image. Type any value.</p></div></div>
+      <div class="model-row"><span class="mono">Colour</span>
+        <div><h4>Red layer first, green only when it's strong</h4><p>Faint returns expose red alone. Strong ones reach green too and read as orange.</p></div>
+        <div><h4>Dye base → dye target</h4><p>The glow starts at the base colour and shifts toward the target in the hottest areas.</p></div></div>
+      <div class="model-row"><span class="mono">Ceiling</span>
+        <div><h4>A saturated core can't get whiter</h4><p>Where the emulsion is already fully exposed, extra light changes nothing.</p></div>
+        <div><h4>Highlight roll-off</h4><p>Holds pure whites as whites instead of tinting them.</p></div></div>
+      <div class="model-row"><span class="mono">Visibility</span>
+        <div><h4>Halos only show against dark</h4><p>The same glow on a bright sky is there but invisible.</p></div>
+        <div><h4>Shadow visibility · edges · masks</h4><p>Luminance range, sky protection, colour mask — put the halo where the scene earns it.</p></div></div>
+      <div class="model-row"><span class="mono">Second bounce</span>
+        <div><h4>Light that reflects more than once</h4><p>A wider, fainter spread under the main ring.</p></div>
+        <div><h4>Secondary glow</h4><p>A second halo layer with its own size and strength.</p></div></div>
+      <div class="model-row"><span class="mono">Not halation</span>
+        <div><h4>Diffusion filters work before the film</h4><p>A mist filter scatters light in front of the lens, softening contrast everywhere — a different mechanism, so a different tool.</p></div>
+        <div><h4>Mist</h4><p>Density, spread, tint and turbulence, with its own threshold.</p></div></div>
+    </div>
+  </div>
+</section>
 
-    // Comparison slider functionality
-    const comparisonSlider = document.querySelector('.comparison-slider');
-    if (comparisonSlider) {
-      const range = comparisonSlider.querySelector('.comparison-range');
-      const overlay = comparisonSlider.querySelector('.comparison-overlay');
-      const handle = comparisonSlider.querySelector('.comparison-handle');
-      const afterImg = comparisonSlider.querySelector('.comparison-img--after');
-      const beforeImg = comparisonSlider.querySelector('.comparison-img--before');
-      const switches = document.querySelectorAll('.comparison-switch');
+<!-- ============ 05 FLOAT ============ -->
+<section class="section" id="float">
+  <div class="wrap">
+    <div class="s-head">
+      <span class="mono s-index"><b>05</b>Precision</span>
+      <div>
+        <h2 class="s-title">A halo is a gradient. <em>Gradients need float.</em></h2>
+        <p class="s-intro">The glow falls from a bright core to nothing over hundreds of pixels. Round that to 8 bits between blur passes and the falloff turns into steps. Halo Pro keeps every stage in 32-bit float — and values above white survive until export.</p>
+      </div>
+    </div>
+    <div class="band">
+      <figure>
+        <canvas id="band-8" width="720" height="420" aria-label="A glow falloff quantised to few levels, with visible rings"></canvas>
+        <figcaption><span class="mono">Quantised</span><span class="mono"><output id="band-lv-o">14</output> levels</span></figcaption>
+      </figure>
+      <figure>
+        <canvas id="band-f" width="720" height="420" aria-label="The same glow computed continuously, without rings"></canvas>
+        <figcaption><span class="mono">Float</span><span class="mono">Continuous</span></figcaption>
+      </figure>
+    </div>
+    <div class="band-ctrl">
+      <div class="range-row">
+        <label for="band-lv"><span class="mono">Levels in the left image</span></label>
+        <input class="rng" type="range" id="band-lv" min="6" max="64" step="1" value="14">
+      </div>
+      <p>To be straight about it: your screen is 8-bit, so a true 8-bit-vs-float comparison would look identical here. The left side is cut to far fewer levels to show the shape of the problem. In real files it shows up as faint rings in dark falloffs — and it compounds each time a tool rounds between steps. Float also means you can add halation anywhere in the edit, not only at the end.</p>
+    </div>
+  </div>
+</section>
 
-      // Image pairs
-      const examples = {
-        '1': {
-          before: 'Before after/HALO PRO Exampel 1 BEFORE.jpg',
-          after: 'Before after/HALO PRO Exampel 1 AFTER HALATION EMULATION.jpg'
-        },
-        '2': {
-          before: 'Before after/HALO PRO Exampel 2 BEFORE.jpg',
-          after: 'Before after/HALO PRO Exampel 2 AFTER HALATION EMULATION.jpg'
-        }
-      };
+<!-- ============ 06 USE ============ -->
+<section class="section" id="use">
+  <div class="wrap">
+    <div class="s-head">
+      <span class="mono s-index"><b>06</b>Use</span>
+      <div>
+        <h2 class="s-title">Analog, realistic, <em>or neither.</em></h2>
+        <p class="s-intro">Same engine, different intentions. Knowing which one you want saves an hour of slider wandering.</p>
+      </div>
+    </div>
+    <div class="uses">
+      <div class="use">
+        <span class="mono">Analog</span>
+        <h3>Match a stock.</h3>
+        <p>Digital files that sit next to your scans without looking like strangers. Small spread, warm dye, roll-off on. Nobody should notice the effect — only that the light feels right.</p>
+        <ul><li>Halation only, mist off</li><li>LUT after halation</li><li>Lower than you think</li></ul>
+      </div>
+      <div class="use">
+        <span class="mono">Realistic</span>
+        <h3>Where light would bleed.</h3>
+        <p>Headlights in rain, sun through trees, a window behind someone. Halation where the scene earns it, not across the frame.</p>
+        <ul><li>Raise threshold until only true sources glow</li><li>Sky protection, colour mask</li><li>Check masks with keys 0–9</li></ul>
+      </div>
+      <div class="use">
+        <span class="mono">Experimental</span>
+        <h3>Break it on purpose.</h3>
+        <p>Dye colours no film ever had, glows the size of the frame, directional smear, turbulent mist on a reseeded pattern.</p>
+        <ul><li>Advanced on</li><li>Values past the slider ends</li><li>Screen, soft light, overlay</li></ul>
+      </div>
+    </div>
 
-      // Slider movement
-      range.addEventListener('input', (e) => {
-        const value = e.target.value;
-        overlay.style.width = value + '%';
-        handle.style.left = value + '%';
-      });
+    <div class="legroom">
+      <div>
+        <span class="mono" style="display:block;margin-bottom:22px">Legroom</span>
+        <h3>Sliders end. Numbers don't.</h3>
+        <p>Every value label in the app is clickable. Type a number, press Enter, and it's applied — even far outside the slider's range. The slider parks at its end; the value keeps going.</p>
+      </div>
+      <div class="demo">
+        <div class="demo-stage"><div class="demo-dot" id="demo-dot"></div></div>
+        <div class="demo-panel">
+          <div class="demo-row"><label class="mono" for="demo-val">Glow size</label><input class="demo-val" id="demo-val" type="text" inputmode="decimal" value="40" aria-label="Glow size, type any number"></div>
+          <input class="rng" type="range" id="demo-range" min="0" max="100" value="40" aria-label="Glow size slider">
+          <div class="demo-scale"><span class="mono">0</span><span class="mono">100</span></div>
+          <p class="demo-hint" id="demo-hint">Drag, or click the number and type <b>340</b>.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-      // Example switching
-      switches.forEach(btn => {
-        btn.addEventListener('click', () => {
-          const example = btn.dataset.example;
+<!-- ============ 07 WORKFLOW ============ -->
+<section class="section" id="workflow">
+  <div class="wrap">
+    <div class="s-head">
+      <span class="mono s-index"><b>07</b>Workflow</span>
+      <div><h2 class="s-title">Fits where you <em>already work.</em></h2></div>
+    </div>
+    <div class="spec">
+      <div><span class="mono">Lightroom</span><h4>Edit In → Halo Pro</h4><p>Lightroom Classic round-trip. The processed file lands next to the original.</p></div>
+      <div><span class="mono">Batch</span><h4>Whole shoot, one look</h4><p>Up to 500 images. Apply to All, Export All, in the background.</p></div>
+      <div><span class="mono">In</span><h4>16-bit stays 16-bit</h4><p>TIFF and PNG read at full depth. JPEG too.</p></div>
+      <div><span class="mono">Out</span><h4>Up to 32-bit float</h4><p>TIFF 8 / 16 / 32f, PNG 8 / 16, JPEG.</p></div>
+      <div><span class="mono">Colour</span><h4>Profiles respected</h4><p>sRGB, Adobe RGB, ProPhoto. ICC embedded on export.</p></div>
+      <div><span class="mono">Metadata</span><h4>Nothing lost</h4><p>EXIF, IPTC and XMP carried over with a bundled ExifTool.</p></div>
+      <div><span class="mono">LUT</span><h4>Before or after</h4><p>.cube LUTs on either side of the effect, with intensity.</p></div>
+      <div><span class="mono">Hardware</span><h4>Apple Silicon</h4><p>M1–M5, macOS 12+. Metal GPU. Notarized by Apple.</p></div>
+    </div>
+  </div>
+</section>
 
-          switches.forEach(s => s.classList.remove('active'));
-          btn.classList.add('active');
+<!-- ============ 08 PRICING ============ -->
+<section class="section" id="pricing">
+  <div class="wrap">
+    <div class="s-head">
+      <span class="mono s-index"><b>08</b>Pricing</span>
+      <div>
+        <h2 class="s-title">Pay once. <em>That's it.</em></h2>
+        <p class="s-intro">The free version is the real app — every slider, no watermark, no time limit. Paying adds the Lightroom plug-in and batch, and keeps the project going.</p>
+      </div>
+    </div>
+    <div class="tiers">
+      <div class="tier">
+        <span class="mono">Free</span>
+        <h3>Halo Pro — Free</h3>
+        <p class="price">€0<small>personal</small></p>
+        <ul><li>Full app, every control</li><li>Halation, mist, LUTs, presets</li><li>32-bit float processing</li><li class="no">Lightroom plug-in</li><li class="no">Batch</li></ul>
+        <a class="btn" href="https://alriclj.gumroad.com/l/HALO_PRO?variant=Halo%20Pro%20-%20FREE&amp;wanted=true">Download free</a>
+      </div>
+      <div class="tier tier--main">
+        <span class="mono red">One user</span>
+        <h3>Halo Pro</h3>
+        <p class="price">€20<small>once, or more</small></p>
+        <ul><li>Everything in Free</li><li>Lightroom Classic plug-in</li><li>Batch: Apply to All, Export All</li><li>Commercial use</li><li>All 1.x updates</li></ul>
+        <a class="btn btn--solid" href="https://alriclj.gumroad.com/l/HALO_PRO?variant=Halo%20Pro&amp;wanted=true">Buy · €20</a>
+      </div>
+      <div class="tier">
+        <span class="mono">Studios</span>
+        <h3>Halo Pro — Organisation</h3>
+        <p class="price">€60<small>once, or more</small></p>
+        <ul><li>Everything in Halo Pro</li><li>Multiple seats</li><li>Commercial use at scale</li><li>All 1.x updates</li></ul>
+        <a class="btn" href="https://alriclj.gumroad.com/l/HALO_PRO?variant=Halo%20Pro%20-%20Organisation&amp;wanted=true">Buy · €60</a>
+      </div>
+    </div>
+    <div class="honest">
+      <span class="mono s-index">A note</span>
+      <p>Halo Pro is made by one person — a photographer who wanted halation that behaved like the real thing. <strong>Twenty euros is about a roll of film and the lab fee.</strong> It pays for the Apple developer account, notarization, and the evenings that go into the next update. It's Mac and Apple Silicon only for now. If you hit a bug, the in-app report attaches the log, and I read every one.</p>
+    </div>
+  </div>
+</section>
 
-          afterImg.src = examples[example].after;
-          beforeImg.src = examples[example].before;
+<section class="closing">
+  <div class="closing-glow" aria-hidden="true"></div>
+  <div class="wrap" style="position:relative">
+    <span class="mono" style="display:block;margin-bottom:28px">Version 1.0 · September 2026</span>
+    <h2>Try it on the photo you're already thinking about.</h2>
+    <div class="hero-cta">
+      <a class="btn btn--solid" href="https://alriclj.gumroad.com/l/HALO_PRO?variant=Halo%20Pro&amp;wanted=true">Buy · €20 once</a>
+      <a class="link" href="https://alriclj.gumroad.com/l/HALO_PRO?variant=Halo%20Pro%20-%20FREE&amp;wanted=true">Free version</a>
+    </div>
+  </div>
+</section>
 
-          // Reset slider to middle
-          range.value = 50;
-          overlay.style.width = '50%';
-          handle.style.left = '50%';
-        });
-      });
+<footer class="footer">
+  <div class="wrap cols">
+    <div>
+      <span class="mono">Made in Stockholm</span>
+      <p style="font-size:22px;color:var(--fg);letter-spacing:-.02em">Alric Ljunghager</p>
+      <p>Photographer. Since 2024 · Beta February 2026 · 1.0 September 2026.</p>
+    </div>
+    <div>
+      <span class="mono">Contact</span>
+      <p><a href="mailto:alric.ljunghager@gmail.com">alric.ljunghager@gmail.com</a></p>
+      <p><a href="https://www.instagram.com/alric.ljunghager/">Instagram</a></p>
+      <p><a href="https://alriclj.gumroad.com/l/HALO_PRO?layout=profile">Gumroad</a></p>
+    </div>
+    <div>
+      <span class="mono">Further reading</span>
+      <p><a href="https://www.lomography.com/magazine/352787-what-is-the-anti-halation-layer">The anti-halation layer</a></p>
+      <p><a href="https://www.lomography.com/school/what-is-a-remjet-layer-in-film-fa-mje3rplb">What remjet is</a></p>
+      <p><a href="https://www.lomography.com/school/what-is-ecn-2-film-processing-fa-bqlqadlg">ECN-2 processing</a></p>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ---------------- Hero: a point of light on colour negative ---------------- */
+(function () {
+  const cv = document.getElementById('hero-cv'); if (!cv) return;
+  const ctx = cv.getContext('2d');
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const THC = Math.asin(1 / 1.5);
+  let W, H, G, running = true, raf;
+
+  // grain tile
+  const noise = document.createElement('canvas'); noise.width = noise.height = 200;
+  (function () { const n = noise.getContext('2d'), d = n.createImageData(200, 200);
+    for (let i = 0; i < d.data.length; i += 4) { const v = Math.random() * 255; d.data[i] = d.data[i + 1] = d.data[i + 2] = v; d.data[i + 3] = 255; }
+    n.putImageData(d, 0, 0); })();
+  const grain = ctx.createPattern(noise, 'repeat');
+
+  function layout() {
+    const dpr = Math.min(2, window.devicePixelRatio || 1);
+    const r = cv.getBoundingClientRect(); W = r.width; H = r.height;
+    cv.width = Math.round(W * dpr); cv.height = Math.round(H * dpr);
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    const mobile = W < 760;
+    const s = Math.max(.75, Math.min(1.3, H / 900));
+    const top = mobile ? H * .72 : Math.max(H * .72, 650);
+    const g = { x: mobile ? W * .5 : Math.max(W * .74, Math.min(W - 260, 1060)), blue: top };
+    g.yel = top + 9 * s; g.green = top + 12 * s; g.red = top + 21 * s; g.base = top + 30 * s;
+    g.t = Math.min(H * (mobile ? .1 : .13), 140); g.back = g.base + g.t;
+    g.label = !mobile;
+    G = g;
+  }
+
+  const band = (y0, y1, c) => { ctx.fillStyle = c; ctx.fillRect(0, y0, W, y1 - y0); };
+  const hline = (y, c) => { ctx.fillStyle = c; ctx.fillRect(0, Math.round(y), W, 1); };
+  function glow(cx, cy, rx, ry, stops) {
+    ctx.save(); ctx.translate(cx, cy); ctx.scale(1, ry / rx);
+    const r = ctx.createRadialGradient(0, 0, 0, 0, 0, rx);
+    stops.forEach(s => r.addColorStop(s[0], s[1]));
+    ctx.fillStyle = r; ctx.beginPath(); ctx.arc(0, 0, rx, 0, Math.PI * 2); ctx.fill(); ctx.restore();
+  }
+
+  function frame(time) {
+    const g = G, t = time || 0;
+    const p = .88 + .12 * Math.sin(t * .0008);
+    ctx.globalCompositeOperation = 'source-over'; ctx.globalAlpha = 1;
+    ctx.fillStyle = '#070707'; ctx.fillRect(0, 0, W, H);
+
+    // layers
+    band(g.blue, g.yel, 'rgba(91,124,255,.045)');
+    band(g.yel, g.green, 'rgba(255,210,60,.04)');
+    band(g.green, g.red, 'rgba(63,208,124,.035)');
+    band(g.red, g.base, 'rgba(255,61,34,.05)');
+    band(g.base, g.back, 'rgba(255,255,255,.012)');
+    [g.blue, g.yel, g.green, g.red, g.base].forEach(y => hline(y, 'rgba(255,255,255,.06)'));
+    hline(g.back, 'rgba(255,255,255,.16)');
+
+    ctx.globalCompositeOperation = 'lighter';
+
+    // incoming beam: soft body + core
+    let lg = ctx.createLinearGradient(g.x - 34, 0, g.x + 34, 0);
+    lg.addColorStop(0, 'rgba(255,236,222,0)'); lg.addColorStop(.5, `rgba(255,236,222,${.07 * p})`); lg.addColorStop(1, 'rgba(255,236,222,0)');
+    ctx.fillStyle = lg; ctx.fillRect(g.x - 34, 0, 68, g.base);
+    let vg = ctx.createLinearGradient(0, g.label ? 0 : H * .42, 0, g.base);
+    vg.addColorStop(0, 'rgba(255,248,240,0)'); vg.addColorStop(.45, `rgba(255,248,240,${.5 * p})`); vg.addColorStop(1, `rgba(255,248,240,${.95 * p})`);
+    ctx.fillStyle = vg; ctx.fillRect(g.x - 1, 0, 2, g.base);
+
+    // inside the base: weaker, warmer (blue already gone)
+    let bg = ctx.createLinearGradient(0, g.base, 0, g.back);
+    bg.addColorStop(0, `rgba(255,205,175,${.55 * p})`); bg.addColorStop(1, `rgba(255,170,130,${.3 * p})`);
+    ctx.fillStyle = bg; ctx.fillRect(g.x - .6, g.base, 1.2, g.t);
+
+    // scattered light: V paths down to the back surface and up again
+    const N = 44;
+    for (let i = 0; i < N; i++) {
+      const a = (4 + (i / (N - 1)) * 68) * Math.PI / 180 + Math.sin(t * .0006 + i * 1.7) * .006;
+      const dx = g.t * Math.tan(a);
+      const tir = a > THC;
+      const k = (tir ? .2 : .035) * p * (1 - a / (Math.PI / 2) * .55);
+      for (const s of [-1, 1]) {
+        ctx.strokeStyle = `rgba(255,214,190,${k * .55})`; ctx.lineWidth = 1;
+        ctx.beginPath(); ctx.moveTo(g.x, g.base); ctx.lineTo(g.x + s * dx, g.back); ctx.stroke();
+        ctx.strokeStyle = `rgba(255,70,40,${k})`;
+        ctx.beginPath(); ctx.moveTo(g.x + s * dx, g.back); ctx.lineTo(g.x + s * 2 * dx, g.base); ctx.stroke();
+      }
     }
-  </script>
 
+    // re-exposure in the red layer: core + ring at 2t·tanθc
+    const R = 2 * g.t * Math.tan(THC), Rmax = 2 * g.t * Math.tan(72 * Math.PI / 180);
+    const rf = R / Rmax, ym = (g.green + g.base) / 2;
+    glow(g.x, ym, Rmax, (g.base - g.green) * 1.6, [
+      [0, `rgba(255,120,70,${.45 * p})`], [rf * .6, `rgba(255,55,30,${.16 * p})`],
+      [rf * .92, `rgba(255,50,28,${.22 * p})`], [rf, `rgba(255,50,28,${.75 * p})`], [rf * 1.12, `rgba(255,45,25,${.28 * p})`],
+      [Math.min(.98, rf * 1.9), `rgba(220,30,18,${.07 * p})`], [1, 'rgba(200,20,10,0)']
+    ]);
+    // atmosphere: the red bleeding up into the air above the film
+    glow(g.x, ym, Rmax * 1.05, g.t * 1.3, [[0, `rgba(255,60,30,${.13 * p})`], [.45, `rgba(230,40,20,${.05 * p})`], [1, 'rgba(200,20,10,0)']]);
+    // hot entry point and back reflection
+    glow(g.x, g.blue + 2, 70, 9, [[0, `rgba(255,250,244,${.9 * p})`], [.25, `rgba(255,190,140,${.35 * p})`], [1, 'rgba(255,120,60,0)']]);
+    glow(g.x, g.back, 26, 4, [[0, `rgba(255,210,180,${.35 * p})`], [1, 'rgba(255,150,100,0)']]);
+
+    // grain
+    ctx.globalCompositeOperation = 'source-over'; ctx.globalAlpha = .045;
+    ctx.save(); ctx.translate(-(Math.random() * 200 | 0), -(Math.random() * 200 | 0));
+    ctx.fillStyle = grain; ctx.fillRect(0, 0, W + 200, H + 200); ctx.restore();
+    ctx.globalAlpha = 1;
+
+    // labels
+    if (g.label) {
+      ctx.font = '10px "IBM Plex Mono", monospace'; ctx.fillStyle = 'rgba(236,233,228,.32)';
+      ctx.textAlign = 'right';
+      const xr = Math.min(W - 40, (W + 1280) / 2 - 40);
+      ctx.fillText('EMULSION  B · G · R', xr, g.blue - 10);
+      ctx.fillText('BASE  ≈ 0.13 MM', xr, g.base + g.t / 2 + 3);
+      ctx.fillText('BACK SURFACE  —  NO REMJET', xr, g.back + 18);
+    }
+  }
+
+  function loop(time) { frame(time); if (running && !reduce) raf = requestAnimationFrame(loop); }
+  layout(); loop(0);
+  window.addEventListener('resize', () => { layout(); if (reduce) frame(0); });
+  new IntersectionObserver(es => es.forEach(e => {
+    const was = running; running = e.isIntersecting;
+    if (running && !was && !reduce) raf = requestAnimationFrame(loop);
+  })).observe(cv);
+})();
+
+/* nav */
+(function(){ const n=document.querySelector('.nav'); const f=()=>n.classList.toggle('is-scrolled', scrollY>40); addEventListener('scroll', f, {passive:true}); f(); })();
+
+/* ---------------- Light path: scroll steps + backing toggle ---------------- */
+(function () {
+  const fig = document.getElementById('pathfig'); if (!fig) return;
+  const steps = [...document.querySelectorAll('.step')];
+  let userTouched = false;
+  function setStep(n) {
+    for (let i = 1; i <= 5; i++) { fig.classList.toggle('on-' + i, i <= n); fig.classList.toggle('cur-' + i, i === n); }
+    steps.forEach(s => s.classList.toggle('is-on', +s.dataset.step === n));
+    if (!userTouched) setBacking(n === 5 ? 'remjet' : 'none', false);
+  }
+  const btns = document.querySelectorAll('[data-backing]');
+  function setBacking(v, fromUser) {
+    if (fromUser) userTouched = true;
+    fig.classList.toggle('remjet', v === 'remjet');
+    btns.forEach(b => b.classList.toggle('is-on', b.dataset.backing === v));
+  }
+  btns.forEach(b => b.addEventListener('click', () => setBacking(b.dataset.backing, true)));
+  const io = new IntersectionObserver(es => {
+    es.forEach(e => { if (e.isIntersecting) setStep(+e.target.dataset.step); });
+  }, { rootMargin: '-45% 0px -45% 0px' });
+  steps.forEach(s => io.observe(s));
+  const mq = matchMedia('(max-width: 640px)'), vb = fig.getAttribute('viewBox');
+  const fit = () => fig.setAttribute('viewBox', mq.matches ? fig.dataset.vbMobile : vb);
+  mq.addEventListener('change', fit); fit();
+  setStep(1);
+})();
+
+/* ---------------- Scale: format list highlights frame ---------------- */
+(function () {
+  const items = document.querySelectorAll('#fmt li');
+  const set = f => {
+    items.forEach(li => li.classList.toggle('is-on', li.dataset.f === f));
+    document.querySelectorAll('.frame, .frame-label').forEach(el => el.classList.toggle('is-on', el.dataset.f === f));
+  };
+  items.forEach(li => { li.addEventListener('mouseenter', () => set(li.dataset.f)); li.addEventListener('click', () => set(li.dataset.f)); });
+  set('f35');
+})();
+
+/* ---------------- Before / after ---------------- */
+(function () {
+  const cmp = document.getElementById('cmp'); if (!cmp) return;
+  const range = cmp.querySelector('.cmp-range'), before = cmp.querySelector('.cmp-before'),
+        after = cmp.querySelector('.cmp-after'), handle = cmp.querySelector('.cmp-handle');
+  const set = v => { before.style.clipPath = `inset(0 ${100 - v}% 0 0)`; handle.style.left = v + '%'; };
+  range.addEventListener('input', e => set(+e.target.value)); set(50);
+  const ex = { 1: ['img/ex1-before.jpg', 'img/ex1-after.jpg'], 2: ['img/ex2-before.jpg', 'img/ex2-after.jpg'] };
+  document.querySelectorAll('#cmp-switch button').forEach(b => b.addEventListener('click', () => {
+    document.querySelectorAll('#cmp-switch button').forEach(x => x.classList.toggle('is-on', x === b));
+    before.src = ex[b.dataset.ex][0]; after.src = ex[b.dataset.ex][1]; range.value = 50; set(50);
+  }));
+})();
+
+/* ---------------- Banding ---------------- */
+(function () {
+  const c8 = document.getElementById('band-8'), cf = document.getElementById('band-f'); if (!c8) return;
+  const lv = document.getElementById('band-lv'), lvo = document.getElementById('band-lv-o');
+  const W = c8.width, H = c8.height;
+  const fall = d => { const t = Math.min(1, d / 340); return Math.exp(-3.4 * t) * (1 - t * .12); };
+  function paint(cv, levels) {
+    const ctx = cv.getContext('2d'), img = ctx.createImageData(W, H), p = img.data, cx = W * .5, cy = H * .5;
+    for (let y = 0; y < H; y++) for (let x = 0; x < W; x++) {
+      let v = fall(Math.hypot(x - cx, y - cy));
+      if (levels) v = Math.round(v * levels) / levels;
+      const i = (y * W + x) * 4;
+      p[i] = 7 + 248 * v; p[i + 1] = 7 + 120 * v * v; p[i + 2] = 7 + 55 * v * v * v; p[i + 3] = 255;
+    }
+    ctx.putImageData(img, 0, 0);
+    ctx.fillStyle = '#fff4ea'; ctx.beginPath(); ctx.arc(cx, cy, 10, 0, Math.PI * 2); ctx.fill();
+  }
+  const draw = () => { const L = +lv.value; lvo.textContent = L; paint(c8, L); };
+  paint(cf, 0); lv.addEventListener('input', draw); draw();
+})();
+
+/* ---------------- Legroom demo ---------------- */
+(function () {
+  const dot = document.getElementById('demo-dot'), val = document.getElementById('demo-val'),
+        rng = document.getElementById('demo-range'), hint = document.getElementById('demo-hint');
+  if (!dot) return;
+  const render = v => {
+    v = Math.max(0, v);
+    dot.style.boxShadow = `0 0 ${v * .5}px ${v * .12}px rgba(255,170,120,.8), 0 0 ${v * 1.6}px ${v * .45}px rgba(255,61,34,.45)`;
+    rng.value = Math.min(100, v);
+    hint.innerHTML = v > 100 ? `Slider parked at 100. Value: <b>${v}</b>. Still growing.`
+                   : 'Drag, or click the number and type <b>340</b>.';
+  };
+  rng.addEventListener('input', e => { val.value = e.target.value; render(+e.target.value); });
+  const commit = () => { const v = parseFloat(String(val.value).replace(',', '.')); if (!isNaN(v)) { val.value = v; render(v); } };
+  val.addEventListener('change', commit);
+  val.addEventListener('keydown', e => { if (e.key === 'Enter') { commit(); val.blur(); } });
+  val.addEventListener('focus', () => val.select());
+  render(40);
+})();
+</script>
 </body>
 </html>
