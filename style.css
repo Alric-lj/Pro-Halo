@@ -241,7 +241,7 @@ input[type=range].rng { width: 100%; accent-color: var(--red); margin: 0; }
 .demo-row { display: flex; justify-content: space-between; align-items: center; }
 .demo-val {
   background: transparent; border: 0; border-bottom: 1px solid var(--line-2); color: var(--fg);
-  font-family: var(--mono); font-size: 15px; width: 84px; text-align: right; padding: 4px 2px; outline: none;
+  font-family: var(--mono); font-size: 16px; width: 84px; text-align: right; padding: 4px 2px; outline: none; /* <16px makes iOS zoom on focus */
 }
 .demo-val:focus { border-color: var(--red); }
 .demo-scale { display: flex; justify-content: space-between; }
@@ -303,6 +303,10 @@ input[type=range].rng { width: 100%; accent-color: var(--red); margin: 0; }
   .tiers { grid-template-columns: 1fr; }
   .model-head { display: none; }
   .model-row { grid-template-columns: 1fr; gap: 8px; }
+  /* the column heads are gone when stacked, so each cell names its side */
+  .model-row > div::before { display: block; margin: 10px 0 6px; font-family: var(--mono); font-size: 10px; letter-spacing: .14em; text-transform: uppercase; color: var(--fg-3); }
+  .model-row > div:nth-child(2)::before { content: "In the film"; }
+  .model-row > div:nth-child(3)::before { content: "In Halo Pro"; }
   .footer .cols > div, .footer .cols > div:first-child { grid-column: span 12; }
 }
 @media (max-width: 640px) {
@@ -312,6 +316,7 @@ input[type=range].rng { width: 100%; accent-color: var(--red); margin: 0; }
   .pathfig .lay-label:not(.lay-label--hi), .pathfig > .dim, .pathfig .dim-text, .pathfig .n { display: none; }
   .pathfig .lay-label.lay-short { display: inline; font-size: 21px; }
   .pathfig .crit-text, .pathfig .lay-label--hi { font-size: 21px; }
+  .frame-label { font-size: 12px; }
   body { font-size: 16px; }
   .hero { height: auto; min-height: max(640px, 100svh); }
   .hero-copy { padding-top: 112px; padding-bottom: 320px; } /* room for the film under the copy */
