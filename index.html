@@ -755,7 +755,9 @@
   const c8 = document.getElementById('band-8'), cf = document.getElementById('band-f'); if (!c8) return;
   const lv = document.getElementById('band-lv'), lvo = document.getElementById('band-lv-o');
   const W = c8.width, H = c8.height;
-  const fall = d => { const t = Math.min(1, d / 340); return Math.exp(-3.4 * t) * (1 - t * .12); };
+  // falloff fits inside the canvas and reaches exactly black, so no ring or box is cut by the edges
+  const R = Math.min(W, H) * .48, E = Math.exp(-3.4);
+  const fall = d => { const t = Math.min(1, d / R); return (Math.exp(-3.4 * t) - E) / (1 - E); };
   function paint(cv, levels) {
     const ctx = cv.getContext('2d'), img = ctx.createImageData(W, H), p = img.data, cx = W * .5, cy = H * .5;
     for (let y = 0; y < H; y++) for (let x = 0; x < W; x++) {
