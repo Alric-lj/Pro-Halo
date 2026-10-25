@@ -737,6 +737,12 @@
         after = cmp.querySelector('.cmp-after'), handle = cmp.querySelector('.cmp-handle');
   const set = v => { before.style.clipPath = `inset(0 ${100 - v}% 0 0)`; handle.style.left = v + '%'; };
   range.addEventListener('input', e => set(+e.target.value)); set(50);
+  // drag anywhere on the photo; the range stays for keyboard. Touch moves only on a sideways drag, so scrolling past doesn't jump it.
+  let on = false;
+  const drag = e => { const r = cmp.getBoundingClientRect(), v = Math.max(0, Math.min(100, (e.clientX - r.left) / r.width * 100)); range.value = v; set(v); };
+  cmp.addEventListener('pointerdown', e => { on = true; cmp.setPointerCapture(e.pointerId); if (e.pointerType === 'mouse') drag(e); });
+  cmp.addEventListener('pointermove', e => { if (on) drag(e); });
+  ['pointerup', 'pointercancel'].forEach(t => cmp.addEventListener(t, () => { on = false; }));
   const ex = { 1: ['img/ex1-before.jpg', 'img/ex1-after.jpg'], 2: ['img/ex2-before.jpg', 'img/ex2-after.jpg'] };
   document.querySelectorAll('#cmp-switch button').forEach(b => b.addEventListener('click', () => {
     document.querySelectorAll('#cmp-switch button').forEach(x => x.classList.toggle('is-on', x === b));
