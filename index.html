@@ -696,7 +696,7 @@
     n.putImageData(d, 0, 0); })();
   const grain = ctx.createPattern(noise, 'repeat');
 
-  const copy = cv.parentNode.querySelector('.hero-cta'), foot = cv.parentNode.querySelector('.hero-foot');
+  const copy = cv.parentNode.querySelector('.hero-note') || cv.parentNode.querySelector('.hero-cta'), foot = cv.parentNode.querySelector('.hero-foot');
   function layout() {
     const dpr = Math.min(2, window.devicePixelRatio || 1);
     const r = cv.getBoundingClientRect(); W = r.width; H = r.height;
