@@ -586,38 +586,79 @@
       <span class="mono s-index"><b>08</b>Development</span>
       <div>
         <h2 class="s-title">Where it's at. <em>Planned, not promised.</em></h2>
-        <p class="s-intro">One person builds Halo Pro. This is what shipped, what is being fixed now, and what is only an idea.</p>
+        <p class="s-intro">One person builds Halo Pro, since 2024. This is what shipped, what is being fixed now, and what is only an idea.</p>
       </div>
     </div>
     <p class="mono asof">As of October 2026</p>
-    <div class="track">
-      <div class="track-year"><span class="mono">2024</span><span class="track-sub">Research</span></div>
-      <ul class="track-items">
-        <li class="t-done"><span class="t-status">Done</span><b>How halation forms in film</b><span>Research, then the first halation, mist and masking engine.</span></li>
+    <div class="devmap">
+    <div class="dev-year">
+      <div class="dev-year-head"><span class="dev-year-num">2024</span><span class="mono">Research &amp; foundation</span></div>
+      <ul class="dev-grid">
+        <li class="dev-card is-done"><span class="dev-status">Done</span><b>Halation research</b><span>How halation forms in film: through the emulsion, off the back of the base, into the red layer.</span></li>
+        <li class="dev-card is-done"><span class="dev-status">Done</span><b>Halation engine</b><span>The first glow model: where it starts, how far it spreads, how red it turns.</span></li>
+        <li class="dev-card is-done"><span class="dev-status">Done</span><b>Mist engine</b><span>A separate stage for diffusion-filter mist.</span></li>
+        <li class="dev-card is-done"><span class="dev-status">Done</span><b>Masking</b><span>Choosing where the glow is allowed to appear.</span></li>
+        <li class="dev-card is-done"><span class="dev-status">Done</span><b>Slider interface</b><span>Every stage on its own slider.</span></li>
+        <li class="dev-card is-done"><span class="dev-status">Done</span><b>16-bit pipeline</b><span>The first high-bit-depth processing.</span></li>
       </ul>
-      <div class="track-year"><span class="mono">2025</span><span class="track-sub">Alpha</span></div>
-      <ul class="track-items">
-        <li class="t-done"><span class="t-status">Done</span><b>A working app</b><span>GPU processing, 32-bit float, LUTs, presets, metadata, the Lightroom round trip, batch, licence keys.</span></li>
+    </div>
+    <div class="dev-year">
+      <div class="dev-year-head"><span class="dev-year-num">2025</span><span class="mono">Alpha</span></div>
+      <ul class="dev-grid">
+        <li class="dev-card is-done"><span class="dev-status">Done</span><b>Resolution scaling</b><span>Fast previews while you work, full resolution on export.</span></li>
+        <li class="dev-card is-done"><span class="dev-status">Done</span><b>GPU processing</b><span>The glow blurs run on the Mac’s GPU (Metal).</span></li>
+        <li class="dev-card is-done"><span class="dev-status">Done</span><b>Alpha</b><span>First builds out for testing.</span></li>
+        <li class="dev-card is-done"><span class="dev-status">Done</span><b>32-bit float</b><span>Every stage in floating point.</span></li>
+        <li class="dev-card is-done"><span class="dev-status">Done</span><b>Colour management</b><span>sRGB and ProPhoto RGB.</span></li>
+        <li class="dev-card is-done"><span class="dev-status">Done</span><b>File formats</b><span>TIFF and PNG at 8 or 16-bit, and JPEG.</span></li>
+        <li class="dev-card is-done"><span class="dev-status">Done</span><b>LUTs</b><span>Load .cube files, before or after the glow.</span></li>
+        <li class="dev-card is-done"><span class="dev-status">Done</span><b>Presets</b><span>Save and load looks, LUT included.</span></li>
+        <li class="dev-card is-done"><span class="dev-status">Done</span><b>Licence keys</b><span>Free and Pro from the same download.</span></li>
+        <li class="dev-card is-done"><span class="dev-status">Done</span><b>Manual and guides</b><span>An in-app manual and first-run tips.</span></li>
+        <li class="dev-card is-done"><span class="dev-status">Done</span><b>Metadata</b><span>EXIF, IPTC and XMP kept, with a bundled ExifTool.</span></li>
+        <li class="dev-card is-done"><span class="dev-status">Done</span><b>Lightroom round trip</b><span>Edit In from Lightroom Classic, then Save and return.</span></li>
+        <li class="dev-card is-done"><span class="dev-status">Done</span><b>Batch</b><span>Many photos, each with its own settings.</span></li>
+        <li class="dev-card is-done"><span class="dev-status">Done</span><b>Grain</b><span>Grain as an extra effect.</span></li>
+        <li class="dev-card is-done"><span class="dev-status">Done</span><b>Vector LUT research</b><span>Groundwork for a future LUT system.</span></li>
       </ul>
-      <div class="track-year"><span class="mono">2026</span><span class="track-sub">Beta, then 1.0</span></div>
-      <ul class="track-items">
-        <li class="t-done"><span class="t-status">Done</span><b>January</b><span>halopro.app goes live.</span></li>
-        <li class="t-done"><span class="t-status">Done</span><b>February</b><span>Public beta.</span></li>
-        <li class="t-done"><span class="t-status">Done</span><b>8 September</b><span>Halo Pro 1.0, signed and notarized by Apple.</span></li>
-        <li class="t-done"><span class="t-status">Done</span><b>October</b><span>1.0 checked line by line. The halation model is sound; the preview, several controls and the file handling need work. Fixed in this order:</span></li>
+    </div>
+    <div class="dev-year">
+      <div class="dev-year-head"><span class="dev-year-num">2026</span><span class="mono">Beta, then 1.0</span></div>
+      <ul class="dev-grid">
+        <li class="dev-card is-done"><span class="dev-status">Done</span><b>halopro.app</b><span>January: the website goes live.</span></li>
+        <li class="dev-card is-done"><span class="dev-status">Done</span><b>Tiled GPU rendering</b><span>Large files rendered on the GPU in tiles.</span></li>
+        <li class="dev-card is-done"><span class="dev-status">Done</span><b>Memory work</b><span>Bigger files without running out of memory.</span></li>
+        <li class="dev-card is-done"><span class="dev-status">Done</span><b>LUT position</b><span>One LUT, before halation or after mist.</span></li>
+        <li class="dev-card is-done"><span class="dev-status">Done</span><b>Free and Pro</b><span>Pro unlocks Lightroom Mode and Batch Mode.</span></li>
+        <li class="dev-card is-done"><span class="dev-status">Done</span><b>Bug reports</b><span>A report with the log, copied for email.</span></li>
+        <li class="dev-card is-done"><span class="dev-status">Done</span><b>Public beta</b><span>February.</span></li>
+        <li class="dev-card is-done is-key"><span class="dev-status">Done</span><b>Halo Pro 1.0</b><span>8 September. Signed, and notarised by Apple.</span></li>
+        <li class="dev-card is-done"><span class="dev-status">Done</span><b>A line-by-line check</b><span>October. The halation model is sound; the preview, several controls and the file handling need work. Fixed in the order below.</span></li>
       </ul>
-      <div class="track-year"><span class="mono">1.0.1 → 1.1</span><span class="track-sub">Next updates</span></div>
-      <ul class="track-items">
-        <li class="t-test"><span class="t-status">Done · 1.0.1</span><b>1 · Files you can trust</b><span>Only replaces the copy Lightroom handed over, and asks before overwriting anything else. A failed export says so instead of saving the unprocessed photo. Asks before throwing away edits you haven't exported. Runs on macOS 14 Sonoma or later.</span></li>
-        <li class="t-now"><span class="t-status">In progress</span><b>2 · The preview tells the truth</b><span>The preview renders at the size you chose, and the export glows like the preview at any file size. Controls do what their labels say, Anti-Halation included. Mask views show exactly the masks the render uses.</span></li>
-        <li class="t-next"><span class="t-status">Next</span><b>3 · Steady through long sessions</b><span>A 150-photo session on an 8–16&nbsp;GB Mac without slowing down or losing edits. Big exports use far less memory.</span></li>
-        <li class="t-next"><span class="t-status">Next</span><b>4 · Faster</b><span>Measured on prototypes, not in 1.0.1: a 24&nbsp;MP export from 7.6&nbsp;s to 3.1&nbsp;s, a 1600&nbsp;px preview from 488 to 172&nbsp;ms (M3 Max, 24&nbsp;MP test file).</span></li>
-        <li class="t-next"><span class="t-status">Next</span><b>5 · Polish</b><span>An up-to-date manual inside the app, a true 100% zoom on Retina screens, a smaller download.</span></li>
+    </div>
+    <div class="dev-year dev-year--now">
+      <div class="dev-year-head"><span class="dev-year-num">1.1</span><span class="mono">The next updates</span></div>
+      <ul class="dev-grid">
+        <li class="dev-card is-shipped"><span class="dev-status">Done · 1.0.1</span><b>Files you can trust</b><span>Only replaces the copy Lightroom handed over, and asks before overwriting anything else. A failed export says so instead of saving the unprocessed photo. Asks before throwing away edits you haven't exported. Runs on macOS 14 Sonoma or later.</span></li>
+        <li class="dev-card is-now"><span class="dev-status">In progress</span><b>The preview tells the truth</b><span>The preview renders at the size you chose, and the export glows like the preview at any file size. Controls do what their labels say, Anti-Halation included. Mask views show exactly the masks the render uses.</span></li>
+        <li class="dev-card is-next"><span class="dev-status">Next</span><b>Steady through long sessions</b><span>A 150-photo session on an 8–16&nbsp;GB Mac without slowing down or losing edits. Big exports use far less memory.</span></li>
+        <li class="dev-card is-next"><span class="dev-status">Next</span><b>Faster</b><span>Measured on prototypes, not in 1.0.1: a 24&nbsp;MP export from 7.6&nbsp;s to 3.1&nbsp;s, a 1600&nbsp;px preview from 488 to 172&nbsp;ms (M3 Max, 24&nbsp;MP test file).</span></li>
+        <li class="dev-card is-next"><span class="dev-status">Next</span><b>Polish</b><span>An up-to-date manual inside the app, a true 100% zoom on Retina screens, a smaller download.</span></li>
       </ul>
-      <div class="track-year"><span class="mono">Ideas</span><span class="track-sub">Not scheduled</span></div>
-      <ul class="track-items track-ideas">
-        <li class="t-idea"><span class="t-status">Idea</span><b>Online presets · More grain control · Video (ProRes) · DaVinci Resolve · Windows · Intel Macs</b><span>Nothing built yet. Halo Pro is Mac and Apple Silicon only for now.</span></li>
+    </div>
+    <div class="dev-year">
+      <div class="dev-year-head"><span class="dev-year-num">Ideas</span><span class="mono">Not scheduled</span></div>
+      <ul class="dev-grid">
+        <li class="dev-card is-idea"><span class="dev-status">Idea</span><b>Online presets</b><span>Sharing and updating looks online.</span></li>
+        <li class="dev-card is-idea"><span class="dev-status">Idea</span><b>More grain control</b><span>A deeper grain model than one slider.</span></li>
+        <li class="dev-card is-idea"><span class="dev-status">Idea</span><b>Vector LUT</b><span>A new LUT system, building on the research.</span></li>
+        <li class="dev-card is-idea"><span class="dev-status">Idea</span><b>Ambassador presets</b><span>Looks from photographers who use it.</span></li>
+        <li class="dev-card is-idea"><span class="dev-status">Idea</span><b>Video</b><span>ProRes and MOV.</span></li>
+        <li class="dev-card is-idea"><span class="dev-status">Idea</span><b>DaVinci Resolve</b><span>A Resolve plug-in.</span></li>
+        <li class="dev-card is-idea"><span class="dev-status">Idea</span><b>Windows</b><span>A Windows version.</span></li>
+        <li class="dev-card is-idea"><span class="dev-status">Idea</span><b>Intel Macs</b><span>Older Macs. Blocked for now: key libraries are Apple Silicon only.</span></li>
       </ul>
+    </div>
     </div>
     <p class="track-note">Own 1.0? 1.0.1 is a free update in your Gumroad library.</p>
   </div>
