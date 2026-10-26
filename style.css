@@ -393,12 +393,12 @@ input[type=range].rng { width: 100%; accent-color: var(--red); margin: 0; }
 .fmt li:focus-visible { outline-offset: -2px; }
 .skip { position: absolute; left: 16px; top: -60px; z-index: 40; padding: 10px 14px; background: var(--fg); color: #000; font: 12px/1 var(--mono); text-decoration: none; border-radius: 4px; }
 .skip:focus { top: 12px; }
-[id] { scroll-margin-top: 88px; }
+html { scroll-padding-top: 88px; }
 .brand strong, .nav .btn { white-space: nowrap; }
 .frame-label { font-size: 7px; }
 
 /* the red glow is for display-size red type only, and goes when more contrast is asked for */
-@media (prefers-contrast: more), (forced-colors: active) { .hero h1 em, .s-title em { text-shadow: none; } }
+@media (prefers-contrast: more), (forced-colors: active) { .hero h1 em, .s-title em { text-shadow: none; } .js .step { opacity: 1; } }
 
 /* ---------- motion pref ---------- */
 @media (prefers-reduced-motion: reduce) {
@@ -486,7 +486,19 @@ input[type=range].rng { width: 100%; accent-color: var(--red); margin: 0; }
 /* the sticky diagram would cover short landscape screens entirely */
 @media (max-width: 1020px) and (max-height: 700px) {
   .path-fig { position: static; }
+  .js .g, .js .step { opacity: 1; }
+  .pathfig .n { display: none; }
 }
+
+/* diagram labels: legible in the side-by-side layout */
+@media (min-width: 1021px) {
+  .pathfig .lay-label, .pathfig .note { font-size: 14px; }
+  .pathfig .crit-text, .pathfig .dim-text { font-size: 13px; }
+}
+
+/* without JavaScript: hide controls that would do nothing */
+html:not(.js) .nav-toggle, html:not(.js) .toggle, html:not(.js) .band, html:not(.js) .band-ctrl .range-row, html:not(.js) .cmp-bar > .mono { display: none; }
+@media (max-width: 640px) { html:not(.js) .hero-copy { padding-bottom: 96px; } }
 @media (max-width: 360px) {
   .brand span { display: none; }
   .nav .wrap { gap: 14px; }

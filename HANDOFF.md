@@ -32,11 +32,15 @@ The page is written to go live **together with the milestone-1 build released as
 library", batch never overwrites, typed values up to 10x. Those are true for the milestone-1 build, not for
 the September 1.0.0 download.
 
-1. Release the milestone-1 build on Gumroad as 1.0.1 (or edit the two 1.0.1 lines in the tracker to the name you use).
-2. Buy Pro once yourself and check that the key arrives and unlocks Lightroom Mode and Batch Mode on a clean Mac.
-3. Decide about the app's startup screen ("currently in BETA… Patreon") and the Gumroad product text
+1. In the app repo, set `__version__ = "1.0.1"` in `halo_pro/version.py` on `main` (it feeds the bundle version and
+   the "Halo Pro v…" tag written into exported files) and replace the hard-coded "v1.0" in the About text
+   (`working_window.py`, Settings › About) with the version constant. Rebuild and notarise.
+2. Release that build on Gumroad as 1.0.1. The page says 1.0.1 in the nav, the structured data, the tracker and the
+   closing line; if you pick another name, search the page for "1.0.1".
+3. Buy Pro once yourself and check that the key arrives and unlocks Lightroom Mode and Batch Mode on a clean Mac.
+4. Decide about the app's startup screen ("currently in BETA… Patreon") and the Gumroad product text
    ("1.0 BETA", "Lightroom plugin", "Intel", "Windows coming soon"); both disagree with the site.
-4. Then merge `redesign-v4` into `main` and push.
+5. Then merge `redesign-v4` into `main` and push.
 
 More detail, including things that shouldn't sit in this public repo, is in the app repo:
 `docs/website-v4-private-notes.md`.
@@ -46,7 +50,7 @@ More detail, including things that shouldn't sit in this public repo, is in the 
 - **Version name** for the milestone-1 build (the page assumes 1.0.1).
 - **No refunds** sits next to a tracker that lists 1.0's problems. Consider a refund window, or keep pushing
   people to try Free first (the page already says so under the prices).
-- **Glow Threshold**: the page says it isn't a hard cut-off in 1.0 and is being reworked. Update when you decide.
+- **Glow Threshold**: the page says it isn't a hard cut-off and that whether 1.1 makes it one is still being decided. Update when you choose.
 - **Old roadmap ideas** (online presets, grain, ProRes, DaVinci, Windows, Intel) are listed as "Idea, not
   scheduled". Remove any you don't want public.
 - **Licence terms**: the page says "one person", "for a studio or company", "licensed for paid work", "free
