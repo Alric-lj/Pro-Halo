@@ -1,0 +1,77 @@
+# Handoff: halopro.app v4 (26 Oct 2026)
+
+Branch `redesign-v4` (built on `redesign-v3`). Nothing is pushed; `main` (the live site) is untouched.
+
+## What v4 is
+
+A page that shows the real app instead of describing it. Order:
+
+1. **Result**: before/after of real exports from Halo Pro (snow, Saab) at printed settings, plus two mask views.
+2. **The app**: the actual window in Lightroom Mode, four callouts, and a switcher for the five panels.
+3. **Light path**: the scroll diagram and remjet switch, each step naming its control.
+4. **Scale**, 5. **Controls** (film mechanism → app control, with app paths; three recipes),
+6. **Precision & files**, 7. **Pro & pricing** (licence, Lightroom Mode, Batch Mode, tiers, requirements),
+8. **Development**: the tracker is back, dated, honest about what is fixed and what isn't.
+
+Red text has a soft red glow (your request), on headings only.
+
+Every factual line was checked against the app's `main` branch by independent reviewers (see "How it was made").
+
+## View it
+
+```
+python3 -m http.server 8000
+```
+
+Then http://localhost:8000 on the Mac, or http://<Mac's Wi-Fi IP>:8000 on your phone (same Wi-Fi).
+
+## Before you publish (merge to main and push)
+
+The page is written to go live **together with the milestone-1 build released as 1.0.1**. It says:
+"macOS 14 Sonoma or later", "Files you can trust: Done · 1.0.1", "1.0.1 is a free update in your Gumroad
+library", batch never overwrites, typed values up to 10x. Those are true for the milestone-1 build, not for
+the September 1.0.0 download.
+
+1. Release the milestone-1 build on Gumroad as 1.0.1 (or edit the two 1.0.1 lines in the tracker to the name you use).
+2. Buy Pro once yourself and check that the key arrives and unlocks Lightroom Mode and Batch Mode on a clean Mac.
+3. Decide about the app's startup screen ("currently in BETA… Patreon") and the Gumroad product text
+   ("1.0 BETA", "Lightroom plugin", "Intel", "Windows coming soon"); both disagree with the site.
+4. Then merge `redesign-v4` into `main` and push.
+
+More detail, including things that shouldn't sit in this public repo, is in the app repo:
+`docs/website-v4-private-notes.md`.
+
+## Decisions for you
+
+- **Version name** for the milestone-1 build (the page assumes 1.0.1).
+- **No refunds** sits next to a tracker that lists 1.0's problems. Consider a refund window, or keep pushing
+  people to try Free first (the page already says so under the prices).
+- **Glow Threshold**: the page says it isn't a hard cut-off in 1.0 and is being reworked. Update when you decide.
+- **Old roadmap ideas** (online presets, grain, ProRes, DaVinci, Windows, Intel) are listed as "Idea, not
+  scheduled". Remove any you don't want public.
+- **Licence terms**: the page says "one person", "for a studio or company", "licensed for paid work", "free
+  updates in your Gumroad library". Add Macs per licence or seats if you have a rule.
+
+## Things only you can add
+
+- A wedding/editorial example with skin, white fabric and practical lights (the strongest ask from the reviews).
+- One real Lightroom Classic Edit In → Save and return run, to confirm the 16-bit round trip end to end.
+- A line or a frame from another working photographer, if you want peer proof.
+
+## How it was made
+
+- Research: five readers mapped the app (UI, engine, pro workflow, status, site history); every claim was
+  fact-checked by a separate agent against the source.
+- Elephant-Goldfish: a spec, eight zero-context reviewers, resolutions, then the build, then six reviewers on
+  the built page, then a final claims and QA check. The spec and review log live in the app repo
+  (`docs/designs/website-v4.md`), not here.
+- Screenshots: `img/app/` comes from the real app window and real exports. Redo them with
+  `tools/website_shots/run.sh` in the app repo (keep that folder out of this repo: it unlocks Pro in memory).
+
+## Known leftovers
+
+- No-JS: on phones the menu needs JavaScript (desktop nav links show without it).
+- The light-path SVG labels are small at 1440 px (about 9 px).
+- The scale section's "× 1.00" factors have no starting Glow Size.
+- `img/ex*.jpg` and `img/hero-wave.jpg` are no longer used; delete when you like.
+- The example look leaves a faint warm cast away from the lights (1.0's threshold); milestone 2 may change it.
