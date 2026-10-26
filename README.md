@@ -1,42 +1,40 @@
 # Halo Pro Website
 
-Marketing / launch page for **Halo Pro** — film halation & mist emulation for macOS (Apple Silicon).
+Marketing page for **Halo Pro**: film halation and mist for macOS (Apple Silicon).
 
-- **Live URL:** https://halopro.app
-- **Repo:** https://github.com/Alric-lj/Pro-Halo
-- **Current:** Version 1.0 launch page, September 2026 (lab-paper theme)
+- **Live URL:** https://halopro.app (GitHub Pages from `main`)
+- **Repo:** https://github.com/Alric-lj/Pro-Halo (public)
+- **Current work:** v4 on branch `redesign-v4`: a page that shows the real app. See `HANDOFF.md`.
 
 ## Structure
 
 ```
-index.html            # Single page, all sections + inline JS (compare slider, "beyond the slider" demo)
-style.css             # All styles. Light "lab paper" theme, ink drawings, stamps
-img/                  # Web-optimised images (hero-wave.jpg, ex1/ex2 before/after)
-Before after/         # Original comparison JPGs (source for img/)
-favicon.svg, apple-touch-icon.png, og-image.png
-CNAME, robots.txt, sitemap.xml
-_old/                 # Previous (dark, tabbed) site for reference
+index.html     # Single page, all sections + inline JS
+style.css      # All styles; tokens in :root
+img/app/       # Real Halo Pro screenshots and exports (v4)
+img/           # Older images (unused by v4)
+Before after/  # Original example photos (source for the screenshots)
+_old/          # Previous site versions, reference only
+favicon.svg, apple-touch-icon.png, og-image.png, CNAME, robots.txt, sitemap.xml
 ```
 
-## Sections
+## Sections (v4)
 
-1. Hero — v1.0 stamp, wave print, buy / free CTAs
-2. No. 01 What halation is — SVG film cross-section (3 emulsion layers) + live canvas "halation lab" (threshold / spread / dye / roll-off)
-3. No. 02 Why float — canvas banding comparison (quantised vs continuous, exaggeration slider) + falloff graph
-4. Fig. 03 Before / after slider (two examples)
-5. No. 04 Use cases — Analog / Realistic / Experimental
-6. No. 05 Legroom — interactive "type past the slider" demo + dial drawing
-7. No. 06 Processing line — roller-transport processor SVG mapped to the pipeline
-8. No. 07 Pricing — Free / €20 / €60 (Gumroad deep links) + honesty box
-9. No. 08 Requirements, enlarger SVG, log
-9. CTA, footer
+1. Hero: canvas of light returning through film; Buy Pro / Free; a one-line Free vs Pro
+2. 01 Result: before/after of real exports (snow, Saab) + two mask views
+3. 02 The app: the Lightroom Mode window with four callouts; a switcher for the five panels
+4. 03 Light path: scroll diagram + remjet toggle; each step names its control
+5. 04 Scale: halo size vs frame size
+6. 05 Controls: film mechanism → app control (with app paths), three recipes
+7. 06 Precision & files: banding demo, typed-value demo, what goes into the file
+8. 07 Pro & pricing: licence, Lightroom Mode, Batch Mode; the three tiers; requirements
+9. 08 Development: dated tracker, 1.1 milestones, ideas
+10. Closing, footer
 
 ## Design
 
-- Paper `#ecebe6` (cool grey-white), ink `#15171a`, halation crimson `#c8323f`, stamp red `#b3202f`, pencil notes `#4d5157`
-- Fonts (Google): Source Serif 4 (text), IBM Plex Mono (labels), Caveat (handwritten notes)
-- Drawings are inline SVG using the `.ink`, `.ink-thin`, `.ink-dash`, `.glow-stroke` classes
-- Subtle animations (rollers, film path, lamp, needle) respect `prefers-reduced-motion`
+Black, quiet, precise. Inter Tight + IBM Plex Mono. One accent: halation red, with a soft glow on display-size
+red type. Graphics explain; they don't decorate.
 
 ## Links
 
@@ -47,12 +45,10 @@ _old/                 # Previous (dark, tabbed) site for reference
 | Organisation (€60) | `?variant=Halo%20Pro%20-%20Organisation&wanted=true` |
 | Free | `?variant=Halo%20Pro%20-%20FREE&wanted=true` |
 
-## Deploy
+## Preview and deploy
 
-Push to `main` — GitHub Pages serves it. No build step.
+`python3 -m http.server 8000`, check 1440 and 390 px. Push to `main` to publish (owner's OK only).
 
-## To update
+## Screenshots
 
-- Version / date: hero stamps, JSON-LD `softwareVersion`/`datePublished`, footer, log list
-- Prices: the three `.tier` cards + JSON-LD offers
-- Images: drop new JPGs in `img/` and update `ex` map in the inline script
+The images in `img/app/` are regenerated from the app with `tools/website_shots/run.sh` in the private app repo.
