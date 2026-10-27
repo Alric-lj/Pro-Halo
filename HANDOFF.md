@@ -51,6 +51,16 @@ More detail, including things that shouldn't sit in this public repo, is in the 
 - **No refunds** sits next to a tracker that lists 1.0's problems. Consider a refund window, or keep pushing
   people to try Free first (the page already says so under the prices).
 - **Glow Threshold**: the page says it isn't a hard cut-off and that whether 1.1 makes it one is still being decided. Update when you choose.
+- **The app's main moved on (27 Oct).** Milestone 2 (strict Glow Threshold, Anti-Halation fixed, same look at any
+  size) and m2b are merged into the app's `main` since this page was written for the milestone-1 build. Pick the build
+  the site launches with, then update the "until 1.1" caveats, the Glow Threshold line above and the screenshots.
+- **"Light through Halo Pro" figure** (Controls, `img/light/light-bars.png`): you judged it inaccurate, and a bench
+  showed the engine itself is off (red lights get no glow, the glow follows a threshold instead of the light, no
+  ring). Take it down or replace it until the engine is rebuilt; the brief for that is in the app repo
+  (`docs/halation-physics-brief.md`). The hero lettering is app output too ("back." barely glows).
+- **Physics copy, small updates**: "roughly 0.13 mm" is right for 35 mm acetate, but Portra 400 moved to a 0.10 mm
+  Estar base in 2025; Kodak is replacing remjet on Vision3; orange cores are better explained as the green and red
+  layers overlapping around 585 nm plus red saturating first.
 - **Old roadmap ideas** (online presets, grain, ProRes, DaVinci, Windows, Intel) are listed as "Idea, not
   scheduled". Remove any you don't want public.
 - **Licence terms**: the page says "one person", "for a studio or company", "licensed for paid work", "free
