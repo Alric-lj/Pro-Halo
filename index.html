@@ -80,7 +80,7 @@
   <canvas id="hero-cv" aria-hidden="true"></canvas>
   <div class="wrap hero-copy">
     <p class="mono" style="margin-bottom:28px">Halo Pro &nbsp;·&nbsp; for macOS on Apple Silicon</p>
-    <h1>Halation is light that <em>comes back.</em></h1>
+    <h1>Halation is light that <em class="lit"><span class="vh">comes back.</span><img src="img/light/comes-back.png" width="1200" height="340" alt="" aria-hidden="true"></em></h1>
     <p class="hero-sub">A Mac app for film halation and mist, built on how halation forms in film: where the glow starts, how far it travels, why it turns red. Every step in 32-bit float.</p>
     <div class="hero-cta">
       <a class="btn btn--solid" href="https://alriclj.gumroad.com/l/HALO_PRO?variant=Halo%20Pro&amp;wanted=true">Buy Pro · €20</a>
@@ -90,7 +90,7 @@
   </div>
   <div class="hero-foot">
     <div class="wrap">
-      <span class="mono">Simulated: a point of light on colour negative, no backing</span>
+      <span class="mono">Simulated: a point of light on colour negative, no backing · Headline: type processed in Halo Pro</span>
       <a class="mono" href="#result" style="text-decoration:none">See it on a photo ↓</a>
     </div>
   </div>
@@ -424,6 +424,21 @@
         <p class="s-intro">Halo Pro doesn't trace rays through a film base. It works from your photo's bright areas, with a control for each part of the path, under the app's own names. Halation Intensity sets the overall strength.</p>
       </div>
     </div>
+
+    <figure class="lightfig">
+      <div class="lightfig-bar">
+        <span class="mono">Light through Halo Pro</span>
+        <div class="toggle" id="light-switch" role="group" aria-label="Light bars">
+          <button type="button" data-light="source">The light</button>
+          <button type="button" class="is-on" data-light="halo">Through Halo Pro</button>
+        </div>
+      </div>
+      <div class="lightfig-img"><img id="light-img" src="img/light/light-bars.png" width="1400" height="453" alt="Three bars of light after Halo Pro: an orange glow gathers at the white end of a fading bar and around the hot centre of a second bar; a full-colour spectrum bar barely glows" loading="lazy"></div>
+      <figcaption>
+        <p>Three bars of light: white fading out, a hot centre, and the full spectrum. The glow gathers where the light is brightest. Its strength comes from how bright a light is, not its colour, so the saturated spectrum barely glows. Its colour doesn't come from the light either: it starts red and shifts toward orange where the glow is strongest.</p>
+        <p class="mono shot-meta">Made in Halo Pro: Halation Intensity 3.50 · Glow Size 8.00 · Glow Boost 2.00 · Color Shift 0.55 · Highlight Cutoff 0.85 · Mist off. Values typed past the sliders.</p>
+      </figcaption>
+    </figure>
 
     <div class="model-head"><span></span><span class="mono">In the film</span><span class="mono">In Halo Pro</span></div>
     <div class="model">
@@ -951,6 +966,17 @@ function switcher(sel, key, on) {
   new IntersectionObserver((es, io) => { if (es[0].isIntersecting) { ex.saab.slice(0, 2).forEach(src => { new Image().src = src; }); io.disconnect(); } },
     { rootMargin: '600px' }).observe(cmp);
   switcher('#cmp-switch', 'ex', k => { before.src = ex[k][0]; after.src = ex[k][1]; cam.textContent = ex[k][2]; range.value = 50; set(50); });
+})();
+
+/* ---------------- Light bars: the source light or the Halo Pro export ---------------- */
+(function () {
+  const img = document.getElementById('light-img'); if (!img) return;
+  const v = {
+    source: ['img/light/light-bars-source.png', 'Three bars of light before processing: white fading out, a hot centre, and a full-colour spectrum, with no glow'],
+    halo: ['img/light/light-bars.png', img.alt]
+  };
+  switcher('#light-switch', 'light', k => { img.src = v[k][0]; img.alt = v[k][1]; });
+  new IntersectionObserver((es, io) => { if (es[0].isIntersecting) { new Image().src = v.source[0]; io.disconnect(); } }, { rootMargin: '400px' }).observe(img);
 })();
 
 /* ---------------- The app: panel switcher ---------------- */

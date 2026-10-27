@@ -394,6 +394,19 @@ input[type=range].rng { width: 100%; accent-color: var(--red); margin: 0; }
 .dev-year--now .dev-card:first-child { grid-column: 1 / -1; }
 .track-note { margin: 28px 0 0; font-size: 15px; color: var(--fg-2); }
 
+/* real halation, made in Halo Pro: transparent exports of light on black */
+.vh { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+/* source: 320 px type, 110 px padding for the halo, .94 line box -> image 1.628em tall, -.344em margins */
+.hero h1 em.lit { display: inline-block; vertical-align: top; text-shadow: none; }
+.hero h1 em.lit img { display: block; width: auto; max-width: none; height: 1.628em; margin: -.344em; }
+.lightfig { margin: 0 0 72px; }
+.lightfig-bar { display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; margin-bottom: 14px; }
+.lightfig-img { border: 1px solid var(--line); border-radius: 6px; background: #000; overflow: hidden; }
+.lightfig-img img { width: 100%; height: auto; }
+.lightfig figcaption { display: grid; grid-template-columns: 7fr 5fr; gap: 24px 64px; margin-top: 18px; }
+.lightfig figcaption p:first-child { margin: 0; color: var(--fg-2); font-size: 15px; }
+.lightfig figcaption .shot-meta { margin: 0; }
+
 /* focus, skip link, anchors */
 :focus-visible { outline: 2px solid var(--fg); outline-offset: 3px; }
 .cmp:has(.cmp-range:focus-visible) .cmp-handle::after { outline: 2px solid #fff; outline-offset: 3px; }
@@ -463,6 +476,7 @@ html { scroll-padding-top: 88px; }
   .callouts { grid-template-columns: 1fr; gap: 0; }
   .callouts li { padding: 14px 0 16px; }
   .engine-strip { grid-template-columns: 1fr; }
+  .lightfig figcaption { grid-template-columns: 1fr; }
   .tour { margin-top: 72px; }
   .tour-panel { width: 100%; }
   .facts p { grid-template-columns: 1fr; gap: 4px; }
