@@ -138,7 +138,7 @@
         </figure>
         <figure>
           <img src="img/app/snow-mask-glow.jpg" width="1600" height="1065" alt="View 7, Glow Preview: thin red and orange rings on black around each bright flake" loading="lazy">
-          <figcaption><span class="key">7</span><b>Glow Preview.</b> The glow on its own, brightened to fill the range. It sits around each flake, not on it: it only shows where it spreads past the light. These outlines are that edge, not the film ring in 03.</figcaption>
+          <figcaption><span class="key">7</span><b>Glow Preview.</b> The glow on its own, brightened to fill the range. It sits around each flake, not on it: it only shows where it spreads past the light. These outlines are that edge, not the ring film makes (see <a href="#physics">Light path</a>).</figcaption>
         </figure>
       </div>
       <p class="engine-note">The others show the light that feeds the glow, the brightness range, sky and colour masks, the final composite and the lens smear. They show exactly what the render uses, and they never end up in an export.</p>
@@ -450,7 +450,7 @@
         <div><span class="path">Built in</span><h3>Linear light, per colour</h3><p>The glow is worked out in linear light, with your file's own tone curve. A blue light makes no glow.</p></div></div>
       <div class="model-row"><span class="mono">Distance</span>
         <div><h3>Sideways travel in the base</h3><p>Set by base thickness and angle: a property of the film stock.</p></div>
-        <div><span class="path">Halation › Effect › Glow</span><h3>Size · Format · Roll-off</h3><p>Format picks the film the glow is measured against (see 04); Size 1 is the glow width typical of that film. Roll-off goes from film's tight glow to a long, smooth tail.</p></div></div>
+        <div><span class="path">Halation › Effect › Glow</span><h3>Size · Format · Roll-off</h3><p>Format picks the film the glow is measured against (see <a href="#scale">Scale</a>); Size 1 is the glow width typical of that film. Roll-off goes from film's tight glow to a long, smooth tail.</p></div></div>
       <div class="model-row"><span class="mono">Colour out</span>
         <div><h3>Red layer first, orange when it's strong</h3><p>Returning light exposes red. Where it's strong enough to reach green too, it reads as orange.</p></div>
         <div><span class="path">Halation › Effect › Color &amp; Landing</span><h3>Green return</h3><p>How much green light comes back as orange glow. 0 makes the glow red only.</p></div></div>
@@ -470,7 +470,7 @@
         <div><h3>Diffusion, fringing, smear, grain</h3><p>A mist filter scatters light in front of the lens; fringing and smear come from the glass; grain and bloom are separate looks. Different mechanisms.</p></div>
         <div><span class="path">Mist · Edit · Halation › Effect <i>Advanced</i></span><h3>Mist · Grain · Bloom · Fringing · Lens Smear</h3><p>Mist, Grain and Bloom are separate stages; Mist runs after halation, so mist light never causes halation. Fringing and Lens Smear work on the glow itself: Fringing shifts its red, Lens Smear streaks it.</p></div></div>
     </div>
-    <p class="model-note">To be straight about it: Halo Pro's glow is a tight core with a soft tail, not the ring in 03, and its default width and strength were tuned against measured reference looks rather than worked out from a base thickness. A true ring is on the list below.</p>
+    <p class="model-note">To be straight about it: Halo Pro's glow is a tight core with a soft tail, not the ring explained under <a href="#physics">Light path</a>, and its default width and strength were tuned against measured reference looks rather than worked out from a base thickness. A true ring is on the list below.</p>
 
     <div class="uses">
       <div class="use">
@@ -663,7 +663,7 @@
       <ul class="dev-grid">
         <li class="dev-card is-shipped"><span class="dev-status">Done · 2.0</span><b>Files you can trust</b><span>Only replaces the copy Lightroom handed over, and asks before overwriting anything else. A failed export says so instead of saving the unprocessed photo. Asks before throwing away edits you haven't exported. Runs on macOS 14 Sonoma or later.</span></li>
         <li class="dev-card is-shipped"><span class="dev-status">Done · 2.0</span><b>The preview tells the truth</b><span>The preview glows like the export at any size, with accurate colour on Display P3 screens and a true 1:1 view. Mask views show exactly what the render uses.</span></li>
-        <li class="dev-card is-shipped"><span class="dev-status">Done · 2.x</span><b>Faster, and no banding</b><span>Faster exports than 1.x (see Speed under 06). 8-bit exports dithered, 16-bit exact.</span></li>
+        <li class="dev-card is-shipped"><span class="dev-status">Done · 2.x</span><b>Faster, and no banding</b><span>Faster exports than 1.x (see Speed under <a href="#float">Precision</a>). 8-bit exports dithered, 16-bit exact.</span></li>
         <li class="dev-card is-next"><span class="dev-status">Next</span><b>Steady through long sessions</b><span>A 150-photo session on an 8–16&nbsp;GB Mac without slowing down or losing edits. Big exports use far less memory.</span></li>
         <li class="dev-card is-next"><span class="dev-status">Next</span><b>A new control panel</b><span>Film and Creative sections, and a set of starting looks from realistic to artistic.</span></li>
         <li class="dev-card is-next"><span class="dev-status">Next</span><b>More creative glow</b><span>A better big glow, a halation ring, light streaks, an oval (anamorphic) glow and a white bloom.</span></li>
