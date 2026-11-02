@@ -56,6 +56,63 @@ More detail, including things that shouldn't sit in this public repo, is in the 
 - **Licence terms**: the page says "one person", "for a studio or company", "licensed for paid work", "free
   updates in your Gumroad library". Add Macs per licence or seats if you have a rule.
 
+## Technical note and design deep dive (2 Nov 2026, evening)
+
+**New page: `notes.html`, "Halation, measured"**, a short paper on how Halo Pro 2.2 forms halation. Linked from the
+nav ("Technical note") and from the light-bars figure. 13 figures, every setting printed:
+- Test charts as 32-bit float TIFFs (light from 2 stops under to 5 over white): brightness, colour, size, where the
+  glow starts, shape/Roll-off, Green return, Landing. Format Super 8 so the glow shows at web size (said so).
+- Three Blender scenes rendered as linear light (lamps 40-120x white): night street, nine neon rings, window with
+  candles and a lamp; each at the Default and at 16 mm / Amount 1.5.
+- Three measured plots: glow vs brightness on a log axis against film's proportional line (from an unclipped 32-bit
+  export: 2.3x at +1 stop, 42x at +5, i.e. doubling per stop), glow by colour (blue 0, green/cyan about a fifth of
+  white), and the profile with Roll-off 0 / 0.5 / 1. Data tables under each plot.
+- Limits stated: no pinpoint ring yet, the Default matched to an established film-emulation look, clipped files,
+  colour spaces, beta limits.
+Everything is made by the private pipeline in the app repo, `tools/website_shots/note/` (README there).
+
+**Deep dive** (six reviewers + synthesis; the full ranked list is in the app repo, `docs/designs/website-deep-dive-2026-11-02.md`). Done:
+physics corrected on the main page and in the note (a fixed share of every tone reaches the base, so halation is
+proportional to light; orange cores from red filling first; rings fill in to a core and tail around real lights);
+a "What Halo Pro follows / Not modelled yet" block after Light path; the Default's provenance stated plainly
+(hero, meta, Controls intro, note); the phone slider no longer moves when you scroll past it; the rendered night
+street opens the before/after (labelled "not a photograph"); nav Result / Light path / Controls / Pricing /
+Technical note; Scale lists all six formats with a note on real bases; 44 px touch targets; dev/footer wording.
+
+**Decisions for you (from the deep dive):**
+- Provenance wording: the page now says the Default was "matched to an established film-emulation look, measured
+  from its exported pictures, not derived from a base thickness" (no tool named). Keep, reword, or re-fit the
+  Default to a physical model (then the sentence can say so).
+- Red glowing second line on every section heading: keep everywhere, or only where red is the subject (Light path,
+  Scale, Controls)?
+- Closing call to action: make "Download free" the solid button and "Buy Pro" the link (try first, then buy)?
+- The rendered street opens the before/after until your night photo exists. OK?
+
+**Photos to shoot** (each proves something specific; keep the raws; for film note stock, lab, scanner):
+1. The key pair: a wet night street with sodium and white-LED lamps, tail lights and headlights, on CineStill 800T
+   and on digital (raw) from the same tripod spot, same lens, minutes apart. Shows whether the glow matches film.
+2. A point source on film: a pinhole LED or distant bare bulb in a dark room on CineStill, bracketed, plus a frosted
+   bulb in the same frame. Shows the ring (and lets us measure its radius) and how it fills in around a wider light.
+3. The same scene on Portra 400 (has an anti-halation layer) next to the CineStill frame: backing vs no backing.
+4. A colour wall: red, blue and white neon or LED signs and a green signal in one frame at night.
+5. A tungsten interior: bare bulbs, a table lamp, candles, faces lit by them.
+6. A backlit portrait: sun or window behind the head, rim-lit hair, a white shirt or dress; we process it at
+   Landing 0.05 and 1 with a 100 % face crop.
+7. Sun through bare branches, and blinds or a window grille behind a person (Smooth wide glow, Soft fall-off, and
+   the known moiré limit).
+8. A brightness bracket: a street lamp next to a white wall at -2 / 0 / +2 stops, plus a merged 32-bit HDR.
+9. A format pair: the same lit scene on 35 mm and 120 (6x7), framed alike.
+10. A mist pair: the same scene through a real 1/4 Black Pro-Mist and without it.
+
+**Still open from the deep dive** (not done tonight): a 1:1 loupe and "halation only / pushed" states on the
+before/after; a film scan as Fig. 0 (needs shots 1-3); regrouping the Controls rows; redrawing the light-path diagram
+larger (with sub-critical rays escaping, ~4 % returning); one shared figure component for both pages; a portrait
+bars image for phones; the Scale SVG at 102 mm for 4x5 and the format strip under it; shorter Development section;
+a fuller Sources list (Kodak data sheets, AHU, patents); recipes with pictures; a Mist picture; image weights
+(srcset/WebP); the banding demo rebuilt as a real 8-bit vs float comparison; type-size tokens; testers' photos.
+In the note: a film-model figure (ring around a point vs the app's glow), a backing-shape figure, a mist vs
+halation scene, and a downloadable test-chart pack.
+
 ## Gumroad product page (live since 2 Nov 2026)
 
 `https://alriclj.gumroad.com/l/HALO_PRO` now shows a custom landing page (Gumroad product `btgaby`) instead of the
