@@ -84,8 +84,7 @@ Technical note; Scale lists all six formats with a note on real bases; 44 px tou
   app repo `docs/designs/default-refit-to-physics-brief.md`. Until it ships the page and note keep today's wording
   ("matched to a look I made in an established film-emulation plug-in …"); then the Controls intro, the "Not
   modelled yet" list and the note's abstract, method and limits change, and the note's figures get re-rendered.
-- Red glowing second line on every section heading: keep everywhere, or only where red is the subject (Light path,
-  Scale, Controls)?
+- Red glowing second line on section headings: decided 2 Nov, hero and Light path only (see the taste-skill pass).
 - Closing call to action: make "Download free" the solid button and "Buy Pro" the link (try first, then buy)?
 - The rendered street opens the before/after until your night photo exists. OK?
 
@@ -147,9 +146,9 @@ Not taken, and why: the skill bans monospace, hairlines and the red glow outrigh
 wants running text in full white (ours is soft grey at about 8:1 contrast, kept for a long dark page) and shorter
 pages (about 600 words); the note now carries the detail, so a shorter main page is a later, content decision.
 
-**Decision for you:** the red glowing second line on every section heading. The skill's rule is one accent, on the
-action and one other thing; the page has it on the hero and all eight section headings. Suggestion: keep it on the
-hero and on the Light path heading (where red is the subject), and set the other seven section headings in white.
+**Red headings, decided 2 Nov:** the red glowing second line stays on the hero and the Light path heading (where red
+is the subject); the other seven section headings are white (`#physics .s-title em` in `style.css`). The note's title
+keeps its red line, as that page's hero.
 
 ## Gumroad product page (live since 2 Nov 2026)
 

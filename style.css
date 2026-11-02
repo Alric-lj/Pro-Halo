@@ -121,7 +121,9 @@ p { margin: 0 0 1em; }
 .s-index { padding-top: 10px; }
 .s-title { font-size: var(--t-section); line-height: 1; max-width: 13em; }
 .s-title { text-wrap: balance; }
-.s-title em { display: block; font-style: normal; color: var(--red); text-shadow: var(--glow); }
+.s-title em { display: block; font-style: normal; }
+/* red is the one accent: the hero, and the Light path heading where red is the subject (owner, 2 Nov 2026) */
+#physics .s-title em { color: var(--red); text-shadow: var(--glow); }
 .s-intro { margin-top: 28px; max-width: 36em; font-size: var(--t-lead); color: var(--fg-2); }
 .cols { display: grid; grid-template-columns: repeat(12, 1fr); gap: 24px; }
 
@@ -425,7 +427,7 @@ html { scroll-padding-top: 88px; }
 .frame-label { font-size: 7px; }
 
 /* the red glow is for display-size red type only, and goes when more contrast is asked for */
-@media (prefers-contrast: more), (forced-colors: active) { .hero h1 em, .s-title em { text-shadow: none; } .js .step { opacity: 1; } }
+@media (prefers-contrast: more), (forced-colors: active) { .hero h1 em, #physics .s-title em, .note-head h1 em { text-shadow: none; } .js .step { opacity: 1; } }
 
 /* ---------- motion pref ---------- */
 @media (prefers-reduced-motion: reduce) {

@@ -71,7 +71,7 @@ Links: `https://alriclj.gumroad.com/l/HALO_PRO?variant=<Halo%20Pro | Halo%20Pro%
 ## Files
 - `index.html` — single page, inline JS (hero canvas, before/after, panel switcher, light-path scroll steps + remjet toggle, scale figure, banding canvases, typed-value demo, menu).
   v4 order: Result → The app → Light path → Scale → Controls → Precision & files → Pro & pricing → Development.
-- `style.css` — tokens in `:root` (colours, and the six type sizes `--t-small` … `--t-display`). Fonts: Inter Tight + IBM Plex Mono (Google Fonts). Red glow (`--glow`) only on display-size red type (owner's request).
+- `style.css` — tokens in `:root` (colours, and the six type sizes `--t-small` … `--t-display`). Fonts: Inter Tight + IBM Plex Mono (Google Fonts). Red glow (`--glow`) only on display-size red type (owner's request); the red second line only on the hero, the Light path heading and the note's title (owner, 2 Nov 2026).
 - `img/app/` — real app screenshots and exports. `img/ex*`, `hero-wave.jpg` — older images, unused by v4. `_old/` — previous versions, reference only.
 - `HANDOFF.md` — state of the v4 redesign, open decisions, publish checklist.
 - The two SVG figures (light path, formats) were generated with a small Python script; edit the inline SVG directly now.
