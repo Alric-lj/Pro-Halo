@@ -34,7 +34,7 @@ The page describes **Halo Pro 2.2.0 beta** (`releases/Halo-Pro-2.2.0-beta-2026-1
 "2.2 beta" in the nav, hero, structured data and closing line, and "2.2 is a free update in your Gumroad library".
 
 1. Put the 2.2 beta DMG on Gumroad (the file there, "Halo Pro.dmg", 205.7 MB, matched no release on 2 Nov).
-2. Update the Gumroad landing page from 2.1 to 2.2 (`gumroad/`, see below) and republish it.
+2. ~~Update the Gumroad landing page to 2.2~~ Done: republished 2 Nov 2026.
 3. Buy Pro once yourself and check that the key on the Gumroad download page unlocks Lightroom Mode and Batch Mode
    on a clean Mac.
 4. Decide about the Patreon line inside the app (Halation panel and manual: "Support development at
@@ -59,7 +59,7 @@ More detail, including things that shouldn't sit in this public repo, is in the 
 ## Gumroad product page (live since 2 Nov 2026)
 
 `https://alriclj.gumroad.com/l/HALO_PRO` now shows a custom landing page (Gumroad product `btgaby`) instead of the
-old 1.0 description. It describes **2.1 beta**, with real 2.1 exports (startup look) and the 2.1 window.
+old 1.0 description. It describes **2.2 beta** (republished 2 Nov), with real 2.2 exports (startup look) and the 2.2 window.
 - Source: `gumroad/landing.src.html` + `gumroad/img/`; `python3 gumroad/build.py` inlines the images into
   `gumroad/landing.html` (Gumroad's limit is 500,000 characters; it is ~400 KB).
 - Gumroad CLI (`brew install antiwork/cli/gumroad`, signed in): preview without publishing
