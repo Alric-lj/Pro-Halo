@@ -80,10 +80,10 @@ street opens the before/after (labelled "not a photograph"); nav Result / Light 
 Technical note; Scale lists all six formats with a note on real bases; 44 px touch targets; dev/footer wording.
 
 **Decisions for you (from the deep dive):**
-- Provenance wording: the page and note now say the Default's width, strength, colour and start were "matched to a
-  look I made in an established film-emulation plug-in, measured from its exported pictures, not derived from a
-  base thickness" (no tool named; first person, your voice). Keep, reword, or re-fit the Default to a physical model
-  (then the sentence can say so).
+- Provenance: **decided 2 Nov: re-fit the Default to a physical model** of a 35 mm base. Brief for the app chat:
+  app repo `docs/designs/default-refit-to-physics-brief.md`. Until it ships the page and note keep today's wording
+  ("matched to a look I made in an established film-emulation plug-in …"); then the Controls intro, the "Not
+  modelled yet" list and the note's abstract, method and limits change, and the note's figures get re-rendered.
 - Red glowing second line on every section heading: keep everywhere, or only where red is the subject (Light path,
   Scale, Controls)?
 - Closing call to action: make "Download free" the solid button and "Buy Pro" the link (try first, then buy)?
