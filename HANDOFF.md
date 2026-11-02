@@ -89,6 +89,11 @@ Technical note; Scale lists all six formats with a note on real bases; 44 px tou
 - Closing call to action: make "Download free" the solid button and "Buy Pro" the link (try first, then buy)?
 - The rendered street opens the before/after until your night photo exists. OK?
 
+**Fixing the note's five limits** (ring, matched Default, clipped files, colour spaces, diagonal stripes): owner
+asked for it on 2 Nov; brief for the app chat in the app repo, `docs/designs/limits-deep-dive-brief.md` (the Default
+re-fit has its own, `default-refit-to-physics-brief.md`). When each ships, update the note's Limits, the main page's
+"Not modelled yet" block and re-render the note's figures.
+
 **Photos to shoot** (each proves something specific; keep the raws; for film note stock, lab, scanner):
 1. The key pair: a wet night street with sodium and white-LED lamps, tail lights and headlights, on CineStill 800T
    and on digital (raw) from the same tripod spot, same lens, minutes apart. Shows whether the glow matches film.
