@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Halation, measured — a technical note on Halo Pro 2.2</title>
+  <meta name="description" content="How Halo Pro 2.2 forms halation, tested with controlled light: test charts holding light up to 32 times white, rendered light scenes and real photographs, with every setting printed.">
+  <link rel="canonical" href="https://halopro.app/notes.html">
+  <meta name="author" content="Alric Ljunghager">
+  <meta name="theme-color" content="#070707">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://halopro.app/notes.html">
+  <meta property="og:title" content="Halation, measured — a technical note on Halo Pro 2.2">
+  <meta property="og:description" content="Test charts, rendered light scenes and photographs through Halo Pro 2.2, with every setting printed.">
+  <meta property="og:image" content="https://halopro.app/img/note/og-note.jpg">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500&family=IBM+Plex+Mono:wght@400&display=swap" rel="stylesheet">
+  <script>document.documentElement.classList.add('js')</script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<nav class="nav">
+  <div class="wrap">
+    <a class="brand" href="index.html" aria-label="Halo Pro home">
+      <svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="7.5" fill="none" stroke="#ff3d22" stroke-width="1.2" opacity=".85"/><circle cx="10" cy="10" r="2.4" fill="#fff4ea"/></svg>
+      <strong>Halo Pro</strong><span>Technical note</span>
+    </a>
+    <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="nav-links">Menu</button>
+    <ul id="nav-links">
+      <li><a href="#method">Method</a></li>
+      <li><a href="#results">Results</a></li>
+      <li><a href="#scenes">Scenes</a></li>
+      <li><a href="#photos">Photographs</a></li>
+      <li><a href="#limits">Limits</a></li>
+    </ul>
+    <a class="btn" href="index.html#pricing">Try Halo Pro</a>
+  </div>
+</nav>
+
+<main id="main">
+<header class="note-head">
+  <div class="wrap">
+    <p class="mono note-meta"><span>Technical note</span><span>Halo Pro 2.2 beta</span><span>November 2026</span><span>Alric Ljunghager</span></p>
+    <h1>Halation, measured. <em>What the glow does with light.</em></h1>
+    <div class="abstract">
+      <span class="mono">Abstract</span>
+      <p>Halation is light that passes through the film, reflects off the back of the base and exposes the film a second time from behind. We tested how Halo Pro 2.2 reproduces it with controlled light: test charts holding light from two stops under white to five stops over it, three rendered light scenes, and real photographs. In these tests the glow doubles with every stop above white, as on film, follows the colour of the light the way colour negative film does (red glows, blue does not), grows with the size of the light, starts near white, stays off surfaces that are already bright, and scales with the film format. Around real lights it is a tight core with a soft tail; it does not yet draw the ring film makes around a pinpoint, and its default look was matched to an established film-emulation look rather than derived from a base thickness. These and other limits are listed at the end. Every figure gives the settings it was made with.</p>
+    </div>
+  </div>
+</header>
+
+<section class="note-sec" id="film">
+  <div class="wrap">
+    <h2><span class="mono">1</span>Halation on film</h2>
+    <div class="note-body">
+      <p>A colour negative is three light-sensitive layers on a clear base about a tenth of a millimetre thick. Blue is recorded on top and a yellow filter stops what is left of it; green and red go deeper. The emulsion absorbs most of the light on the way down, never all of it: a fixed share of every tone leaves it, scattered, into the base. At the back of the base, light that arrives more obliquely than the critical angle (about 42° for a refractive index of 1.5) cannot leave and is reflected back up; nearer straight down only about 4&nbsp;% reflects [5]. It re-enters the emulsion from below and meets the red-sensitive layer first, which is why halation is red. The red and green layers' sensitivities overlap around 585–590&nbsp;nm, and red fills up first, so the strongest part of a halo reads orange [1, 2].</p>
+      <p>Four things follow. Halation is proportional to the light: every tone makes some, but only lights many stops brighter than their surroundings make enough to see. Its colour follows the light: red reaches the base, blue does not. The distance it travels is set by the base: from a single point the light comes back as a ring about 0.23&nbsp;mm out on 35&nbsp;mm film, and around any real light wider than that the rings from all its points overlap into a bright core and a soft tail, so the gap only shows around pinpoints. And film stocks are made to prevent it, with an anti-halation layer or, on motion-picture film, a carbon-black backing called remjet; remove the backing, as CineStill does, and it comes back [3, 4]. The <a href="index.html#physics">Light path</a> section on the main page draws this step by step.</p>
+    </div>
+  </div>
+</section>
+
+<section class="note-sec" id="method">
+  <div class="wrap">
+    <h2><span class="mono">2</span>Method</h2>
+    <div class="note-body">
+      <p><strong>Test charts.</strong> Lights on black, drawn as 32-bit float TIFF files so they can hold light above white: an exposure ladder from two stops under white to five stops over it, nine colours at the same peak (two stops over white in their strongest channel), seven sizes from 1 to 64 pixels in radius, a ramp of lights from 3.5 stops under white to white, the same light on black, mid grey and a bright surface, and a single small light for profiles.</p>
+      <p><strong>Rendered scenes.</strong> A wet night street, a wall of neon rings in nine colours, and an interior with a window, candles and a lamp, built from simple shapes and rendered in Blender (Cycles) as linear light, with the brightest lights at roughly 40 to 120 times white. A camera or a scanner would clip most of that; a 32-bit file keeps it.</p>
+      <p><strong>Processing.</strong> Every file was opened in Halo Pro 2.2 beta and exported with the app's own Export: halation only, Mist off. The settings are printed under each figure. The charts use Format Super 8, so the glow is wide enough to see at this page's size; the scenes use the 35&nbsp;mm Default look and a stronger 16&nbsp;mm look.</p>
+      <p><strong>Measurement.</strong> The plots compare each export with the chart that went in, in linear light: glow is what the app added. Each light's glow is summed in a ring around it. The brightness plot uses a 32-bit float export, which does not clip the glow at white; the others use 16-bit exports. The numbers behind each plot are in the Data table under it.</p>
+      <p><strong>Where the Default comes from.</strong> Halo Pro's default width, strength and colour were matched to an established film-emulation look, measured from that tool's exported pictures, rather than derived from a base thickness. The controls follow the film; the starting point is a look people know.</p>
+    </div>
+  </div>
+</section>
+
+<section class="note-sec" id="results">
+  <div class="wrap">
+    <h2><span class="mono">3</span>Results</h2>
+
+    <figure class="nf" id="fig1">
+      <div class="nf-bar"><span class="mono">Fig. 1 · Brightness</span>
+        <div class="toggle" role="group" aria-label="Figure 1"><button type="button" data-for="f1" data-show="before">The light</button><button type="button" class="is-on" data-for="f1" data-show="after">Through Halo Pro</button></div></div>
+      <div class="nf-img" id="f1" data-show="after">
+        <img src="img/note/ladder-src.jpg" width="1600" height="400" alt="Eight white lights of the same size, from two stops under white to five stops over white; above white they all look the same" loading="lazy">
+        <img class="nf-after" src="img/note/ladder.jpg" width="1600" height="400" alt="The same lights after Halo Pro: no glow on the two dimmest, a small glow at white, and a red-orange halo that grows with every stop above white" loading="lazy">
+      </div>
+      <svg class="plot" viewBox="0 0 860 320" role="img" aria-label="Glow against the brightness of the light on a log scale: none two stops under white, then doubling with every stop above white, alongside the proportional line">
+<line class="pl-grid" x1="64" x2="844" y1="272.0" y2="272.0"/><text class="pl-tick" x="56" y="276.0" text-anchor="end">1/64</text>
+<line class="pl-grid" x1="64" x2="844" y1="229.7" y2="229.7"/><text class="pl-tick" x="56" y="233.7" text-anchor="end">1/16</text>
+<line class="pl-grid" x1="64" x2="844" y1="187.3" y2="187.3"/><text class="pl-tick" x="56" y="191.3" text-anchor="end">1/4</text>
+<line class="pl-grid" x1="64" x2="844" y1="145.0" y2="145.0"/><text class="pl-tick" x="56" y="149.0" text-anchor="end">1</text>
+<line class="pl-grid" x1="64" x2="844" y1="102.7" y2="102.7"/><text class="pl-tick" x="56" y="106.7" text-anchor="end">4</text>
+<line class="pl-grid" x1="64" x2="844" y1="60.3" y2="60.3"/><text class="pl-tick" x="56" y="64.3" text-anchor="end">16</text>
+<line class="pl-grid" x1="64" x2="844" y1="18.0" y2="18.0"/><text class="pl-tick" x="56" y="22.0" text-anchor="end">64</text>
+<text class="pl-tick" x="64.0" y="290" text-anchor="middle">-2</text>
+<text class="pl-tick" x="175.4" y="290" text-anchor="middle">-1</text>
+<text class="pl-tick" x="286.9" y="290" text-anchor="middle">0</text>
+<text class="pl-tick" x="398.3" y="290" text-anchor="middle">+1</text>
+<text class="pl-tick" x="509.7" y="290" text-anchor="middle">+2</text>
+<text class="pl-tick" x="621.1" y="290" text-anchor="middle">+3</text>
+<text class="pl-tick" x="732.6" y="290" text-anchor="middle">+4</text>
+<text class="pl-tick" x="844.0" y="290" text-anchor="middle">+5</text>
+<line class="pl-axis" x1="64" x2="844" y1="272" y2="272"/>
+<text class="pl-label" x="454.0" y="314" text-anchor="middle">Brightness of the light, stops above white</text>
+<text class="pl-label" x="14" y="145.0" text-anchor="middle" transform="rotate(-90 14 145.0)">Glow (white = 1, log scale)</text>
+<line class="pl-ref" x1="286.9" y1="145.0" x2="844.0" y2="39.2"><title>Proportional to the light: twice the glow per stop</title></line>
+<text class="pl-val" x="632.3" y="107.5">proportional: ×2 per stop</text>
+<polyline class="pl-line" points="64.0,252.1 175.4,182.8 286.9,145.0 398.3,119.2 509.7,96.1 621.1,73.8 732.6,52.1 844.0,30.7"/>
+<circle class="pl-dot" cx="64.0" cy="252.1" r="4.5"><title>-2 stops: glow 0.03× the glow at white</title></circle>
+<circle class="pl-dot" cx="175.4" cy="182.8" r="4.5"><title>-1 stops: glow 0.29× the glow at white</title></circle>
+<circle class="pl-dot" cx="286.9" cy="145.0" r="4.5"><title>+0 stops: glow 1.00× the glow at white</title></circle>
+<circle class="pl-dot" cx="398.3" cy="119.2" r="4.5"><title>+1 stops: glow 2.33× the glow at white</title></circle>
+<circle class="pl-dot" cx="509.7" cy="96.1" r="4.5"><title>+2 stops: glow 4.96× the glow at white</title></circle>
+<circle class="pl-dot" cx="621.1" cy="73.8" r="4.5"><title>+3 stops: glow 10.29× the glow at white</title></circle>
+<circle class="pl-dot" cx="732.6" cy="52.1" r="4.5"><title>+4 stops: glow 20.93× the glow at white</title></circle>
+<circle class="pl-dot" cx="844.0" cy="30.7" r="4.5"><title>+5 stops: glow 42.19× the glow at white</title></circle>
+<text class="pl-val" x="834.0" y="18.7" text-anchor="end">42× at +5 stops</text>
+</svg>
+<details class="pl-data"><summary class="mono">Data</summary><table><tr><th>Stops vs white</th><td>-2</td><td>-1</td><td>+0</td><td>+1</td><td>+2</td><td>+3</td><td>+4</td><td>+5</td></tr><tr><th>Glow (white = 1)</th><td>0.03</td><td>0.29</td><td>1.00</td><td>2.33</td><td>4.96</td><td>10.29</td><td>20.93</td><td>42.19</td></tr></table></details>
+      <figcaption class="nf-cap">
+        <p><b>The glow doubles with every stop.</b> Above white, a normal file shows every light as the same white disc; the glow tells them apart. None at two stops under white, a little at white, then twice as much for every stop above it: 2.3 times the glow at white at +1 stop, 42 times at +5. That is film's proportion, the dashed line. It needs a file that keeps the true brightness of its lights (32-bit); an 8- or 16-bit export also clips the brightest part of the glow at white.</p>
+        <p class="mono shot-meta">Halo Pro 2.2 · Amount 1 · Size 1 · Format Super 8 · Starts at 1.9 · Roll-off 0 · Warmth 0 · Green return 1 · plot from a 32-bit float export</p>
+      </figcaption>
+    </figure>
+
+    <figure class="nf" id="fig2">
+      <div class="nf-bar"><span class="mono">Fig. 2 · Colour of the light</span>
+        <div class="toggle" role="group" aria-label="Figure 2"><button type="button" data-for="f2" data-show="before">The light</button><button type="button" class="is-on" data-for="f2" data-show="after">Through Halo Pro</button></div></div>
+      <div class="nf-img" id="f2" data-show="after">
+        <img src="img/note/colours-src.jpg" width="1600" height="400" alt="Nine lights: red, orange, yellow, green, cyan, blue, violet, magenta and white, at the same peak brightness" loading="lazy">
+        <img class="nf-after" src="img/note/colours.jpg" width="1600" height="400" alt="The nine lights after Halo Pro: red, orange, yellow, magenta and white glow red to orange, green and cyan glow faintly, violet a little, blue not at all" loading="lazy">
+      </div>
+      <svg class="plot" viewBox="0 0 860 320" role="img" aria-label="Glow by the colour of the light, white = 100: red, orange, yellow and magenta glow about as much as white, green and cyan about an eighth, blue not at all">
+<line class="pl-grid" x1="64" x2="844" y1="272.0" y2="272.0"/><text class="pl-tick" x="56" y="276.0" text-anchor="end">0</text>
+<line class="pl-grid" x1="64" x2="844" y1="208.5" y2="208.5"/><text class="pl-tick" x="56" y="212.5" text-anchor="end">25</text>
+<line class="pl-grid" x1="64" x2="844" y1="145.0" y2="145.0"/><text class="pl-tick" x="56" y="149.0" text-anchor="end">50</text>
+<line class="pl-grid" x1="64" x2="844" y1="81.5" y2="81.5"/><text class="pl-tick" x="56" y="85.5" text-anchor="end">75</text>
+<line class="pl-grid" x1="64" x2="844" y1="18.0" y2="18.0"/><text class="pl-tick" x="56" y="22.0" text-anchor="end">100</text>
+<line class="pl-axis" x1="64" x2="844" y1="272" y2="272"/>
+<text class="pl-label" x="454.0" y="314" text-anchor="middle"></text>
+<text class="pl-label" x="14" y="145.0" text-anchor="middle" transform="rotate(-90 14 145.0)">Glow (white = 100)</text>
+<path class="pl-bar" d="M83.1,272 V63.8 q0,-4 4,-4 h40.5 q4,0 4,4 V272 Z"><title>red light: glow 84</title></path>
+<circle cx="107.3" cy="288" r="5" fill="#ff2a1a"><title>red</title></circle>
+<text class="pl-tick" x="107.3" y="308" text-anchor="middle">red</text>
+<path class="pl-bar" d="M169.7,272 V44.5 q0,-4 4,-4 h40.5 q4,0 4,4 V272 Z"><title>orange light: glow 91</title></path>
+<circle cx="194.0" cy="288" r="5" fill="#ff8a1a"><title>orange</title></circle>
+<text class="pl-tick" x="194.0" y="308" text-anchor="middle">orange</text>
+<path class="pl-bar" d="M256.4,272 V22.0 q0,-4 4,-4 h40.5 q4,0 4,4 V272 Z"><title>yellow light: glow 100</title></path>
+<circle cx="280.7" cy="288" r="5" fill="#ffe42a"><title>yellow</title></circle>
+<text class="pl-tick" x="280.7" y="308" text-anchor="middle">yellow</text>
+<path class="pl-bar" d="M343.1,272 V223.2 q0,-4 4,-4 h40.5 q4,0 4,4 V272 Z"><title>green light: glow 21</title></path>
+<circle cx="367.3" cy="288" r="5" fill="#2bff4a"><title>green</title></circle>
+<text class="pl-tick" x="367.3" y="308" text-anchor="middle">green</text>
+<path class="pl-bar" d="M429.7,272 V222.2 q0,-4 4,-4 h40.5 q4,0 4,4 V272 Z"><title>cyan light: glow 21</title></path>
+<circle cx="454.0" cy="288" r="5" fill="#21d7ff"><title>cyan</title></circle>
+<text class="pl-tick" x="454.0" y="308" text-anchor="middle">cyan</text>
+<circle cx="540.7" cy="288" r="5" fill="#3a3aff"><title>blue</title></circle>
+<text class="pl-tick" x="540.7" y="308" text-anchor="middle">blue</text>
+<text class="pl-val" x="540.7" y="264" text-anchor="middle">0</text>
+<path class="pl-bar" d="M603.1,272 V170.5 q0,-4 4,-4 h40.5 q4,0 4,4 V272 Z"><title>violet light: glow 42</title></path>
+<circle cx="627.3" cy="288" r="5" fill="#8a2aff"><title>violet</title></circle>
+<text class="pl-tick" x="627.3" y="308" text-anchor="middle">violet</text>
+<path class="pl-bar" d="M689.7,272 V62.5 q0,-4 4,-4 h40.5 q4,0 4,4 V272 Z"><title>magenta light: glow 84</title></path>
+<circle cx="714.0" cy="288" r="5" fill="#ff2ad4"><title>magenta</title></circle>
+<text class="pl-tick" x="714.0" y="308" text-anchor="middle">magenta</text>
+<path class="pl-bar" d="M776.4,272 V22.0 q0,-4 4,-4 h40.5 q4,0 4,4 V272 Z"><title>white light: glow 100</title></path>
+<circle cx="800.7" cy="288" r="5" fill="#ffffff"><title>white</title></circle>
+<text class="pl-tick" x="800.7" y="308" text-anchor="middle">white</text>
+</svg>
+<details class="pl-data"><summary class="mono">Data</summary><table><tr><th>Light</th><td>red</td><td>orange</td><td>yellow</td><td>green</td><td>cyan</td><td>blue</td><td>violet</td><td>magenta</td><td>white</td></tr><tr><th>Glow (white = 100)</th><td>84</td><td>91</td><td>100</td><td>21</td><td>21</td><td>0</td><td>42</td><td>84</td><td>100</td></tr><tr><th>Share in green</th><td>0%</td><td>5%</td><td>10%</td><td>49%</td><td>50%</td><td>0%</td><td>0%</td><td>0%</td><td>10%</td></tr></table></details>
+      <figcaption class="nf-cap">
+        <p><b>Red light glows, blue does not.</b> Lights with red in them (red, orange, yellow, magenta, white) glow strongly; those with green in them as well glow a little more, because some green comes back too. Green and cyan glow about a fifth as much, and half of that comes back as green, so their glow reads orange. Violet glows by its red part. Blue makes no glow: on film it is caught on top and stopped by the yellow filter before it reaches the base. (On film, returning green light would make a faint green halo; Halo Pro's Green return turns it orange, a look choice: Fig. 6.)</p>
+        <p class="mono shot-meta">Same settings as Fig. 1</p>
+      </figcaption>
+    </figure>
+
+    <figure class="nf" id="fig3">
+      <div class="nf-bar"><span class="mono">Fig. 3 · Size of the light</span>
+        <div class="toggle" role="group" aria-label="Figure 3"><button type="button" data-for="f3" data-show="before">The light</button><button type="button" class="is-on" data-for="f3" data-show="after">Through Halo Pro</button></div></div>
+      <div class="nf-img" id="f3" data-show="after">
+        <img src="img/note/sizes-src.jpg" width="1600" height="400" alt="Seven white lights of the same brightness, from 1 to 64 pixels in radius" loading="lazy">
+        <img class="nf-after" src="img/note/sizes.jpg" width="1600" height="400" alt="The seven lights after Halo Pro: the glow grows with the size of the light, from a faint spark around the smallest to a wide halo around the largest" loading="lazy">
+      </div>
+      <figcaption class="nf-cap">
+        <p><b>More light, more glow.</b> At the same brightness a bigger light sends more light into the base, so its halo is stronger and reaches further. The smallest lights still get their own glow, in proportion to their size: a distant street lamp should glow less than a window.</p>
+        <p class="mono shot-meta">Same settings as Fig. 1 · lights at +2 stops</p>
+      </figcaption>
+    </figure>
+
+    <figure class="nf" id="fig4">
+      <div class="nf-bar"><span class="mono">Fig. 4 · Where the glow starts</span></div>
+      <div class="nf-rows">
+        <div class="nf-row"><span class="mono">Starts at 1</span><div class="nf-img"><img src="img/note/starts-1.jpg" width="1600" height="300" alt="Eight lights from 3.5 stops under white to white, with Starts at 1: only the three within a stop of white glow, faintly at first" loading="lazy"></div></div>
+        <div class="nf-row"><span class="mono">Starts at 1.9 · Default</span><div class="nf-img"><img src="img/note/starts-1.9.jpg" width="1600" height="300" alt="The same lights with Starts at 1.9: those within about two stops of white glow, more as they near white" loading="lazy"></div></div>
+        <div class="nf-row"><span class="mono">Starts at 3.2</span><div class="nf-img"><img src="img/note/starts-3.2.jpg" width="1600" height="300" alt="The same lights with Starts at 3.2: all but the dimmest glow" loading="lazy"></div></div>
+      </div>
+      <figcaption class="nf-cap">
+        <p><b>Starts at sets how far below white the glow begins.</b> A file has usually lost the stops above white that set a lamp apart from a white wall, so Halo Pro lets you say where glowing starts, in stops below white, with a soft start rather than a cut. The Default, 1.9 stops, keeps the glow to light tones; 3.2 stops is about a stop under middle grey.</p>
+        <p class="mono shot-meta">Lights from −3.5 to 0 stops · otherwise as Fig. 1</p>
+      </figcaption>
+    </figure>
+
+    <figure class="nf" id="fig5">
+      <div class="nf-bar"><span class="mono">Fig. 5 · Shape of the glow</span></div>
+      <div class="nf-grid">
+        <figure><div class="nf-img"><img src="img/note/rolloff-0.jpg" width="600" height="600" alt="A small light with Roll-off 0: a bright core and a short soft tail" loading="lazy"></div><figcaption class="mono">Roll-off 0 · Default</figcaption></figure>
+        <figure><div class="nf-img"><img src="img/note/rolloff-0.5.jpg" width="600" height="600" alt="The same light with Roll-off 0.5: a longer tail" loading="lazy"></div><figcaption class="mono">Roll-off 0.5</figcaption></figure>
+        <figure><div class="nf-img"><img src="img/note/rolloff-1.jpg" width="600" height="600" alt="The same light with Roll-off 1: a long, smooth tail" loading="lazy"></div><figcaption class="mono">Roll-off 1</figcaption></figure>
+      </div>
+      <svg class="plot" viewBox="0 0 860 320" role="img" aria-label="Red glow by distance from a small light, for Roll-off 0, 0.5 and 1: a tight core with a soft tail; higher Roll-off spreads the same light into a longer tail">
+<line class="pl-grid" x1="64" x2="844" y1="272.0" y2="272.0"/><text class="pl-tick" x="56" y="276.0" text-anchor="end">0.0</text>
+<line class="pl-grid" x1="64" x2="844" y1="208.5" y2="208.5"/><text class="pl-tick" x="56" y="212.5" text-anchor="end">0.1</text>
+<line class="pl-grid" x1="64" x2="844" y1="145.0" y2="145.0"/><text class="pl-tick" x="56" y="149.0" text-anchor="end">0.2</text>
+<line class="pl-grid" x1="64" x2="844" y1="81.5" y2="81.5"/><text class="pl-tick" x="56" y="85.5" text-anchor="end">0.3</text>
+<text class="pl-tick" x="64.0" y="290" text-anchor="middle">0</text>
+<text class="pl-tick" x="175.4" y="290" text-anchor="middle">20</text>
+<text class="pl-tick" x="286.9" y="290" text-anchor="middle">40</text>
+<text class="pl-tick" x="398.3" y="290" text-anchor="middle">60</text>
+<text class="pl-tick" x="509.7" y="290" text-anchor="middle">80</text>
+<text class="pl-tick" x="621.1" y="290" text-anchor="middle">100</text>
+<text class="pl-tick" x="732.6" y="290" text-anchor="middle">120</text>
+<text class="pl-tick" x="844.0" y="290" text-anchor="middle">140</text>
+<line class="pl-axis" x1="64" x2="844" y1="272" y2="272"/>
+<text class="pl-label" x="454.0" y="314" text-anchor="middle">Distance from the light (px, light radius 6 px)</text>
+<text class="pl-label" x="14" y="145.0" text-anchor="middle" transform="rotate(-90 14 145.0)">Red glow (linear)</text>
+<polyline class="pl-line pl-r3" points="103.0,36.8 108.6,40.1 114.1,44.1 119.7,48.4 125.3,52.5 130.9,57.0 136.4,61.8 142.0,67.1 147.6,72.4 153.1,78.4 158.7,85.2 164.3,92.0 169.9,98.6 175.4,105.2 181.0,112.0 186.6,119.4 192.1,126.4 197.7,133.0 203.3,140.0 208.9,146.9 214.4,153.3 220.0,159.7 225.6,166.0 231.1,172.2 236.7,178.2 242.3,183.9 247.9,189.3 253.4,194.8 259.0,200.2 264.6,205.2 270.1,209.9 275.7,214.4 281.3,218.7 286.9,222.8 292.4,226.7 298.0,230.3 303.6,233.7 309.1,236.9 314.7,239.8 320.3,242.6 325.9,245.2 331.4,247.7 337.0,250.0 342.6,252.1 348.1,254.0 353.7,255.8 359.3,257.5 364.9,258.9 370.4,260.3 376.0,261.5 381.6,262.6 387.1,263.6 392.7,264.6 398.3,265.4 403.9,266.2 409.4,266.8 415.0,267.4 420.6,268.0 426.1,268.5 431.7,268.9 437.3,269.3 442.9,269.7 448.4,270.0 454.0,270.2 459.6,270.5 465.1,270.7 470.7,270.8 476.3,271.0 481.9,271.1 487.4,271.3 493.0,271.4 498.6,271.5 504.1,271.5 509.7,271.6 515.3,271.7 520.9,271.7 526.4,271.8 532.0,271.8 537.6,271.8 543.1,271.9 548.7,271.9 554.3,271.9 559.9,271.9 565.4,271.9 571.0,271.9 576.6,272.0 582.1,272.0 587.7,272.0 593.3,272.0 598.9,272.0 604.4,272.0 610.0,272.0 615.6,272.0 621.1,272.0 626.7,272.0 632.3,272.0 637.9,272.0 643.4,272.0 649.0,272.0 654.6,272.0 660.1,272.0 665.7,272.0 671.3,272.0 676.9,272.0 682.4,272.0 688.0,272.0 693.6,272.0 699.1,272.0 704.7,272.0 710.3,272.0 715.9,272.0 721.4,272.0 727.0,272.0 732.6,272.0 738.1,272.0 743.7,272.0 749.3,272.0 754.9,272.0 760.4,272.0 766.0,272.0 771.6,272.0 777.1,272.0 782.7,272.0 788.3,272.0 793.9,272.0 799.4,272.0 805.0,272.0 810.6,272.0 816.1,272.0 821.7,272.0 827.3,272.0 832.9,272.0 838.4,272.0"><title>Roll-off 0</title></polyline>
+<text class="pl-val" x="170.3" y="84.0">Roll-off 0</text>
+<polyline class="pl-line pl-r2" points="103.0,127.4 108.6,128.8 114.1,130.8 119.7,133.2 125.3,135.6 130.9,138.5 136.4,141.7 142.0,145.2 147.6,148.7 153.1,152.5 158.7,156.7 164.3,160.7 169.9,164.5 175.4,168.2 181.0,172.1 186.6,176.2 192.1,180.1 197.7,183.8 203.3,187.6 208.9,191.4 214.4,195.0 220.0,198.5 225.6,202.0 231.1,205.4 236.7,208.8 242.3,211.9 247.9,214.9 253.4,218.0 259.0,221.0 264.6,223.8 270.1,226.4 275.7,229.0 281.3,231.4 286.9,233.8 292.4,236.0 298.0,238.1 303.6,240.1 309.1,242.0 314.7,243.7 320.3,245.4 325.9,247.0 331.4,248.5 337.0,249.9 342.6,251.2 348.1,252.4 353.7,253.6 359.3,254.7 364.9,255.6 370.4,256.5 376.0,257.4 381.6,258.2 387.1,258.9 392.7,259.6 398.3,260.3 403.9,260.9 409.4,261.4 415.0,261.9 420.6,262.4 426.1,262.9 431.7,263.3 437.3,263.7 442.9,264.1 448.4,264.4 454.0,264.7 459.6,265.0 465.1,265.3 470.7,265.6 476.3,265.8 481.9,266.0 487.4,266.3 493.0,266.5 498.6,266.7 504.1,266.9 509.7,267.0 515.3,267.2 520.9,267.4 526.4,267.5 532.0,267.7 537.6,267.8 543.1,268.0 548.7,268.1 554.3,268.2 559.9,268.3 565.4,268.5 571.0,268.6 576.6,268.7 582.1,268.8 587.7,268.9 593.3,269.0 598.9,269.1 604.4,269.2 610.0,269.3 615.6,269.3 621.1,269.4 626.7,269.5 632.3,269.6 637.9,269.6 643.4,269.7 649.0,269.8 654.6,269.9 660.1,269.9 665.7,270.0 671.3,270.0 676.9,270.1 682.4,270.1 688.0,270.2 693.6,270.2 699.1,270.3 704.7,270.3 710.3,270.4 715.9,270.4 721.4,270.5 727.0,270.5 732.6,270.6 738.1,270.6 743.7,270.6 749.3,270.7 754.9,270.7 760.4,270.7 766.0,270.8 771.6,270.8 777.1,270.8 782.7,270.8 788.3,270.9 793.9,270.9 799.4,270.9 805.0,270.9 810.6,271.0 816.1,271.0 821.7,271.0 827.3,271.0 832.9,271.1 838.4,271.1"><title>Roll-off 0.5</title></polyline>
+<text class="pl-val" x="292.9" y="225.8">Roll-off 0.5</text>
+<polyline class="pl-line pl-r1" points="103.0,199.2 108.6,200.6 114.1,202.3 119.7,204.1 125.3,205.7 130.9,207.5 136.4,209.3 142.0,211.3 147.6,213.0 153.1,214.9 158.7,216.9 164.3,218.8 169.9,220.5 175.4,222.2 181.0,223.9 186.6,225.7 192.1,227.4 197.7,229.0 203.3,230.6 208.9,232.2 214.4,233.7 220.0,235.2 225.6,236.7 231.1,238.1 236.7,239.5 242.3,240.8 247.9,242.0 253.4,243.3 259.0,244.6 264.6,245.8 270.1,246.9 275.7,248.0 281.3,249.0 286.9,250.0 292.4,251.0 298.0,251.9 303.6,252.8 309.1,253.6 314.7,254.4 320.3,255.1 325.9,255.8 331.4,256.5 337.0,257.2 342.6,257.8 348.1,258.4 353.7,258.9 359.3,259.4 364.9,259.9 370.4,260.3 376.0,260.8 381.6,261.2 387.1,261.6 392.7,261.9 398.3,262.3 403.9,262.6 409.4,262.9 415.0,263.2 420.6,263.4 426.1,263.7 431.7,264.0 437.3,264.2 442.9,264.4 448.4,264.6 454.0,264.8 459.6,265.0 465.1,265.2 470.7,265.4 476.3,265.6 481.9,265.7 487.4,265.9 493.0,266.1 498.6,266.2 504.1,266.4 509.7,266.5 515.3,266.6 520.9,266.8 526.4,266.9 532.0,267.0 537.6,267.1 543.1,267.2 548.7,267.3 554.3,267.4 559.9,267.6 565.4,267.7 571.0,267.8 576.6,267.8 582.1,267.9 587.7,268.0 593.3,268.1 598.9,268.2 604.4,268.3 610.0,268.4 615.6,268.4 621.1,268.5 626.7,268.6 632.3,268.7 637.9,268.7 643.4,268.8 649.0,268.9 654.6,268.9 660.1,269.0 665.7,269.0 671.3,269.1 676.9,269.1 682.4,269.2 688.0,269.3 693.6,269.3 699.1,269.4 704.7,269.4 710.3,269.4 715.9,269.5 721.4,269.5 727.0,269.6 732.6,269.6 738.1,269.7 743.7,269.7 749.3,269.7 754.9,269.8 760.4,269.8 766.0,269.9 771.6,269.9 777.1,269.9 782.7,270.0 788.3,270.0 793.9,270.0 799.4,270.0 805.0,270.1 810.6,270.1 816.1,270.1 821.7,270.2 827.3,270.2 832.9,270.2 838.4,270.2"><title>Roll-off 1</title></polyline>
+<text class="pl-val" x="460.0" y="256.8">Roll-off 1</text>
+</svg>
+<details class="pl-data"><summary class="mono">Data</summary><table><tr><th>Distance (px)</th><td>8</td><td>15</td><td>30</td><td>60</td><td>100</td></tr><tr><th>Roll-off 0</th><td>0.422</td><td>0.363</td><td>0.182</td><td>0.012</td><td>0.000</td></tr><tr><th>Roll-off 0.5</th><td>0.260</td><td>0.224</td><td>0.121</td><td>0.021</td><td>0.005</td></tr><tr><th>Roll-off 1</th><td>0.130</td><td>0.107</td><td>0.062</td><td>0.018</td><td>0.006</td></tr></table></details>
+      <figcaption class="nf-cap">
+        <p><b>A tight core with a soft tail.</b> Around a small light the glow is strongest right at its edge and falls away smoothly, fading out by about twelve times the light's radius at Roll-off 0. Roll-off spreads the same light into a longer tail. The optics in section 1 predict a ring around a pinpoint, darker inside it; around anything wider the rings fill in to this shape, which is what Halo Pro draws everywhere. It does not draw the pinpoint ring yet (see <a href="#limits">Limits</a>).</p>
+        <p class="mono shot-meta">One light, radius 6 px, +3 stops · Roll-off 0, 0.5, 1 · otherwise as Fig. 1</p>
+      </figcaption>
+    </figure>
+
+    <figure class="nf" id="fig6">
+      <div class="nf-bar"><span class="mono">Fig. 6 · Green return</span></div>
+      <div class="nf-rows">
+        <div class="nf-row"><span class="mono">Green return 0</span><div class="nf-img"><img src="img/note/green-0.jpg" width="1600" height="300" alt="The nine coloured lights with Green return 0: every glow is pure red, and green and cyan make none" loading="lazy"></div></div>
+        <div class="nf-row"><span class="mono">Green return 1 · Default</span><div class="nf-img"><img src="img/note/green-1.jpg" width="1600" height="300" alt="With Green return 1: red edges with orange cores, and a faint orange glow around green and cyan" loading="lazy"></div></div>
+        <div class="nf-row"><span class="mono">Green return 2</span><div class="nf-img"><img src="img/note/green-2.jpg" width="1600" height="300" alt="With Green return 2: oranger cores and a stronger glow around green and cyan" loading="lazy"></div></div>
+      </div>
+      <figcaption class="nf-cap">
+        <p><b>How orange the strong glow gets.</b> Green return sets how much green comes back with the red, a look choice. At 0 the glow is red only and green lights make none; at 1, the Default, the hottest cores turn orange; at 2 they lean yellow. On film the hottest cores turn orange because red fills up first.</p>
+        <p class="mono shot-meta">Green return 0, 1, 2 · otherwise as Fig. 1</p>
+      </figcaption>
+    </figure>
+
+    <figure class="nf" id="fig7">
+      <div class="nf-bar"><span class="mono">Fig. 7 · Landing</span>
+        <div class="toggle" role="group" aria-label="Figure 7"><button type="button" data-for="f7" data-show="before">The light</button><button type="button" class="is-on" data-for="f7" data-show="after">Through Halo Pro</button></div></div>
+      <div class="nf-img" id="f7" data-show="after">
+        <img src="img/note/landing-src.jpg" width="1600" height="400" alt="The same light three times: on black, on mid grey and on a bright surface" loading="lazy">
+        <img class="nf-after" src="img/note/landing.jpg" width="1600" height="400" alt="After Halo Pro: a strong glow on black, a softer one on mid grey, almost none on the bright surface, and red edges where the bright surface meets black" loading="lazy">
+      </div>
+      <figcaption class="nf-cap">
+        <p><b>Glow shows against the dark.</b> The same light makes the same glow, but it shows strongly on black, less on mid grey and hardly at all over a bright surface, as on film, where an area that is already fully exposed cannot get much brighter. Note the red edges where the bright panels meet the black: a bright surface halates too, along its edge. Landing sets how much glow may show over bright areas (Default 0.05).</p>
+        <p class="mono shot-meta">Light at +3 stops on 0, 0.18 and 0.7 · otherwise as Fig. 1</p>
+      </figcaption>
+    </figure>
+
+    <figure class="nf" id="fig8">
+      <div class="nf-bar"><span class="mono">Fig. 8 · Film format</span></div>
+      <div class="nf-grid">
+        <figure><div class="nf-img"><img src="img/note/format-super8.jpg" width="600" height="400" alt="The street scene with Format Super 8: wide halos" loading="lazy"></div><figcaption class="mono">Super 8 · 4.0 mm</figcaption></figure>
+        <figure><div class="nf-img"><img src="img/note/format-16mm.jpg" width="600" height="400" alt="Format 16 mm" loading="lazy"></div><figcaption class="mono">16 mm · 7.5 mm</figcaption></figure>
+        <figure><div class="nf-img"><img src="img/note/format-35mm.jpg" width="600" height="400" alt="Format 35 mm" loading="lazy"></div><figcaption class="mono">35 mm · 24 mm</figcaption></figure>
+        <figure><div class="nf-img"><img src="img/note/format-645.jpg" width="600" height="400" alt="Format 645" loading="lazy"></div><figcaption class="mono">645 · 41.5 mm</figcaption></figure>
+        <figure><div class="nf-img"><img src="img/note/format-6x6.jpg" width="600" height="400" alt="Format 6x6 / 6x7" loading="lazy"></div><figcaption class="mono">6×6 / 6×7 · 56 mm</figcaption></figure>
+        <figure><div class="nf-img"><img src="img/note/format-4x5.jpg" width="600" height="400" alt="Format 4x5: tight halos" loading="lazy"></div><figcaption class="mono">4×5 · 102 mm</figcaption></figure>
+      </div>
+      <figcaption class="nf-cap">
+        <p><b>The halo belongs to the film, not the frame.</b> The same glow, measured against six film sizes (short side in millimetres). On a small frame it covers more of the picture; on 4×5 it nearly disappears. It is why 16&nbsp;mm and Super 8 glow so much and medium and large format far less. Format assumes the same base on every size; real bases differ (120 is thinner, sheet film thicker), so real ratios differ somewhat.</p>
+        <p class="mono shot-meta">Street scene, crop · Amount 1 · Size 1 · Warmth 0 · Format as labelled</p>
+      </figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="note-sec" id="scenes">
+  <div class="wrap">
+    <h2><span class="mono">4</span>Light scenes</h2>
+    <div class="note-body"><p>The same behaviour in scenes. Each starts as a rendered image with its lights 40 to 120 times brighter than white, the way a scene is before a camera clips it. Switch between the light as it would be in a normal file and the result from Halo Pro.</p></div>
+
+    <figure class="nf" id="fig9">
+      <div class="nf-bar"><span class="mono">Fig. 9 · Night street</span>
+        <div class="toggle" role="group" aria-label="Figure 9"><button type="button" data-for="f9" data-show="before">The light</button><button type="button" class="is-on" data-for="f9" data-show="after">Default, 35 mm</button><button type="button" data-for="f9" data-show="strong">16 mm, Amount 1.5</button></div></div>
+      <div class="nf-img" id="f9" data-show="after">
+        <img src="img/note/street-src.jpg" width="1600" height="1000" alt="A rendered wet street at night: sodium street lamps, a car's red tail lights, oncoming headlights, a green traffic light, a blue LED sign and a pink OPEN sign, reflected in the road" loading="lazy">
+        <img class="nf-after" data-v="after" src="img/note/street-default.jpg" width="1600" height="1000" alt="After Halo Pro's Default look: orange halos around the sodium lamps, red around the tail lights and lit windows, none around the blue sign" loading="lazy">
+        <img class="nf-after" data-v="strong" src="img/note/street-16mm.jpg" width="1600" height="1000" alt="With Format 16 mm and Amount 1.5: wide red and orange halos around every warm light" loading="lazy">
+      </div>
+      <figcaption class="nf-cap">
+        <p><b>Every light by its colour.</b> Sodium lamps and lit windows glow orange, tail lights red, the pink sign red; the blue sign does not glow and the green traffic light barely. Reflections in the wet road glow like the lights themselves, because to the film they are lights.</p>
+        <p class="mono shot-meta">Blender scene, linear render · Halo Pro 2.2 Default (Amount 1, Size 1, 35 mm, Warmth 1) · and Format 16 mm, Amount 1.5</p>
+      </figcaption>
+    </figure>
+
+    <figure class="nf" id="fig10">
+      <div class="nf-bar"><span class="mono">Fig. 10 · Neon in nine colours</span>
+        <div class="toggle" role="group" aria-label="Figure 10"><button type="button" data-for="f10" data-show="before">The light</button><button type="button" data-for="f10" data-show="after">Default, 35 mm</button><button type="button" class="is-on" data-for="f10" data-show="strong">16 mm, Amount 1.5</button></div></div>
+      <div class="nf-img" id="f10" data-show="strong">
+        <img src="img/note/neon-src.jpg" width="1600" height="1000" alt="Nine neon rings on a dark wall: red, amber, yellow; green, cyan, blue; violet, pink, white" loading="lazy">
+        <img class="nf-after" data-v="after" src="img/note/neon-default.jpg" width="1600" height="1000" alt="After the Default look: thin red edges on the warm rings" loading="lazy">
+        <img class="nf-after" data-v="strong" src="img/note/neon-16mm.jpg" width="1600" height="1000" alt="With 16 mm and Amount 1.5: strong red and orange halos around the red, amber, yellow, pink and white rings, an orange halo around green and cyan, and almost none around blue" loading="lazy">
+      </div>
+      <figcaption class="nf-cap">
+        <p><b>Fig. 2, as a scene.</b> The same ring in nine colours at the same strength. Warm rings halate strongly, green and cyan come back orange, blue stays clean, violet glows by its red. The Default look is subtle at this distance; the stronger setting shows the pattern.</p>
+        <p class="mono shot-meta">Blender scene · settings as Fig. 9</p>
+      </figcaption>
+    </figure>
+
+    <figure class="nf" id="fig11">
+      <div class="nf-bar"><span class="mono">Fig. 11 · Window, candles, a lamp</span>
+        <div class="toggle" role="group" aria-label="Figure 11"><button type="button" data-for="f11" data-show="before">The light</button><button type="button" class="is-on" data-for="f11" data-show="after">Default, 35 mm</button><button type="button" data-for="f11" data-show="strong">16 mm, Amount 1.5</button></div></div>
+      <div class="nf-img" id="f11" data-show="after">
+        <img src="img/note/interior-src.jpg" width="1600" height="1000" alt="A rendered dark interior: a bright window with dark glazing bars, three candles and a chrome ball on a table, a lamp" loading="lazy">
+        <img class="nf-after" data-v="after" src="img/note/interior-default.jpg" width="1600" height="1000" alt="After the Default look: red-orange edges along the glazing bars and around the candles and the highlight on the chrome ball" loading="lazy">
+        <img class="nf-after" data-v="strong" src="img/note/interior-16mm.jpg" width="1600" height="1000" alt="With 16 mm and Amount 1.5: the glazing bars fill with orange glow and the window edge blooms" loading="lazy">
+      </div>
+      <figcaption class="nf-cap">
+        <p><b>Bright meets dark.</b> The classic case: thin dark glazing bars against a bright sky take red-orange edges, small flames and a specular highlight get their own glow, and the lit wall around them stays clean.</p>
+        <p class="mono shot-meta">Blender scene · settings as Fig. 9</p>
+      </figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="note-sec" id="photos">
+  <div class="wrap">
+    <h2><span class="mono">5</span>Photographs</h2>
+    <div class="note-body"><p>Two digital photographs, exported from Halo Pro 2.2 at its Default look with Mist off. Both are ordinary 8-bit files, so their lights are clipped at white and the glow is set by Starts at, not by the true brightness of the lights. More photographs are being made for this note: neon, tail lights, sodium street lamps, a tungsten interior, a backlit portrait and sun through trees.</p></div>
+
+    <figure class="nf" id="fig12">
+      <div class="nf-bar"><span class="mono">Fig. 12 · Panning, chrome</span>
+        <div class="toggle" role="group" aria-label="Figure 12"><button type="button" data-for="f12" data-show="before">Original</button><button type="button" class="is-on" data-for="f12" data-show="after">Through Halo Pro</button></div></div>
+      <div class="nf-img" id="f12" data-show="after">
+        <img src="img/app/saab-before.jpg" width="1600" height="1066" alt="A black Saab panning past trees" loading="lazy">
+        <img class="nf-after" src="img/app/saab-result.jpg" width="1600" height="1066" alt="The same photo after Halo Pro: red-orange edges along the chrome trim and around the indicator" loading="lazy">
+      </div>
+      <figcaption class="nf-cap">
+        <p><b>Thin highlights.</b> The chrome trim and the indicator take red-orange edges; the dark paint and the forest stay as they were.</p>
+        <p class="mono shot-meta">Canon EOS R5 · Halo Pro 2.2 Default (Amount 1, Size 1, 35 mm, Warmth 1) · Mist off</p>
+      </figcaption>
+    </figure>
+
+    <figure class="nf" id="fig13">
+      <div class="nf-bar"><span class="mono">Fig. 13 · Snow at night</span>
+        <div class="toggle" role="group" aria-label="Figure 13"><button type="button" data-for="f13" data-show="before">Original</button><button type="button" class="is-on" data-for="f13" data-show="after">Through Halo Pro</button></div></div>
+      <div class="nf-img" id="f13" data-show="after">
+        <img src="img/app/snow-before.jpg" width="1600" height="1066" alt="A skier in a snowstorm at night, lit snowflakes" loading="lazy">
+        <img class="nf-after" src="img/app/snow-result.jpg" width="1600" height="1066" alt="The same photo after Halo Pro: faint red edges on the brightest flakes" loading="lazy">
+      </div>
+      <figcaption class="nf-cap">
+        <p><b>Small, bright, many.</b> Only the brightest flakes reach the start; each gets a faint edge of its own, and the skier, darker than the start, gets none.</p>
+        <p class="mono shot-meta">Canon EOS R6 Mark II · settings as Fig. 12</p>
+      </figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="note-sec" id="limits">
+  <div class="wrap">
+    <h2><span class="mono">6</span>Limits</h2>
+    <div class="note-body">
+      <ul>
+        <li><strong>No ring yet.</strong> The optics predict a ring at a fixed distance around a point of light (about 0.23&nbsp;mm on 35&nbsp;mm film), darker inside it. Around anything wider the rings fill in, which is what Halo Pro 2.2 draws (Fig. 5); it does not draw the ring around a pinpoint. A ring is on the roadmap.</li>
+        <li><strong>A matched Default.</strong> The default width, strength and colour were matched to an established film-emulation look, not derived from a base thickness (section 2).</li>
+        <li><strong>Clipped files.</strong> Most photographs are 8- or 16-bit and clip their lights at white, so the glow cannot know how much brighter a lamp was than a white shirt (Fig. 1 shows the difference). Starts at stands in for the lost stops.</li>
+        <li><strong>Colour spaces.</strong> The glow uses the file's own tone curve and its own red, green and blue, so the same scene in sRGB and ProPhoto glows slightly differently. The same glow colour in every colour space is planned.</li>
+        <li><strong>Beta.</strong> Very fine diagonal stripes (blinds, grilles) can show faint bands in the glow, and very big glows (Size above about 5) can land unevenly on faces and trees.</li>
+        <li><strong>Scenes are scenes.</strong> The rendered scenes are simple shapes with accurate light, not photographs; they show behaviour, not a finished look.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="note-sec" id="refs">
+  <div class="wrap">
+    <h2><span class="mono">7</span>References</h2>
+    <div class="note-body">
+      <ol class="refs">
+        <li>Kodak, <a href="https://www.kodak.com/content/products-brochures/Film/VISION3-500T-Color-Negative-Film-7219-TECHNICAL-DATA.pdf" target="_blank" rel="noopener">VISION3 500T 5219/7219 technical data</a>: layer structure and spectral sensitivity.</li>
+        <li>Lomography, <a href="https://www.lomography.com/magazine/352787-what-is-the-anti-halation-layer" target="_blank" rel="noopener">What is the anti-halation layer?</a></li>
+        <li>Lomography, <a href="https://www.lomography.com/school/what-is-a-remjet-layer-in-film-fa-mje3rplb" target="_blank" rel="noopener">What is a remjet layer in film?</a></li>
+        <li>Lomography, <a href="https://www.lomography.com/school/what-is-ecn-2-film-processing-fa-bqlqadlg" target="_blank" rel="noopener">What is ECN-2 film processing?</a></li>
+        <li>Total internal reflection: <a href="https://en.wikipedia.org/wiki/Total_internal_reflection" target="_blank" rel="noopener">Wikipedia</a>.</li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<section class="closing">
+  <div class="wrap" style="position:relative">
+    <span class="mono" style="display:block;margin-bottom:28px">Version 2.2 beta · free to try</span>
+    <h2>Run the same tests on your own photos.</h2>
+    <div class="hero-cta">
+      <a class="btn btn--solid" href="https://alriclj.gumroad.com/l/HALO_PRO?variant=Halo%20Pro&amp;wanted=true">Buy Pro · €20</a>
+      <a class="link" href="https://alriclj.gumroad.com/l/HALO_PRO?variant=Halo%20Pro%20-%20FREE&amp;wanted=true">Free version</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="footer">
+  <div class="wrap cols">
+    <div>
+      <span class="mono">Made in Stockholm</span>
+      <p style="font-size:22px;color:var(--fg);letter-spacing:-.02em">Alric Ljunghager</p>
+      <p>Photographer. Building Halo Pro since 2024.</p>
+    </div>
+    <div><a class="mono" href="index.html">← halopro.app</a></div>
+  </div>
+</footer>
+
+<script>
+/* figure switches: data-for = the image box, data-show = before / after / strong */
+document.querySelectorAll('.nf-bar .toggle button').forEach(b => {
+  b.setAttribute('aria-pressed', b.classList.contains('is-on'));
+  b.addEventListener('click', () => {
+    const box = document.getElementById(b.dataset.for), v = b.dataset.show;
+    box.dataset.show = v;
+    box.querySelectorAll('.nf-after[data-v]').forEach(i => { i.style.opacity = i.dataset.v === v ? 1 : 0; });
+    b.parentNode.querySelectorAll('button').forEach(x => { const on = x === b; x.classList.toggle('is-on', on); x.setAttribute('aria-pressed', on); });
+  });
+});
+document.querySelectorAll('.nf-img').forEach(box => {
+  const v = box.dataset.show; box.querySelectorAll('.nf-after[data-v]').forEach(i => { i.style.opacity = i.dataset.v === v ? 1 : 0; });
+});
+/* phone menu */
+(function () {
+  const t = document.querySelector('.nav-toggle'), ul = document.getElementById('nav-links'); if (!t || !ul) return;
+  t.addEventListener('click', () => { const o = t.getAttribute('aria-expanded') !== 'true'; t.setAttribute('aria-expanded', o); document.body.classList.toggle('menu-open', o); });
+  ul.querySelectorAll('a').forEach(a => a.addEventListener('click', () => { t.setAttribute('aria-expanded', 'false'); document.body.classList.remove('menu-open'); }));
+})();
+</script>
+</body>
+</html>

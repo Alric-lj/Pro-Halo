@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Halo Pro — Halation, from the physics up</title>
-  <meta name="description" content="Halo Pro is a Mac app for film halation and mist, built on how halation forms in film. Works in 32-bit float; Pro adds the Lightroom Classic round trip and batch. Free version; Pro from €20, once.">
+  <meta name="description" content="Halo Pro is a Mac app for film halation and mist, with controls that follow how halation forms in film. Works in 32-bit float; Pro adds the Lightroom Classic round trip and batch. Free version; Pro from €20, once.">
 
   <meta name="google-site-verification" content="m87F7Zbu0O230_lW5n8nTsTzLPGEMhRxXqTcFc4xu2E">
   <link rel="canonical" href="https://halopro.app/">
@@ -43,7 +43,7 @@
     "datePublished": "2026-11-02",
     "applicationCategory": "MultimediaApplication",
     "operatingSystem": "macOS 14 or later (Apple Silicon)",
-    "description": "Film halation and mist for photographers, built on how halation forms in film and computed in 32-bit float. Pro adds the Lightroom Classic round trip (Edit In) and batch.",
+    "description": "Film halation and mist for photographers, with controls that follow how halation forms in film, computed in 32-bit float. Pro adds the Lightroom Classic round trip (Edit In) and batch.",
     "url": "https://halopro.app",
     "author": { "@type": "Person", "name": "Alric Ljunghager" },
     "offers": [
@@ -66,10 +66,10 @@
     <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="nav-links">Menu</button>
     <ul id="nav-links">
       <li><a href="#result">Result</a></li>
-      <li><a href="#app">The app</a></li>
-      <li><a href="#physics">Physics</a></li>
-      <li><a href="#pro">Pro</a></li>
-      <li><a href="#development">Development</a></li>
+      <li><a href="#physics">Light path</a></li>
+      <li><a href="#model">Controls</a></li>
+      <li><a href="#pricing">Pricing</a></li>
+      <li><a href="notes.html">Technical note</a></li>
     </ul>
     <a class="btn" href="https://alriclj.gumroad.com/l/HALO_PRO?variant=Halo%20Pro&amp;wanted=true">Buy Pro · €20</a>
   </div>
@@ -81,7 +81,7 @@
   <div class="wrap hero-copy">
     <p class="mono" style="margin-bottom:28px">Halo Pro &nbsp;·&nbsp; for macOS on Apple Silicon</p>
     <h1>Halation is light that <em class="lit"><span class="vh">comes back.</span><img src="img/light/comes-back.png" width="1200" height="340" alt="" aria-hidden="true"></em></h1>
-    <p class="hero-sub">A Mac app for film halation and mist, built on how halation forms in film: where the glow starts, how far it travels, why it turns red. Every step in 32-bit float.</p>
+    <p class="hero-sub">A Mac app for film halation and mist. Its controls follow how halation forms in film: where the glow starts, how far it travels, why it turns red. Every step in 32-bit float.</p>
     <div class="hero-cta">
       <a class="btn btn--solid" href="https://alriclj.gumroad.com/l/HALO_PRO?variant=Halo%20Pro&amp;wanted=true">Buy Pro · €20</a>
       <a class="link" href="https://alriclj.gumroad.com/l/HALO_PRO?variant=Halo%20Pro%20-%20FREE&amp;wanted=true">Free version</a>
@@ -104,26 +104,27 @@
     <div class="s-head">
       <span class="mono s-index"><b>01</b>Result</span>
       <div>
-        <h2 class="s-title">Before and after. <em>The look it opens with.</em></h2>
-        <p class="s-intro">Real exports from Halo Pro 2.2: the original file in, the Default look out, with Mist switched off (it opens with a light mist). Default also warms bright surfaces a touch. No LUT, no grain, nothing else adjusted. Look at the highlights, not the frame.</p>
+        <h2 class="s-title">Same file. <em>The light now comes back.</em></h2>
+        <p class="s-intro">Untouched exports from Halo Pro 2.2 at the Default look, Mist off, nothing else adjusted: a rendered night street with real light levels, and two photographs. The warm tint on white surfaces is Warmth on highlights, not halation. Watch the lights.</p>
       </div>
     </div>
     <div class="cmp-bar">
       <span class="mono">Drag to compare</span>
       <div class="toggle" id="cmp-switch" role="group" aria-label="Example photo">
-        <button type="button" class="is-on" data-ex="saab">Saab, panning</button>
+        <button type="button" class="is-on" data-ex="street">Night street, rendered</button>
+        <button type="button" data-ex="saab">Saab, panning</button>
         <button type="button" data-ex="snow">Snow, backlit</button>
       </div>
     </div>
     <div class="cmp" id="cmp">
-      <img class="cmp-after" src="img/app/saab-result.jpg" width="1600" height="1066" alt="After: exported from Halo Pro with halation" loading="lazy">
-      <img class="cmp-before" src="img/app/saab-before.jpg" width="1600" height="1066" alt="Before: the original file" loading="lazy">
+      <img class="cmp-after" src="img/note/street-default.jpg" width="1600" height="1000" alt="After: exported from Halo Pro with halation" loading="lazy">
+      <img class="cmp-before" src="img/note/street-src.jpg" width="1600" height="1000" alt="Before: the original file" loading="lazy">
       <div class="cmp-handle"></div>
       <span class="mono cmp-tag cmp-tag--l">Before</span>
       <span class="mono cmp-tag cmp-tag--r">Halo Pro</span>
       <input class="cmp-range" type="range" min="0" max="100" value="50" aria-label="Compare before and after">
     </div>
-    <p class="mono shot-meta" id="cmp-meta">Exported from Halo Pro 2.2 · Default: Amount 1, Size 1, 35 mm, Warmth on highlights 1 · Mist off · <span>Canon EOS R5, digital</span></p>
+    <p class="mono shot-meta" id="cmp-meta">Exported from Halo Pro 2.2 · Default: Amount 1, Size 1, 35 mm, Warmth on highlights 1 · Mist off · <span>Rendered scene in Blender, linear light · not a photograph</span></p>
 
     <div class="engine">
       <div class="engine-head">
@@ -138,10 +139,10 @@
         </figure>
         <figure>
           <img src="img/app/snow-mask-glow.jpg" width="1600" height="1065" alt="View 7, Glow Preview: thin red and orange rings on black around each bright flake" loading="lazy">
-          <figcaption><span class="key">7</span><b>Glow Preview.</b> The glow on its own, brightened to fill the range. It sits around each flake, not on it: it only shows where it spreads past the light. These outlines are that edge, not the ring film makes (see <a href="#physics">Light path</a>).</figcaption>
+          <figcaption><span class="key">7</span><b>Glow Preview.</b> The glow on its own, brightened to fill the range. It sits around each flake, not on it: it only shows where it spreads past the light.</figcaption>
         </figure>
       </div>
-      <p class="engine-note">The others show the light that feeds the glow, the brightness range, sky and colour masks, the final composite and the lens smear. They show exactly what the render uses, and they never end up in an export.</p>
+      <p class="engine-note">The others show the light that feeds the glow, the brightness range, sky and colour masks, the final composite and the lens smear. They show the render's own masks (the Glow Preview brightened so you can see it) and never end up in an export.</p>
     </div>
   </div>
 </section>
@@ -336,25 +337,25 @@
         <article class="step" data-step="2">
           <span class="mono">02 / Through</span>
           <h3>Some of it doesn't stop.</h3>
-          <p>A bright source has more light than the emulsion can absorb. What's left scatters at the bottom of the red layer and travels on — at every angle — into roughly <strong>0.13 mm of clear plastic</strong>.</p>
-          <p class="step-tag"><span class="mono">In Halo Pro</span>Starts at · Softness of start</p>
+          <p>The emulsion absorbs most of the light, never all of it. A fixed share of every tone leaves its underside, scattered at every angle, into roughly <strong>0.13 mm of clear plastic</strong>. Under an ordinary tone that share never shows. Under a lamp many stops brighter than its surroundings, the same share is enough to expose the film again.</p>
+          <p class="step-tag"><span class="mono">In Halo Pro</span>Starts at · Softness of start: where a file's lights start to glow, standing in for the stops above white a JPEG or TIFF has lost</p>
         </article>
         <article class="step" data-step="3">
           <span class="mono">03 / The mirror</span>
           <h3>The back of the base is a mirror.</h3>
           <p>Where the base meets air, light that hits the back more obliquely than the <strong>critical angle — about 42° from straight down, for n ≈ 1.5</strong> — can't get out. It's totally reflected and heads back up at the same angle, away from where it came in. Light closer to straight down mostly escapes. This boundary is where halation is born.</p>
-          <p class="step-tag"><span class="mono">In Halo Pro</span>Size · Format · Roll-off</p>
+          <p class="step-tag"><span class="mono">In Halo Pro</span>Size · Format · Roll-off: a smooth glow, not a ring (see the box below)</p>
         </article>
         <article class="step" data-step="4">
           <span class="mono">04 / Return</span>
           <h3>It hits red first. That's why it's red.</h3>
-          <p>The returning light enters the emulsion from below, and the first layer it meets is the <strong>red-sensitive</strong> one. It lands in a ring around the source, at a distance set by the base thickness. Orange light exposes the green layer too, where the two overlap, and red fills up first — which pushes the hottest cores toward orange.</p>
-          <p class="step-tag"><span class="mono">In Halo Pro</span>Green return</p>
+          <p>The returning light enters the emulsion from below, and the first layer it meets is the <strong>red-sensitive</strong> one. It lands in a ring around the source, at a distance set by the base thickness. The red and green layers' sensitivities overlap around 585–590 nm, so returning orange light exposes a little green too, and where the return is strong, red fills up first while green keeps climbing: the hottest part of the halo reads orange, the faint outer part stays red.</p>
+          <p class="step-tag"><span class="mono">In Halo Pro</span>Green return: how orange the strong glow turns</p>
         </article>
         <article class="step" data-step="5">
           <span class="mono">05 / The backing</span>
           <h3>Film is designed to prevent this.</h3>
-          <p>Still film has an <strong>anti-halation layer</strong> that soaks up most of it. Motion-picture stock has long used <strong>remjet</strong> — a carbon-black coat on the back of the base. Strip the remjet, as CineStill does, and the mirror is back at full strength. Flip the switch under the diagram.</p>
+          <p>Still film has an <strong>anti-halation layer</strong> that soaks up most of it. Motion-picture stock has long used <strong>remjet</strong> — a carbon-black coat on the back of the base. Strip the remjet, as CineStill does, and the mirror is back at full strength. The diagram switches to remjet here; flip it back to No backing to compare.</p>
           <p class="step-tag"><span class="mono">In Halo Pro</span>No backing control: Amount (0–2) sets how much light comes back</p>
         </article>
 
@@ -362,9 +363,16 @@
           <span class="eq">r ≈ 2 · t · tan <i>θc</i></span>
           <p>Ring radius from base thickness <i>t</i> and critical angle <i>θc</i>.</p>
           <span class="eq">≈ 2 · 0.13 · 0.89 ≈ 0.23 mm</span>
-          <p>Fractions of a millimetre on the film — visible because the source is so much brighter than its surroundings.</p>
+          <p>Fractions of a millimetre on the film — about 1 % of a 35 mm frame's short side — and visible because the source is so much brighter than its surroundings.</p>
+          <p>That ring is what a single point sends back. A real light is wider than the ring, so the rings from all its points overlap and fill in: a bright core and a soft tail. The dark gap only shows around pinpoints, such as stars and far-off street lamps.</p>
         </div>
       </div>
+    </div>
+    <div class="models">
+      <div><span class="mono">What Halo Pro follows</span>
+          <ul><li>Only lights well above their surroundings make a visible glow</li><li>Blue is stopped; red glows</li><li>Red first, orange where it's strongest</li><li>The distance belongs to the film format</li><li>Only the spread is added; even areas stay as they are</li></ul></div>
+      <div><span class="mono">Not modelled yet</span>
+          <ul><li>The ring around a pinpoint (<a href="notes.html#fig5">Fig. 5 in the note</a>)</li><li>Base thickness per film stock, and the type of backing</li><li>The Default look was matched to an established film-emulation look, not derived from a base thickness</li></ul></div>
     </div>
   </div>
 </section>
@@ -376,7 +384,7 @@
       <span class="mono s-index"><b>04</b>Scale</span>
       <div>
         <h2 class="s-title">The halo belongs to the film, <em>not the frame.</em></h2>
-        <p class="s-intro">How far the light travels sideways is set by the base, not by the picture. Put the same film in a bigger camera and the halo stays the same physical size while the frame grows around it. It's why 35 mm glows and large format barely does.</p>
+        <p class="s-intro">How far the light travels sideways is set by the base, not by the picture. Put the same film in a bigger camera and the halo stays the same physical size while the frame grows around it. It's why 35 mm glows and medium and large format glow far less.</p>
       </div>
     </div>
 
@@ -409,6 +417,7 @@
           <li data-f="f67" tabindex="0"><span>6 × 6 / 6 × 7</span><span class="mono">56 mm side</span><b>× 0.43</b></li>
           <li data-f="f45" tabindex="0"><span>4 × 5 in</span><span class="mono">102 mm side</span><b>× 0.24</b></li>
         </ul>
+        <p class="mono fmt-note">Also in the menu: Super 8 × 6.0 · 16 mm × 3.2 · 645 × 0.58. Format assumes one base on every size; real bases differ (120 is thinner, sheet film thicker), so real ratios differ somewhat. <a href="notes.html#fig8">The same street on all six formats →</a></p>
       </div>
     </div>
   </div>
@@ -420,8 +429,8 @@
     <div class="s-head">
       <span class="mono s-index"><b>05</b>Controls</span>
       <div>
-        <h2 class="s-title">Each part of the light path <em>has its own control.</em></h2>
-        <p class="s-intro">Halo Pro doesn't trace rays through a film base. It works out the glow in linear light from your photo's own colour profile, with a control for each part of the path, under the app's own names. Amount sets the overall strength.</p>
+        <h2 class="s-title">The light path, <em>mapped to the controls.</em></h2>
+        <p class="s-intro">Halo Pro doesn't trace rays through a film base. It works out the glow in linear light from your photo's own colour profile, with a control for each part of the path, under the app's own names. Amount sets the overall strength. The Default's width, strength and colour were matched to an established film-emulation look, measured from its exported pictures, not derived from a base thickness.</p>
       </div>
     </div>
 
@@ -435,25 +444,26 @@
       </div>
       <div class="lightfig-img"><img id="light-img" src="img/light/light-bars.png" width="1400" height="453" alt="Three bars of light after Halo Pro: a red-orange glow around the white end of a fading bar and around the hot centre of a second bar; on the spectrum bar, red and magenta glow red and yellow orange, green barely, blue not at all" loading="lazy"></div>
       <figcaption>
-        <p>Three bars of light: white fading out, a hot centre, and the full spectrum. The glow follows the light: it fades as the white bar fades and is strongest around the hottest part. On the spectrum, red and magenta glow red and yellow glows orange; green barely glows, and blue not at all.</p>
-        <p class="mono shot-meta">Made in Halo Pro 2.2: Amount 2 · Size 1 · Format Super 8 · Warmth on highlights 0 · Mist off. Everything else at Default.</p>
+        <p>Three bars of light on black: white fading to nothing, a hot centre, and every hue of an RGB file. The glow follows the light: it fades with the white bar and is strongest around the hottest part. Red and magenta glow red, yellow orange. Green, the brightest colour here to the eye, barely glows, and blue not at all: on film, blue is stopped on the way down and red reaches the base.</p>
+        <p class="mono shot-meta">Made in Halo Pro 2.2: Amount 2 · Size 1 · Format Super 8 · Warmth on highlights 0 · Mist off. Exaggerated to show at this size: twice the Default strength, about six times the 35 mm glow width.</p>
+        <p class="note-link"><a href="notes.html#results">Measured: brightness, colour, size and more, in the technical note →</a></p>
       </figcaption>
     </figure>
 
     <div class="model-head"><span></span><span class="mono">In the film</span><span class="mono">In Halo Pro</span></div>
     <div class="model">
       <div class="model-row"><span class="mono">Source</span>
-        <div><h3>Only bright light gets through</h3><p>Most light is absorbed on the way down. Only highlights have enough left to reach the base.</p></div>
+        <div><h3>Every tone sends light down; bright lights send enough to show</h3><p>A fixed share of all light reaches the base. Only lights many stops brighter than their surroundings send enough to see.</p></div>
         <div><span class="path">Halation › Effect › Start</span><h3>Starts at · Softness of start</h3><p>How far below white, in stops, a tone has to be before it glows, and how gently the glow comes in. Light above white in a 32-bit file glows more still.</p></div></div>
       <div class="model-row"><span class="mono">Colour in</span>
         <div><h3>Blue is stopped on the way down</h3><p>The blue layer and the yellow filter catch blue before it reaches the base. Red goes deepest.</p></div>
         <div><span class="path">Built in</span><h3>Linear light, per colour</h3><p>The glow is worked out in linear light, with your file's own tone curve. A blue light makes no glow.</p></div></div>
       <div class="model-row"><span class="mono">Distance</span>
         <div><h3>Sideways travel in the base</h3><p>Set by base thickness and angle: a property of the film stock.</p></div>
-        <div><span class="path">Halation › Effect › Glow</span><h3>Size · Format · Roll-off</h3><p>Format picks the film the glow is measured against (see <a href="#scale">Scale</a>); Size 1 is the glow width typical of that film. Roll-off goes from film's tight glow to a long, smooth tail.</p></div></div>
+        <div><span class="path">Halation › Effect › Glow</span><h3>Size · Format · Roll-off</h3><p>Format picks the film the glow is measured against (see <a href="#scale">Scale</a>). Size 1 is a bell about 0.07 mm wide (σ) on 35 mm film; Roll-off adds a long, smooth tail.</p></div></div>
       <div class="model-row"><span class="mono">Colour out</span>
-        <div><h3>Red layer first, orange when it's strong</h3><p>Returning light exposes red. Where it's strong enough to reach green too, it reads as orange.</p></div>
-        <div><span class="path">Halation › Effect › Color &amp; Landing</span><h3>Green return</h3><p>How much green light comes back as orange glow. 0 makes the glow red only.</p></div></div>
+        <div><h3>Red first, orange where it's strongest</h3><p>Returning light exposes red. Where the return is strongest, red fills up and green catches up: orange.</p></div>
+        <div><span class="path">Halation › Effect › Color &amp; Landing</span><h3>Green return</h3><p>How orange the strong glow turns, a look choice: on film, returning green light would make a faint green halo. 0 keeps the glow red only.</p></div></div>
       <div class="model-row"><span class="mono">Backing</span>
         <div><h3>Anti-halation layer, remjet</h3><p>A dark layer absorbs the light before it can come back up.</p></div>
         <div><span class="path">Halation › Effect › Glow</span><h3>Amount</h3><p>There's no backing switch. Amount sets how much comes back: 0 is none, 1 the built-in look, 2 twice that.</p></div></div>
@@ -468,9 +478,9 @@
         <div><span class="path">Halation › Masking <i>Advanced</i> · Color &amp; Landing</span><h3>Masks · Glow color · Warmth on highlights</h3><p>Keep the glow inside a brightness band, turn it down on sky-coloured areas, or hold it back from (or boost it on) a colour you pick. Glow color and Color mix take it to any colour; Warmth on highlights warms bright surfaces a touch, as the Default does. Neither is part of the light path.</p></div></div>
       <div class="model-row"><span class="mono">Not halation</span>
         <div><h3>Diffusion, fringing, smear, grain</h3><p>A mist filter scatters light in front of the lens; fringing and smear come from the glass; grain and bloom are separate looks. Different mechanisms.</p></div>
-        <div><span class="path">Mist · Edit · Halation › Effect <i>Advanced</i></span><h3>Mist · Grain · Bloom · Fringing · Lens Smear</h3><p>Mist, Grain and Bloom are separate stages; Mist runs after halation, so mist light never causes halation. Fringing and Lens Smear work on the glow itself: Fringing shifts its red, Lens Smear streaks it.</p></div></div>
+        <div><span class="path">Mist · Edit · Halation › Effect <i>Advanced</i></span><h3>Mist · Grain · Bloom · Fringing · Lens Smear</h3><p>In a camera the filter comes first and the film halates what gets through. Halo Pro runs Mist after halation on purpose, so the two controls don't interfere; mist also softens the halo. Fringing and Lens Smear are creative effects on the glow, inspired by lens faults.</p></div></div>
     </div>
-    <p class="model-note">To be straight about it: Halo Pro's glow is a tight core with a soft tail, not the ring explained under <a href="#physics">Light path</a>, and its default width and strength were tuned against measured reference looks rather than worked out from a base thickness. A true ring is on the list below.</p>
+    
 
     <div class="uses">
       <div class="use">
@@ -507,11 +517,11 @@
     </div>
     <div class="band">
       <figure>
-        <canvas id="band-8" width="720" height="420" aria-label="A glow falloff quantised to few levels, with visible rings"></canvas>
+        <canvas id="band-8" width="720" height="420" role="img" aria-label="A glow falloff quantised to few levels, with visible rings"></canvas>
         <figcaption><span class="mono">Quantised</span><span class="mono"><output id="band-lv-o">14</output> levels</span></figcaption>
       </figure>
       <figure>
-        <canvas id="band-f" width="720" height="420" aria-label="The same glow computed continuously, without rings"></canvas>
+        <canvas id="band-f" width="720" height="420" role="img" aria-label="The same glow computed continuously, without rings"></canvas>
         <figcaption><span class="mono">Float</span><span class="mono">Continuous</span></figcaption>
       </figure>
     </div>
@@ -589,7 +599,7 @@
     <div class="facts">
       <p><span class="mono">Requires</span>macOS 14 Sonoma or later on a Mac with Apple Silicon (M1 or newer). Up to 100&nbsp;MP and 500&nbsp;MB per file. Signed, and notarised by Apple.</p>
       <p><span class="mono">Install</span>Open the DMG from Gumroad and drag Halo Pro to Applications. To activate Pro, enter the licence key from your Gumroad download page under Settings › Help › Enter License Key. It's checked online once, then works offline.</p>
-      <p><span class="mono">Beta</span>The download is Halo Pro 2.2, a beta. Known limits: very fine diagonal stripes (blinds, grilles) can show faint bands in the glow, and very big glows (Size above about 5) can land unevenly on faces and trees.</p>
+      <p><span class="mono">Beta</span>The download is Halo Pro 2.2, a beta. Known limits: very fine diagonal stripes (blinds, grilles) can show a faint moiré in the glow, and very big glows (Size above about 5) can land unevenly on faces and trees.</p>
       <p><span class="mono">Upgrading</span>Own 1.0? 2.2 is a free update in your Gumroad library, and your key still works. The glow was rebuilt, so saved 1.x looks keep their mist, LUT and other settings but start with the new Default glow, once; the originals are kept.</p>
       <p><span class="mono">Refunds</span>Digital download, no refunds. Try the free version on your own photos first.</p>
     </div>
@@ -662,8 +672,8 @@
       <div class="dev-year-head"><span class="dev-year-num">2.x</span><span class="mono">What 2.0 fixed, and what's next</span></div>
       <ul class="dev-grid">
         <li class="dev-card is-shipped"><span class="dev-status">Done · 2.0</span><b>Files you can trust</b><span>Only replaces the copy Lightroom handed over, and asks before overwriting anything else. A failed export says so instead of saving the unprocessed photo. Asks before throwing away edits you haven't exported. Runs on macOS 14 Sonoma or later.</span></li>
-        <li class="dev-card is-shipped"><span class="dev-status">Done · 2.0</span><b>The preview tells the truth</b><span>The preview glows like the export at any size, with accurate colour on Display P3 screens and a true 1:1 view. Mask views show exactly what the render uses.</span></li>
-        <li class="dev-card is-shipped"><span class="dev-status">Done · 2.x</span><b>Faster, and no banding</b><span>Faster exports than 1.x (see Speed under <a href="#float">Precision</a>). 8-bit exports dithered, 16-bit exact.</span></li>
+        <li class="dev-card is-shipped"><span class="dev-status">Done · 2.0</span><b>The preview matches the export</b><span>The preview glows like the export at any size, with accurate colour on Display P3 screens and a true 1:1 view. Mask views show exactly what the render uses.</span></li>
+        <li class="dev-card is-shipped"><span class="dev-status">Done · 2.x</span><b>Faster, and smooth gradients</b><span>Faster exports than 1.x (see Speed under <a href="#float">Precision</a>). 8-bit exports dithered, so skies don't band.</span></li>
         <li class="dev-card is-next"><span class="dev-status">Next</span><b>Steady through long sessions</b><span>A 150-photo session on an 8–16&nbsp;GB Mac without slowing down or losing edits. Big exports use far less memory.</span></li>
         <li class="dev-card is-next"><span class="dev-status">Next</span><b>A new control panel</b><span>Film and Creative sections, and a set of starting looks from realistic to artistic.</span></li>
         <li class="dev-card is-next"><span class="dev-status">Next</span><b>More creative glow</b><span>A better big glow, a halation ring, light streaks, an oval (anamorphic) glow and a white bloom.</span></li>
@@ -684,7 +694,7 @@
       </ul>
     </div>
     </div>
-    <p class="track-note">Own 1.0? The planned 1.1 became 2.0: the glow was rebuilt instead of patched. 2.2 is a free update; see Upgrading under Pro.</p>
+    
   </div>
 </section>
 
@@ -706,7 +716,7 @@
     <div>
       <span class="mono">Made in Stockholm</span>
       <p style="font-size:22px;color:var(--fg);letter-spacing:-.02em">Alric Ljunghager</p>
-      <p>Photographer. Building Halo Pro since 2024 · Beta February 2026 · 1.0 September 2026 · 2.0 beta October 2026.</p>
+      <p>Photographer. Building Halo Pro since 2024 · Beta February 2026 · 1.0 September 2026 · 2.2 beta November 2026.</p>
     </div>
     <div>
       <span class="mono">Contact</span>
@@ -961,18 +971,32 @@ function switcher(sel, key, on) {
         after = cmp.querySelector('.cmp-after'), handle = cmp.querySelector('.cmp-handle');
   const set = v => { before.style.clipPath = `inset(0 ${100 - v}% 0 0)`; handle.style.left = v + '%'; };
   range.addEventListener('input', e => set(+e.target.value)); set(50);
-  // drag anywhere on the photo; the range stays for keyboard. Touch moves only on a sideways drag, so scrolling past doesn't jump it.
-  let on = false;
+  // drag anywhere on the photo; the range stays for keyboard. A mouse drags at once; touch takes over only after a
+  // clear sideways move (8 px, more sideways than down), so a vertical swipe scrolls the page and leaves the handle.
+  let start = null;
   const drag = e => { const r = cmp.getBoundingClientRect(), v = Math.max(0, Math.min(100, (e.clientX - r.left) / r.width * 100)); range.value = v; set(v); };
-  cmp.addEventListener('pointerdown', e => { on = true; cmp.setPointerCapture(e.pointerId); if (e.pointerType === 'mouse') drag(e); });
-  cmp.addEventListener('pointermove', e => { if (on) drag(e); });
-  ['pointerup', 'pointercancel'].forEach(t => cmp.addEventListener(t, () => { on = false; }));
+  cmp.addEventListener('pointerdown', e => {
+    start = { x: e.clientX, y: e.clientY, live: e.pointerType === 'mouse' };
+    if (start.live) { cmp.setPointerCapture(e.pointerId); drag(e); }
+  });
+  cmp.addEventListener('pointermove', e => {
+    if (!start) return;
+    if (!start.live) {
+      const dx = Math.abs(e.clientX - start.x), dy = Math.abs(e.clientY - start.y);
+      if (dy > 8 && dy >= dx) { start = null; return; }
+      if (dx < 8) return;
+      start.live = true; try { cmp.setPointerCapture(e.pointerId); } catch (_) {}
+    }
+    drag(e);
+  });
+  ['pointerup', 'pointercancel'].forEach(t => cmp.addEventListener(t, () => { start = null; }));
   // before = the original file, after = a real export from the app at the settings printed under it
-  const ex = { snow: ['img/app/snow-before.jpg', 'img/app/snow-result.jpg', 'Canon EOS R6 Mark II, digital'],
+  const ex = { street: ['img/note/street-src.jpg', 'img/note/street-default.jpg', 'Rendered scene in Blender, linear light · not a photograph'],
+               snow: ['img/app/snow-before.jpg', 'img/app/snow-result.jpg', 'Canon EOS R6 Mark II, digital'],
                saab: ['img/app/saab-before.jpg', 'img/app/saab-result.jpg', 'Canon EOS R5, digital'] };
   const cam = document.querySelector('#cmp-meta span');
   // fetch the other pair once the comparison is near, so a switch doesn't show one photo under the other's caption
-  new IntersectionObserver((es, io) => { if (es[0].isIntersecting) { ex.snow.slice(0, 2).forEach(src => { new Image().src = src; }); io.disconnect(); } },
+  new IntersectionObserver((es, io) => { if (es[0].isIntersecting) { [...ex.saab.slice(0, 2), ...ex.snow.slice(0, 2)].forEach(src => { new Image().src = src; }); io.disconnect(); } },
     { rootMargin: '600px' }).observe(cmp);
   switcher('#cmp-switch', 'ex', k => { before.src = ex[k][0]; after.src = ex[k][1]; cam.textContent = ex[k][2]; range.value = 50; set(50); });
 })();
