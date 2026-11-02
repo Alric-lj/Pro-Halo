@@ -548,6 +548,7 @@ html:not(.js) .nav-toggle, html:not(.js) .toggle, html:not(.js) .band, html:not(
 .note-body li { margin-bottom: 8px; }
 .nf { margin: 56px 0 24px; }
 .nf-bar { display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; margin-bottom: 12px; }
+.nf-bar .toggle { max-width: 100%; flex-wrap: wrap; }
 .nf-img { position: relative; border: 1px solid var(--line); border-radius: 6px; background: #000; overflow: hidden; }
 .nf-img img { display: block; width: 100%; height: auto; }
 .nf-img .nf-after { position: absolute; inset: 0; transition: opacity .3s ease; }

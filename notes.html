@@ -292,7 +292,7 @@
 
     <figure class="nf" id="fig9">
       <div class="nf-bar"><span class="mono">Fig. 9 · Night street</span>
-        <div class="toggle" role="group" aria-label="Figure 9"><button type="button" data-for="f9" data-show="before">The light</button><button type="button" class="is-on" data-for="f9" data-show="after">Default, 35 mm</button><button type="button" data-for="f9" data-show="strong">16 mm, Amount 1.5</button></div></div>
+        <div class="toggle" role="group" aria-label="Figure 9"><button type="button" data-for="f9" data-show="before">Light</button><button type="button" class="is-on" data-for="f9" data-show="after">Default</button><button type="button" data-for="f9" data-show="strong">Strong</button></div></div>
       <div class="nf-img" id="f9" data-show="after">
         <img src="img/note/street-src.jpg" width="1600" height="1000" alt="A rendered wet street at night: sodium street lamps, a car's red tail lights, oncoming headlights, a green traffic light, a blue LED sign and a pink OPEN sign, reflected in the road" loading="lazy">
         <img class="nf-after" data-v="after" src="img/note/street-default.jpg" width="1600" height="1000" alt="After Halo Pro's Default look: orange halos around the sodium lamps, red around the tail lights and lit windows, none around the blue sign" loading="lazy">
@@ -300,27 +300,27 @@
       </div>
       <figcaption class="nf-cap">
         <p><b>Every light by its colour.</b> Sodium lamps and lit windows glow orange, tail lights red, the pink sign red; the blue sign does not glow and the green traffic light barely. Reflections in the wet road glow like the lights themselves, because to the film they are lights.</p>
-        <p class="mono shot-meta">Blender scene, linear render · Halo Pro 2.2 Default (Amount 1, Size 1, Format 35 mm, Warmth on highlights 1) · and Format 16 mm, Amount 1.5 · Mist off</p>
+        <p class="mono shot-meta">Blender scene, linear render · Default: Halo Pro 2.2 Default (Amount 1, Size 1, Format 35 mm, Warmth on highlights 1) · Strong: Format 16 mm, Amount 1.5 · Mist off</p>
       </figcaption>
     </figure>
 
     <figure class="nf" id="fig10">
       <div class="nf-bar"><span class="mono">Fig. 10 · Neon in nine colours</span>
-        <div class="toggle" role="group" aria-label="Figure 10"><button type="button" data-for="f10" data-show="before">The light</button><button type="button" data-for="f10" data-show="after">Default, 35 mm</button><button type="button" class="is-on" data-for="f10" data-show="strong">16 mm, Amount 1.5</button></div></div>
-      <div class="nf-img" id="f10" data-show="strong">
+        <div class="toggle" role="group" aria-label="Figure 10"><button type="button" data-for="f10" data-show="before">Light</button><button type="button" class="is-on" data-for="f10" data-show="after">Default</button></div></div>
+      <div class="nf-img" id="f10" data-show="after">
         <img src="img/note/neon-src.jpg" width="1600" height="1000" alt="Nine neon rings on a dark wall: red, amber, yellow; green, cyan, blue; violet, pink, white" loading="lazy">
         <img class="nf-after" data-v="after" src="img/note/neon-default.jpg" width="1600" height="1000" alt="After the Default look: thin red edges on the warm rings" loading="lazy">
-        <img class="nf-after" data-v="strong" src="img/note/neon-16mm.jpg" width="1600" height="1000" alt="With 16 mm and Amount 1.5: strong red and orange halos around the red, amber, yellow, pink and white rings, an orange halo around green and cyan, and almost none around blue" loading="lazy">
+        
       </div>
       <figcaption class="nf-cap">
-        <p><b>Fig. 2, as a scene.</b> The same ring in nine colours at the same strength. Warm rings halate strongly, green and cyan come back orange, blue stays nearly clean, violet glows by its red. The Default look is subtle at this distance; the stronger setting shows the pattern.</p>
-        <p class="mono shot-meta">Blender scene · settings as Fig. 9</p>
+        <p><b>Fig. 2, as a scene.</b> The same ring in nine colours at the same strength. At the Default the warm rings take red-orange edges and blue stays clean; the effect is subtle at this distance, and Fig. 2 shows the full pattern on the chart. A stronger setting is left out here: inside the rings, where the glow lands on wall lit by the neon itself, 2.2 leaves blocky edges (see <a href="#limits">Limits</a>).</p>
+        <p class="mono shot-meta">Blender scene · Halo Pro 2.2 Default (Amount 1, Size 1, Format 35 mm, Warmth on highlights 1) · Mist off</p>
       </figcaption>
     </figure>
 
     <figure class="nf" id="fig11">
       <div class="nf-bar"><span class="mono">Fig. 11 · Window, candles, a lamp</span>
-        <div class="toggle" role="group" aria-label="Figure 11"><button type="button" data-for="f11" data-show="before">The light</button><button type="button" class="is-on" data-for="f11" data-show="after">Default, 35 mm</button><button type="button" data-for="f11" data-show="strong">16 mm, Amount 1.5</button></div></div>
+        <div class="toggle" role="group" aria-label="Figure 11"><button type="button" data-for="f11" data-show="before">Light</button><button type="button" class="is-on" data-for="f11" data-show="after">Default</button><button type="button" data-for="f11" data-show="strong">Strong</button></div></div>
       <div class="nf-img" id="f11" data-show="after">
         <img src="img/note/interior-src.jpg" width="1600" height="1000" alt="A rendered dark interior: a bright window with dark glazing bars, three candles and a chrome ball on a table, a lamp" loading="lazy">
         <img class="nf-after" data-v="after" src="img/note/interior-default.jpg" width="1600" height="1000" alt="After the Default look: red-orange edges along the glazing bars and around the candles and the highlight on the chrome ball" loading="lazy">
@@ -376,6 +376,7 @@
         <li><strong>A matched Default.</strong> The Default was matched to my own look in an established film-emulation plug-in, not derived from a base thickness (section 2).</li>
         <li><strong>Clipped files.</strong> Most photographs are 8- or 16-bit and clip their lights at white, so the glow cannot know how much brighter a lamp was than a white shirt (Fig. 1 shows the difference). Starts at stands in for the lost stops.</li>
         <li><strong>Colour spaces.</strong> The glow uses the file's own tone curve and its own red, green and blue, so the same scene in sRGB and ProPhoto glows slightly differently. The same glow colour in every colour space is planned.</li>
+        <li><strong>Blocky edges on self-lit surfaces.</strong> Where a strong glow lands on a surface lit by the same coloured light, such as the wall inside a neon ring, 2.2 can leave blocky, speckled edges (faintly at the Default). Being fixed; Fig. 10 leaves its strong setting out until then.</li>
         <li><strong>Beta.</strong> Very fine diagonal stripes (blinds, grilles) can show faint bands in the glow, and very big glows (Size above about 5) can land unevenly on faces and trees.</li>
         <li><strong>Scenes are scenes.</strong> The rendered scenes are simple shapes with accurate light, not photographs; they show behaviour, not a finished look.</li>
       </ul>
