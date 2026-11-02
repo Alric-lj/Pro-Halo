@@ -48,7 +48,7 @@
     <h1>Halation, measured. <em>What the glow does with light.</em></h1>
     <div class="abstract">
       <span class="mono">Abstract</span>
-      <p>Halation is light that passes through the film, reflects off the back of the base and exposes the film a second time from behind. We tested how Halo Pro 2.2 reproduces it with controlled light: test charts holding light from two stops under white to five stops over it, three rendered light scenes, and real photographs. In these tests the glow doubles with every stop above white, as on film, follows the colour of the light the way colour negative film does (red glows, blue does not), grows with the size of the light, starts near white, stays off surfaces that are already bright, and scales with the film format. Around real lights it is a tight core with a soft tail; it does not yet draw the ring film makes around a pinpoint, and its default look was matched to an established film-emulation look rather than derived from a base thickness. These and other limits are listed at the end. Every figure gives the settings it was made with.</p>
+      <p>Halation is light that passes through the film, reflects off the back of the base and exposes the film a second time from behind. We tested how Halo Pro 2.2 reproduces it with controlled light: test charts holding light from two stops under white to five stops over it, three rendered light scenes, and real photographs. In these tests the glow doubles with every stop above white, as on film, follows the colour of the light the way colour negative film does (red glows, blue does not), grows with the size of the light, starts in the light tones, stays off surfaces that are already bright, and scales with the film format. Around real lights it is a tight core with a soft tail; it does not yet draw the ring film makes around a pinpoint, and its default look was matched to a look made in an established film-emulation plug-in rather than derived from a base thickness. These and other limits are listed at the end. Every figure gives the settings it was made with.</p>
     </div>
   </div>
 </header>
@@ -69,9 +69,9 @@
     <div class="note-body">
       <p><strong>Test charts.</strong> Lights on black, drawn as 32-bit float TIFF files so they can hold light above white: an exposure ladder from two stops under white to five stops over it, nine colours at the same peak (two stops over white in their strongest channel), seven sizes from 1 to 64 pixels in radius, a ramp of lights from 3.5 stops under white to white, the same light on black, mid grey and a bright surface, and a single small light for profiles.</p>
       <p><strong>Rendered scenes.</strong> A wet night street, a wall of neon rings in nine colours, and an interior with a window, candles and a lamp, built from simple shapes and rendered in Blender (Cycles) as linear light, with the brightest lights at roughly 40 to 120 times white. A camera or a scanner would clip most of that; a 32-bit file keeps it.</p>
-      <p><strong>Processing.</strong> Every file was opened in Halo Pro 2.2 beta and exported with the app's own Export: halation only, Mist off. The settings are printed under each figure. The charts use Format Super 8, so the glow is wide enough to see at this page's size; the scenes use the 35&nbsp;mm Default look and a stronger 16&nbsp;mm look.</p>
+      <p><strong>Processing.</strong> Every file was opened in Halo Pro 2.2 beta and exported with the app's own Export: halation only, Mist off. The settings are printed under each figure. The charts use Format Super 8, so the glow is wide enough to see at this page's size (at Super 8, Size 1 is as wide as Size 6 on 35&nbsp;mm, where Smooth wide glow is partly active); the scenes use the 35&nbsp;mm Default look and a stronger 16&nbsp;mm look. Controls not printed are at their Default.</p>
       <p><strong>Measurement.</strong> The plots compare each export with the chart that went in, in linear light: glow is what the app added. Each light's glow is summed in a ring around it. The brightness plot uses a 32-bit float export, which does not clip the glow at white; the others use 16-bit exports. The numbers behind each plot are in the Data table under it.</p>
-      <p><strong>Where the Default comes from.</strong> Halo Pro's default width, strength and colour were matched to an established film-emulation look, measured from that tool's exported pictures, rather than derived from a base thickness. The controls follow the film; the starting point is a look people know.</p>
+      <p><strong>Where the Default comes from.</strong> The Default's width, strength, colour and start, and its Warmth on highlights, were matched to my own look in an established film-emulation plug-in, measured from its exported pictures, rather than derived from a base thickness. The controls follow the film; the starting point is a look I already used.</p>
     </div>
   </div>
 </section>
@@ -87,7 +87,7 @@
         <img src="img/note/ladder-src.jpg" width="1600" height="400" alt="Eight white lights of the same size, from two stops under white to five stops over white; above white they all look the same" loading="lazy">
         <img class="nf-after" src="img/note/ladder.jpg" width="1600" height="400" alt="The same lights after Halo Pro: no glow on the two dimmest, a small glow at white, and a red-orange halo that grows with every stop above white" loading="lazy">
       </div>
-      <svg class="plot" viewBox="0 0 860 320" role="img" aria-label="Glow against the brightness of the light on a log scale: none two stops under white, then doubling with every stop above white, alongside the proportional line">
+      <svg class="plot" viewBox="0 0 860 320" role="img" aria-label="Glow against the brightness of the light on a log scale: almost none two stops under white, then doubling with every stop above white, alongside the proportional line">
 <line class="pl-grid" x1="64" x2="844" y1="272.0" y2="272.0"/><text class="pl-tick" x="56" y="276.0" text-anchor="end">1/64</text>
 <line class="pl-grid" x1="64" x2="844" y1="229.7" y2="229.7"/><text class="pl-tick" x="56" y="233.7" text-anchor="end">1/16</text>
 <line class="pl-grid" x1="64" x2="844" y1="187.3" y2="187.3"/><text class="pl-tick" x="56" y="191.3" text-anchor="end">1/4</text>
@@ -121,8 +121,8 @@
 </svg>
 <details class="pl-data"><summary class="mono">Data</summary><table><tr><th>Stops vs white</th><td>-2</td><td>-1</td><td>+0</td><td>+1</td><td>+2</td><td>+3</td><td>+4</td><td>+5</td></tr><tr><th>Glow (white = 1)</th><td>0.03</td><td>0.29</td><td>1.00</td><td>2.33</td><td>4.96</td><td>10.29</td><td>20.93</td><td>42.19</td></tr></table></details>
       <figcaption class="nf-cap">
-        <p><b>The glow doubles with every stop.</b> Above white, a normal file shows every light as the same white disc; the glow tells them apart. None at two stops under white, a little at white, then twice as much for every stop above it: 2.3 times the glow at white at +1 stop, 42 times at +5. That is film's proportion, the dashed line. It needs a file that keeps the true brightness of its lights (32-bit); an 8- or 16-bit export also clips the brightest part of the glow at white.</p>
-        <p class="mono shot-meta">Halo Pro 2.2 · Amount 1 · Size 1 · Format Super 8 · Starts at 1.9 · Roll-off 0 · Warmth 0 · Green return 1 · plot from a 32-bit float export</p>
+        <p><b>The glow doubles with every stop.</b> Above white, a normal file shows every light as the same white disc; the glow tells them apart. Almost none at two stops under white (3 % of the glow at white), a little at white, then twice as much for every stop above it: 2.3 times the glow at white at +1 stop, 42 times at +5. That is film's proportion, the dashed line. It needs a file that keeps the true brightness of its lights (32-bit); an 8- or 16-bit export also clips the brightest part of the glow at white.</p>
+        <p class="mono shot-meta">Halo Pro 2.2 · Amount 1 · Size 1 · Format Super 8 · Starts at 1.9 · Roll-off 0 · Warmth on highlights 0 · Green return 1 · others at Default · Mist off · plot from a 32-bit float export</p>
       </figcaption>
     </figure>
 
@@ -198,7 +198,7 @@
         <div class="nf-row"><span class="mono">Starts at 3.2</span><div class="nf-img"><img src="img/note/starts-3.2.jpg" width="1600" height="300" alt="The same lights with Starts at 3.2: all but the dimmest glow" loading="lazy"></div></div>
       </div>
       <figcaption class="nf-cap">
-        <p><b>Starts at sets how far below white the glow begins.</b> A file has usually lost the stops above white that set a lamp apart from a white wall, so Halo Pro lets you say where glowing starts, in stops below white, with a soft start rather than a cut. The Default, 1.9 stops, keeps the glow to light tones; 3.2 stops is about a stop under middle grey.</p>
+        <p><b>Starts at sets where the glow comes in.</b> A file has usually lost the stops above white that set a lamp apart from a white wall, so Halo Pro lets you say where the glow is half on, in stops below white, and Softness of start brings it in gently from lower still rather than as a cut. The Default, 1.9 stops, keeps the glow to light tones; 3.2 stops is about three quarters of a stop under middle grey.</p>
         <p class="mono shot-meta">Lights from −3.5 to 0 stops · otherwise as Fig. 1</p>
       </figcaption>
     </figure>
@@ -278,7 +278,7 @@
       </div>
       <figcaption class="nf-cap">
         <p><b>The halo belongs to the film, not the frame.</b> The same glow, measured against six film sizes (short side in millimetres). On a small frame it covers more of the picture; on 4×5 it nearly disappears. It is why 16&nbsp;mm and Super 8 glow so much and medium and large format far less. Format assumes the same base on every size; real bases differ (120 is thinner, sheet film thicker), so real ratios differ somewhat.</p>
-        <p class="mono shot-meta">Street scene, crop · Amount 1 · Size 1 · Warmth 0 · Format as labelled</p>
+        <p class="mono shot-meta">Street scene, crop · Amount 1 · Size 1 · Warmth on highlights 0 · others at Default · Mist off · Format as labelled</p>
       </figcaption>
     </figure>
   </div>
@@ -299,7 +299,7 @@
       </div>
       <figcaption class="nf-cap">
         <p><b>Every light by its colour.</b> Sodium lamps and lit windows glow orange, tail lights red, the pink sign red; the blue sign does not glow and the green traffic light barely. Reflections in the wet road glow like the lights themselves, because to the film they are lights.</p>
-        <p class="mono shot-meta">Blender scene, linear render · Halo Pro 2.2 Default (Amount 1, Size 1, 35 mm, Warmth 1) · and Format 16 mm, Amount 1.5</p>
+        <p class="mono shot-meta">Blender scene, linear render · Halo Pro 2.2 Default (Amount 1, Size 1, Format 35 mm, Warmth on highlights 1) · and Format 16 mm, Amount 1.5 · Mist off</p>
       </figcaption>
     </figure>
 
@@ -347,7 +347,7 @@
       </div>
       <figcaption class="nf-cap">
         <p><b>Thin highlights.</b> The chrome trim and the indicator take red-orange edges; the dark paint and the forest stay as they were.</p>
-        <p class="mono shot-meta">Canon EOS R5 · Halo Pro 2.2 Default (Amount 1, Size 1, 35 mm, Warmth 1) · Mist off</p>
+        <p class="mono shot-meta">Canon EOS R5 · Halo Pro 2.2 Default (Amount 1, Size 1, Format 35 mm, Warmth on highlights 1) · Mist off</p>
       </figcaption>
     </figure>
 
@@ -372,7 +372,7 @@
     <div class="note-body">
       <ul>
         <li><strong>No ring yet.</strong> The optics predict a ring at a fixed distance around a point of light (about 0.23&nbsp;mm on 35&nbsp;mm film), darker inside it. Around anything wider the rings fill in, which is what Halo Pro 2.2 draws (Fig. 5); it does not draw the ring around a pinpoint. A ring is on the roadmap.</li>
-        <li><strong>A matched Default.</strong> The default width, strength and colour were matched to an established film-emulation look, not derived from a base thickness (section 2).</li>
+        <li><strong>A matched Default.</strong> The Default was matched to my own look in an established film-emulation plug-in, not derived from a base thickness (section 2).</li>
         <li><strong>Clipped files.</strong> Most photographs are 8- or 16-bit and clip their lights at white, so the glow cannot know how much brighter a lamp was than a white shirt (Fig. 1 shows the difference). Starts at stands in for the lost stops.</li>
         <li><strong>Colour spaces.</strong> The glow uses the file's own tone curve and its own red, green and blue, so the same scene in sRGB and ProPhoto glows slightly differently. The same glow colour in every colour space is planned.</li>
         <li><strong>Beta.</strong> Very fine diagonal stripes (blinds, grilles) can show faint bands in the glow, and very big glows (Size above about 5) can land unevenly on faces and trees.</li>

@@ -370,9 +370,9 @@
     </div>
     <div class="models">
       <div><span class="mono">What Halo Pro follows</span>
-          <ul><li>Only lights well above their surroundings make a visible glow</li><li>Blue is stopped; red glows</li><li>Red first, orange where it's strongest</li><li>The distance belongs to the film format</li><li>Only the spread is added; even areas stay as they are</li></ul></div>
+          <ul><li>Only lights well above their surroundings make a visible glow</li><li>Blue is stopped; red glows</li><li>Red first, orange where it's strongest</li><li>The distance belongs to the film format</li><li>Only the spread is added; at Warmth on highlights 0, even areas stay exactly as they are</li></ul></div>
       <div><span class="mono">Not modelled yet</span>
-          <ul><li>The ring around a pinpoint (<a href="notes.html#fig5">Fig. 5 in the note</a>)</li><li>Base thickness per film stock, and the type of backing</li><li>The Default look was matched to an established film-emulation look, not derived from a base thickness</li></ul></div>
+          <ul><li>The ring around a pinpoint (<a href="notes.html#fig5">Fig. 5 in the note</a>)</li><li>Base thickness per film stock, and the type of backing</li><li>The Default look was matched to a look made in an established film-emulation plug-in, not derived from a base thickness</li></ul></div>
     </div>
   </div>
 </section>
@@ -430,7 +430,7 @@
       <span class="mono s-index"><b>05</b>Controls</span>
       <div>
         <h2 class="s-title">The light path, <em>mapped to the controls.</em></h2>
-        <p class="s-intro">Halo Pro doesn't trace rays through a film base. It works out the glow in linear light from your photo's own colour profile, with a control for each part of the path, under the app's own names. Amount sets the overall strength. The Default's width, strength and colour were matched to an established film-emulation look, measured from its exported pictures, not derived from a base thickness.</p>
+        <p class="s-intro">Halo Pro doesn't trace rays through a film base. It works out the glow in linear light from your photo's own colour profile, with a control for each part of the path, under the app's own names. Amount sets the overall strength. The Default's width, strength, colour and start were matched to a look I made in an established film-emulation plug-in, measured from its exported pictures, not derived from a base thickness.</p>
       </div>
     </div>
 
@@ -454,7 +454,7 @@
     <div class="model">
       <div class="model-row"><span class="mono">Source</span>
         <div><h3>Every tone sends light down; bright lights send enough to show</h3><p>A fixed share of all light reaches the base. Only lights many stops brighter than their surroundings send enough to see.</p></div>
-        <div><span class="path">Halation › Effect › Start</span><h3>Starts at · Softness of start</h3><p>How far below white, in stops, a tone has to be before it glows, and how gently the glow comes in. Light above white in a 32-bit file glows more still.</p></div></div>
+        <div><span class="path">Halation › Effect › Start</span><h3>Starts at · Softness of start</h3><p>Where the glow is half on, in stops below white, and how gently it comes in from below that. Light above white in a 32-bit file glows more still.</p></div></div>
       <div class="model-row"><span class="mono">Colour in</span>
         <div><h3>Blue is stopped on the way down</h3><p>The blue layer and the yellow filter catch blue before it reaches the base. Red goes deepest.</p></div>
         <div><span class="path">Built in</span><h3>Linear light, per colour</h3><p>The glow is worked out in linear light, with your file's own tone curve. A blue light makes no glow.</p></div></div>
@@ -472,7 +472,7 @@
         <div><span class="path">Halation › Effect › Color &amp; Landing</span><h3>Landing</h3><p>How much glow shows on top of bright surfaces. Low keeps them clean, as on film; 1 shows it everywhere it reaches.</p></div></div>
       <div class="model-row"><span class="mono">Edges</span>
         <div><h3>Halos show where bright meets dark</h3><p>The glow forms under every bright area, but you only see it against the dark around it.</p></div>
-        <div><span class="path">Built in</span><h3>Only the spread is added</h3><p>Halo Pro adds light only where the glow spreads past a bright area. In Advanced, Smooth wide glow and Soft fall-off keep a wide glow even over branches, hair and fabric.</p></div></div>
+        <div><span class="path">Built in</span><h3>Only the spread is added</h3><p>Halo Pro adds the glow only where it spreads past a bright area (Warmth on highlights, on in the Default, also warms bright surfaces a touch). In Advanced, Smooth wide glow and Soft fall-off keep a wide glow even over branches, hair and fabric.</p></div></div>
       <div class="model-row"><span class="mono">Your call</span>
         <div><h3>Film can't choose where it glows</h3><p>On film, every bright source halates, in one colour. In an edit you may want less on the sky or skin, or a colour no film has.</p></div>
         <div><span class="path">Halation › Masking <i>Advanced</i> · Color &amp; Landing</span><h3>Masks · Glow color · Warmth on highlights</h3><p>Keep the glow inside a brightness band, turn it down on sky-coloured areas, or hold it back from (or boost it on) a colour you pick. Glow color and Color mix take it to any colour; Warmth on highlights warms bright surfaces a touch, as the Default does. Neither is part of the light path.</p></div></div>
