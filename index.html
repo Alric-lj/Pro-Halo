@@ -79,19 +79,18 @@
 <header class="hero" id="top">
   <canvas id="hero-cv" aria-hidden="true"></canvas>
   <div class="wrap hero-copy">
-    <p class="mono" style="margin-bottom:28px">Halo Pro &nbsp;·&nbsp; for macOS on Apple Silicon</p>
     <h1>Halation is light that <em class="lit"><span class="vh">comes back.</span><img src="img/light/comes-back.png" width="1200" height="340" alt="" aria-hidden="true"></em></h1>
     <p class="hero-sub">A Mac app for film halation and mist. Its controls follow how halation forms in film: where the glow starts, how far it travels, why it turns red. Every step in 32-bit float.</p>
     <div class="hero-cta">
       <a class="btn btn--solid" href="https://alriclj.gumroad.com/l/HALO_PRO?variant=Halo%20Pro&amp;wanted=true">Buy Pro · €20</a>
       <a class="link" href="https://alriclj.gumroad.com/l/HALO_PRO?variant=Halo%20Pro%20-%20FREE&amp;wanted=true">Free version</a>
     </div>
-    <p class="hero-note mono"><span>2.2 beta</span><span>Free: every control, full-resolution export</span><span>Pro: Lightroom Mode, Batch Mode, licence for paid work</span><a href="#pricing">Compare ↓</a></p>
+    <p class="hero-note"><span>2.2 beta, for macOS on Apple Silicon</span><span>Free: every control, full-resolution export</span><span>Pro: Lightroom Mode, Batch Mode, licence for paid work</span><a href="#pricing">Compare</a></p>
   </div>
   <div class="hero-foot">
     <div class="wrap">
-      <span class="mono">Simulated: a point of light on colour negative, no backing · Headline: type processed in Halo Pro</span>
-      <a class="mono" href="#result" style="text-decoration:none">See it on a photo ↓</a>
+      <span>Simulated: a point of light on colour negative, no backing · Headline: type processed in Halo Pro</span>
+      <a href="#result">See it on a photo ↓</a>
     </div>
   </div>
 </header>
@@ -102,7 +101,6 @@
 <section class="section" id="result">
   <div class="wrap">
     <div class="s-head">
-      <span class="mono s-index"><b>01</b>Result</span>
       <div>
         <h2 class="s-title">Same file. <em>The light now comes back.</em></h2>
         <p class="s-intro">Untouched exports from Halo Pro 2.2 at the Default look, Mist off, nothing else adjusted: a rendered night street with real light levels, and two photographs. The warm tint on white surfaces is Warmth on highlights, not halation. Watch the lights.</p>
@@ -124,11 +122,10 @@
       <span class="mono cmp-tag cmp-tag--r">Halo Pro</span>
       <input class="cmp-range" type="range" min="0" max="100" value="50" aria-label="Compare before and after">
     </div>
-    <p class="mono shot-meta" id="cmp-meta">Exported from Halo Pro 2.2 · Default: Amount 1, Size 1, 35 mm, Warmth on highlights 1 · Mist off · <span>Rendered scene in Blender, linear light · not a photograph</span></p>
+    <p class="shot-meta" id="cmp-meta">Exported from Halo Pro 2.2 · Default: Amount 1, Size 1, 35 mm, Warmth on highlights 1 · Mist off · <span>Rendered scene in Blender, linear light · not a photograph</span></p>
 
     <div class="engine">
       <div class="engine-head">
-        <span class="mono">Mask views</span>
         <h3>What the engine works from.</h3>
         <p>Press a number key on the Halation tab and the photo is swapped for what the engine is working with. Two of them, on the same photo:</p>
       </div>
@@ -151,7 +148,6 @@
 <section class="section" id="app">
   <div class="wrap">
     <div class="s-head">
-      <span class="mono s-index"><b>02</b>The app</span>
       <div>
         <h2 class="s-title">One window. <em>Every control in reach.</em></h2>
         <p class="s-intro">The photo on the left, the controls on the right. With Advanced off you get the core of it: Glow, Start, and Color &amp; Landing. Advanced, on in this shot, adds the rest. This is Lightroom Mode, a Pro feature: the photo came from Lightroom Classic and goes back with one click.</p>
@@ -173,7 +169,6 @@
 
     <div class="tour">
       <div class="tour-text">
-        <span class="mono">The panels</span>
         <h3>What's in each panel.</h3>
         <div class="toggle" id="tour-switch" role="group" aria-label="App panel">
           <button type="button" class="is-on" data-tab="halation-effect">Halation › Effect</button>
@@ -201,9 +196,8 @@
 <section class="section" id="physics">
   <div class="wrap">
     <div class="s-head">
-      <span class="mono s-index"><b>03</b>Light path</span>
       <div>
-        <h2 class="s-title">Down through the emulsion. <em>Back off the base.</em></h2>
+        <h2 class="s-title">Into the emulsion. <em>Back off the base.</em></h2>
         <p class="s-intro">On film, halation isn't added on top of the picture. It's a second exposure, made from behind, by light that has already passed through once. Five steps, a few tenths of a millimetre.</p>
       </div>
     </div>
@@ -330,30 +324,25 @@
 
       <div class="path-steps">
         <article class="step" data-step="1">
-          <span class="mono">01 / Entry</span>
           <h3>Light enters the emulsion.</h3>
           <p>A colour negative is three light-sensitive layers stacked on a clear base. Blue is recorded on top, then a <strong>yellow filter</strong> stops any remaining blue from going deeper. Green and red pass on.</p>
         </article>
         <article class="step" data-step="2">
-          <span class="mono">02 / Through</span>
           <h3>Some of it doesn't stop.</h3>
           <p>The emulsion absorbs most of the light, never all of it. A fixed share of every tone leaves its underside, scattered at every angle, into roughly <strong>0.13 mm of clear plastic</strong>. Under an ordinary tone that share never shows. Under a lamp many stops brighter than its surroundings, the same share is enough to expose the film again.</p>
           <p class="step-tag"><span class="mono">In Halo Pro</span>Starts at · Softness of start: where a file's lights start to glow, standing in for the stops above white a JPEG or TIFF has lost</p>
         </article>
         <article class="step" data-step="3">
-          <span class="mono">03 / The mirror</span>
           <h3>The back of the base is a mirror.</h3>
           <p>Where the base meets air, light that hits the back more obliquely than the <strong>critical angle — about 42° from straight down, for n ≈ 1.5</strong> — can't get out. It's totally reflected and heads back up at the same angle, away from where it came in. Light closer to straight down mostly escapes. This boundary is where halation is born.</p>
           <p class="step-tag"><span class="mono">In Halo Pro</span>Size · Format · Roll-off: a smooth glow, not a ring (see the box below)</p>
         </article>
         <article class="step" data-step="4">
-          <span class="mono">04 / Return</span>
           <h3>It hits red first. That's why it's red.</h3>
           <p>The returning light enters the emulsion from below, and the first layer it meets is the <strong>red-sensitive</strong> one. It lands in a ring around the source, at a distance set by the base thickness. The red and green layers' sensitivities overlap around 585–590 nm, so returning orange light exposes a little green too, and where the return is strong, red fills up first while green keeps climbing: the hottest part of the halo reads orange, the faint outer part stays red.</p>
           <p class="step-tag"><span class="mono">In Halo Pro</span>Green return: how orange the strong glow turns</p>
         </article>
         <article class="step" data-step="5">
-          <span class="mono">05 / The backing</span>
           <h3>Film is designed to prevent this.</h3>
           <p>Still film has an <strong>anti-halation layer</strong> that soaks up most of it. Motion-picture stock has long used <strong>remjet</strong> — a carbon-black coat on the back of the base. Strip the remjet, as CineStill does, and the mirror is back at full strength. The diagram switches to remjet here; flip it back to No backing to compare.</p>
           <p class="step-tag"><span class="mono">In Halo Pro</span>No backing control: Amount (0–2) sets how much light comes back</p>
@@ -381,7 +370,6 @@
 <section class="section" id="scale">
   <div class="wrap">
     <div class="s-head">
-      <span class="mono s-index"><b>04</b>Scale</span>
       <div>
         <h2 class="s-title">The halo belongs to the film, <em>not the frame.</em></h2>
         <p class="s-intro">How far the light travels sideways is set by the base, not by the picture. Put the same film in a bigger camera and the halo stays the same physical size while the frame grows around it. It's why 35 mm glows and medium and large format glow far less.</p>
@@ -400,15 +388,15 @@
   <stop offset="1" stop-color="#ff3d22" stop-opacity="0"/>
 </radialGradient></defs>
 <rect class="frame" data-f="f45" x="102.0" y="41.6" width="396.0" height="316.8"/>
-<text class="frame-label" data-f="f45" x="110.0" y="57.6">4 × 5 IN</text>
+<text class="frame-label" data-f="f45" x="110.0" y="57.6">4 × 5 in</text>
 <rect class="frame" data-f="f67" x="184.5" y="107.6" width="231.0" height="184.8"/>
 <text class="frame-label" data-f="f67" x="192.5" y="123.6">6 × 7</text>
 <rect class="frame" data-f="f35" x="240.6" y="160.4" width="118.8" height="79.2"/>
-<text class="frame-label" data-f="f35" x="248.6" y="176.4">35 MM</text>
+<text class="frame-label" data-f="f35" x="248.6" y="176.4">35 mm</text>
 <circle cx="300" cy="200" r="17" fill="url(#halo)"/>
 <circle cx="300" cy="200" r="2.2" fill="#fff4ea"/>
 </svg>
-        <p class="mono" style="margin-top:16px">Frames to scale · halo enlarged for visibility, identical in all three</p>
+        <p class="shot-meta">Frames to scale · halo enlarged for visibility, identical in all three</p>
       </div>
       <div>
         <p style="color:var(--fg-2)">In Halo Pro that's <strong style="color:var(--fg);font-weight:400">Format</strong>: pick the film your photo should look shot on (Super 8, 16 mm, 35 mm, 645, 6×6 / 6×7 or 4×5) and the glow takes that film's share of the frame. The halo against the frame, compared with 35 mm:</p>
@@ -417,7 +405,7 @@
           <li data-f="f67" tabindex="0"><span>6 × 6 / 6 × 7</span><span class="mono">56 mm side</span><b>× 0.43</b></li>
           <li data-f="f45" tabindex="0"><span>4 × 5 in</span><span class="mono">102 mm side</span><b>× 0.24</b></li>
         </ul>
-        <p class="mono fmt-note">Also in the menu: Super 8 × 6.0 · 16 mm × 3.2 · 645 × 0.58. Format assumes one base on every size; real bases differ (120 is thinner, sheet film thicker), so real ratios differ somewhat. <a href="notes.html#fig8">The same street on all six formats →</a></p>
+        <p class="fmt-note">Also in the menu: Super 8 × 6.0 · 16 mm × 3.2 · 645 × 0.58. Format assumes one base on every size; real bases differ (120 is thinner, sheet film thicker), so real ratios differ somewhat. <a href="notes.html#fig8">The same street on all six formats →</a></p>
       </div>
     </div>
   </div>
@@ -427,7 +415,6 @@
 <section class="section" id="model">
   <div class="wrap">
     <div class="s-head">
-      <span class="mono s-index"><b>05</b>Controls</span>
       <div>
         <h2 class="s-title">The light path, <em>mapped to the controls.</em></h2>
         <p class="s-intro">Halo Pro doesn't trace rays through a film base. It works out the glow in linear light from your photo's own colour profile, with a control for each part of the path, under the app's own names. Amount sets the overall strength. The Default's width, strength, colour and start were matched to a look I made in an established film-emulation plug-in, measured from its exported pictures, not derived from a base thickness.</p>
@@ -445,7 +432,7 @@
       <div class="lightfig-img"><img id="light-img" src="img/light/light-bars.png" width="1400" height="453" alt="Three bars of light after Halo Pro: a red-orange glow around the white end of a fading bar and around the hot centre of a second bar; on the spectrum bar, red and magenta glow red and yellow orange, green barely, blue not at all" loading="lazy"></div>
       <figcaption>
         <p>Three bars of light on black: white fading to nothing, a hot centre, and every hue of an RGB file. The glow follows the light: it fades with the white bar and is strongest around the hottest part. Red and magenta glow red, yellow orange. Green, the brightest colour here to the eye, barely glows, and blue not at all: on film, blue is stopped on the way down and red reaches the base.</p>
-        <p class="mono shot-meta">Made in Halo Pro 2.2: Amount 2 · Size 1 · Format Super 8 · Warmth on highlights 0 · Mist off. Exaggerated to show at this size: twice the Default strength, about six times the 35 mm glow width.</p>
+        <p class="shot-meta">Made in Halo Pro 2.2: Amount 2 · Size 1 · Format Super 8 · Warmth on highlights 0 · Mist off. Exaggerated to show at this size: twice the Default strength, about six times the 35 mm glow width.</p>
         <p class="note-link"><a href="notes.html#results">Measured: brightness, colour, size and more, in the technical note →</a></p>
       </figcaption>
     </figure>
@@ -509,7 +496,6 @@
 <section class="section" id="float">
   <div class="wrap">
     <div class="s-head">
-      <span class="mono s-index"><b>06</b>Precision</span>
       <div>
         <h2 class="s-title">A halo is a gradient. <em>Gradients need float.</em></h2>
         <p class="s-intro">The glow falls from a bright core to nothing over hundreds of pixels. Round that to 8 bits between blur passes and the falloff turns into steps. Halo Pro works in 32-bit float at every step, from opening the file until it is written out.</p>
@@ -534,7 +520,6 @@
     </div>
 
     <div class="files">
-      <span class="mono">Files</span>
       <h3>Files, colour and your Mac.</h3>
       <div class="spec">
         <div><span class="mono">In</span><h4>16-bit and 32-bit at full depth</h4><p>16-bit TIFF and PNG are read at 16 bits; 32-bit and half-float TIFFs open too. JPEG, BMP and WebP at 8 bits. No raw or HEIC files and no transparency: export a 16-bit TIFF from your raw editor first (Lightroom Mode does that round trip for you).</p></div>
@@ -553,7 +538,6 @@
 <section class="section" id="pro">
   <div class="wrap">
     <div class="s-head">
-      <span class="mono s-index"><b>07</b>Pro</span>
       <div>
         <h2 class="s-title">Free has every control. <em>Pro is for paid work.</em></h2>
         <p class="s-intro">The free version has every control and mask view, full-resolution export up to 32-bit float, LUTs and presets, no watermark and no time limit. It's for personal use. Pro adds the licence for paid work (a client, a commission, anything you sell) plus Lightroom Mode and Batch Mode.</p>
@@ -561,13 +545,11 @@
     </div>
     <div class="pro-grid">
       <div class="pro-item">
-        <span class="mono">Pro</span>
         <h3>Lightroom Mode.</h3>
         <p>Add Halo Pro once in Lightroom Classic as an additional external editor. Then right-click a photo, Edit In, Halo Pro: Lightroom hands over a TIFF, you set the look, and Save and return writes a 16-bit TIFF back with its metadata. One photo at a time; for a set, export TIFFs from Lightroom, run them through Batch Mode and import the results back.</p>
-        <p class="pro-note mono">Lightroom Classic › Settings › External Editing › Additional External Editor: choose Halo Pro.app, then TIFF, ProPhoto RGB, 16-bit, compression None or ZIP.</p>
+        <p class="pro-note">Lightroom Classic › Settings › External Editing › Additional External Editor: choose Halo Pro.app, then TIFF, ProPhoto RGB, 16-bit, compression None or ZIP.</p>
       </div>
       <div class="pro-item">
-        <span class="mono">Pro</span>
         <h3>Batch Mode.</h3>
         <p>Open up to 500 photos at once; loading stops if less than 1.5&nbsp;GB of memory is free. Each photo keeps its own settings. Apply to All copies one look across the set, and Cmd+C / Cmd+V copy a look between photos. The Batch Exp button writes every photo with its own settings and never overwrites a file: a name that's taken gets a number.</p>
       </div>
@@ -575,21 +557,18 @@
 
     <div class="tiers" id="pricing">
       <div class="tier">
-        <span class="mono">Free</span>
         <h3>Halo Pro — Free</h3>
         <p class="price">€0<small>personal use</small></p>
         <ul><li>Every control and mask view</li><li>Full-resolution export, up to 32-bit float</li><li>LUTs and presets</li><li>A licence screen at each launch</li><li class="no">Lightroom Mode</li><li class="no">Batch Mode</li></ul>
         <a class="btn" href="https://alriclj.gumroad.com/l/HALO_PRO?variant=Halo%20Pro%20-%20FREE&amp;wanted=true">Download free</a>
       </div>
       <div class="tier tier--main">
-        <span class="mono red">One person</span>
         <h3>Halo Pro</h3>
-        <p class="price">€20<small>one-time</small></p>
+        <p class="price">€20<small>one-time, for one person</small></p>
         <ul><li>Everything in Free</li><li>Lightroom Mode: Edit In, Save and return</li><li>Batch Mode, up to 500 photos</li><li>Licensed for paid work</li><li>Free updates in your Gumroad library</li></ul>
         <a class="btn btn--solid" href="https://alriclj.gumroad.com/l/HALO_PRO?variant=Halo%20Pro&amp;wanted=true">Buy Pro · €20</a>
       </div>
       <div class="tier">
-        <span class="mono">Studios</span>
         <h3>Halo Pro — Organisation</h3>
         <p class="price">€60<small>one-time</small></p>
         <ul><li>Everything in Halo Pro</li><li>Several people in a studio or company</li><li>Licensed for commercial use at scale</li><li>Free updates in your Gumroad library</li></ul>
@@ -614,7 +593,6 @@
 <section class="section" id="development">
   <div class="wrap">
     <div class="s-head">
-      <span class="mono s-index"><b>08</b>Development</span>
       <div>
         <h2 class="s-title">Where it's at. <em>Planned, not promised.</em></h2>
         <p class="s-intro">One person builds Halo Pro, since 2024. This is what shipped, what is being fixed now, and what is only an idea.</p>
@@ -700,8 +678,7 @@
 
 <section class="closing">
   <div class="wrap" style="position:relative">
-    <span class="mono" style="display:block;margin-bottom:28px">Version 2.2 beta · free to try</span>
-    <h2>Try it on the photo you're already thinking about.</h2>
+    <h2>Try it on the photo you're thinking of.</h2>
     <div class="hero-cta">
       <a class="btn btn--solid" href="https://alriclj.gumroad.com/l/HALO_PRO?variant=Halo%20Pro&amp;wanted=true">Buy Pro · €20</a>
       <a class="link" href="https://alriclj.gumroad.com/l/HALO_PRO?variant=Halo%20Pro%20-%20FREE&amp;wanted=true">Free version</a>
@@ -715,7 +692,7 @@
   <div class="wrap cols">
     <div>
       <span class="mono">Made in Stockholm</span>
-      <p style="font-size:22px;color:var(--fg);letter-spacing:-.02em">Alric Ljunghager</p>
+      <p style="font-size:var(--t-lead);color:var(--fg);letter-spacing:-.02em">Alric Ljunghager</p>
       <p>Photographer. Building Halo Pro since 2024 · Beta February 2026 · 1.0 September 2026 · 2.2 beta November 2026.</p>
     </div>
     <div>
@@ -977,7 +954,7 @@ function switcher(sel, key, on) {
   const drag = e => { const r = cmp.getBoundingClientRect(), v = Math.max(0, Math.min(100, (e.clientX - r.left) / r.width * 100)); range.value = v; set(v); };
   cmp.addEventListener('pointerdown', e => {
     start = { x: e.clientX, y: e.clientY, live: e.pointerType === 'mouse' };
-    if (start.live) { cmp.setPointerCapture(e.pointerId); drag(e); }
+    if (start.live) { try { cmp.setPointerCapture(e.pointerId); } catch (_) {} drag(e); }
   });
   cmp.addEventListener('pointermove', e => {
     if (!start) return;

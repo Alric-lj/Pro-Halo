@@ -115,9 +115,41 @@ before/after; a film scan as Fig. 0 (needs shots 1-3); regrouping the Controls r
 larger (with sub-critical rays escaping, ~4 % returning); one shared figure component for both pages; a portrait
 bars image for phones; the Scale SVG at 102 mm for 4x5 and the format strip under it; shorter Development section;
 a fuller Sources list (Kodak data sheets, AHU, patents); recipes with pictures; a Mist picture; image weights
-(srcset/WebP); the banding demo rebuilt as a real 8-bit vs float comparison; type-size tokens; testers' photos.
+(srcset/WebP); the banding demo rebuilt as a real 8-bit vs float comparison; testers' photos.
 In the note: a film-model figure (ring around a point vs the app's glow), a backing-shape figure, a mist vs
 halation scene, and a downloadable test-chart pack.
+
+## Design pass with the taste-skill (2 Nov 2026, late)
+
+Owner's request: use github.com/Leonxlnx/taste-skill to make smarter design decisions. The skill is a rule set
+distilled from 247 award-gallery sites plus its author's own taste. Read that way: its **study-backed** findings were
+applied; where only **its author's taste** speaks and it contradicts this site's brief (monospace labels, hairlines),
+the brief wins. Its scripts were not run (downloaded code); the same checks were measured in the browser instead.
+
+Done, both pages, measured at 1440 and 390 px:
+- **Type scale:** 20 font sizes became 6 tokens (`--t-small` 14, `--t-body` 17/16, `--t-lead` 21/18, `--t-head`,
+  `--t-section`, `--t-display`; mono labels 13). Nothing under 13 px (was 187 text elements at 10-12 px).
+- **No spaced capitals:** about 180 tracked uppercase labels are now sentence case. Mono kept for short labels and
+  figure data; nav, buttons, toggles and caption sentences moved to Inter Tight. Diagram labels too, sized for phones.
+- **No numbering or repeated labels:** the "01 Result … 08 Development" section numbers (the "03" the owner asked
+  about) and the "01 / Entry" step numbers are gone; so are small labels that only repeated the heading under them
+  (Mask views, The panels, Files, Pro ×2, Free, Studios, the hero's and closing's top lines). "One person" moved into
+  the price line. Section headings now start on the page margin.
+- **Two-line headings on phones:** four ran to three lines. The red second sentence runs on inline at phone width,
+  and two headings got shorter: "Into the emulsion. Back off the base.", "Try it on the photo you're thinking of.";
+  note title "Halation, measured. What the glow does."
+- **Note charts on phones:** their text was 4.5 px. `plots.py narrow` now draws a 400-wide version of each chart
+  (horizontal bars for colour, axis title above the plot), shown at 900 px and below; desktop chart text 11 → 13 px.
+  Pipeline: app repo `tools/website_shots/note/plots.py` + `insert_narrow.py`.
+- The before/after slider no longer throws if a pointer event arrives without an active pointer.
+
+Not taken, and why: the skill bans monospace, hairlines and the red glow outright; the brief asks for them. It also
+wants running text in full white (ours is soft grey at about 8:1 contrast, kept for a long dark page) and shorter
+pages (about 600 words); the note now carries the detail, so a shorter main page is a later, content decision.
+
+**Decision for you:** the red glowing second line on every section heading. The skill's rule is one accent, on the
+action and one other thing; the page has it on the hero and all eight section headings. Suggestion: keep it on the
+hero and on the Light path heading (where red is the subject), and set the other seven section headings in white.
 
 ## Gumroad product page (live since 2 Nov 2026)
 
