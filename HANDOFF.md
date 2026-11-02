@@ -79,8 +79,8 @@ old 1.0 description. It describes **2.1 beta**, with real 2.1 exports (startup l
   Verified: Get Halo Pro and Download Free open checkout with the right variant (`?wanted=true&variant=…`).
   Cloudflare's human check stopped the test before the checkout form: click through once yourself.
 - **Open:** the DMG on Gumroad ("Halo Pro.dmg", 205.7 MB) matches no release in the app repo; make sure it is the
-  2.1 beta the page describes. The product name and summary still say "HALO PRO 1.0 BETA (… Lightroom plugin)" and
-  show at checkout and on receipts; rename to "Halo Pro".
+  2.1 beta the page describes. The product is renamed "Halo Pro" (2 Nov); its short summary still reads
+  "PRO HALO 1.0 Beta" (`gumroad products update btgaby --custom-summary "…"`).
 
 ## Things only you can add
 
