@@ -66,6 +66,22 @@ More detail, including things that shouldn't sit in this public repo, is in the 
 - **Licence terms**: the page says "one person", "for a studio or company", "licensed for paid work", "free
   updates in your Gumroad library". Add Macs per licence or seats if you have a rule.
 
+## Gumroad product page (live since 2 Nov 2026)
+
+`https://alriclj.gumroad.com/l/HALO_PRO` now shows a custom landing page (Gumroad product `btgaby`) instead of the
+old 1.0 description. It describes **2.1 beta**, with real 2.1 exports (startup look) and the 2.1 window.
+- Source: `gumroad/landing.src.html` + `gumroad/img/`; `python3 gumroad/build.py` inlines the images into
+  `gumroad/landing.html` (Gumroad's limit is 500,000 characters; it is ~400 KB).
+- Gumroad CLI (`brew install antiwork/cli/gumroad`, signed in): preview without publishing
+  `gumroad products page preview btgaby ./gumroad/landing.html --json --no-input --non-interactive` (check
+  `.sanitization_report`, must be 0 removed), publish with `page publish`, undo with `page clear btgaby --yes`.
+- Prices and buy buttons are Gumroad fields: variants "Halo Pro", "Halo Pro - FREE", "Halo Pro - Organisation".
+  Verified: Get Halo Pro and Download Free open checkout with the right variant (`?wanted=true&variant=…`).
+  Cloudflare's human check stopped the test before the checkout form: click through once yourself.
+- **Open:** the DMG on Gumroad ("Halo Pro.dmg", 205.7 MB) matches no release in the app repo; make sure it is the
+  2.1 beta the page describes. The product name and summary still say "HALO PRO 1.0 BETA (… Lightroom plugin)" and
+  show at checkout and on receipts; rename to "Halo Pro".
+
 ## Things only you can add
 
 - A wedding/editorial example with skin, white fabric and practical lights (the strongest ask from the reviews).
