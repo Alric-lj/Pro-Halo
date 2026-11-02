@@ -21,32 +21,47 @@ Owner: Alric Ljunghager (photographer, Stockholm). Hosted on GitHub Pages from `
 Sources: lomography.com articles on the anti-halation layer, remjet, ECN-2 (linked in the footer).
 
 ## What the app actually does (don't overclaim)
-Source code lives in `~/Documents/HALOPRO3 mythos 1` (PyQt5, Metal; private repo). The site describes the app repo's
-**`main` branch** (1.0.0 + milestone 1). Facts checked against that code in October 2026:
-- Pipeline: Exposure/Contrast → LUT if "Apply before halation" → Halation → Mist → LUT if not → Grain/Bloom.
-  **One** LUT, before halation or after mist. float32 pixels throughout.
-- The halation and mist blends keep values within white (0–1). Don't claim "values above white survive".
-- Window: tabs Halation · Mist · Edit · Settings; Halation and Mist each have Effect | Masking panels.
-  Simple mode: Glow, Color, Threshold, Highlight Roll-off. Use the app's exact labels (e.g. "Glow Size", "Color Shift").
-- Glow Size is a percentage of the short side (slider 0–3.00). Typed values go up to **10×** the slider's end
-  (halation/mist sliders only), decimal comma accepted.
-- On main, several controls misbehave (fixed on the unreleased milestone-2 branch): "Anti-Halation: Removed" works
-  backwards, Glow Threshold doesn't gate the glow, Visibility in Shadows, Soft Light/Overlay, Contrast < 1, Gamma > 1,
-  Mist Softness. Don't present these as working; the page says so once, plainly.
-- Mask views on keys 0–9 (Halation) and 0–2 (Mist). They are approximations on main; exact on milestone 2.
-- I/O: 16-bit TIFF/PNG read at full depth (LZW TIFF reads at 8-bit); JPEG/BMP/WebP 8-bit; limits 100 MP / 500 MB
-  per file. Export TIFF 8/16/32f, PNG 8/16, JPEG q95. The source ICC profile follows the pixels (no output choice;
-  ProPhoto can be kept, converted to sRGB, or bypassed). EXIF/IPTC/XMP via bundled ExifTool.
+Source code lives in `~/Documents/HALOPRO3 mythos 1` (PyQt5, Metal; private repo). The site describes **Halo Pro 2.2.0
+beta** (app `main`, 2 Nov 2026; DMG in its `releases/`). Facts checked against that code and its manual
+(`halo_pro/resources/manual.html`); the change spec and reviews are in the app repo `docs/designs/website-2.2.md`.
+- Pipeline: Exposure/Contrast → LUT if "Apply before halation" → Halation → Mist → LUT if not → Bloom/Grain.
+  **One** LUT. float32 throughout. The glow is measured on the photo as opened (Exposure/LUT don't move it).
+- Halation 2.x: worked out in linear light with the file's own tone curve (the file's own primaries, so not yet the
+  same glow colour in every colour space); adds light only where the glow spreads past a bright area; tight core +
+  soft tail (a bell, not a TIR ring); blue light makes no glow. Default width/strength were tuned against measured
+  reference looks (don't name or headline the comparison). The Default look also has Warmth on highlights 1
+  (bright surfaces a touch warmer, blue down up to ~6/255) and Mist on at Density 0.30.
+- 32-bit float TIFF export keeps light above white, unless the LUT after mist, or Bloom, clips it; 8/16-bit clip.
+  Fringing and Lens Smear work on the halation glow itself; Mist, Grain and Bloom are separate stages.
+- Window: tabs Halation · Mist · Edit · Settings; Halation and Mist each have Effect | Masking panels. Halation ›
+  Effect: Glow (Amount 0–2, Size 0.25–16, Format menu Super 8, 16 mm, 35 mm, 645, "6x6 / 6x7" (one entry), 4x5,
+  Roll-off), Start (Starts at, stops below white, default 1.9; Softness of start), Color & Landing (Green return,
+  Landing, Warmth on highlights, Glow color, Color mix, Glow saturation). Advanced: Secondary Glow, Smooth wide glow,
+  Soft fall-off, Fringing (Distance, Direction, Softness), Lens Smear, masking groups. Use the exact labels.
+- Gone since 1.x: Glow Threshold, Color Shift, Glow Boost, Anti-Halation, Highlight Cutoff (halation), Visibility in
+  Shadows, Blend Mode, Edges. No backing control: Amount sets how much light comes back.
+- Format sizes (short side): Super 8 4.01, 16 mm 7.49, 35 mm 24, 645 41.5, 6x6/6x7 56, 4x5 102 mm.
+- Views: Halation 0–8 (1 Source, 2 Energy, 3 Luminance Range, 4 Sky, 5 Color, 6 Final, 7 Glow Preview, 8 Smear),
+  Mist 0–2; exact, preview only. Halation glow controls stop at their slider range; most others take 10x typed.
+- I/O: JPEG, PNG, TIFF, BMP, WebP up to 100 MP / 500 MB; 16-bit TIFF/PNG at 16 bits; 32-bit and half-float TIFF open;
+  no raw/HEIC, no transparency. Export TIFF 8/16/32f, PNG 8/16, JPEG q95 full chroma; 8-bit dithered. Source ICC kept;
+  ProPhoto kept or converted to sRGB on import. EXIF/IPTC/XMP via ExifTool (says when a file's could not be copied).
+- Preview glows like the export at any size; Accurate (P) renders full resolution (true 1:1 only with it on).
+- Speed: a 12 MP export about 0.9 s on an M3 Max since 2.1 (2.0: ~1.1 s; 1.x: 1.2–1.7 s). GPU for glow, mist and LUT.
 - **No Lightroom plug-in.** "Lightroom Mode": a TIFF from Lightroom Classic's Edit In; "Save and return" writes a
-  16-bit TIFF back. Pro-only. Batch Mode (2+ images, up to 500) is the other Pro gate. Everything else is in Free.
-- macOS 14 Sonoma or later (true for the milestone-1 build; see HANDOFF.md before publishing), Apple Silicon only,
-  notarized. v1.0 shipped 8 Sep 2026 (beta Feb 2026, started 2024).
-- The app does NOT simulate base thickness, TIR rings or format size directly — the site explains physics, then maps it to controls.
-- Screenshots in `img/app/` come from the real app; the capture tools live in the private app repo
-  (`tools/website_shots/`) because they unlock Pro in memory. Never copy them into this public repo.
+  16-bit TIFF back. Pro-only. Batch Mode (2+ images, up to 500; loading stops below 1.5 GB free RAM) is the other
+  Pro gate. Everything else is in Free (with a licence screen at launch). Key: on the Gumroad download page.
+- macOS 14 or later, Apple Silicon only, notarized. v1.0 8 Sep 2026; 2.0 beta 31 Oct, 2.1 1 Nov, 2.2 2 Nov 2026.
+  Known limits (say them): fine diagonal stripes can band; Size above ~5 can land unevenly on faces and trees.
+- Coming next (release notes): new control panel with Film/Creative sections and starting looks; a better big glow,
+  a halation ring, light streaks, oval glow, white bloom; colour management (same glow colour everywhere, EXR,
+  HEIC, raw). Frame streaks/oval/bloom as creative tools, not physics.
+- Screenshots in `img/app/` and light renders in `img/light/` come from the real app; the capture tools live in the
+  private app repo (`tools/website_shots/`) because they unlock Pro in memory. Never copy them into this public repo.
 
 ## Pricing (Gumroad, one-time)
-Free €0 (personal use, no Lightroom Mode, no Batch Mode) · Halo Pro €20+ (paid work) · Organisation €60+ (studios). No refunds.
+Free €0 (personal use, no Lightroom Mode, no Batch Mode) · Halo Pro €20 (paid work) · Organisation €60 (studios). No refunds.
+No pay-what-you-want wording on the site (owner, 2 Nov 2026), although Gumroad shows its own "+".
 Links: `https://alriclj.gumroad.com/l/HALO_PRO?variant=<Halo%20Pro | Halo%20Pro%20-%20FREE | Halo%20Pro%20-%20Organisation>&wanted=true`
 
 ## Files

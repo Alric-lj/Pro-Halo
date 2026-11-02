@@ -83,7 +83,7 @@ p { margin: 0 0 1em; }
 .nav.is-scrolled { background: rgba(7,7,7,.78); -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px); border-bottom-color: var(--line); }
 .nav .wrap { display: flex; align-items: center; justify-content: space-between; height: 72px; gap: 24px; }
 .brand { display: flex; align-items: center; gap: 12px; text-decoration: none; }
-.brand svg { width: 20px; height: 20px; }
+.brand svg { width: 20px; height: 20px; flex: none; }
 .brand strong { font-weight: 500; font-size: 16px; letter-spacing: -0.01em; }
 .brand span { font-family: var(--mono); font-size: 10px; letter-spacing: .14em; color: var(--fg-3); }
 .nav ul { display: flex; gap: 30px; list-style: none; margin: 0; padding: 0; }
@@ -306,6 +306,7 @@ input[type=range].rng { width: 100%; accent-color: var(--red); margin: 0; }
 .engine-head > .mono, .tour-text > .mono, .files > .mono { display: block; margin-bottom: 14px; }
 .engine-head h3, .tour-text h3, .files h3 { font-size: clamp(26px, 2.6vw, 34px); letter-spacing: -.025em; margin-bottom: 14px; }
 .engine-note { margin: 18px 0 0; max-width: 40em; font-size: 14px; color: var(--fg-2); }
+.model-note { margin: 28px 0 0; max-width: 46em; font-size: 15px; color: var(--fg-2); }
 .engine-head p { color: var(--fg-2); margin: 0; }
 .engine-strip { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
 .engine-strip figure { margin: 0; }
@@ -414,7 +415,7 @@ input[type=range].rng { width: 100%; accent-color: var(--red); margin: 0; }
 .skip { position: absolute; left: 16px; top: -60px; z-index: 40; padding: 10px 14px; background: var(--fg); color: #000; font: 12px/1 var(--mono); text-decoration: none; border-radius: 4px; }
 .skip:focus { top: 12px; }
 html { scroll-padding-top: 88px; }
-.brand strong, .nav .btn { white-space: nowrap; }
+.brand strong, .brand span, .nav .btn { white-space: nowrap; }
 .frame-label { font-size: 7px; }
 
 /* the red glow is for display-size red type only, and goes when more contrast is asked for */
@@ -523,7 +524,7 @@ html { scroll-padding-top: 88px; }
 /* without JavaScript: hide controls that would do nothing */
 html:not(.js) .nav-toggle, html:not(.js) .toggle, html:not(.js) .band, html:not(.js) .band-ctrl .range-row, html:not(.js) .cmp-bar > .mono { display: none; }
 @media (max-width: 640px) { html:not(.js) .hero-copy { padding-bottom: 96px; } }
+@media (max-width: 440px) { .brand span { display: none; } }
 @media (max-width: 360px) {
-  .brand span { display: none; }
   .nav .wrap { gap: 14px; }
 }

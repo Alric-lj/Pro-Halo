@@ -1,4 +1,4 @@
-# Handoff: halopro.app v4 (26 Oct 2026)
+# Handoff: halopro.app v4, updated for Halo Pro 2.2 beta (2 Nov 2026)
 
 Branch `redesign-v4` (built on `redesign-v3`). Nothing is pushed; `main` (the live site) is untouched.
 
@@ -6,7 +6,7 @@ Branch `redesign-v4` (built on `redesign-v3`). Nothing is pushed; `main` (the li
 
 A page that shows the real app instead of describing it. Order:
 
-1. **Result**: before/after of real exports from Halo Pro (snow, Saab) at printed settings, plus two mask views.
+1. **Result**: before/after of real 2.2 exports (Saab, snow) at the Default look with Mist off, plus two mask views.
 2. **The app**: the actual window in Lightroom Mode, four callouts, and a switcher for the five panels.
 3. **Light path**: the scroll diagram and remjet switch, each step naming its control.
 4. **Scale**, 5. **Controls** (film mechanism → app control, with app paths; three recipes),
@@ -16,6 +16,9 @@ A page that shows the real app instead of describing it. Order:
 Red text has a soft red glow (your request), on headings only.
 
 Every factual line was checked against the app's `main` branch by independent reviewers (see "How it was made").
+On 2 Nov 2026 the page was brought to **2.2.0 beta**: every picture re-shot or re-rendered from 2.2 (window, panels,
+exports, mask views, light bars, hero lettering, og-image), copy and controls rewritten to the 2.2 panel, beta and
+known limits stated, a note for 1.x owners. Spec and reviews: app repo `docs/designs/website-2.2.md`.
 
 ## View it
 
@@ -27,19 +30,15 @@ Then http://localhost:8000 on the Mac, or http://<Mac's Wi-Fi IP>:8000 on your p
 
 ## Before you publish (merge to main and push)
 
-The page is written to go live **together with the milestone-1 build released as 1.0.1**. It says:
-"macOS 14 Sonoma or later", "Files you can trust: Done · 1.0.1", "1.0.1 is a free update in your Gumroad
-library", batch never overwrites, typed values up to 10x. Those are true for the milestone-1 build, not for
-the September 1.0.0 download.
+The page describes **Halo Pro 2.2.0 beta** (`releases/Halo-Pro-2.2.0-beta-2026-11-02.dmg` in the app repo). It says
+"2.2 beta" in the nav, hero, structured data and closing line, and "2.2 is a free update in your Gumroad library".
 
-1. In the app repo, set `__version__ = "1.0.1"` in `halo_pro/version.py` on `main` (it feeds the bundle version and
-   the "Halo Pro v…" tag written into exported files) and replace the hard-coded "v1.0" in the About text
-   (`working_window.py`, Settings › About) with the version constant. Rebuild and notarise.
-2. Release that build on Gumroad as 1.0.1. The page says 1.0.1 in the nav, the structured data, the tracker and the
-   closing line; if you pick another name, search the page for "1.0.1".
-3. Buy Pro once yourself and check that the key arrives and unlocks Lightroom Mode and Batch Mode on a clean Mac.
-4. Decide about the app's startup screen ("currently in BETA… Patreon") and the Gumroad product text
-   ("1.0 BETA", "Lightroom plugin", "Intel", "Windows coming soon"); both disagree with the site.
+1. Put the 2.2 beta DMG on Gumroad (the file there, "Halo Pro.dmg", 205.7 MB, matched no release on 2 Nov).
+2. Update the Gumroad landing page from 2.1 to 2.2 (`gumroad/`, see below) and republish it.
+3. Buy Pro once yourself and check that the key on the Gumroad download page unlocks Lightroom Mode and Batch Mode
+   on a clean Mac.
+4. Decide about the Patreon line inside the app (Halation panel and manual: "Support development at
+   patreon.com/Halo_Pro"); the site has no Patreon.
 5. Then merge `redesign-v4` into `main` and push.
 
 More detail, including things that shouldn't sit in this public repo, is in the app repo:
@@ -47,20 +46,11 @@ More detail, including things that shouldn't sit in this public repo, is in the 
 
 ## Decisions for you
 
-- **Version name** for the milestone-1 build (the page assumes 1.0.1).
-- **No refunds** sits next to a tracker that lists 1.0's problems. Consider a refund window, or keep pushing
-  people to try Free first (the page already says so under the prices).
-- **Glow Threshold**: the page says it isn't a hard cut-off and that whether 1.1 makes it one is still being decided. Update when you choose.
-- **The app's main moved on (27 Oct).** Milestone 2 (strict Glow Threshold, Anti-Halation fixed, same look at any
-  size) and m2b are merged into the app's `main` since this page was written for the milestone-1 build. Pick the build
-  the site launches with, then update the "until 1.1" caveats, the Glow Threshold line above and the screenshots.
-- **"Light through Halo Pro" figure** (Controls, `img/light/light-bars.png`): you judged it inaccurate, and a bench
-  showed the engine itself is off (red lights get no glow, the glow follows a threshold instead of the light, no
-  ring). Take it down or replace it until the engine is rebuilt; the brief for that is in the app repo
-  (`docs/halation-physics-brief.md`). The hero lettering is app output too ("back." barely glows).
-- **Physics copy, small updates**: "roughly 0.13 mm" is right for 35 mm acetate, but Portra 400 moved to a 0.10 mm
-  Estar base in 2025; Kodak is replacing remjet on Vision3; orange cores are better explained as the green and red
-  layers overlapping around 585 nm plus red saturating first.
+- **No refunds** next to a beta. The page states the beta and its known limits next to the prices and keeps pushing
+  people to try Free first; consider a refund window anyway.
+- **Physics vs the engine.** The page explains the film ring (03) and says plainly in 05 that 2.2's glow is a core
+  and tail tuned against measured reference looks, with a true ring on the roadmap. Change that line when the ring
+  ships.
 - **Old roadmap ideas** (online presets, grain, ProRes, DaVinci, Windows, Intel) are listed as "Idea, not
   scheduled". Remove any you don't want public.
 - **Licence terms**: the page says "one person", "for a studio or company", "licensed for paid work", "free
