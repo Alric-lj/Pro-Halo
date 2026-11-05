@@ -133,6 +133,9 @@ hero (48 % on phones) with its top faded into the page, so the headline and text
 mentions the point of light. If there is a larger original, swap it in at the same path for sharper big screens.
 Owner, same day: grain back "like before" (a 200 px random grey tile at 6 % over the hero, jumping five times a second
 with CSS, still under reduced motion) and the picture dimmed to 55 % brightness so the text reads.
+Then still unreadable on a 1280 × 720 laptop (the streak rose behind the line under the buttons): the hero is now a
+column, and the picture has its own space (`.hero-light`, at least 300 px, 260 on phones) directly under the text, so it
+can never sit behind the words at any size. On short screens it starts just below the fold.
 
 ## Before/after order (5 Nov 2026)
 
