@@ -399,7 +399,7 @@ input[type=range].rng { width: 100%; accent-color: var(--red); margin: 0; }
 .is-idea > span:last-child { color: var(--fg-3); }
 .is-idea .dev-status::before { display: none; }
 .dev-year--now .dev-grid { grid-template-columns: repeat(2, 1fr); }
-.dev-year--now .dev-card:first-child { grid-column: 1 / -1; }
+.dev-year--now .dev-card:first-child, .dev-year--now .dev-card:last-child:nth-child(even) { grid-column: 1 / -1; }
 
 /* real halation, made in Halo Pro: transparent exports of light on black */
 .vh { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
@@ -603,11 +603,11 @@ html:not(.js) .nav-toggle, html:not(.js) .toggle, html:not(.js) .band, html:not(
 @media (prefers-reduced-motion: reduce) { .nf-img .nf-after { transition: none; } }
 
 /* light path: what Halo Pro follows, and what it doesn't model yet */
-.models { margin-top: 72px; display: grid; grid-template-columns: 1fr 1fr; gap: 24px 64px; padding-top: 24px; border-top: 1px solid var(--line); }
-.models ul { margin: 14px 0 0; padding: 0; list-style: none; }
-.models li { padding: 10px 0; border-bottom: 1px solid var(--line); color: var(--fg-2); }
+.models { margin-top: 72px; padding-top: 24px; border-top: 1px solid var(--line); }
+.models ul { margin: 14px 0 0; padding: 0; list-style: none; columns: 2; column-gap: 64px; }
+.models li { padding: 10px 0; border-bottom: 1px solid var(--line); color: var(--fg-2); break-inside: avoid; }
 @media (max-width: 1020px) {
-  .models { grid-template-columns: 1fr; }
+  .models ul { columns: 1; }
   .toggle button { min-height: 44px; padding: 0 16px; }
   .nav-toggle { min-height: 44px; min-width: 44px; }
 }

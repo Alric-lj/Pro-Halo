@@ -118,6 +118,24 @@ a fuller Sources list (Kodak data sheets, AHU, patents); recipes with pictures; 
 In the note: a film-model figure (ring around a point vs the app's glow), a backing-shape figure, a mist vs
 halation scene, and a downloadable test-chart pack.
 
+## Selling, not hedging (5 Nov 2026)
+
+Owner: "you are underselling it ... We want to sell this app, not scare people." The rule now: **the main page
+leads with what Halo Pro does; real limits are said once, by the download (the Beta line in Pricing); the technical
+note keeps the full method and limits.** Done:
+- Gone from the main page: the "Not modelled yet" list (now one list, "What Halo Pro follows from the film", with
+  the measured doubling per stop added), the Default's provenance in the Controls intro (still in the note's Method
+  and Limits; this reverses the 2 Nov wording decision for the main page only), "doesn't trace rays", "a smooth glow,
+  not a ring", "no backing control/switch", "a look choice", "real bases differ", "To be straight about it", "not a
+  photograph" (the toggle still says "Night street, rendered"), "Not halation" (now "Beyond halation"), "Planned, not
+  promised" (now "Where it's at. What's next."), the Strong Effect/ProPhoto note, and version numbers on picture
+  captions.
+- Said positively instead: Amount from none (a full backing) to twice the built-in look; Green return gives the
+  orange cores; raw users get the 16-bit TIFF / Lightroom Mode route, raw and HEIC on the way; float keeps glows
+  fading to black without steps; "four releases between 31 October and 5 November".
+- Fringing sentence approved by Alric and added as a "Done · 2.3" card.
+- The note's abstract ends on "where it still differs from film is listed at the end" instead of two negatives.
+
 ## Halo Pro 2.3 beta on the site (5 Nov 2026)
 
 From the app session (build 19c8c75 on `limits-m2-landing-share`; DMG `releases/Halo-Pro-2.3.0-beta-2026-11-05.dmg`,
@@ -138,7 +156,7 @@ speckled band can still show just inside green, cyan and blue rings at strong se
 softened, not removed, and Fig. 10 keeps its strong setting out. Fig. 10's Default image is now a 2.3 render (Method
 says so); the other figures are 2.2 (2.3 moves sRGB edges by a few levels; Fringing is off in the Default). The note's
 share image (`og-note.jpg`) was the strong 2.2 neon with those edges; it is now the 2.3 strong street render.
-**Waiting:** the Fringing sentence (not approved yet, so not on the site); the
+**Waiting:** the
 website brief's app facts (CLAUDE.md) still describe 2.2; the milestone-1 test pictures in
 `~/Documents/HaloPro-work/website-candidates/` need clean re-renders before use (IMG_6303 is private, never on the site).
 
