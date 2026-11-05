@@ -125,6 +125,14 @@ a fuller Sources list (Kodak data sheets, AHU, patents); recipes with pictures; 
 In the note: a film-model figure (ring around a point vs the app's glow), a backing-shape figure, a mist vs
 halation scene, and a downloadable test-chart pack.
 
+## What Halo Pro is (5 Nov 2026)
+
+Owner: say what Halo Pro actually is, next-generation halation for professionals: wide-gamut colour, 32-bit float,
+quality kept across the pipeline where alternatives are 8-bit. Done: the hero line now says it, the meta description
+too, and a new first section (`#what`, "Built for professional files.") gives four facts: formed like film, 32-bit
+float end to end, wide gamut with one look, made for real work. The 8-bit comparison is put as what happens to a glow
+worked out in 8 bits, not as a claim about every other product (not verified).
+
 ## Hero image (5 Nov 2026)
 
 Owner supplied the hero picture (a red-orange streak of light on black, `img/hero.webp`, 1232 × 928, 22 KB as sent

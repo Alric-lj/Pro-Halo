@@ -282,6 +282,9 @@ input[type=range].rng { width: 100%; accent-color: var(--red); margin: 0; }
 .spec div { padding: 28px 24px 28px 0; border-bottom: 1px solid var(--line); }
 .spec h4 { font-size: var(--t-lead); font-weight: 400; letter-spacing: -0.015em; margin: 14px 0 8px; }
 .spec p { font-size: var(--t-small); color: var(--fg-2); margin: 0; }
+/* what it is: the same four-up facts, a step larger because they open the page */
+.pillars p { font-size: var(--t-body); }
+.pillars a { color: var(--fg); text-underline-offset: 3px; }
 
 /* ---------- pricing ---------- */
 .tiers { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
