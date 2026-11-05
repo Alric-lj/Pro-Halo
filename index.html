@@ -78,6 +78,7 @@
 <!-- ============ HERO ============ -->
 <header class="hero" id="top">
   <img class="hero-img" src="img/hero.webp" width="1232" height="928" alt="" aria-hidden="true" fetchpriority="high">
+  <div class="hero-grain" aria-hidden="true"></div>
   <div class="wrap hero-copy">
     <h1>Halation is light that <em class="lit"><span class="vh">comes back.</span><img src="img/light/comes-back.png" width="1200" height="340" alt="" aria-hidden="true"></em></h1>
     <p class="hero-sub">A Mac app for film halation and mist. Its controls follow how halation forms in film: where the glow starts, how far it travels, why it turns red. Every step in 32-bit float.</p>
@@ -782,6 +783,18 @@
   </div>
 </footer>
 
+<script>
+/* hero grain: one 200 px tile of random grey, as before; CSS moves it */
+(function () {
+  const el = document.querySelector('.hero-grain'); if (!el) return;
+  const c = document.createElement('canvas'); c.width = c.height = 200;
+  const x = c.getContext('2d'); if (!x) return;
+  const d = x.createImageData(200, 200);
+  for (let i = 0; i < d.data.length; i += 4) { const v = Math.random() * 255; d.data[i] = d.data[i + 1] = d.data[i + 2] = v; d.data[i + 3] = 255; }
+  x.putImageData(d, 0, 0);
+  el.style.backgroundImage = 'url(' + c.toDataURL() + ')';
+})();
+</script>
 <script>
 /* nav */
 (function(){ const n=document.querySelector('.nav'); const f=()=>n.classList.toggle('is-scrolled', scrollY>40); addEventListener('scroll', f, {passive:true}); f(); })();

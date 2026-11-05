@@ -131,6 +131,8 @@ Owner supplied the hero picture (a red-orange streak of light on black, `img/her
 in chat). It replaces the animated point of light (canvas and its script removed). It sits in the lower 70 % of the
 hero (48 % on phones) with its top faded into the page, so the headline and text stay clear. The caption no longer
 mentions the point of light. If there is a larger original, swap it in at the same path for sharper big screens.
+Owner, same day: grain back "like before" (a 200 px random grey tile at 6 % over the hero, jumping five times a second
+with CSS, still under reduced motion) and the picture dimmed to 55 % brightness so the text reads.
 
 ## Before/after order (5 Nov 2026)
 
