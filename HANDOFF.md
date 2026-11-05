@@ -131,8 +131,13 @@ note keeps the full method and limits.** Done:
   promised" (now "Where it's at. What's next."), the Strong Effect/ProPhoto note, and version numbers on picture
   captions.
 - Said positively instead: Amount from none (a full backing) to twice the built-in look; Green return gives the
-  orange cores; raw users get the 16-bit TIFF / Lightroom Mode route, raw and HEIC on the way; float keeps glows
-  fading to black without steps; "four releases between 31 October and 5 November".
+  orange cores; raw users get the 16-bit TIFF / Lightroom Mode (Pro) route, raw and HEIC on the roadmap; float keeps
+  glows fading to black without steps; "four 2.x releases in its first week"; the 1.x check and the memory card no
+  longer run the app down.
+- A zero-context review then pulled back five overclaims: steps are "built in or" have a control; the Result
+  intro says Mist off; doubling per stop is "in a 32-bit file"; Amount 0 is "a perfect backing"; the formula box
+  says Halo Pro draws the filled-in shape and the pinpoint ring is on the roadmap; Scale keeps "ratios assume one
+  base thickness"; the note's abstract names the ring it doesn't draw yet.
 - Fringing sentence approved by Alric and added as a "Done · 2.3" card.
 - The note's abstract ends on "where it still differs from film is listed at the end" instead of two negatives.
 
