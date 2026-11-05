@@ -125,6 +125,11 @@ halation scene, and a downloadable test-chart pack.
   product; `tools/website_shots/note/redblur.py` in the app repo) next to Halo Pro. Shows that a blur keys on
   brightness (red light barely glows, all lights above white look the same) where Halo Pro follows colour and
   brightness. Images: `img/why-*.jpg`, cropped to the band of lights.
+- Third row, at the owner's request ("highlights and contrast glow, not surfaces changing colour"): a surfaces chart
+  (flat white, greys, skin, sky blue, warm yellow, small lights between; `surfaces.py` in the app repo's
+  `tools/website_shots/note/`) run through Halo Pro 2.3 at Warmth on highlights 0. Measured: every surface within half
+  a level of the original in Halo Pro; the red blur shifts the white surface about 24 levels towards peach and warms
+  the yellow and blue. The mask-views text now points at the same difference.
 - Owner asked for long parts to fold away: native `<details class="more">` ("Read more: …", "Show less"), no script.
   Folded: mask views (Result), the last five Controls rows and the three uses, Files/colour/speed (Precision), and the
   road from 2024 plus Ideas (Development, where 2.x now comes first). Page about 19,600 px tall at 1440 with folds shut.
