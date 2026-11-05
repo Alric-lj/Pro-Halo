@@ -39,7 +39,7 @@
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
     "name": "Halo Pro",
-    "softwareVersion": "2.2.0 beta",
+    "softwareVersion": "2.3.0 beta",
     "datePublished": "2026-11-02",
     "applicationCategory": "MultimediaApplication",
     "operatingSystem": "macOS 14 or later (Apple Silicon)",
@@ -61,7 +61,7 @@
   <div class="wrap">
     <a class="brand" href="#top" aria-label="Halo Pro">
       <svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="7.5" fill="none" stroke="#ff3d22" stroke-width="1.2" opacity=".85"/><circle cx="10" cy="10" r="2.4" fill="#fff4ea"/></svg>
-      <strong>Halo Pro</strong><span>2.2 beta</span>
+      <strong>Halo Pro</strong><span>2.3 beta</span>
     </a>
     <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="nav-links">Menu</button>
     <ul id="nav-links">
@@ -85,7 +85,7 @@
       <a class="btn btn--solid" href="https://alriclj.gumroad.com/l/HALO_PRO?variant=Halo%20Pro&amp;wanted=true">Buy Pro · €20</a>
       <a class="link" href="https://alriclj.gumroad.com/l/HALO_PRO?variant=Halo%20Pro%20-%20FREE&amp;wanted=true">Free version</a>
     </div>
-    <p class="hero-note"><span>2.2 beta, for macOS on Apple Silicon</span><span>Free: every control, full-resolution export</span><span>Pro: Lightroom Mode, Batch Mode, licence for paid work</span><a href="#pricing">Compare</a></p>
+    <p class="hero-note"><span>2.3 beta, for macOS on Apple Silicon</span><span>Free: every control, full-resolution export</span><span>Pro: Lightroom Mode, Batch Mode, licence for paid work</span><a href="#pricing">Compare</a></p>
   </div>
   <div class="hero-foot">
     <div class="wrap">
@@ -444,7 +444,7 @@
         <div><span class="path">Halation › Effect › Start</span><h3>Starts at · Softness of start</h3><p>Where the glow is half on, in stops below white, and how gently it comes in from below that. Light above white in a 32-bit file glows more still.</p></div></div>
       <div class="model-row"><span class="mono">Colour in</span>
         <div><h3>Blue is stopped on the way down</h3><p>The blue layer and the yellow filter catch blue before it reaches the base. Red goes deepest.</p></div>
-        <div><span class="path">Built in</span><h3>Linear light, per colour</h3><p>The glow is worked out in linear light, with your file's own tone curve. A blue light makes no glow.</p></div></div>
+        <div><span class="path">Built in</span><h3>Linear light, per colour</h3><p>The glow is worked out in linear light, in one working colour space, so it looks the same whatever your file's profile. A blue light makes no glow.</p></div></div>
       <div class="model-row"><span class="mono">Distance</span>
         <div><h3>Sideways travel in the base</h3><p>Set by base thickness and angle: a property of the film stock.</p></div>
         <div><span class="path">Halation › Effect › Glow</span><h3>Size · Format · Roll-off</h3><p>Format picks the film the glow is measured against (see <a href="#scale">Scale</a>). Size 1 is a bell about 0.07 mm wide (σ) on 35 mm film; Roll-off adds a long, smooth tail.</p></div></div>
@@ -524,7 +524,7 @@
       <div class="spec">
         <div><span class="mono">In</span><h4>16-bit and 32-bit at full depth</h4><p>16-bit TIFF and PNG are read at 16 bits; 32-bit and half-float TIFFs open too. JPEG, BMP and WebP at 8 bits. No raw or HEIC files and no transparency: export a 16-bit TIFF from your raw editor first (Lightroom Mode does that round trip for you).</p></div>
         <div><span class="mono">Out</span><h4>TIFF 8, 16 or 32-bit float</h4><p>PNG 8 or 16-bit. JPEG at quality 95, full colour resolution. 8-bit files are dithered so skies don't band. A 32-bit TIFF keeps light the glow pushes above white, unless a LUT after mist, or Bloom, clips it.</p></div>
-        <div><span class="mono">Colour</span><h4>Your profile stays with the pixels</h4><p>The glow uses your file's own tone curve, the preview is colour-managed to your screen, and the export keeps the profile. ProPhoto RGB can be kept or converted to sRGB on import.</p></div>
+        <div><span class="mono">Colour</span><h4>Your profile stays with the pixels</h4><p>The glow and the mist look the same whether a photo is saved in sRGB, Display P3, Adobe RGB or ProPhoto RGB. The preview is colour-managed to your screen, and the export keeps the profile. ProPhoto RGB can be kept or converted to sRGB on import.</p></div>
         <div><span class="mono">Metadata</span><h4>EXIF, IPTC and XMP copied</h4><p>With a bundled ExifTool. If a file's camera metadata can't be copied, Halo Pro says so.</p></div>
         <div><span class="mono">LUT</span><h4>One .cube LUT</h4><p>Before halation or after mist, with an intensity slider. Saved inside presets. The glow is always measured on your photo as you opened it.</p></div>
         <div><span class="mono">Preview</span><h4>Glows like the export</h4><p>The glow is a share of the picture, so the quick preview and the export glow alike. Accurate (P) renders at full resolution for a true 1:1.</p></div>
@@ -578,8 +578,8 @@
     <div class="facts">
       <p><span class="mono">Requires</span>macOS 14 Sonoma or later on a Mac with Apple Silicon (M1 or newer). Up to 100&nbsp;MP and 500&nbsp;MB per file. Signed, and notarised by Apple.</p>
       <p><span class="mono">Install</span>Open the DMG from Gumroad and drag Halo Pro to Applications. To activate Pro, enter the licence key from your Gumroad download page under Settings › Help › Enter License Key. It's checked online once, then works offline.</p>
-      <p><span class="mono">Beta</span>The download is Halo Pro 2.2, a beta. Known limits: very fine diagonal stripes (blinds, grilles) can show a faint moiré in the glow, and very big glows (Size above about 5) can land unevenly on faces and trees.</p>
-      <p><span class="mono">Upgrading</span>Own 1.0? 2.2 is a free update in your Gumroad library, and your key still works. The glow was rebuilt, so saved 1.x looks keep their mist, LUT and other settings but start with the new Default glow, once; the originals are kept.</p>
+      <p><span class="mono">Beta</span>The download is Halo Pro 2.3, a beta. Known limits: very fine diagonal stripes (blinds, grilles) can show a faint moiré in the glow, and very big glows (Size above about 5) can land unevenly on faces and trees. Strong Effect, a 1.0 preset, still looks a little different on ProPhoto files: its Exposure, Contrast, Bloom and grain work on the file's own values.</p>
+      <p><span class="mono">Upgrading</span>Own 1.0 or 2.2? 2.3 is a free update in your Gumroad library, and your key still works. From 2.2, the glow and mist on Display P3, Adobe RGB and ProPhoto photos change towards what the same photo gets as an sRGB file. From 1.x, the glow was rebuilt, so saved looks keep their mist, LUT and other settings but start with the new Default glow, once; the originals are kept.</p>
       <p><span class="mono">Refunds</span>Digital download, no refunds. Try the free version on your own photos first.</p>
     </div>
     <div class="honest">
@@ -643,19 +643,21 @@
         <li class="dev-card is-done"><span class="dev-status">Done</span><b>Public beta</b><span>February.</span></li>
         <li class="dev-card is-done is-key"><span class="dev-status">Done</span><b>Halo Pro 1.0</b><span>8 September. Signed, and notarised by Apple.</span></li>
         <li class="dev-card is-done"><span class="dev-status">Done</span><b>A line-by-line check</b><span>October. The preview, several controls and the file handling needed work; the glow itself needed to follow the light more closely.</span></li>
-        <li class="dev-card is-done is-key"><span class="dev-status">Done</span><b>Halo Pro 2.x beta</b><span>31 October to 2 November. A new halation engine, rebuilt rather than patched; then Warmth on highlights, a smooth wide glow, new fringing, Glow color and Soft fall-off.</span></li>
+        <li class="dev-card is-done is-key"><span class="dev-status">Done</span><b>Halo Pro 2.x beta</b><span>31 October to 5 November. A new halation engine, rebuilt rather than patched; then Warmth on highlights, a smooth wide glow, new fringing, Glow color, Soft fall-off and one working colour space.</span></li>
       </ul>
     </div>
     <div class="dev-year dev-year--now">
-      <div class="dev-year-head"><span class="dev-year-num">2.x</span><span class="mono">What 2.0 fixed, and what's next</span></div>
+      <div class="dev-year-head"><span class="dev-year-num">2.x</span><span class="mono">What 2.x fixed, and what's next</span></div>
       <ul class="dev-grid">
         <li class="dev-card is-shipped"><span class="dev-status">Done · 2.0</span><b>Files you can trust</b><span>Only replaces the copy Lightroom handed over, and asks before overwriting anything else. A failed export says so instead of saving the unprocessed photo. Asks before throwing away edits you haven't exported. Runs on macOS 14 Sonoma or later.</span></li>
         <li class="dev-card is-shipped"><span class="dev-status">Done · 2.0</span><b>The preview matches the export</b><span>The preview glows like the export at any size, with accurate colour on Display P3 screens and a true 1:1 view. Mask views show exactly what the render uses.</span></li>
         <li class="dev-card is-shipped"><span class="dev-status">Done · 2.x</span><b>Faster, and smooth gradients</b><span>Faster exports than 1.x (see Speed under <a href="#float">Precision</a>). 8-bit exports dithered, so skies don't band.</span></li>
+        <li class="dev-card is-shipped"><span class="dev-status">Done · 2.3</span><b>One working colour space</b><span>The glow and the mist now look the same whether a photo is saved in sRGB, Display P3, Adobe RGB or ProPhoto RGB, and sRGB photos look exactly as before.</span></li>
+        <li class="dev-card is-shipped"><span class="dev-status">Done · 2.3</span><b>Steady under crop and mirror</b><span>Halo Pro's glow no longer shifts when you crop or mirror a photo, and the small square gaps that could appear beside bright lights and neon are gone.</span></li>
         <li class="dev-card is-next"><span class="dev-status">Next</span><b>Steady through long sessions</b><span>A 150-photo session on an 8–16&nbsp;GB Mac without slowing down or losing edits. Big exports use far less memory.</span></li>
         <li class="dev-card is-next"><span class="dev-status">Next</span><b>A new control panel</b><span>Film and Creative sections, and a set of starting looks from realistic to artistic.</span></li>
         <li class="dev-card is-next"><span class="dev-status">Next</span><b>More creative glow</b><span>A better big glow, a halation ring, light streaks, an oval (anamorphic) glow and a white bloom.</span></li>
-        <li class="dev-card is-next"><span class="dev-status">Next</span><b>Colour management</b><span>The same glow colour in every colour space, more export colour spaces, EXR, and HEIC and raw photos.</span></li>
+        <li class="dev-card is-next"><span class="dev-status">Next</span><b>Colour management</b><span>More export colour spaces, EXR, and HEIC and raw photos.</span></li>
       </ul>
     </div>
     <div class="dev-year">
@@ -693,7 +695,7 @@
     <div>
       <span class="mono">Made in Stockholm</span>
       <p style="font-size:var(--t-lead);color:var(--fg);letter-spacing:-.02em">Alric Ljunghager</p>
-      <p>Photographer. Building Halo Pro since 2024 · Beta February 2026 · 1.0 September 2026 · 2.2 beta November 2026.</p>
+      <p>Photographer. Building Halo Pro since 2024 · Beta February 2026 · 1.0 September 2026 · 2.3 beta November 2026.</p>
     </div>
     <div>
       <span class="mono">Contact</span>

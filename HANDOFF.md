@@ -118,6 +118,26 @@ a fuller Sources list (Kodak data sheets, AHU, patents); recipes with pictures; 
 In the note: a film-model figure (ring around a point vs the app's glow), a backing-shape figure, a mist vs
 halation scene, and a downloadable test-chart pack.
 
+## Halo Pro 2.3 beta on the site (5 Nov 2026)
+
+From the app session (build 19c8c75 on `limits-m2-landing-share`; DMG `releases/Halo-Pro-2.3.0-beta-2026-11-05.dmg`,
+release notes `docs/release-notes-2.3.md` in the app repo). Done on this branch, in its own commit so it can be held back:
+- Version labels say 2.3 beta (nav, hero line, JSON-LD 2.3.0 beta, footer). Picture captions still say "made in 2.2",
+  which is true. Gumroad page source (`gumroad/landing.src.html`) says 2.3 too, **not republished**.
+- Owner-approved sentences used: one working colour space (glow and mist the same in sRGB, Display P3, Adobe RGB,
+  ProPhoto; sRGB unchanged) and crop/mirror (glow no longer shifts; square gaps beside lights and neon gone). Both are
+  "Done · 2.3" cards in Development; the Colour spec line and the Controls "Colour in" row now say one working space;
+  "same glow colour in every colour space" left the Next card.
+- Beta facts: Strong Effect (1.0 preset) still differs a little on ProPhoto. Upgrading: from 2.2, looks on P3, Adobe RGB
+  and ProPhoto photos change towards the sRGB result.
+- Note, Limits: colour spaces marked fixed in 2.3. Stripes, big glows, ring, matched Default, clipped files stay.
+
+**Before going live:** merge only after the notarised 2.3 DMG is on Gumroad (then republish the Gumroad page).
+**Waiting:** the Fringing sentence (not approved yet, so not on the site); whether 2.3 also fixes the note's neon
+blocky edges (asked the app session; if yes, mark it fixed and re-render Fig. 10's strong setting with 2.3); the
+website brief's app facts (CLAUDE.md) still describe 2.2; the milestone-1 test pictures in
+`~/Documents/HaloPro-work/website-candidates/` need clean re-renders before use (IMG_6303 is private, never on the site).
+
 ## Design pass with the taste-skill (2 Nov 2026, late)
 
 Owner's request: use github.com/Leonxlnx/taste-skill to make smarter design decisions. The skill is a rule set
