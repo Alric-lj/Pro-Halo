@@ -118,6 +118,11 @@ a fuller Sources list (Kodak data sheets, AHU, patents); recipes with pictures; 
 In the note: a film-model figure (ring around a point vs the app's glow), a backing-shape figure, a mist vs
 halation scene, and a downloadable test-chart pack.
 
+## Before/after order (5 Nov 2026)
+
+Owner: the rendered night street is the weakest of the three, so the before/after now opens on the Saab, then
+Snow, with the street last. (Reverses the 2 Nov choice of opening on the street.)
+
 ## Panel tour, remjet toggle, format frames (5 Nov 2026)
 
 - "What's in each panel." rebuilt: panel tabs as chips beside the heading; the panel screenshot left; right a

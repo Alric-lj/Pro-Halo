@@ -103,26 +103,26 @@
     <div class="s-head">
       <div>
         <h2 class="s-title">Same file. <em>The light now comes back.</em></h2>
-        <p class="s-intro">Straight out of Halo Pro at the Default, with Mist off and nothing else touched: a rendered night street with real light levels, and two photographs. Watch the lights.</p>
+        <p class="s-intro">Straight out of Halo Pro at the Default, with Mist off and nothing else touched: two photographs, and a rendered night street with real light levels. Watch the lights.</p>
       </div>
     </div>
     <div class="cmp-bar">
       <span class="mono">Drag to compare</span>
       <div class="toggle" id="cmp-switch" role="group" aria-label="Example photo">
-        <button type="button" class="is-on" data-ex="street">Night street, rendered</button>
-        <button type="button" data-ex="saab">Saab, panning</button>
+        <button type="button" class="is-on" data-ex="saab">Saab, panning</button>
         <button type="button" data-ex="snow">Snow, backlit</button>
+        <button type="button" data-ex="street">Night street, rendered</button>
       </div>
     </div>
     <div class="cmp" id="cmp">
-      <img class="cmp-after" src="img/note/street-default.jpg" width="1600" height="1000" alt="After: exported from Halo Pro with halation" loading="lazy">
-      <img class="cmp-before" src="img/note/street-src.jpg" width="1600" height="1000" alt="Before: the original file" loading="lazy">
+      <img class="cmp-after" src="img/app/saab-result.jpg" width="1600" height="1066" alt="After: exported from Halo Pro with halation" loading="lazy">
+      <img class="cmp-before" src="img/app/saab-before.jpg" width="1600" height="1066" alt="Before: the original file" loading="lazy">
       <div class="cmp-handle"></div>
       <span class="mono cmp-tag cmp-tag--l">Before</span>
       <span class="mono cmp-tag cmp-tag--r">Halo Pro</span>
       <input class="cmp-range" type="range" min="0" max="100" value="50" aria-label="Compare before and after">
     </div>
-    <p class="shot-meta" id="cmp-meta">Exported from Halo Pro · Default: Amount 1, Size 1, 35 mm, Warmth on highlights 1 · Mist off · <span>Rendered in Blender with real light levels</span></p>
+    <p class="shot-meta" id="cmp-meta">Exported from Halo Pro · Default: Amount 1, Size 1, 35 mm, Warmth on highlights 1 · Mist off · <span>Canon EOS R5, digital</span></p>
 
     <details class="more">
       <summary><span class="more-show">Read more: what the engine works from</span><span class="more-hide">Show less</span></summary>
@@ -1048,7 +1048,7 @@ function switcher(sel, key, on) {
                saab: ['img/app/saab-before.jpg', 'img/app/saab-result.jpg', 'Canon EOS R5, digital'] };
   const cam = document.querySelector('#cmp-meta span');
   // fetch the other pair once the comparison is near, so a switch doesn't show one photo under the other's caption
-  new IntersectionObserver((es, io) => { if (es[0].isIntersecting) { [...ex.saab.slice(0, 2), ...ex.snow.slice(0, 2)].forEach(src => { new Image().src = src; }); io.disconnect(); } },
+  new IntersectionObserver((es, io) => { if (es[0].isIntersecting) { [...ex.snow.slice(0, 2), ...ex.street.slice(0, 2)].forEach(src => { new Image().src = src; }); io.disconnect(); } },
     { rootMargin: '600px' }).observe(cmp);
   switcher('#cmp-switch', 'ex', k => { before.src = ex[k][0]; after.src = ex[k][1]; cam.textContent = ex[k][2]; range.value = 50; set(50); });
 })();
