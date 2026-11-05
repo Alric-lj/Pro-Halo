@@ -28,7 +28,14 @@ python3 -m http.server 8000
 
 Then http://localhost:8000 on the Mac, or http://<Mac's Wi-Fi IP>:8000 on your phone (same Wi-Fi).
 
-## Before you publish (merge to main and push)
+## Live (5 Nov 2026)
+
+`redesign-v4` was fast-forwarded into `main` and pushed on Alric's go ("ok, now make it live"): halopro.app now shows
+the v4 site for Halo Pro 2.3 beta. Gumroad serves the 2.3 file ("Halo Pro 2.3", 193,295,980 bytes, the notarised DMG);
+the old "Halo Pro" file (205.7 MB) is still attached beside it. Not done: the custom Gumroad landing page still says
+2.2 until it is republished from `gumroad/landing.src.html` (needs Alric's OK).
+
+## Before you publish (kept for reference; done 5 Nov 2026)
 
 The page describes **Halo Pro 2.2.0 beta** (`releases/Halo-Pro-2.2.0-beta-2026-11-02.dmg` in the app repo). It says
 "2.2 beta" in the nav, hero, structured data and closing line, and "2.2 is a free update in your Gumroad library".
