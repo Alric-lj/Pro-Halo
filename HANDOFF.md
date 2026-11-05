@@ -125,6 +125,14 @@ a fuller Sources list (Kodak data sheets, AHU, patents); recipes with pictures; 
 In the note: a film-model figure (ring around a point vs the app's glow), a backing-shape figure, a mist vs
 halation scene, and a downloadable test-chart pack.
 
+## Copy pass (5 Nov 2026)
+
+Owner: update the website copy with what was learned. Read top to bottom as a visitor and tightened it: the menu is
+now Why Halo Pro · Compare · Light path · Pricing · Technical note; the share description uses the new positioning;
+"32-bit float" is no longer explained five times (the opening, the four facts and Precision carry it); the mask views
+no longer mention a red blur before it is introduced; the red-first light-path step lost its wavelength detail;
+small fixes ("a tuned starting point", "they are for checking").
+
 ## Comparison, coming next, lamp vs shirt (5 Nov 2026)
 
 - `#compare` "How it compares.": a dated table of halation tools (Halo Pro, Lightroom Classic, Lightroom, Photoshop /

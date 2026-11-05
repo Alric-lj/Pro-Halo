@@ -15,7 +15,7 @@
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://halopro.app/">
   <meta property="og:title" content="Halo Pro — Halation, from the physics up">
-  <meta property="og:description" content="Light goes in. Some of it comes back. A Mac app for film halation, built on how it forms in film.">
+  <meta property="og:description" content="Next-generation halation for professional photographers: a glow formed the way film forms it, in 32-bit float and wide-gamut colour.">
   <meta property="og:image" content="https://halopro.app/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
@@ -65,9 +65,9 @@
     </a>
     <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="nav-links">Menu</button>
     <ul id="nav-links">
-      <li><a href="#result">Result</a></li>
+      <li><a href="#why">Why Halo Pro</a></li>
+      <li><a href="#compare">Compare</a></li>
       <li><a href="#physics">Light path</a></li>
-      <li><a href="#model">Controls</a></li>
       <li><a href="#pricing">Pricing</a></li>
       <li><a href="notes.html">Technical note</a></li>
     </ul>
@@ -104,7 +104,7 @@
     <div class="s-head">
       <div>
         <h2 class="s-title">Built for professional files.</h2>
-        <p class="s-intro">Halo Pro is next-generation halation: it forms the glow the way film does, and it keeps your file's full quality from the moment you open it to the moment you export. Where a glow is worked out in 8 bits, its soft falloff breaks into steps and the light above white is lost. Halo Pro never leaves 32-bit float.</p>
+        <p class="s-intro">A glow worked out in 8 bits breaks into steps as it fades and loses the light above white. Halo Pro never leaves 32-bit float, keeps one look across wide-gamut colour spaces, and forms the glow from the light itself, the way film does.</p>
       </div>
     </div>
     <div class="spec pillars">
@@ -148,7 +148,7 @@
     <div class="engine">
       <div class="engine-head">
         <h3>What the engine works from.</h3>
-        <p>Press a number key on the Halation tab and the photo is swapped for what the engine is working with. Two of them, on the same photo. This is the difference from a red blur: the Source picks out the lights, and the glow lands around them, not on them.</p>
+        <p>Press a number key on the Halation tab and the photo is swapped for what the engine is working with. Two of them, on the same photo. This is what sets it apart: the Source picks out the lights, and the glow lands around them, not on them.</p>
       </div>
       <div class="engine-strip">
         <figure>
@@ -160,7 +160,7 @@
           <figcaption><span class="key">7</span><b>Glow Preview.</b> The glow on its own, brightened to fill the range. It sits around each flake, not on it: it only shows where it spreads past the light.</figcaption>
         </figure>
       </div>
-      <p class="engine-note">The others show the light that feeds the glow, the brightness range, sky and colour masks, the final composite and the lens smear. They show the render's own masks (the Glow Preview brightened so you can see it) and never end up in an export.</p>
+      <p class="engine-note">The other views show the light that feeds the glow, the brightness range, the sky and colour masks, the final composite and the lens smear. They are for checking and never end up in an export.</p>
     </div>
     </details>
   </div>
@@ -190,7 +190,7 @@
       </figure>
     </div>
     <div class="why-row">
-      <div><h3>Highlights glow. Surfaces keep their colour.</h3><p>Most glow tools treat everything bright as a light: they blur it, tint it and lay it back over the whole picture, so a white wall turns peach, a pale sky warms and the image lifts. Halo Pro adds light only where it spreads past a bright edge into darker surroundings. On this chart every flat surface, grey or coloured, stays within half a level of where it was; the glow sits on the lights and the bright edges. Warmth on highlights is its own control, for when you do want bright surfaces a touch warmer.</p></div>
+      <div><h3>Highlights glow. Surfaces keep their colour.</h3><p>Most glow tools treat everything bright as a light: they blur it, tint it and lay it back over the whole picture, so a white wall turns peach, a pale sky warms and the image lifts. Halo Pro adds light only where it spreads past a bright edge into darker surroundings: on this chart every flat surface stays within half a level of where it was. Want bright surfaces a touch warmer? That's its own control, Warmth on highlights.</p></div>
       <figure class="why-pair">
         <div class="why-img"><img src="img/why-surfaces-blur.jpg" width="1600" height="373" alt="Grey and coloured surfaces with small lights between them, through a red blur: the white surface turns peach, the yellow and blue ones shift, and the small lights barely glow" loading="lazy"><span class="mono cmp-tag cmp-tag--l">Red blur</span></div>
         <div class="why-img"><img src="img/why-surfaces-halo.jpg" width="1600" height="373" alt="The same chart through Halo Pro: every surface keeps its colour, a red-orange glow rims the bright surfaces against the dark, and each small light has its halo" loading="lazy"><span class="mono cmp-tag cmp-tag--l">Halo Pro</span></div>
@@ -206,7 +206,7 @@
     <div class="s-head">
       <div>
         <h2 class="s-title">How it compares.</h2>
-        <p class="s-intro">Halation tools for stills and video, from each maker's own documentation. Several work in high precision. What none of the others documents is a glow worked out from the colour of the light, the way film does it: Halo Pro makes red lights glow most and blue ones not at all, and it is built for photographers, with a free version and a one-time €20 Pro.</p>
+        <p class="s-intro">Halation tools for stills and video, compared from each maker's own documentation. Several work in high precision too. None of the others documents a glow worked out from the colour of the light, the way film does it, and Halo Pro is built for photographers, with a free version and a one-time €20 Pro.</p>
       </div>
     </div>
     <div class="cmp-table-wrap">
@@ -451,7 +451,7 @@
         </article>
         <article class="step" data-step="4">
           <h3>It hits red first. That's why it's red.</h3>
-          <p>The returning light enters the emulsion from below, and the first layer it meets is the <strong>red-sensitive</strong> one. It lands in a ring around the source, at a distance set by the base thickness. The red and green layers' sensitivities overlap around 585–590 nm, so returning orange light exposes a little green too, and where the return is strong, red fills up first while green keeps climbing: the hottest part of the halo reads orange, the faint outer part stays red.</p>
+          <p>The returning light enters the emulsion from below, and the first layer it meets is the <strong>red-sensitive</strong> one. It lands in a ring around the source, at a distance set by the base thickness. Where the return is strong, red fills up first and green follows, so the hottest part of the halo reads orange and the faint edge stays red.</p>
           <p class="step-tag"><span class="mono">In Halo Pro</span>Green return: how orange the strong glow turns</p>
         </article>
         <article class="step" data-step="5">
@@ -527,7 +527,7 @@
     <div class="s-head">
       <div>
         <h2 class="s-title">The light path, <em>mapped to the controls.</em></h2>
-        <p class="s-intro">Each step of the light path is built in or has its own control, under the app's own name. The glow is worked out in linear light, in one working colour space, from the light in your photo; Amount sets how much comes back. The Default is tuned to start from: open a photo and it already glows.</p>
+        <p class="s-intro">Each step of the light path is built in or has its own control, under the app's own name. The glow is worked out in linear light, in one working colour space, from the light in your photo; Amount sets how much comes back. The Default is a tuned starting point: open a photo and it already glows.</p>
       </div>
     </div>
 
@@ -631,7 +631,7 @@
         <label for="band-lv"><span class="mono">Levels in the quantised image</span></label>
         <input class="rng" type="range" id="band-lv" min="6" max="64" step="1" value="14">
       </div>
-      <p>The quantised image is cut to far fewer levels so the problem shows at screen depth. In real files it shows up as faint rings in dark falloffs, and it grows each time a tool rounds between steps. Halo Pro keeps every step in 32-bit float, so a glow fades to black without steps.</p>
+      <p>The left image is cut to far fewer levels so the problem shows on screen. In real files it shows up as faint rings in dark falloffs, and it grows each time a tool rounds between steps.</p>
     </div>
 
     <details class="more">
