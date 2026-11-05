@@ -113,6 +113,13 @@
       <div><span class="mono">Colour</span><h4>Wide gamut, one look</h4><p>sRGB, Display P3, Adobe RGB or ProPhoto RGB: the glow and the mist look the same in each, and your file keeps its profile.</p></div>
       <div><span class="mono">Workflow</span><h4>Made for real work</h4><p>Lightroom Classic round trip, batch up to 500 photos, presets that carry their LUT, and a 12-megapixel export in about 0.9&nbsp;s on Apple Silicon.</p></div>
     </div>
+    <div class="why-row lamp-row">
+      <div><h3>A lamp is not a white shirt.</h3><p>On film, a lamp four stops over white sends back far more light than a white shirt. Halo Pro sees that difference in a 32-bit file: the lamp gets a strong halo and the shirt a faint rim. A JPEG clips both to the same white, so the lamp's halo drops to the shirt's level. Telling them apart in clipped files, and opening raw files with all their headroom, is in development.</p></div>
+      <figure class="why-pair">
+        <div class="why-img"><img src="img/why-lamp-32.jpg" width="1200" height="505" alt="A white T-shirt and a bare lamp from a 32-bit file through Halo Pro: a strong red-orange halo around the lamp, a faint rim on the shirt" loading="lazy"><span class="mono cmp-tag cmp-tag--l">From a 32-bit file</span></div>
+        <div class="why-img"><img src="img/why-lamp-clip.jpg" width="1200" height="505" alt="The same scene from a clipped file: the lamp's halo is as faint as the shirt's rim" loading="lazy"><span class="mono cmp-tag cmp-tag--l">From a JPEG, clipped at white</span></div>
+      </figure>
+    </div>
   </div>
 </section>
 
@@ -197,6 +204,39 @@
       </figure>
     </div>
     <p class="shot-meta">Red blur: everything brighter than 75&nbsp;% grey, blurred, tinted red-orange and screened on top; made by us for this comparison, not any particular product. Halo Pro: Amount 1, Size 1, Format Super 8 so the glow shows at this size, Warmth on highlights 0, on 32-bit test charts (the first two from the <a href="notes.html#fig1">technical note</a>).</p>
+  </div>
+</section>
+
+<!-- ============ HOW IT COMPARES ============ -->
+<section class="section" id="compare">
+  <div class="wrap">
+    <div class="s-head">
+      <div>
+        <h2 class="s-title">How it compares.</h2>
+        <p class="s-intro">Halation tools for stills and video, from each maker's own documentation. Several work in high precision. What none of the others documents is a glow worked out from the colour of the light, the way film does it: Halo Pro makes red lights glow most and blue ones not at all, and it is built for photographers, with a free version and a one-time €20 Pro.</p>
+      </div>
+    </div>
+    <div class="cmp-table-wrap">
+      <table class="cmp-table">
+        <thead><tr><th scope="col"></th><th scope="col">What it is</th><th scope="col">Halation</th><th scope="col">Glow follows the light's colour</th><th scope="col">Glow size from film format</th><th scope="col">Precision and colour</th><th scope="col">Price</th></tr></thead>
+        <tbody>
+<tr class="is-us"><th scope="row">Halo Pro</th><td data-label="What it is">Mac app (Apple Silicon); Lightroom Classic round trip</td><td data-label="Halation">Yes, modelled on film</td><td data-label="Glow follows the light's colour">Yes: red most, blue none</td><td data-label="Glow size from film format">Yes: Super 8 to 4×5</td><td data-label="Precision and colour">32-bit float; same glow in sRGB, P3, Adobe RGB, ProPhoto</td><td data-label="Price">Free; Pro €20 once</td></tr>
+<tr><th scope="row">Lightroom Classic</th><td data-label="What it is">Photo editor</td><td data-label="Halation">None</td><td data-label="Glow follows the light's colour">—</td><td data-label="Glow size from film format">—</td><td data-label="Precision and colour">Not stated</td><td data-label="Price">Subscription</td></tr>
+<tr><th scope="row">Lightroom</th><td data-label="What it is">Photo editor (desktop, mobile)</td><td data-label="Halation">None</td><td data-label="Glow follows the light's colour">—</td><td data-label="Glow size from film format">—</td><td data-label="Precision and colour">Not stated</td><td data-label="Price">Subscription</td></tr>
+<tr><th scope="row">Photoshop (Camera Raw)</th><td data-label="What it is">Photo editor</td><td data-label="Halation">Glow slider, Halation style</td><td data-label="Glow follows the light's colour">Not documented</td><td data-label="Glow size from film format">Not documented</td><td data-label="Precision and colour">Not stated</td><td data-label="Price">Subscription</td></tr>
+<tr><th scope="row">Dehancer</th><td data-label="What it is">Plug-in: Photoshop, Lightroom Classic, Capture One</td><td data-label="Halation">Yes</td><td data-label="Glow follows the light's colour">Manual Hue and Blue controls</td><td data-label="Glow size from film format">Format profiles</td><td data-label="Precision and colour">Floating point; photo plug-in sRGB in and out</td><td data-label="Price">Subscription or lifetime</td></tr>
+<tr><th scope="row">DaVinci Resolve Studio</th><td data-label="What it is">Video</td><td data-label="Halation">Yes</td><td data-label="Glow follows the light's colour">Not documented</td><td data-label="Glow size from film format">Not documented</td><td data-label="Precision and colour">32-bit; ACES</td><td data-label="Price">$295 once</td></tr>
+<tr><th scope="row">FilmConvert Halation</th><td data-label="What it is">Video plug-in</td><td data-label="Halation">Yes</td><td data-label="Glow follows the light's colour">Not documented</td><td data-label="Glow size from film format">Not documented</td><td data-label="Precision and colour">ACES and linear input</td><td data-label="Price">From $59 once</td></tr>
+<tr><th scope="row">Filmbox</th><td data-label="What it is">Video plug-in</td><td data-label="Halation">Yes</td><td data-label="Glow follows the light's colour">Not documented</td><td data-label="Glow size from film format">Yes: film gauge</td><td data-label="Precision and colour">Pro: ACES, P3, Rec.2020</td><td data-label="Price">$199 or $999 once</td></tr>
+<tr><th scope="row">VSCO</th><td data-label="What it is">Mobile app</td><td data-label="Halation">Yes</td><td data-label="Glow follows the light's colour">Not documented</td><td data-label="Glow size from film format">Not documented</td><td data-label="Precision and colour">Not stated</td><td data-label="Price">Membership</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="shot-meta">Checked 5 November 2026 against each maker's own pages; "not documented" means we found nothing either way. Something changed or wrong? <a href="mailto:alric.ljunghager@gmail.com">Tell me</a> and I'll fix it.</p>
+    <details class="more">
+      <summary><span class="more-show">Read more: sources</span><span class="more-hide">Show less</span></summary>
+      <ul class="cmp-sources"><li><a href="https://helpx.adobe.com/lightroom-classic/desktop/introduction-to-lightroom-classic/release-notes.html">Lightroom Classic release notes</a></li><li><a href="https://helpx.adobe.com/lightroom/desktop/introduction/release-notes.html">Lightroom release notes</a></li><li><a href="https://helpx.adobe.com/camera-raw/desktop/edit-and-enhance-images/tone-and-color/vignette-grain-effects-camera-raw.html">Camera Raw: Glow and Halation</a></li><li><a href="https://www.dehancer.com/learn/article/halation">Dehancer: Halation</a></li><li><a href="https://www.dehancer.com/learn/article/color-spaces">Dehancer: colour spaces</a></li><li><a href="https://www.dehancer.com/pricing">Dehancer: pricing</a></li><li><a href="https://www.blackmagicdesign.com/products/davinciresolve/studio">DaVinci Resolve Studio</a></li><li><a href="https://www.blackmagicdesign.com/products/davinciresolve/color">DaVinci Resolve colour</a></li><li><a href="https://www.filmconvert.com/plugin/halation">FilmConvert Halation</a></li><li><a href="https://videovillage.com/learn/filmbox/full-guide/negative/halation">Filmbox: Halation</a></li><li><a href="https://videovillage.com/filmbox/">Filmbox</a></li><li><a href="https://vsco.co/features/halation">VSCO Halation</a></li></ul>
+    </details>
   </div>
 </section>
 
@@ -666,6 +706,17 @@
       <p><span class="mono">Beta</span>Halo Pro 2.3 is a beta, and updates are free. Two known limits: very fine diagonal stripes (blinds, grilles) can show a faint moiré in the glow, and very big glows (Size above about 5) can land unevenly on faces and trees.</p>
       <p><span class="mono">Upgrading</span>Own 1.0 or 2.2? 2.3 is a free update in your Gumroad library, and your key still works. Looks saved in 1.x keep their mist, LUT and other settings and start with the new glow, once; the originals are kept.</p>
       <p><span class="mono">Refunds</span>Try the free version on your own photos first: it has every control. It's a digital download, so there are no refunds.</p>
+    </div>
+    <div class="next-list">
+      <h3>Coming next. Updates are free.</h3>
+      <ul>
+        <li><b>Starting looks</b><span>A set of looks from realistic to artistic, in a new control panel with Film and Creative sections.</span></li>
+        <li><b>More creative glow</b><span>A better big glow, a halation ring, light streaks, an oval (anamorphic) glow and a white bloom.</span></li>
+        <li><b>RAW, DNG and HEIC</b><span>Open them directly, with all the headroom the sensor recorded, plus more export colour spaces.</span></li>
+        <li><b>Lamps and white shirts in JPEGs</b><span>An estimate of the light above white in clipped files, so a lamp glows more than a white shirt there too.</span></li>
+        <li><b>A Default fitted to film</b><span>Width, shape and colour from a physical model of a 35&nbsp;mm film base.</span></li>
+      </ul>
+      <p class="shot-meta">In development, no dates until they're ready. Everything shipped and planned is under <a href="#development">Development</a>.</p>
     </div>
     <div class="honest">
       <span class="mono s-index">A note</span>

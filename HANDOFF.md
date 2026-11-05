@@ -125,6 +125,21 @@ a fuller Sources list (Kodak data sheets, AHU, patents); recipes with pictures; 
 In the note: a film-model figure (ring around a point vs the app's glow), a backing-shape figure, a mist vs
 halation scene, and a downloadable test-chart pack.
 
+## Comparison, coming next, lamp vs shirt (5 Nov 2026)
+
+- `#compare` "How it compares.": a dated table of halation tools (Halo Pro, Lightroom Classic, Lightroom, Photoshop /
+  Camera Raw, Dehancer, DaVinci Resolve Studio, FilmConvert Halation, Filmbox, VSCO) from each maker's own pages,
+  checked 5 Nov 2026, with sources in a fold and an invitation to report changes. Research note: others are NOT all
+  8-bit (Resolve documents 32-bit, Dehancer floating point), so the page never says so. Safe claims used: no other
+  documents a glow worked out from the light's colour; Dehancer's photo plug-in is sRGB in and out; Lightroom and
+  Lightroom Classic have no halation tool (release notes to Sep 2026; Camera Raw 18.6 has a Halation glow style, so
+  recheck); free version plus €20 once. Recheck the table before big launches.
+- "A lamp is not a white shirt." in `#what`: a scene with a white T-shirt and a lamp four stops over white
+  (`shirtlamp.py` in the app repo) through 2.3, from a 32-bit file and from a clipped one. Measured: the lamp's halo is
+  about 3.3 times stronger from the 32-bit file; the shirt's rim is the same in both.
+- "Coming next. Updates are free." beside pricing: starting looks, more creative glow, RAW/DNG/HEIC, lamps vs shirts
+  in JPEGs (the clipped-file estimate from the limits brief), a Default fitted to film.
+
 ## What Halo Pro is (5 Nov 2026)
 
 Owner: say what Halo Pro actually is, next-generation halation for professionals: wide-gamut colour, 32-bit float,

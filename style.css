@@ -297,6 +297,14 @@ input[type=range].rng { width: 100%; accent-color: var(--red); margin: 0; }
 .tier li { padding: 11px 0; border-bottom: 1px solid var(--line); color: var(--fg-2); }
 .tier li.no { color: var(--fg-3); text-decoration: line-through; text-decoration-color: var(--fg-3); }
 .tier .btn { justify-content: center; }
+/* coming next, beside the price */
+.next-list { margin-top: 72px; }
+.next-list h3 { font-size: var(--t-head); letter-spacing: -.025em; margin-bottom: 20px; }
+.next-list ul { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--line); }
+.next-list li { display: grid; grid-template-columns: 4fr 8fr; gap: 6px 24px; padding: 14px 0; border-bottom: 1px solid var(--line); }
+.next-list li b { font-weight: 500; }
+.next-list li span { color: var(--fg-2); }
+@media (max-width: 640px) { .next-list li { grid-template-columns: 1fr; } }
 .honest { display: grid; grid-template-columns: 2fr 10fr; gap: 24px; margin-top: 72px; }
 .honest p { font-size: var(--t-lead); color: var(--fg-2); max-width: 34em; }
 .honest p strong { color: var(--fg); font-weight: 400; }
@@ -629,7 +637,29 @@ html:not(.js) .nav-toggle, html:not(.js) .toggle, html:not(.js) .tour-tabs, html
 .why-img { position: relative; padding-top: 26px; }
 .why-img img { width: 100%; height: auto; border-radius: 6px; background: #000; }
 .why-img .cmp-tag { top: 0; bottom: auto; left: 0; color: var(--fg-3); }
+.lamp-row { margin-top: 72px; }
 @media (max-width: 1020px) { .why-row { grid-template-columns: 1fr; } }
+
+/* how it compares: a real table; on phones each product becomes its own block */
+.cmp-table-wrap { border-top: 1px solid var(--line); }
+.cmp-table { width: 100%; border-collapse: collapse; font-size: var(--t-small); }
+.cmp-table th, .cmp-table td { text-align: left; vertical-align: top; padding: 14px 16px 14px 0; border-bottom: 1px solid var(--line); font-weight: 400; color: var(--fg-2); }
+.cmp-table thead th { font: 13px/1.4 var(--mono); color: var(--fg-3); }
+.cmp-table tbody th { color: var(--fg); font-weight: 500; white-space: nowrap; }
+.cmp-table tr.is-us th, .cmp-table tr.is-us td { color: var(--fg); }
+.cmp-table tr.is-us th { color: var(--red); }
+.cmp-sources { margin: 0; padding-left: 1.1em; font-size: var(--t-small); color: var(--fg-2); columns: 2; column-gap: 48px; }
+.cmp-sources li { margin-bottom: 6px; break-inside: avoid; }
+@media (max-width: 900px) {
+  .cmp-table thead { display: none; }
+  .cmp-table, .cmp-table tbody, .cmp-table tr, .cmp-table th, .cmp-table td { display: block; }
+  .cmp-table tr { padding: 16px 0; border-bottom: 1px solid var(--line); }
+  .cmp-table th, .cmp-table td { border: 0; padding: 3px 0; }
+  .cmp-table tbody th { font-size: var(--t-body); margin-bottom: 6px; }
+  .cmp-table td { display: grid; grid-template-columns: 11em 1fr; gap: 12px; }
+  .cmp-table td::before { content: attr(data-label); font: 13px/1.6 var(--mono); color: var(--fg-3); }
+  .cmp-sources { columns: 1; }
+}
 
 /* read more: long parts fold in and open in place (native details, works without script) */
 .more { margin-top: 56px; }
