@@ -134,7 +134,8 @@ halation scene, and a downloadable test-chart pack.
   documents a glow worked out from the light's colour; Dehancer's photo plug-in is sRGB in and out; Lightroom and
   Lightroom Classic have no halation tool (release notes to Sep 2026; Camera Raw 18.6 has a Halation glow style, so
   recheck); free version plus €20 once. Recheck the table before big launches.
-- "A lamp is not a white shirt." in `#what`: a scene with a white T-shirt and a lamp four stops over white
+- "A lamp is not a white shirt." (moved the same day, owner: keep the top light, detail for the curious; now a
+  "Read more" fold in Precision, `#float`): a scene with a white T-shirt and a lamp four stops over white
   (`shirtlamp.py` in the app repo) through 2.3, from a 32-bit file and from a clipped one. Measured: the lamp's halo is
   about 3.3 times stronger from the 32-bit file; the shirt's rim is the same in both.
 - "Coming next. Updates are free." beside pricing: starting looks, more creative glow, RAW/DNG/HEIC, lamps vs shirts

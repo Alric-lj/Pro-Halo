@@ -113,13 +113,6 @@
       <div><span class="mono">Colour</span><h4>Wide gamut, one look</h4><p>sRGB, Display P3, Adobe RGB or ProPhoto RGB: the glow and the mist look the same in each, and your file keeps its profile.</p></div>
       <div><span class="mono">Workflow</span><h4>Made for real work</h4><p>Lightroom Classic round trip, batch up to 500 photos, presets that carry their LUT, and a 12-megapixel export in about 0.9&nbsp;s on Apple Silicon.</p></div>
     </div>
-    <div class="why-row lamp-row">
-      <div><h3>A lamp is not a white shirt.</h3><p>On film, a lamp four stops over white sends back far more light than a white shirt. Halo Pro sees that difference in a 32-bit file: the lamp gets a strong halo and the shirt a faint rim. A JPEG clips both to the same white, so the lamp's halo drops to the shirt's level. Telling them apart in clipped files, and opening raw files with all their headroom, is in development.</p></div>
-      <figure class="why-pair">
-        <div class="why-img"><img src="img/why-lamp-32.jpg" width="1200" height="505" alt="A white T-shirt and a bare lamp from a 32-bit file through Halo Pro: a strong red-orange halo around the lamp, a faint rim on the shirt" loading="lazy"><span class="mono cmp-tag cmp-tag--l">From a 32-bit file</span></div>
-        <div class="why-img"><img src="img/why-lamp-clip.jpg" width="1200" height="505" alt="The same scene from a clipped file: the lamp's halo is as faint as the shirt's rim" loading="lazy"><span class="mono cmp-tag cmp-tag--l">From a JPEG, clipped at white</span></div>
-      </figure>
-    </div>
   </div>
 </section>
 
@@ -641,6 +634,16 @@
       <p>The quantised image is cut to far fewer levels so the problem shows at screen depth. In real files it shows up as faint rings in dark falloffs, and it grows each time a tool rounds between steps. Halo Pro keeps every step in 32-bit float, so a glow fades to black without steps.</p>
     </div>
 
+    <details class="more">
+      <summary><span class="more-show">Read more: a lamp and a white shirt</span><span class="more-hide">Show less</span></summary>
+    <div class="why-row lamp-row">
+      <div><h3>A lamp is not a white shirt.</h3><p>On film, a lamp four stops over white sends back far more light than a white shirt. Halo Pro sees that difference in a 32-bit file: the lamp gets a strong halo and the shirt a faint rim. A JPEG clips both to the same white, so the lamp's halo drops to the shirt's level. Telling them apart in clipped files, and opening raw files with all their headroom, is in development.</p></div>
+      <figure class="why-pair">
+        <div class="why-img"><img src="img/why-lamp-32.jpg" width="1200" height="505" alt="A white T-shirt and a bare lamp from a 32-bit file through Halo Pro: a strong red-orange halo around the lamp, a faint rim on the shirt" loading="lazy"><span class="mono cmp-tag cmp-tag--l">From a 32-bit file</span></div>
+        <div class="why-img"><img src="img/why-lamp-clip.jpg" width="1200" height="505" alt="The same scene from a clipped file: the lamp's halo is as faint as the shirt's rim" loading="lazy"><span class="mono cmp-tag cmp-tag--l">From a JPEG, clipped at white</span></div>
+      </figure>
+    </div>
+    </details>
     <details class="more">
       <summary><span class="more-show">Read more: files, colour and speed</span><span class="more-hide">Show less</span></summary>
     <div class="files">
