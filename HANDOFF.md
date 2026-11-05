@@ -32,8 +32,8 @@ Then http://localhost:8000 on the Mac, or http://<Mac's Wi-Fi IP>:8000 on your p
 
 `redesign-v4` was fast-forwarded into `main` and pushed on Alric's go ("ok, now make it live"): halopro.app now shows
 the v4 site for Halo Pro 2.3 beta. Gumroad serves the 2.3 file ("Halo Pro 2.3", 193,295,980 bytes, the notarised DMG);
-the old "Halo Pro" file (205.7 MB) is still attached beside it. Not done: the custom Gumroad landing page still says
-2.2 until it is republished from `gumroad/landing.src.html` (needs Alric's OK).
+the old "Halo Pro" file (205.7 MB) is still attached beside it. The custom Gumroad landing page was republished for 2.3
+on 5 Nov 2026 (Alric's OK; picture captions no longer carry a version).
 
 ## Before you publish (kept for reference; done 5 Nov 2026)
 
