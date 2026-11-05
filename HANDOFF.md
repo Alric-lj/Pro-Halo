@@ -133,8 +133,12 @@ release notes `docs/release-notes-2.3.md` in the app repo). Done on this branch,
 - Note, Limits: colour spaces marked fixed in 2.3. Stripes, big glows, ring, matched Default, clipped files stay.
 
 **Before going live:** merge only after the notarised 2.3 DMG is on Gumroad (then republish the Gumroad page).
-**Waiting:** the Fringing sentence (not approved yet, so not on the site); whether 2.3 also fixes the note's neon
-blocky edges (asked the app session; if yes, mark it fixed and re-render Fig. 10's strong setting with 2.3); the
+Neon (checked by the app session and here): 2.3 removes the square notches inside the neon rings, but a faint
+speckled band can still show just inside green, cyan and blue rings at strong settings, so the note's limit is
+softened, not removed, and Fig. 10 keeps its strong setting out. Fig. 10's Default image is now a 2.3 render (Method
+says so); the other figures are 2.2 (2.3 moves sRGB edges by a few levels; Fringing is off in the Default). The note's
+share image (`og-note.jpg`) was the strong 2.2 neon with those edges; it is now the 2.3 strong street render.
+**Waiting:** the Fringing sentence (not approved yet, so not on the site); the
 website brief's app facts (CLAUDE.md) still describe 2.2; the milestone-1 test pictures in
 `~/Documents/HaloPro-work/website-candidates/` need clean re-renders before use (IMG_6303 is private, never on the site).
 
