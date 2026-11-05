@@ -118,6 +118,17 @@ a fuller Sources list (Kodak data sheets, AHU, patents); recipes with pictures; 
 In the note: a film-model figure (ring around a point vs the app's glow), a backing-shape figure, a mist vs
 halation scene, and a downloadable test-chart pack.
 
+## Why it's different, and Read more (5 Nov 2026)
+
+- New section after Result, "What a red blur gets wrong." (`#why`): the note's 32-bit colour and brightness charts
+  through a generic red blur (bright areas above 75 % grey blurred, tinted red-orange, screened on; made by us, not a
+  product; `tools/website_shots/note/redblur.py` in the app repo) next to Halo Pro. Shows that a blur keys on
+  brightness (red light barely glows, all lights above white look the same) where Halo Pro follows colour and
+  brightness. Images: `img/why-*.jpg`, cropped to the band of lights.
+- Owner asked for long parts to fold away: native `<details class="more">` ("Read more: …", "Show less"), no script.
+  Folded: mask views (Result), the last five Controls rows and the three uses, Files/colour/speed (Precision), and the
+  road from 2024 plus Ideas (Development, where 2.x now comes first). Page about 19,600 px tall at 1440 with folds shut.
+
 ## Selling, not hedging (5 Nov 2026)
 
 Owner: "you are underselling it ... We want to sell this app, not scare people." The rule now: **the main page

@@ -124,6 +124,8 @@
     </div>
     <p class="shot-meta" id="cmp-meta">Exported from Halo Pro · Default: Amount 1, Size 1, 35 mm, Warmth on highlights 1 · Mist off · <span>Rendered in Blender with real light levels</span></p>
 
+    <details class="more">
+      <summary><span class="more-show">Read more: what the engine works from</span><span class="more-hide">Show less</span></summary>
     <div class="engine">
       <div class="engine-head">
         <h3>What the engine works from.</h3>
@@ -141,6 +143,34 @@
       </div>
       <p class="engine-note">The others show the light that feeds the glow, the brightness range, sky and colour masks, the final composite and the lens smear. They show the render's own masks (the Glow Preview brightened so you can see it) and never end up in an export.</p>
     </div>
+    </details>
+  </div>
+</section>
+
+<!-- ============ WHY IT'S DIFFERENT ============ -->
+<section class="section" id="why">
+  <div class="wrap">
+    <div class="s-head">
+      <div>
+        <h2 class="s-title">What a red blur gets wrong.</h2>
+        <p class="s-intro">Most glow effects take the bright parts of a picture, blur them and tint them red. Film works from the light itself, its colour and how bright it really is, and so does Halo Pro. The same test files, both ways:</p>
+      </div>
+    </div>
+    <div class="why-row">
+      <div><h3>Red light glows. Blue never does.</h3><p>On film, blue is stopped near the surface and red reaches the base, so red lights halate most and blue ones not at all. A red blur keys on brightness instead: yellow and white glow, and a pure red light, darker to the eye, barely does.</p></div>
+      <figure class="why-pair">
+        <div class="why-img"><img src="img/why-colours-blur.jpg" width="1600" height="180" alt="Nine coloured lights through a red blur: faint red halos around yellow and white only; red, green, cyan, blue and magenta get none" loading="lazy"><span class="mono cmp-tag cmp-tag--l">Red blur</span></div>
+        <div class="why-img"><img src="img/why-colours-halo.jpg" width="1600" height="180" alt="The same lights through Halo Pro: strong red halos around red and magenta, orange around yellow and white, faint around green and cyan, none around blue" loading="lazy"><span class="mono cmp-tag cmp-tag--l">Halo Pro</span></div>
+      </figure>
+    </div>
+    <div class="why-row">
+      <div><h3>Brighter lights glow more.</h3><p>Eight lights, from two stops under white to five over. Halo Pro works in 32-bit float, so the glow doubles with every stop, as on film. A blur works on the picture as your screen shows it: six identical white dots, so they all get the same halo.</p></div>
+      <figure class="why-pair">
+        <div class="why-img"><img src="img/why-ladder-blur.jpg" width="1600" height="180" alt="Eight lights through a red blur: the six at or above white get the same faint halo" loading="lazy"><span class="mono cmp-tag cmp-tag--l">Red blur</span></div>
+        <div class="why-img"><img src="img/why-ladder-halo.jpg" width="1600" height="180" alt="The same lights through Halo Pro: almost no glow on the dimmest, then a red-orange halo that grows with every stop above white" loading="lazy"><span class="mono cmp-tag cmp-tag--l">Halo Pro</span></div>
+      </figure>
+    </div>
+    <p class="shot-meta">Red blur: everything brighter than 75&nbsp;% grey, blurred, tinted red-orange and screened on top; made by us for this comparison, not any particular product. Halo Pro: Amount 1, Size 1, Format Super 8 so the glow shows at this size, on the 32-bit test charts from the <a href="notes.html#fig1">technical note</a>.</p>
   </div>
 </section>
 
@@ -449,6 +479,10 @@
       <div class="model-row"><span class="mono">Colour out</span>
         <div><h3>Red first, orange where it's strongest</h3><p>Returning light exposes red. Where the return is strongest, red fills up and green catches up: orange.</p></div>
         <div><span class="path">Halation › Effect › Color &amp; Landing</span><h3>Green return</h3><p>How orange the strong glow turns. 0 keeps it pure red; higher gives the warm, orange cores of strong halation.</p></div></div>
+    </div>
+    <details class="more">
+      <summary><span class="more-show">Read more: five more controls, and three ways to use them</span><span class="more-hide">Show less</span></summary>
+    <div class="model">
       <div class="model-row"><span class="mono">Backing</span>
         <div><h3>Anti-halation layer, remjet</h3><p>A dark layer absorbs the light before it can come back up.</p></div>
         <div><span class="path">Halation › Effect › Glow</span><h3>Amount</h3><p>How much comes back: 0 is none, as with a perfect backing, 1 the built-in look, 2 twice that.</p></div></div>
@@ -487,6 +521,7 @@
         <ul><li>Glow color and Color mix</li><li>Roll-off toward 1, Format Super 8</li><li>Lens Smear, Turbulence (Advanced)</li></ul>
       </div>
     </div>
+    </details>
   </div>
 </section>
 
@@ -517,6 +552,8 @@
       <p>The quantised image is cut to far fewer levels so the problem shows at screen depth. In real files it shows up as faint rings in dark falloffs, and it grows each time a tool rounds between steps. Halo Pro keeps every step in 32-bit float, so a glow fades to black without steps.</p>
     </div>
 
+    <details class="more">
+      <summary><span class="more-show">Read more: files, colour and speed</span><span class="more-hide">Show less</span></summary>
     <div class="files">
       <h3>Files, colour and your Mac.</h3>
       <div class="spec">
@@ -529,6 +566,7 @@
         <div><span class="mono">Speed</span><h4>Metal on Apple Silicon</h4><p>The glow, mist and LUT run on the GPU. A 12-megapixel export takes about 0.9&nbsp;s on an M3 Max (1.x: 1.2–1.7&nbsp;s).</p></div>
       </div>
     </div>
+    </details>
   </div>
 </section>
 
@@ -598,6 +636,23 @@
     </div>
     <p class="mono asof">As of November 2026</p>
     <div class="devmap">
+    <div class="dev-year dev-year--now">
+      <div class="dev-year-head"><span class="dev-year-num">2.x</span><span class="mono">What 2.x fixed, and what's next</span></div>
+      <ul class="dev-grid">
+        <li class="dev-card is-shipped"><span class="dev-status">Done · 2.0</span><b>Files you can trust</b><span>Only replaces the copy Lightroom handed over, and asks before overwriting anything else. A failed export tells you, and never saves an unprocessed copy. Asks before throwing away edits you haven't exported. Runs on macOS 14 Sonoma or later.</span></li>
+        <li class="dev-card is-shipped"><span class="dev-status">Done · 2.0</span><b>The preview matches the export</b><span>The preview glows like the export at any size, with accurate colour on Display P3 screens and a true 1:1 view. Mask views show exactly what the render uses.</span></li>
+        <li class="dev-card is-shipped"><span class="dev-status">Done · 2.x</span><b>Faster, and smooth gradients</b><span>Faster exports than 1.x (see Speed under <a href="#float">Precision</a>). 8-bit exports dithered, so skies don't band.</span></li>
+        <li class="dev-card is-shipped"><span class="dev-status">Done · 2.3</span><b>One working colour space</b><span>The glow and the mist now look the same whether a photo is saved in sRGB, Display P3, Adobe RGB or ProPhoto RGB, and sRGB photos look exactly as before.</span></li>
+        <li class="dev-card is-shipped"><span class="dev-status">Done · 2.3</span><b>Steady under crop and mirror</b><span>Halo Pro's glow no longer shifts when you crop or mirror a photo, and the small square gaps that could appear beside bright lights and neon are gone.</span></li>
+        <li class="dev-card is-shipped"><span class="dev-status">Done · 2.3</span><b>Cleaner Fringing</b><span>With Fringing on, the thin, crisp pink or red lines that could hug bright edges are gone, and wide-gamut files get the same fringe as sRGB ones.</span></li>
+        <li class="dev-card is-next"><span class="dev-status">Next</span><b>Lighter on memory</b><span>Long sessions and big exports on 8–16&nbsp;GB Macs.</span></li>
+        <li class="dev-card is-next"><span class="dev-status">Next</span><b>A new control panel</b><span>Film and Creative sections, and a set of starting looks from realistic to artistic.</span></li>
+        <li class="dev-card is-next"><span class="dev-status">Next</span><b>More creative glow</b><span>A better big glow, a halation ring, light streaks, an oval (anamorphic) glow and a white bloom.</span></li>
+        <li class="dev-card is-next"><span class="dev-status">Next</span><b>Colour management</b><span>More export colour spaces, EXR, and HEIC and raw photos.</span></li>
+      </ul>
+    </div>
+    <details class="more">
+      <summary><span class="more-show">Read more: the road from 2024, and ideas for later</span><span class="more-hide">Show less</span></summary>
     <div class="dev-year">
       <div class="dev-year-head"><span class="dev-year-num">2024</span><span class="mono">Research &amp; foundation</span></div>
       <ul class="dev-grid">
@@ -644,21 +699,6 @@
         <li class="dev-card is-done is-key"><span class="dev-status">Done</span><b>Halo Pro 2.x beta</b><span>31 October to 5 November. A new halation engine, rebuilt rather than patched; then Warmth on highlights, a smooth wide glow, new fringing, Glow color, Soft fall-off and one working colour space.</span></li>
       </ul>
     </div>
-    <div class="dev-year dev-year--now">
-      <div class="dev-year-head"><span class="dev-year-num">2.x</span><span class="mono">What 2.x fixed, and what's next</span></div>
-      <ul class="dev-grid">
-        <li class="dev-card is-shipped"><span class="dev-status">Done · 2.0</span><b>Files you can trust</b><span>Only replaces the copy Lightroom handed over, and asks before overwriting anything else. A failed export tells you, and never saves an unprocessed copy. Asks before throwing away edits you haven't exported. Runs on macOS 14 Sonoma or later.</span></li>
-        <li class="dev-card is-shipped"><span class="dev-status">Done · 2.0</span><b>The preview matches the export</b><span>The preview glows like the export at any size, with accurate colour on Display P3 screens and a true 1:1 view. Mask views show exactly what the render uses.</span></li>
-        <li class="dev-card is-shipped"><span class="dev-status">Done · 2.x</span><b>Faster, and smooth gradients</b><span>Faster exports than 1.x (see Speed under <a href="#float">Precision</a>). 8-bit exports dithered, so skies don't band.</span></li>
-        <li class="dev-card is-shipped"><span class="dev-status">Done · 2.3</span><b>One working colour space</b><span>The glow and the mist now look the same whether a photo is saved in sRGB, Display P3, Adobe RGB or ProPhoto RGB, and sRGB photos look exactly as before.</span></li>
-        <li class="dev-card is-shipped"><span class="dev-status">Done · 2.3</span><b>Steady under crop and mirror</b><span>Halo Pro's glow no longer shifts when you crop or mirror a photo, and the small square gaps that could appear beside bright lights and neon are gone.</span></li>
-        <li class="dev-card is-shipped"><span class="dev-status">Done · 2.3</span><b>Cleaner Fringing</b><span>With Fringing on, the thin, crisp pink or red lines that could hug bright edges are gone, and wide-gamut files get the same fringe as sRGB ones.</span></li>
-        <li class="dev-card is-next"><span class="dev-status">Next</span><b>Lighter on memory</b><span>Long sessions and big exports on 8–16&nbsp;GB Macs.</span></li>
-        <li class="dev-card is-next"><span class="dev-status">Next</span><b>A new control panel</b><span>Film and Creative sections, and a set of starting looks from realistic to artistic.</span></li>
-        <li class="dev-card is-next"><span class="dev-status">Next</span><b>More creative glow</b><span>A better big glow, a halation ring, light streaks, an oval (anamorphic) glow and a white bloom.</span></li>
-        <li class="dev-card is-next"><span class="dev-status">Next</span><b>Colour management</b><span>More export colour spaces, EXR, and HEIC and raw photos.</span></li>
-      </ul>
-    </div>
     <div class="dev-year">
       <div class="dev-year-head"><span class="dev-year-num">Ideas</span><span class="mono">For later</span></div>
       <ul class="dev-grid">
@@ -672,6 +712,7 @@
         <li class="dev-card is-idea"><span class="dev-status">Idea</span><b>Intel Macs</b><span>Older Macs. Blocked for now: key libraries are Apple Silicon only.</span></li>
       </ul>
     </div>
+    </details>
     </div>
     
   </div>

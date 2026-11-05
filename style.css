@@ -602,6 +602,28 @@ html:not(.js) .nav-toggle, html:not(.js) .toggle, html:not(.js) .band, html:not(
 }
 @media (prefers-reduced-motion: reduce) { .nf-img .nf-after { transition: none; } }
 
+/* why it's different: a red blur next to Halo Pro, same files */
+.why-row { display: grid; grid-template-columns: 4fr 8fr; gap: 24px 64px; align-items: start; padding: 40px 0; border-top: 1px solid var(--line); }
+.why-row h3 { font-size: var(--t-head); letter-spacing: -.025em; margin-bottom: 16px; }
+.why-row p { color: var(--fg-2); margin: 0; }
+.why-pair { display: grid; gap: 8px; margin: 0; }
+.why-img { position: relative; padding-top: 26px; }
+.why-img img { width: 100%; height: auto; border-radius: 6px; background: #000; }
+.why-img .cmp-tag { top: 0; bottom: auto; left: 0; color: var(--fg-3); }
+@media (max-width: 1020px) { .why-row { grid-template-columns: 1fr; } }
+
+/* read more: long parts fold in and open in place (native details, works without script) */
+.more { margin-top: 56px; }
+.more > summary { list-style: none; cursor: pointer; display: inline-flex; align-items: center; gap: 12px; min-height: 44px;
+  font-size: var(--t-small); font-weight: 500; color: var(--fg); border-bottom: 1px solid var(--line-2); }
+.more > summary::-webkit-details-marker { display: none; }
+.more > summary::after { content: "+"; font-family: var(--mono); font-size: var(--t-small); color: var(--fg-3); }
+.more[open] > summary::after { content: "\2212"; }
+.more > summary:hover { border-color: var(--fg); }
+.more-hide, .more[open] .more-show { display: none; }
+.more[open] .more-hide { display: inline; }
+.more > summary + * { margin-top: 40px; }
+
 /* light path: what Halo Pro follows, and what it doesn't model yet */
 .models { margin-top: 72px; padding-top: 24px; border-top: 1px solid var(--line); }
 .models ul { margin: 14px 0 0; padding: 0; list-style: none; columns: 2; column-gap: 64px; }
