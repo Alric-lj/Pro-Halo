@@ -69,7 +69,7 @@ No pay-what-you-want wording on the site (owner, 2 Nov 2026), although Gumroad s
 Links: `https://alriclj.gumroad.com/l/HALO_PRO?variant=<Halo%20Pro | Halo%20Pro%20-%20FREE | Halo%20Pro%20-%20Organisation>&wanted=true`
 
 ## Files
-- `index.html` — single page, inline JS (hero canvas, before/after, panel switcher, light-path scroll steps + remjet toggle, scale figure, banding canvases, typed-value demo, menu).
+- `index.html` — single page; hero picture `img/hero.webp` (owner's); inline JS (before/after, panel switcher, light-path scroll steps + remjet toggle, scale figure, banding canvases, typed-value demo, menu).
   v4 order: Result → Why it's different (red blur vs Halo Pro) → The app → Light path → Scale → Controls → Precision & files → Pro & pricing → Development. Long parts fold behind "Read more" (`details.more`).
 - `style.css` — tokens in `:root` (colours, and the six type sizes `--t-small` … `--t-display`). Fonts: Inter Tight + IBM Plex Mono (Google Fonts). Red glow (`--glow`) only on display-size red type (owner's request); the red second line only on the hero, the Light path heading and the note's title (owner, 2 Nov 2026).
 - `img/app/` — real app screenshots and exports. `img/ex*`, `hero-wave.jpg` — older images, unused by v4. `_old/` — previous versions, reference only.

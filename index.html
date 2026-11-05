@@ -77,7 +77,7 @@
 
 <!-- ============ HERO ============ -->
 <header class="hero" id="top">
-  <canvas id="hero-cv" aria-hidden="true"></canvas>
+  <img class="hero-img" src="img/hero.webp" width="1232" height="928" alt="" aria-hidden="true" fetchpriority="high">
   <div class="wrap hero-copy">
     <h1>Halation is light that <em class="lit"><span class="vh">comes back.</span><img src="img/light/comes-back.png" width="1200" height="340" alt="" aria-hidden="true"></em></h1>
     <p class="hero-sub">A Mac app for film halation and mist. Its controls follow how halation forms in film: where the glow starts, how far it travels, why it turns red. Every step in 32-bit float.</p>
@@ -89,7 +89,7 @@
   </div>
   <div class="hero-foot">
     <div class="wrap">
-      <span>A point of light on colour negative with no backing, drawn in your browser · The red headline: type run through Halo Pro</span>
+      <span>The red headline: type run through Halo Pro</span>
       <a href="#result">See it on a photo ↓</a>
     </div>
   </div>
@@ -782,148 +782,6 @@
   </div>
 </footer>
 
-<script>
-/* ---------------- Hero: a point of light on colour negative ---------------- */
-(function () {
-  const cv = document.getElementById('hero-cv'); if (!cv) return;
-  const ctx = cv.getContext('2d'); if (!ctx) return;
-  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const THC = Math.asin(1 / 1.5);
-  let W, H, G, running = true, raf;
-
-  // grain tile
-  const noise = document.createElement('canvas'); noise.width = noise.height = 200;
-  (function () { const n = noise.getContext('2d'), d = n.createImageData(200, 200);
-    for (let i = 0; i < d.data.length; i += 4) { const v = Math.random() * 255; d.data[i] = d.data[i + 1] = d.data[i + 2] = v; d.data[i + 3] = 255; }
-    n.putImageData(d, 0, 0); })();
-  const grain = ctx.createPattern(noise, 'repeat');
-
-  const copy = cv.parentNode.querySelector('.hero-note') || cv.parentNode.querySelector('.hero-cta'), foot = cv.parentNode.querySelector('.hero-foot');
-  function layout() {
-    const dpr = Math.min(2, window.devicePixelRatio || 1);
-    const r = cv.getBoundingClientRect(); W = r.width; H = r.height;
-    cv.width = Math.round(W * dpr); cv.height = Math.round(H * dpr);
-    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-    const mobile = W < 760;
-    const s = Math.max(.75, Math.min(1.3, H / 900));
-    const t = Math.min(H * (mobile ? .1 : .13), 140), film = 30 * s + t;
-    // the film sits above the foot line; on phones the beam starts below the copy instead of crossing it
-    const copyEnd = copy.getBoundingClientRect().bottom - r.top, footTop = foot.getBoundingClientRect().top - r.top;
-    const top = mobile ? Math.max(copyEnd + 40, footTop - 44 - film) : Math.min(Math.max(H * .72, 650), footTop - 44 - film);
-    const g = { x: mobile ? W * .5 : Math.max(W * .74, Math.min(W - 260, 1060)), blue: top, beam: mobile ? copyEnd + 16 : 0 };
-    g.yel = top + 9 * s; g.green = top + 12 * s; g.red = top + 21 * s; g.base = top + 30 * s;
-    g.t = t; g.back = g.base + g.t;
-    g.label = !mobile;
-    // short desktop screens: the film reaches the buttons, so its layers fade out before them
-    g.mask = !mobile && top < copyEnd + 16 ? copy.lastElementChild.getBoundingClientRect().right - r.left + 24 : 0;
-    G = g;
-  }
-
-  const band = (y0, y1, c) => { ctx.fillStyle = c; ctx.fillRect(0, y0, W, y1 - y0); };
-  const hline = (y, c) => { ctx.fillStyle = c; ctx.fillRect(0, Math.round(y), W, 1); };
-  function glow(cx, cy, rx, ry, stops) {
-    ctx.save(); ctx.translate(cx, cy); ctx.scale(1, ry / rx);
-    const r = ctx.createRadialGradient(0, 0, 0, 0, 0, rx);
-    stops.forEach(s => r.addColorStop(s[0], s[1]));
-    ctx.fillStyle = r; ctx.beginPath(); ctx.arc(0, 0, rx, 0, Math.PI * 2); ctx.fill(); ctx.restore();
-  }
-
-  function frame(time) {
-    const g = G, t = time || 0;
-    const p = .88 + .12 * Math.sin(t * .0008);
-    ctx.globalCompositeOperation = 'source-over'; ctx.globalAlpha = 1;
-    ctx.fillStyle = '#070707'; ctx.fillRect(0, 0, W, H);
-
-    // layers
-    band(g.blue, g.yel, 'rgba(91,124,255,.045)');
-    band(g.yel, g.green, 'rgba(255,210,60,.04)');
-    band(g.green, g.red, 'rgba(63,208,124,.035)');
-    band(g.red, g.base, 'rgba(255,61,34,.05)');
-    band(g.base, g.back, 'rgba(255,255,255,.012)');
-    [g.blue, g.yel, g.green, g.red, g.base].forEach(y => hline(y, 'rgba(255,255,255,.06)'));
-    hline(g.back, 'rgba(255,255,255,.16)');
-    if (g.mask) {
-      const m = ctx.createLinearGradient(g.mask, 0, g.mask + 240, 0);
-      m.addColorStop(0, '#070707'); m.addColorStop(1, 'rgba(7,7,7,0)');
-      ctx.fillStyle = m; ctx.fillRect(0, g.blue - 1, g.mask + 240, g.back - g.blue + 2);
-    }
-
-    ctx.globalCompositeOperation = 'lighter';
-
-    // incoming beam: soft body + core
-    let lg = ctx.createLinearGradient(g.x - 34, 0, g.x + 34, 0);
-    lg.addColorStop(0, 'rgba(255,236,222,0)'); lg.addColorStop(.5, `rgba(255,236,222,${.07 * p})`); lg.addColorStop(1, 'rgba(255,236,222,0)');
-    ctx.fillStyle = lg; ctx.fillRect(g.x - 34, g.beam, 68, g.base - g.beam);
-    let vg = ctx.createLinearGradient(0, g.beam, 0, g.base);
-    vg.addColorStop(0, 'rgba(255,248,240,0)'); vg.addColorStop(.45, `rgba(255,248,240,${.5 * p})`); vg.addColorStop(1, `rgba(255,248,240,${.95 * p})`);
-    ctx.fillStyle = vg; ctx.fillRect(g.x - 1, g.beam, 2, g.base - g.beam);
-
-    // inside the base: weaker, warmer (blue already gone)
-    let bg = ctx.createLinearGradient(0, g.base, 0, g.back);
-    bg.addColorStop(0, `rgba(255,205,175,${.55 * p})`); bg.addColorStop(1, `rgba(255,170,130,${.3 * p})`);
-    ctx.fillStyle = bg; ctx.fillRect(g.x - .6, g.base, 1.2, g.t);
-
-    // scattered light: V paths down to the back surface and up again
-    const N = 44;
-    for (let i = 0; i < N; i++) {
-      const a = (4 + (i / (N - 1)) * 68) * Math.PI / 180 + Math.sin(t * .0006 + i * 1.7) * .006;
-      const dx = g.t * Math.tan(a);
-      const tir = a > THC;
-      const k = (tir ? .2 : .035) * p * (1 - a / (Math.PI / 2) * .55);
-      for (const s of [-1, 1]) {
-        ctx.strokeStyle = `rgba(255,214,190,${k * .55})`; ctx.lineWidth = 1;
-        ctx.beginPath(); ctx.moveTo(g.x, g.base); ctx.lineTo(g.x + s * dx, g.back); ctx.stroke();
-        ctx.strokeStyle = `rgba(255,70,40,${k})`;
-        ctx.beginPath(); ctx.moveTo(g.x + s * dx, g.back); ctx.lineTo(g.x + s * 2 * dx, g.base); ctx.stroke();
-      }
-    }
-
-    // re-exposure in the red layer: core + ring at 2t·tanθc
-    const R = 2 * g.t * Math.tan(THC), Rmax = 2 * g.t * Math.tan(72 * Math.PI / 180);
-    const rf = R / Rmax, ym = (g.green + g.base) / 2;
-    glow(g.x, ym, Rmax, (g.base - g.green) * 1.6, [
-      [0, `rgba(255,120,70,${.45 * p})`], [rf * .6, `rgba(255,55,30,${.16 * p})`],
-      [rf * .92, `rgba(255,50,28,${.22 * p})`], [rf, `rgba(255,50,28,${.75 * p})`], [rf * 1.12, `rgba(255,45,25,${.28 * p})`],
-      [Math.min(.98, rf * 1.9), `rgba(220,30,18,${.07 * p})`], [1, 'rgba(200,20,10,0)']
-    ]);
-    // atmosphere: the red bleeding up into the air above the film
-    glow(g.x, ym, Rmax * 1.05, g.t * 1.3, [[0, `rgba(255,60,30,${.13 * p})`], [.45, `rgba(230,40,20,${.05 * p})`], [1, 'rgba(200,20,10,0)']]);
-    // hot entry point and back reflection
-    glow(g.x, g.blue + 2, 70, 9, [[0, `rgba(255,250,244,${.9 * p})`], [.25, `rgba(255,190,140,${.35 * p})`], [1, 'rgba(255,120,60,0)']]);
-    glow(g.x, g.back, 26, 4, [[0, `rgba(255,210,180,${.35 * p})`], [1, 'rgba(255,150,100,0)']]);
-
-    // grain
-    ctx.globalCompositeOperation = 'source-over'; ctx.globalAlpha = .045;
-    ctx.save(); ctx.translate(-(Math.random() * 200 | 0), -(Math.random() * 200 | 0));
-    ctx.fillStyle = grain; ctx.fillRect(0, 0, W + 200, H + 200); ctx.restore();
-    ctx.globalAlpha = 1;
-
-    // labels
-    if (g.label) {
-      ctx.font = '10px "IBM Plex Mono", monospace'; ctx.fillStyle = 'rgba(236,233,228,.32)';
-      ctx.textAlign = 'right';
-      const xr = Math.min(W - 40, (W + 1280) / 2 - 40);
-      ctx.fillText('EMULSION  B · G · R', xr, g.blue - 10);
-      ctx.fillText('BASE  ≈ 0.13 MM', xr, g.base + g.t / 2 + 3);
-      ctx.fillText('BACK SURFACE  —  NO BACKING', xr, g.back + 18);
-    }
-  }
-
-  // 30 fps is enough for a slow pulse and grain, and halves the work on phones
-  let last = -1e9;
-  function loop(time) {
-    if (time - last >= 32) { last = time; frame(time); }
-    if (running && !reduce) raf = requestAnimationFrame(loop);
-  }
-  layout(); loop(0);
-  window.addEventListener('resize', () => { layout(); if (reduce) frame(0); });
-  new IntersectionObserver(es => es.forEach(e => {
-    const was = running; running = e.isIntersecting;
-    if (running && !was && !reduce) raf = requestAnimationFrame(loop);
-  })).observe(cv);
-})();
-
-</script>
 <script>
 /* nav */
 (function(){ const n=document.querySelector('.nav'); const f=()=>n.classList.toggle('is-scrolled', scrollY>40); addEventListener('scroll', f, {passive:true}); f(); })();

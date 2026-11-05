@@ -118,6 +118,13 @@ a fuller Sources list (Kodak data sheets, AHU, patents); recipes with pictures; 
 In the note: a film-model figure (ring around a point vs the app's glow), a backing-shape figure, a mist vs
 halation scene, and a downloadable test-chart pack.
 
+## Hero image (5 Nov 2026)
+
+Owner supplied the hero picture (a red-orange streak of light on black, `img/hero.webp`, 1232 × 928, 22 KB as sent
+in chat). It replaces the animated point of light (canvas and its script removed). It sits in the lower 70 % of the
+hero (48 % on phones) with its top faded into the page, so the headline and text stay clear. The caption no longer
+mentions the point of light. If there is a larger original, swap it in at the same path for sharper big screens.
+
 ## Before/after order (5 Nov 2026)
 
 Owner: the rendered night street is the weakest of the three, so the before/after now opens on the Saab, then
