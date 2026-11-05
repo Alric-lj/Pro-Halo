@@ -118,6 +118,18 @@ a fuller Sources list (Kodak data sheets, AHU, patents); recipes with pictures; 
 In the note: a film-model figure (ring around a point vs the app's glow), a backing-shape figure, a mist vs
 halation scene, and a downloadable test-chart pack.
 
+## Panel tour, remjet toggle, format frames (5 Nov 2026)
+
+- "What's in each panel." rebuilt: panel tabs as chips beside the heading; the panel screenshot left; right a
+  headline, a short pitch and the controls in groups (`dl.tour-groups`), checked against the manual. New selling
+  points: presets keep the loaded LUT inside, a LUT never moves the glow, Mist runs after halation, every shortcut
+  on one page. Edit says it is still growing (the new control panel is next).
+- Remjet toggle: owner found it confusing (the halo just vanished). Now "No backing" / "With remjet" with a live line
+  under it saying what each state shows (light comes back as the halo, CineStill / the black coat absorbs it, no
+  halo, how motion-picture film is made).
+- Scale: owner felt the nested frames were too big for one point; the figure is now at most 420 px wide with the
+  format list taking the wider column, labels readable (13 px).
+
 ## Why it's different, and Read more (5 Nov 2026)
 
 - New section after Result, "What a red blur gets wrong." (`#why`): the note's 32-bit colour and brightness charts

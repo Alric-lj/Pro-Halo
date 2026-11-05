@@ -205,25 +205,47 @@
     </figure>
 
     <div class="tour">
-      <div class="tour-text">
+      <div class="tour-head">
         <h3>What's in each panel.</h3>
-        <div class="toggle" id="tour-switch" role="group" aria-label="App panel">
+        <div class="tour-tabs" id="tour-switch" role="group" aria-label="App panel">
           <button type="button" class="is-on" data-tab="halation-effect">Halation › Effect</button>
           <button type="button" data-tab="halation-masking">Halation › Masking</button>
           <button type="button" data-tab="mist">Mist</button>
           <button type="button" data-tab="edit">Edit</button>
           <button type="button" data-tab="settings">Settings</button>
         </div>
-        <div class="tour-caps">
-        <p class="tour-cap is-on" data-cap="halation-effect">Glow (Amount, Size, Format, Roll-off), Start (Starts at, Softness of start) and Color &amp; Landing (Green return, Landing, Warmth on highlights, Glow color, Color mix, Glow saturation). Advanced adds Secondary Glow, Smooth wide glow, Soft fall-off, Fringing and Lens Smear. Double-click a slider to reset it.</p>
-        <p class="tour-cap" data-cap="halation-masking">In Advanced: where the glow may come from, with a Luminance Range, Sky Protection and a Color Mask, each with its own switch. Diagnostics picks the view; keys 0–8 work on the Halation tab either way.</p>
-        <p class="tour-cap" data-cap="mist">A separate stage after halation: Density, Spread, Softness and a mist colour, plus Turbulence for a cloudy pattern instead of an even haze. Its Masking panel sets which bright areas give off mist.</p>
-        <p class="tour-cap" data-cap="edit">Exposure and Contrast, one .cube Film LUT applied before halation or after mist, and Grain and Bloom.</p>
-        <p class="tour-cap" data-cap="settings">Export format and bit depth (TIFF up to 32-bit float), ProPhoto RGB kept or converted to sRGB, preview sizes while dragging and at rest, and the shortcuts.</p>
-        </div>
       </div>
+      <div class="tour-body">
       <div class="tour-panel">
         <img id="tour-img" src="img/app/tab-halation-effect.jpg" width="630" height="988" alt="Halation › Effect panel: Amount, Size, Format 35 mm, Roll-off, Starts at, Softness of start, Green return, Landing, Warmth on highlights, Glow color" loading="lazy">
+      </div>
+      <div class="tour-caps">
+        <div class="tour-cap is-on" data-cap="halation-effect">
+          <h4>The glow, in film terms.</h4>
+          <p>How much light comes back, how far it travels on which film, where it starts and the colour it lands in. Halo Pro opens on the Default, so a photo glows the moment it loads; double-click any slider to put it back.</p>
+          <dl class="tour-groups"><dt>Glow</dt><dd>Amount · Size · Format · Roll-off</dd><dt>Start</dt><dd>Starts at · Softness of start</dd><dt>Color &amp; Landing</dt><dd>Green return · Landing · Warmth on highlights · Glow color · Color mix · Glow saturation</dd><dt>Advanced</dt><dd>Secondary Glow · Smooth wide glow · Soft fall-off · Fringing · Lens Smear</dd></dl>
+        </div>
+        <div class="tour-cap" data-cap="halation-masking">
+          <h4>Choose where it glows.</h4>
+          <p>Keep the glow inside a brightness band, hold it back from the sky, or keep it to (or away from) a colour you pick, each with its own switch. Press a number key to see exactly what the engine uses.</p>
+          <dl class="tour-groups"><dt>Masks</dt><dd>Luminance Range · Sky Protection · Color Mask (Advanced)</dd><dt>Views</dt><dd>Keys 0–8 on the Halation tab: Source, Energy, Luminance Range, Sky, Color, Final, Glow Preview, Smear</dd></dl>
+        </div>
+        <div class="tour-cap" data-cap="mist">
+          <h4>A diffusion filter, as its own stage.</h4>
+          <p>Mist runs after halation, so the two never fight: a soft haze from the bright areas, in any tint, even or cloudy. The Default look has it on, lightly.</p>
+          <dl class="tour-groups"><dt>Haze</dt><dd>Density · Spread · Softness</dd><dt>Colour</dt><dd>Mist Color · Saturation</dd><dt>Advanced</dt><dd>Turbulence for a cloudy pattern · Spread Mode</dd><dt>Masking</dt><dd>Which bright areas give off mist · views 0–2</dd></dl>
+        </div>
+        <div class="tour-cap" data-cap="edit">
+          <h4>Exposure, contrast and your film LUT.</h4>
+          <p>Load any .cube LUT and choose whether it grades the photo before the glow or the finished picture after the mist. The glow is measured on your photo as you opened it, so a LUT never moves it. Presets save every setting, the LUT included, so a look works without its file.</p>
+          <dl class="tour-groups"><dt>Adjustments</dt><dd>Exposure · Contrast</dd><dt>Film LUT</dt><dd>Load LUT File · Intensity · Apply before halation</dd><dt>Extra Effects</dt><dd>Grain Strength · Bloom Intensity · Bloom Spread</dd></dl><p class="tour-note">The Edit tab is still growing: a new control panel with Film and Creative sections and starting looks is next.</p>
+        </div>
+        <div class="tour-cap" data-cap="settings">
+          <h4>Your export, your way.</h4>
+          <p>TIFF up to 32-bit float, PNG or JPEG; ProPhoto RGB kept or converted to sRGB; preview sizes for dragging and at rest; and every shortcut on one page.</p>
+          <dl class="tour-groups"><dt>Export</dt><dd>TIFF 8, 16 or 32-bit float · PNG 8 or 16 · JPEG</dd><dt>ProPhoto RGB</dt><dd>Keep it, or convert to sRGB on import</dd><dt>Preview</dt><dd>Live and Idle preview size</dd><dt>Shortcuts</dt><dd>Space before / after · P accurate preview · Cmd+C / Cmd+V copy a look</dd></dl>
+        </div>
+      </div>
       </div>
     </div>
   </div>
@@ -354,9 +376,10 @@
           <span class="mono">Cross-section · layers not to scale</span>
           <div class="toggle" role="group" aria-label="Film backing">
             <button type="button" class="is-on" data-backing="none">No backing</button>
-            <button type="button" data-backing="remjet">Remjet</button>
+            <button type="button" data-backing="remjet">With remjet</button>
           </div>
         </div>
+        <p class="fig-cap" id="backing-cap" aria-live="polite">No backing: light reflects off the back of the base and comes back up into the emulsion as the red halo. This is CineStill.</p>
       </div>
 
       <div class="path-steps">
@@ -930,10 +953,13 @@
     steps.forEach(s => s.classList.toggle('is-on', +s.dataset.step === n));
     if (!userTouched) setBacking(n === 5 ? 'remjet' : 'none', false);
   }
-  const btns = document.querySelectorAll('[data-backing]');
+  const btns = document.querySelectorAll('[data-backing]'), cap = document.getElementById('backing-cap');
+  const caps = { none: 'No backing: light reflects off the back of the base and comes back up into the emulsion as the red halo. This is CineStill.',
+                 remjet: 'With remjet: the carbon-black coat absorbs the light at the back of the base, so nothing comes back and there is no halo. Motion-picture film is made this way; CineStill has it removed.' };
   function setBacking(v, fromUser) {
     if (fromUser) userTouched = true;
     fig.classList.toggle('remjet', v === 'remjet');
+    if (cap) cap.textContent = caps[v];
     btns.forEach(b => { b.classList.toggle('is-on', b.dataset.backing === v); b.setAttribute('aria-pressed', b.dataset.backing === v); });
   }
   btns.forEach(b => b.addEventListener('click', () => setBacking(b.dataset.backing, true)));
