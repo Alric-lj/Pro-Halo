@@ -162,6 +162,15 @@ app as a believable product instead of screenshots in boxes.
   before/after slider (and its Saab/snow photos, rights unclear) and the screenshot tour.
 - The story under the price is the 7 Nov draft (four drafts, sentence-checked, judged by photographer readers); it
   claims no photo as Alric's.
+- Fresh-eye review of the built page (7 Nov, from stills). Fixed: posters had a 16px white border from the capture
+  (cropped with sips); the 42× stat said "doubles per stop" (42× at +5 stops is the note's measured figure, film's
+  32× is the proportional line); "Batch Exp" → Export All (the app's button); the story pointed at the street but
+  described a chrome strip; hero spacing tightened so the lit street shows at 1440×900. Open, for the owner: the
+  first screen is still mostly copy (the photo starts at ~770px; the fix would be copy beside the window, bleeding
+  off the right); the street is a render and reads as one; window chrome four times (hero, Format, Masking,
+  Return — crop the tiles to their control?); picture tiles and filled tiles are two frame families; the Pro
+  section's right column is a dead corner; Format poster highlights 4×5 while the field reads 35 mm; Masking has a
+  cursor resting on nothing.
 
 ## Comparison, coming next, lamp vs shirt (5 Nov 2026)
 

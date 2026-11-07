@@ -69,8 +69,16 @@ No pay-what-you-want wording on the site (owner, 2 Nov 2026), although Gumroad s
 Links: `https://alriclj.gumroad.com/l/HALO_PRO?variant=<Halo%20Pro | Halo%20Pro%20-%20FREE | Halo%20Pro%20-%20Organisation>&wanted=true`
 
 ## Files
-- `index.html` — single page; hero picture `img/hero.webp` (owner's); inline JS (before/after, panel switcher, light-path scroll steps + remjet toggle, scale figure, banding canvases, typed-value demo, menu).
-  v4 order: Result → Why it's different (red blur vs Halo Pro) → The app → Light path → Scale → Controls → Precision & files → Pro & pricing → Development. Long parts fold behind "Read more" (`details.more`).
+- `index.html` — single page. The app is shown with live stageshow demos (`<figure data-stage="halo-…">`, each with a filmed
+  poster `img/stage/*.jpg` for first paint and reduced motion); inline JS for the light-path scroll steps + remjet toggle,
+  scale figure, banding canvases, menu.
+- `stage/` — the stageshow kit (MIT; github.com/benjitaylor/skills) plus Halo Pro's look (`halo/look.css`), its own
+  controls (`halo/parts.tsx`) and the demos (`examples/halo-*`). Node 20.19+; `npm install --cache $TMPDIR/npm-cache`.
+  Preview: `.claude/launch.json` → `stage` (Vite, `?capture=<id>`). Build the site bundle with `npm run build:site` →
+  `stage-build/` (committed; the page loads `stage-build/halo-stage.js` and `.css`). Film with
+  `node scripts/film.mjs <url> --select '#example' --gate` (Chrome must run outside the Bash sandbox). Every demo passes
+  the gate at desktop and 390 before it ships; posters are `--still` frames of `#example .ss-stage`.
+  Order (Nov 2026): hero with the live window → Built for professional files (feature grid of demos) → What a red blur gets wrong → How it compares → Light path → Scale → Controls → Precision & files → Pro & pricing (with the Save and return demo and the story) → Development. Long parts fold behind "Read more" (`details.more`).
 - `style.css` — tokens in `:root` (colours, and the six type sizes `--t-small` … `--t-display`). Fonts: Inter Tight + IBM Plex Mono (Google Fonts). Red glow (`--glow`) only on display-size red type (owner's request); the red second line only on the hero, the Light path heading and the note's title (owner, 2 Nov 2026).
 - `img/app/` — real app screenshots and exports. `img/ex*`, `hero-wave.jpg` — older images, unused by v4. `_old/` — previous versions, reference only.
 - `HANDOFF.md` — state of the v4 redesign, open decisions, publish checklist.
@@ -78,5 +86,5 @@ Links: `https://alriclj.gumroad.com/l/HALO_PRO?variant=<Halo%20Pro | Halo%20Pro%
 
 ## Working rules
 - Preview with `python3 -m http.server 8000`, check 1440px and 390px widths, no horizontal scroll, no console errors.
-- Respect `prefers-reduced-motion`. Keep it a static site (no framework, no bundler).
+- Respect `prefers-reduced-motion`. The page stays static HTML; the only build step is the demos' bundle in `stage/`, and its output is committed.
 - Don't push to `main` without Alric's OK — that publishes halopro.app.

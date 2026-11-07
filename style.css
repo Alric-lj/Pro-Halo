@@ -108,11 +108,11 @@ p { margin: 0 0 1em; }
 .hero-grain { position: absolute; inset: -200px; z-index: 1; pointer-events: none; opacity: .06; animation: grain .5s steps(1) infinite; }
 @keyframes grain { 0% { transform: translate(0, 0); } 20% { transform: translate(-83px, 47px); } 40% { transform: translate(61px, -112px); }
   60% { transform: translate(-129px, -38px); } 80% { transform: translate(104px, 91px); } }
-.hero-copy { position: relative; z-index: 2; padding-top: 150px; width: 100%; } /* full width inside the flex column */
+.hero-copy { position: relative; z-index: 2; padding-top: 120px; width: 100%; } /* full width inside the flex column */
 .hero h1 { font-size: var(--t-display); line-height: .94; letter-spacing: -0.045em; max-width: 9.5em; }
 .hero h1 em { font-style: normal; color: var(--red); text-shadow: var(--glow); }
-.hero-sub { margin-top: 32px; max-width: 30em; font-size: var(--t-lead); color: var(--fg-2); }
-.hero-cta { display: flex; align-items: center; gap: 28px; margin-top: 36px; flex-wrap: wrap; }
+.hero-sub { margin-top: 24px; max-width: 30em; font-size: var(--t-lead); color: var(--fg-2); }
+.hero-cta { display: flex; align-items: center; gap: 28px; margin-top: 28px; flex-wrap: wrap; }
 .hero-foot {
   position: absolute; z-index: 2; left: 0; right: 0; bottom: 28px;
 }
@@ -681,7 +681,7 @@ html:not(.js) .nav-toggle, html:not(.js) .toggle, html:not(.js) .tour-tabs, html
 /* once the demo mounts, its own frame replaces the poster */
 .stage:has(.ss-fit) .stage-poster { display: none; }
 .stage .ss-stage { border-radius: 10px; }
-.stage--hero { margin-top: 56px; }
+.stage--hero { margin-top: 40px; }
 .hero-caption { margin-top: 14px; }
 .hero { padding-bottom: 72px; }
 
