@@ -1,13 +1,14 @@
 import { Stage, Window, type Act } from '../../kit'
 import { EffectPanel } from '../../halo/parts'
-import src from '../../halo/img/street-src.jpg'
-import glow35 from '../../halo/img/street-35mm.jpg'
-import glow16 from '../../halo/img/street-16mm.jpg'
+import src from '../../halo/img/saab-src.jpg'
+import glow35 from '../../halo/img/saab-35mm.jpg'
+import glow16 from '../../halo/img/saab-16mm.jpg'
 import './hero.css'
 
-// The hero: Halo Pro's own window, a night scene open in it. Beats: the
-// cursor takes the Amount knob from 0 to 1 and the lamps grow their red
-// halos as it goes; it opens Format and picks 16 mm, and the halos widen;
+// The hero: Halo Pro's own window, the owner's Saab photo open in it (a
+// car panned past through a forest; its own export at Default, Amount 1). Beats:
+// the cursor takes the Amount knob from 0 to 1 and the lights grow their
+// red halos as it goes; it opens Format and picks 16 mm, and they widen;
 // the result holds; Preset › Default is the seen cause that puts it back.
 // Real strings: the controls the story touches (Amount, Format, 16 mm,
 // Preset Default); the rest of the panel is the app's real anatomy with
@@ -91,7 +92,7 @@ export default function HaloHero() {
                 }
                 presetMenu={
                   <div className="hh-menu" role="presentation" data-open={s.preset || undefined}>
-                    {['Default', 'Last Edit', 'Night street'].map(p => (
+                    {['Default', 'Last Edit', 'Saab'].map(p => (
                       <div key={p} className="hh-menu__item" data-on={p === 'Default' || undefined} data-target={p === 'Default' ? 'preset-default' : undefined} data-cursor="pointer">{p}</div>
                     ))}
                   </div>

@@ -171,6 +171,12 @@ app as a believable product instead of screenshots in boxes.
   Return — crop the tiles to their control?); picture tiles and filled tiles are two frame families; the Pro
   section's right column is a dead corner; Format poster highlights 4×5 while the field reads 35 mm; Masking has a
   cursor resting on nothing.
+- Photos (7 Nov, evening): the owner found the Blender street ugly and asked for the Saab, the skier or his image bank
+  (`~/Desktop/Halo Pro – Dehancer charts/small 16`, 25 sRGB 16-bit TIFFs at 2048 px). Now: hero = the Saab
+  (`Before after/…Exampel 1 BEFORE.jpg`), Format tile = `_MG_0997` (lit facade), Batch grid = eleven bank photos.
+  Every glow is the real app's export (tools/website_shots/light.py in the app repo, LOOKS=1:1, Mist off, FORMAT
+  35mm / 16mm / 4x5), reduced to `stage/halo/img/*.jpg` by a scratch script; re-render the same way if the engine
+  changes. Posters are `film.mjs --still --pad 0` of `#example .ss-stage` (pad 0, or a white border is baked in).
 
 ## Comparison, coming next, lamp vs shirt (5 Nov 2026)
 

@@ -1,14 +1,15 @@
 import { Icon, Menu, Popover, Roll, Stage, Text, Window, type Act } from '../../kit'
 import { Section, Slider } from '../../halo/parts'
-import f35 from '../../halo/img/format-35mm.jpg'
-import f45 from '../../halo/img/format-4x5.jpg'
+import f35 from '../../halo/img/building-35mm.jpg'
+import f45 from '../../halo/img/building-4x5.jpg'
 import './halo-format.css'
 
 // A close-up of one control: Halo Pro's Format menu, the whole window at
 // 1.4x, chrome and all, running off the bottom. Beats: the cursor clicks the
 // Format value, the menu opens over the Glow section (Super 8 to 4×5, 35 mm
 // checked), picks 4×5; the value rolls to 4×5 on its own row, the menu fades
-// out and the street in the photo pane crossfades to the tighter 4×5 glow.
+// out and the photo (the owner's lit facade at dusk, Halo Pro's own exports)
+// crossfades to the tighter 4×5 glow.
 // Plays once; the poster is the menu open with 4×5 under the cursor.
 //
 // Real strings: Format, the six menu items (35 mm and 4×5 among them). Amount

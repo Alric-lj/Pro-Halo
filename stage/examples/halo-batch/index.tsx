@@ -1,12 +1,15 @@
 import { Badge, Bar, Button, Stage, Text } from '../../kit'
-import f8 from '../../halo/img/format-super8.jpg'
-import f16 from '../../halo/img/format-16mm.jpg'
-import f35 from '../../halo/img/format-35mm.jpg'
-import f645 from '../../halo/img/format-645.jpg'
-import f66 from '../../halo/img/format-6x6.jpg'
-import f45 from '../../halo/img/format-4x5.jpg'
-import ladder from '../../halo/img/ladder.jpg'
-import colours from '../../halo/img/colours.jpg'
+import b6448 from '../../halo/img/batch-6448.jpg'
+import b0997 from '../../halo/img/batch-0997.jpg'
+import b1578 from '../../halo/img/batch-1578.jpg'
+import b2145 from '../../halo/img/batch-2145.jpg'
+import b7736 from '../../halo/img/batch-7736.jpg'
+import b4259 from '../../halo/img/batch-4259.jpg'
+import b1345 from '../../halo/img/batch-1345.jpg'
+import b9094 from '../../halo/img/batch-9094.jpg'
+import b4000 from '../../halo/img/batch-4000.jpg'
+import b9921 from '../../halo/img/batch-9921.jpg'
+import b5212 from '../../halo/img/batch-5212.jpg'
 import './halo-batch.css'
 
 // Many of one: Halo Pro's Batch Mode as a grid of one small thing, the
@@ -17,9 +20,8 @@ import './halo-batch.css'
 // focus a column right of centre, forward by depth only (the hero shadow and
 // the app's blue selection ring). Every tile is the same anatomy: the photo
 // edge to edge, then a name, a status and a preset line under it. The
-// sameness is the point; only the name bars vary. The photos are the app's
-// own renders of one night street at each Format, and its two light charts,
-// repeated as a batch repeats.
+// sameness is the point; only the name bars vary. The photos are the owner's
+// own, each one Halo Pro's export at Default, repeated as a batch repeats.
 //
 // Real strings: the focus tile's filename, its status, its preset, and the
 // one action, Apply to All, sitting on its lower edge, where the cursor
@@ -30,8 +32,7 @@ const COLS = 5
 const ROWS = 4
 const FOCUS = { col: 2, row: 1 }
 
-// Mostly the street at its formats; the two light charts appear once each in view
-const PHOTOS = [f35, f16, f645, f8, ladder, f66, f45, f35, colours, f16]
+const PHOTOS = [b0997, b1578, b2145, b7736, b4259, b1345, b9094, b4000, b9921, b5212]
 const W = [[96, 64], [80, 52], [104, 70], [72, 58], [90, 46]]
 
 export default function HaloBatch() {
@@ -53,12 +54,13 @@ export default function HaloBatch() {
             const row = Math.floor(i / COLS)
             const focus = col === FOCUS.col && row === FOCUS.row
             const [a, b] = W[(i * 3) % W.length]!
-            const photo = PHOTOS[(i * 5 + row) % PHOTOS.length]!
+            // ponytail: a stride of 7 spreads ten photos over nineteen tiles with no repeat in a row
+            const photo = PHOTOS[(i * 7 + row * 3) % PHOTOS.length]!
             return focus ? (
               <div key={i} className="hb-tile" data-focus>
-                <div className="hb-thumb"><img src={f35} alt="" /></div>
+                <div className="hb-thumb"><img src={b6448} alt="" /></div>
                 <div className="hb-meta">
-                  <Text className="hb-name">IMG_6448.tif</Text>
+                  <Text className="hb-name">_MG_6448.tif</Text>
                   <Badge tone="success" dot>Ready</Badge>
                 </div>
                 <div className="hb-line"><Text className="hb-preset">Default</Text></div>
