@@ -187,6 +187,10 @@ app as a believable product instead of screenshots in boxes.
   the LUT grades the finished picture; 32-bit float export keeps light above white). The 42× line moved into the
   float section's intro. Fact caught by the checker and worth remembering: the glow is measured on the photo as
   opened, so the LUT never changes where it glows; only what grades what.
+- Phone pass (7 Nov, late; 38 screens at 390 by a headless-Chrome script): the compact hero's Amount slider sat 19px
+  below the stage edge (photo pane now 2:1 with tighter padding; gate passes at 390), a step still said "flip it
+  back" to the removed toggle, and the hero left a 200px black gap before the grid on phones (32px foot now).
+  Everything else held: no horizontal scroll, no three-line headings, no console errors.
 
 ## Comparison, coming next, lamp vs shirt (5 Nov 2026)
 

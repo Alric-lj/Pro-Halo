@@ -716,3 +716,6 @@ html:not(.js) .nav-toggle, html:not(.js) .toggle, html:not(.js) .tour-tabs, html
 .story h3 { font-size: var(--t-head); letter-spacing: -.025em; margin-bottom: 18px; }
 .story p { color: var(--fg-2); font-size: var(--t-lead); line-height: 1.5; }
 .story-sign { font-size: var(--t-small) !important; color: var(--fg-3) !important; }
+
+/* Phone: a shorter hero foot, the beam closer to the copy */
+@media (max-width: 640px) { .hero { padding-bottom: 32px; } .hero-beam { margin-top: 36px; } }

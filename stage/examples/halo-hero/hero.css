@@ -16,7 +16,7 @@
 .hh-body { display: grid; grid-template-columns: minmax(0, 1fr) 300px; min-height: 680px; }
 /* On a phone the photo sits over the controls: one column, the pane first */
 .hh-body[data-layout='compact'] { grid-template-columns: 1fr; min-height: 380px; }
-.hh-body[data-layout='compact'] .hh-photo { margin: 14px 14px 0; aspect-ratio: 16 / 10; }
+.hh-body[data-layout='compact'] .hh-photo { margin: 6px 14px 0; aspect-ratio: 2 / 1; }
 .hh-body[data-layout='compact'] .hh-panel .halo-panel { height: auto; }
 
 .hh-photo { margin: 24px 0 24px 24px; border-radius: 2px; }

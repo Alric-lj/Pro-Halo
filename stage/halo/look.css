@@ -50,7 +50,8 @@
 .halo-panel__ms { font-family: var(--ss-mono); font-size: 11px; color: var(--halo-swatch); }
 .halo-panel__actions { display: flex; justify-content: space-between; gap: 12px; }
 .halo-panel__checks { display: flex; gap: 12px; align-items: center; white-space: nowrap; }
-.halo-panel--compact { padding: 12px 14px 44px; gap: 9px; }
+.halo-panel--compact { padding: 8px 14px 44px; gap: 8px; }
+.halo-panel--compact .halo-sec { margin-top: 0; }
 .halo-anchor { position: relative; }
 .halo-check { display: inline-flex; align-items: center; gap: 6px; }
 .halo-check i {
