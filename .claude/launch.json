@@ -1,0 +1,17 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "site",
+      "runtimeExecutable": "python3",
+      "runtimeArgs": ["-m", "http.server", "8000"],
+      "port": 8000
+    },
+    {
+      "name": "stage",
+      "runtimeExecutable": "stage/node_modules/.bin/vite",
+      "runtimeArgs": ["stage/playground", "--config", "stage/playground/vite.config.ts", "--port", "5173", "--strictPort", "--host", "127.0.0.1"],
+      "port": 5173
+    }
+  ]
+}

@@ -87,19 +87,18 @@
     </div>
     <p class="hero-note"><span>2.3 beta, for macOS on Apple Silicon</span><span>Free: every control, full-resolution export</span><span>Pro: Lightroom Mode, Batch Mode, licence for paid work</span><a href="#pricing">Compare</a></p>
   </div>
-  <div class="hero-light" aria-hidden="true"><img class="hero-img" src="img/hero.webp" width="1232" height="928" alt="" fetchpriority="high"></div>
-  <div class="hero-foot">
-    <div class="wrap">
-      <span>The red headline: type run through Halo Pro</span>
-      <a href="#result">See it on a photo ↓</a>
-    </div>
+  <div class="wrap">
+    <figure class="stage stage--hero" data-stage="halo-hero" aria-label="Halo Pro: the Amount slider is dragged up and the street lamps grow their red halos; Format 16 mm widens them">
+      <img class="stage-poster" src="img/stage/halo-hero.jpg" width="1864" height="1072" alt="Halo Pro's window with a night street open: red halos around every lamp, the Amount slider at 1, Format 16 mm" loading="eager" fetchpriority="high">
+    </figure>
+    <p class="shot-meta hero-caption">Drawn live, with the app's own controls. The street is a rendered scene with real light levels; the glow is Halo Pro's own export of it.</p>
   </div>
 </header>
 
 <main id="main">
 
-<!-- ============ WHAT IT IS ============ -->
-<section class="section" id="what">
+<!-- ============ FEATURES ============ -->
+<section class="section" id="features">
   <div class="wrap">
     <div class="s-head">
       <div>
@@ -107,64 +106,36 @@
         <p class="s-intro">A glow worked out in 8 bits breaks into steps as it fades and loses the light above white. Halo Pro never leaves 32-bit float, keeps one look across wide-gamut colour spaces, and forms the glow from the light itself, the way film does.</p>
       </div>
     </div>
-    <div class="spec pillars">
-      <div><span class="mono">Physics</span><h4>Formed like film</h4><p>The glow follows the colour and brightness of the light and the film format you pick, not a blur with a red tint. <a href="#why">See the difference</a>.</p></div>
-      <div><span class="mono">Precision</span><h4>32-bit float, end to end</h4><p>16-bit and 32-bit files open at full depth, every step runs in float, and a 32-bit TIFF export can keep the light above white. Falloffs stay smooth.</p></div>
-      <div><span class="mono">Colour</span><h4>Wide gamut, one look</h4><p>sRGB, Display P3, Adobe RGB or ProPhoto RGB: the glow and the mist look the same in each, and your file keeps its profile.</p></div>
-      <div><span class="mono">Workflow</span><h4>Made for real work</h4><p>Lightroom Classic round trip, batch up to 500 photos, presets that carry their LUT, and a 12-megapixel export in about 0.9&nbsp;s on Apple Silicon.</p></div>
+    <div class="bento">
+      <article class="tile tile--wide">
+        <figure class="stage" data-stage="halo-batch" aria-label="Batch Mode: a grid of photos, one selected, with Apply to All">
+          <img class="stage-poster" src="img/stage/halo-batch.png" width="1280" height="720" alt="A grid of photo thumbnails in Halo Pro's Batch Mode, one in focus with its name and an Apply to All button" loading="lazy">
+        </figure>
+        <p class="tile-copy"><b>Batch Mode.</b> Up to 500 photos open at once, each with its own settings; Apply to All copies one look across the set.</p>
+      </article>
+      <article class="tile tile--stat">
+        <p class="stat"><span class="stat-lead">Glow at five stops over white</span><span class="stat-num">42×</span><span class="stat-label">the glow at white, measured on 32-bit test charts. It doubles with every stop, as on film.</span></p>
+      </article>
+      <article class="tile">
+        <figure class="stage" data-stage="halo-format" aria-label="The Format menu: Super 8 to 4×5; picking a film changes how far the glow travels">
+          <img class="stage-poster" src="img/stage/halo-format.png" width="800" height="600" alt="Halo Pro's Format menu open over the Glow controls, 35 mm checked, the cursor on 4×5" loading="lazy">
+        </figure>
+        <p class="tile-copy"><b>Format.</b> Pick the film your photo should look shot on, Super 8 to 4×5, and the glow takes that film's share of the frame.</p>
+      </article>
+      <article class="tile tile--statement">
+        <p class="statement">One look in sRGB, Display&nbsp;P3, Adobe&nbsp;RGB and ProPhoto&nbsp;RGB.</p>
+        <p class="tile-copy">The glow and the mist are worked out in one working colour space, so a wide-gamut file from Lightroom glows exactly like its sRGB export. Your file keeps its profile.</p>
+      </article>
+      <article class="tile">
+        <figure class="stage" data-stage="halo-masking" aria-label="Halation › Masking: Sky Protection switched on">
+          <img class="stage-poster" src="img/stage/halo-masking.png" width="800" height="600" alt="Halo Pro's Masking panel: Luminance Range on, Sky Protection being switched on, Color Mask off" loading="lazy">
+        </figure>
+        <p class="tile-copy"><b>Choose where it glows.</b> Keep it inside a brightness band, hold it back from the sky, or keep it to a colour you pick. Press a number key to see exactly what the engine uses.</p>
+      </article>
     </div>
   </div>
 </section>
 
-<!-- ============ 01 RESULT ============ -->
-<section class="section" id="result">
-  <div class="wrap">
-    <div class="s-head">
-      <div>
-        <h2 class="s-title">Same file. <em>The light now comes back.</em></h2>
-        <p class="s-intro">Straight out of Halo Pro at the Default, with Mist off and nothing else touched: two photographs, and a rendered night street with real light levels. Watch the lights.</p>
-      </div>
-    </div>
-    <div class="cmp-bar">
-      <span class="mono">Drag to compare</span>
-      <div class="toggle" id="cmp-switch" role="group" aria-label="Example photo">
-        <button type="button" class="is-on" data-ex="saab">Saab, panning</button>
-        <button type="button" data-ex="snow">Snow, backlit</button>
-        <button type="button" data-ex="street">Night street, rendered</button>
-      </div>
-    </div>
-    <div class="cmp" id="cmp">
-      <img class="cmp-after" src="img/app/saab-result.jpg" width="1600" height="1066" alt="After: exported from Halo Pro with halation" loading="lazy">
-      <img class="cmp-before" src="img/app/saab-before.jpg" width="1600" height="1066" alt="Before: the original file" loading="lazy">
-      <div class="cmp-handle"></div>
-      <span class="mono cmp-tag cmp-tag--l">Before</span>
-      <span class="mono cmp-tag cmp-tag--r">Halo Pro</span>
-      <input class="cmp-range" type="range" min="0" max="100" value="50" aria-label="Compare before and after">
-    </div>
-    <p class="shot-meta" id="cmp-meta">Exported from Halo Pro · Default: Amount 1, Size 1, 35 mm, Warmth on highlights 1 · Mist off · <span>Canon EOS R5, digital</span></p>
-
-    <details class="more">
-      <summary><span class="more-show">Read more: what the engine works from</span><span class="more-hide">Show less</span></summary>
-    <div class="engine">
-      <div class="engine-head">
-        <h3>What the engine works from.</h3>
-        <p>Press a number key on the Halation tab and the photo is swapped for what the engine is working with. Two of them, on the same photo. This is what sets it apart: the Source picks out the lights, and the glow lands around them, not on them.</p>
-      </div>
-      <div class="engine-strip">
-        <figure>
-          <img src="img/app/snow-mask-source.jpg" width="1600" height="1065" alt="View 1, Source: the brightest snowflakes in white on black, a little of the lit snow below, and nothing from the skier" loading="lazy">
-          <figcaption><span class="key">1</span><b>Source.</b> How strongly each pixel feeds the glow, set by Starts at: the brightest flakes and a little of the lit snow. The skier gives nothing.</figcaption>
-        </figure>
-        <figure>
-          <img src="img/app/snow-mask-glow.jpg" width="1600" height="1065" alt="View 7, Glow Preview: thin red and orange rings on black around each bright flake" loading="lazy">
-          <figcaption><span class="key">7</span><b>Glow Preview.</b> The glow on its own, brightened to fill the range. It sits around each flake, not on it: it only shows where it spreads past the light.</figcaption>
-        </figure>
-      </div>
-      <p class="engine-note">The other views show the light that feeds the glow, the brightness range, the sky and colour masks, the final composite and the lens smear. They are for checking and never end up in an export.</p>
-    </div>
-    </details>
-  </div>
-</section>
 
 <!-- ============ WHY IT'S DIFFERENT ============ -->
 <section class="section" id="why">
@@ -233,75 +204,6 @@
   </div>
 </section>
 
-<!-- ============ 02 INSIDE THE APP ============ -->
-<section class="section" id="app">
-  <div class="wrap">
-    <div class="s-head">
-      <div>
-        <h2 class="s-title">One window. <em>Every control in reach.</em></h2>
-        <p class="s-intro">The photo on the left, the controls on the right. With Advanced off you get the core of it: Glow, Start, and Color &amp; Landing. Advanced, on in this shot, adds the rest. This is Lightroom Mode, a Pro feature: the photo came from Lightroom Classic and goes back with one click.</p>
-      </div>
-    </div>
-    <figure class="appshot">
-      <div class="appshot-img">
-        <img src="img/app/window-lightroom.jpg" srcset="img/app/window-lightroom-1100.jpg 1100w, img/app/window-lightroom.jpg 2200w" sizes="(max-width: 1320px) calc(100vw - 36px), 1200px" width="2200" height="1301" alt="The Halo Pro window in Lightroom Mode: the snow photo on the left; on the right the Export and Save and return buttons, a histogram, the Processed, Accurate and Advanced checkboxes, the Halation, Mist, Edit and Settings tabs and the glow controls" loading="lazy">
-      </div>
-      <figcaption>
-        <ul class="callouts">
-          <li><b>Export · Save and return</b>Lightroom Mode (Pro, see below): export a copy, or save back to Lightroom and close.</li>
-          <li><b>Preset · Default</b>Every launch opens on Default. Last Edit and your own presets are in the same menu.</li>
-          <li><b>Processed · Accurate · Advanced</b>Processed (Space) switches between your edit and the original. Accurate (P) renders the preview at full resolution.</li>
-          <li><b>Halation · Mist · Edit · Settings</b>Four tabs. Halation and Mist each have an Effect and a Masking panel. Advanced shows every control.</li>
-        </ul>
-      </figcaption>
-    </figure>
-
-    <div class="tour">
-      <div class="tour-head">
-        <h3>What's in each panel.</h3>
-        <div class="tour-tabs" id="tour-switch" role="group" aria-label="App panel">
-          <button type="button" class="is-on" data-tab="halation-effect">Halation › Effect</button>
-          <button type="button" data-tab="halation-masking">Halation › Masking</button>
-          <button type="button" data-tab="mist">Mist</button>
-          <button type="button" data-tab="edit">Edit</button>
-          <button type="button" data-tab="settings">Settings</button>
-        </div>
-      </div>
-      <div class="tour-body">
-      <div class="tour-panel">
-        <img id="tour-img" src="img/app/tab-halation-effect.jpg" width="630" height="988" alt="Halation › Effect panel: Amount, Size, Format 35 mm, Roll-off, Starts at, Softness of start, Green return, Landing, Warmth on highlights, Glow color" loading="lazy">
-      </div>
-      <div class="tour-caps">
-        <div class="tour-cap is-on" data-cap="halation-effect">
-          <h4>The glow, in film terms.</h4>
-          <p>How much light comes back, how far it travels on which film, where it starts and the colour it lands in. Halo Pro opens on the Default, so a photo glows the moment it loads; double-click any slider to put it back.</p>
-          <dl class="tour-groups"><dt>Glow</dt><dd>Amount · Size · Format · Roll-off</dd><dt>Start</dt><dd>Starts at · Softness of start</dd><dt>Color &amp; Landing</dt><dd>Green return · Landing · Warmth on highlights · Glow color · Color mix · Glow saturation</dd><dt>Advanced</dt><dd>Secondary Glow · Smooth wide glow · Soft fall-off · Fringing · Lens Smear</dd></dl>
-        </div>
-        <div class="tour-cap" data-cap="halation-masking">
-          <h4>Choose where it glows.</h4>
-          <p>Keep the glow inside a brightness band, hold it back from the sky, or keep it to (or away from) a colour you pick, each with its own switch. Press a number key to see exactly what the engine uses.</p>
-          <dl class="tour-groups"><dt>Masks</dt><dd>Luminance Range · Sky Protection · Color Mask (Advanced)</dd><dt>Views</dt><dd>Keys 0–8 on the Halation tab: Source, Energy, Luminance Range, Sky, Color, Final, Glow Preview, Smear</dd></dl>
-        </div>
-        <div class="tour-cap" data-cap="mist">
-          <h4>A diffusion filter, as its own stage.</h4>
-          <p>Mist runs after halation, so the two never fight: a soft haze from the bright areas, in any tint, even or cloudy. The Default look has it on, lightly.</p>
-          <dl class="tour-groups"><dt>Haze</dt><dd>Density · Spread · Softness</dd><dt>Colour</dt><dd>Mist Color · Saturation</dd><dt>Advanced</dt><dd>Turbulence for a cloudy pattern · Spread Mode</dd><dt>Masking</dt><dd>Which bright areas give off mist · views 0–2</dd></dl>
-        </div>
-        <div class="tour-cap" data-cap="edit">
-          <h4>Exposure, contrast and your film LUT.</h4>
-          <p>Load any .cube LUT and choose whether it grades the photo before the glow or the finished picture after the mist. The glow is measured on your photo as you opened it, so a LUT never moves it. Presets save every setting, the LUT included, so a look works without its file.</p>
-          <dl class="tour-groups"><dt>Adjustments</dt><dd>Exposure · Contrast</dd><dt>Film LUT</dt><dd>Load LUT File · Intensity · Apply before halation</dd><dt>Extra Effects</dt><dd>Grain Strength · Bloom Intensity · Bloom Spread</dd></dl><p class="tour-note">The Edit tab is still growing: a new control panel with Film and Creative sections and starting looks is next.</p>
-        </div>
-        <div class="tour-cap" data-cap="settings">
-          <h4>Your export, your way.</h4>
-          <p>TIFF up to 32-bit float, PNG or JPEG; ProPhoto RGB kept or converted to sRGB; preview sizes for dragging and at rest; and every shortcut on one page.</p>
-          <dl class="tour-groups"><dt>Export</dt><dd>TIFF 8, 16 or 32-bit float · PNG 8 or 16 · JPEG</dd><dt>ProPhoto RGB</dt><dd>Keep it, or convert to sRGB on import</dd><dt>Preview</dt><dd>Live and Idle preview size</dd><dt>Shortcuts</dt><dd>Space before / after · P accurate preview · Cmd+C / Cmd+V copy a look</dd></dl>
-        </div>
-      </div>
-      </div>
-    </div>
-  </div>
-</section>
 
 <!-- ============ 03 LIGHT PATH ============ -->
 <section class="section" id="physics">
@@ -673,6 +575,9 @@
     </div>
     <div class="pro-grid">
       <div class="pro-item">
+        <figure class="stage stage--return" data-stage="halo-return" aria-label="Save and return: the edit goes back to Lightroom Classic as a 16-bit TIFF">
+          <img class="stage-poster" src="img/stage/halo-return.png" width="800" height="600" alt="The top of Halo Pro's control column: Save and return has become Saved, and a line says a 16-bit TIFF was written back to Lightroom Classic" loading="lazy">
+        </figure>
         <h3>Lightroom Mode.</h3>
         <p>Add Halo Pro once in Lightroom Classic as an additional external editor. Then right-click a photo, Edit In, Halo Pro: Lightroom hands over a TIFF, you set the look, and Save and return writes a 16-bit TIFF back with its metadata. One photo at a time; for a set, export TIFFs from Lightroom, run them through Batch Mode and import the results back.</p>
         <p class="pro-note">Lightroom Classic › Settings › External Editing › Additional External Editor: choose Halo Pro.app, then TIFF, ProPhoto RGB, 16-bit, compression None or ZIP.</p>
@@ -721,9 +626,12 @@
       </ul>
       <p class="shot-meta">In development, no dates until they're ready. Everything shipped and planned is under <a href="#development">Development</a>.</p>
     </div>
-    <div class="honest">
-      <span class="mono s-index">A note</span>
-      <p>Halo Pro is made by one person — a photographer who wanted halation that behaved like the real thing. <strong>Twenty euros is less than a roll of film and the lab fee.</strong> It pays for the Apple developer account and the evenings that go into the next update. If you hit a bug, Settings › Help › Report Bug copies a report with the log; paste it into an email to <a href="mailto:alric.ljunghager@gmail.com">alric.ljunghager@gmail.com</a>. I read every one.</p>
+    <div class="story">
+      <h3>Where it comes from.</h3>
+      <p>Look at the street at the top of this page. Panning past at speed, a chrome strip catches the light and gets a red-orange edge; a lamp four stops over white gets a wide halo, and the dark wall beside it gets none. That is what film does. Light goes through the emulsion, bounces off the back of the base and comes back up into the red-sensitive layer, and only the brightest lights come back. Most glow effects blur everything bright and tint it red.</p>
+      <p>I'm a photographer, and I build my own tools when the ones I can buy get the light wrong. In 2024 I started reading how halation really forms, and built a tool that does what the film does: the glow worked out from each light's colour and real brightness, in 32-bit float. It shipped in September. In October I checked it against the physics, threw the engine away and rebuilt it.</p>
+      <p>The free version has every control. Pro is 20 euros, once. Try it on yours.</p>
+      <p class="story-sign">Alric Ljunghager, Stockholm · <a href="mailto:alric.ljunghager@gmail.com">alric.ljunghager@gmail.com</a>. Settings › Help › Report Bug copies a report with the log; I read every one.</p>
     </div>
   </div>
 </section>
@@ -959,42 +867,6 @@ function switcher(sel, key, on) {
   });
 }
 
-/* ---------------- Before / after ---------------- */
-(function () {
-  const cmp = document.getElementById('cmp'); if (!cmp) return;
-  const range = cmp.querySelector('.cmp-range'), before = cmp.querySelector('.cmp-before'),
-        after = cmp.querySelector('.cmp-after'), handle = cmp.querySelector('.cmp-handle');
-  const set = v => { before.style.clipPath = `inset(0 ${100 - v}% 0 0)`; handle.style.left = v + '%'; };
-  range.addEventListener('input', e => set(+e.target.value)); set(50);
-  // drag anywhere on the photo; the range stays for keyboard. A mouse drags at once; touch takes over only after a
-  // clear sideways move (8 px, more sideways than down), so a vertical swipe scrolls the page and leaves the handle.
-  let start = null;
-  const drag = e => { const r = cmp.getBoundingClientRect(), v = Math.max(0, Math.min(100, (e.clientX - r.left) / r.width * 100)); range.value = v; set(v); };
-  cmp.addEventListener('pointerdown', e => {
-    start = { x: e.clientX, y: e.clientY, live: e.pointerType === 'mouse' };
-    if (start.live) { try { cmp.setPointerCapture(e.pointerId); } catch (_) {} drag(e); }
-  });
-  cmp.addEventListener('pointermove', e => {
-    if (!start) return;
-    if (!start.live) {
-      const dx = Math.abs(e.clientX - start.x), dy = Math.abs(e.clientY - start.y);
-      if (dy > 8 && dy >= dx) { start = null; return; }
-      if (dx < 8) return;
-      start.live = true; try { cmp.setPointerCapture(e.pointerId); } catch (_) {}
-    }
-    drag(e);
-  });
-  ['pointerup', 'pointercancel'].forEach(t => cmp.addEventListener(t, () => { start = null; }));
-  // before = the original file, after = a real export from the app at the settings printed under it
-  const ex = { street: ['img/note/street-src.jpg', 'img/note/street-default.jpg', 'Rendered in Blender with real light levels'],
-               snow: ['img/app/snow-before.jpg', 'img/app/snow-result.jpg', 'Canon EOS R6 Mark II, digital'],
-               saab: ['img/app/saab-before.jpg', 'img/app/saab-result.jpg', 'Canon EOS R5, digital'] };
-  const cam = document.querySelector('#cmp-meta span');
-  // fetch the other pair once the comparison is near, so a switch doesn't show one photo under the other's caption
-  new IntersectionObserver((es, io) => { if (es[0].isIntersecting) { [...ex.snow.slice(0, 2), ...ex.street.slice(0, 2)].forEach(src => { new Image().src = src; }); io.disconnect(); } },
-    { rootMargin: '600px' }).observe(cmp);
-  switcher('#cmp-switch', 'ex', k => { before.src = ex[k][0]; after.src = ex[k][1]; cam.textContent = ex[k][2]; range.value = 50; set(50); });
-})();
 
 /* ---------------- Light bars: the source light or the Halo Pro export ---------------- */
 (function () {
@@ -1007,25 +879,6 @@ function switcher(sel, key, on) {
   new IntersectionObserver((es, io) => { if (es[0].isIntersecting) { new Image().src = v.source[0]; io.disconnect(); } }, { rootMargin: '400px' }).observe(img);
 })();
 
-/* ---------------- The app: panel switcher ---------------- */
-(function () {
-  const img = document.getElementById('tour-img'); if (!img) return;
-  const alt = {
-    'halation-effect': 'Halation › Effect panel: Amount, Size, Format 35 mm, Roll-off, Starts at, Softness of start, Green return, Landing, Warmth on highlights, Glow color',
-    'halation-masking': 'Halation › Masking panel: Diagnostics, Luminance Range, Sky Protection with a sky colour, Color Mask',
-    'mist': 'Mist panel: Density, Spread, Spread Mode, Softness, Mist Color, Saturation, Turbulence',
-    'edit': 'Edit panel: Exposure, Contrast, Film LUT with Load LUT File, Intensity and Apply before halation, Extra Effects with Grain Strength, Bloom Intensity, Bloom Spread',
-    'settings': 'Settings panel: Export format TIFF at 32-bit Float, ProPhoto RGB handling, Live and Idle preview sizes, keyboard shortcuts'
-  };
-  const caps = document.querySelectorAll('.tour-cap');
-  switcher('#tour-switch', 'tab', t => {
-    caps.forEach(c => c.classList.toggle('is-on', c.dataset.cap === t));
-    img.src = 'img/app/tab-' + t + '.jpg'; img.alt = alt[t];
-  });
-  // fetch the other panels once the section is near, so a click swaps without a wait
-  new IntersectionObserver((es, io) => { if (es[0].isIntersecting) { Object.keys(alt).forEach(t => { new Image().src = 'img/app/tab-' + t + '.jpg'; }); io.disconnect(); } },
-    { rootMargin: '400px' }).observe(img);
-})();
 
 </script>
 <script>
@@ -1053,5 +906,7 @@ function switcher(sel, key, on) {
 })();
 
 </script>
+<link rel="stylesheet" href="stage-build/halo-stage.css">
+<script type="module" src="stage-build/halo-stage.js"></script>
 </body>
 </html>

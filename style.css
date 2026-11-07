@@ -103,13 +103,7 @@ p { margin: 0 0 1em; }
 }
 
 /* ---------- hero ---------- */
-.hero { position: relative; display: flex; flex-direction: column; min-height: max(720px, 100svh); overflow: hidden; }
-/* the light has its own space under the copy, so it can never sit behind the text at any screen size;
-   its top is faded into the page and it is dimmed */
-.hero-light { position: relative; flex: 1; min-height: 300px; margin-top: 8px; }
-.hero-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 45%;
-  -webkit-mask-image: linear-gradient(to bottom, transparent, #000 35%); mask-image: linear-gradient(to bottom, transparent, #000 35%);
-  filter: brightness(.55); }
+.hero { position: relative; overflow: hidden; }
 /* film grain over the hero, as the old canvas drew it (about 4.5 % of a grey noise tile, jumping each frame) */
 .hero-grain { position: absolute; inset: -200px; z-index: 1; pointer-events: none; opacity: .06; animation: grain .5s steps(1) infinite; }
 @keyframes grain { 0% { transform: translate(0, 0); } 20% { transform: translate(-83px, 47px); } 40% { transform: translate(61px, -112px); }
@@ -524,9 +518,7 @@ html { scroll-padding-top: 88px; }
   .pathfig .crit-text { font-size: 24px; }
   .pathfig .lay-label--hi { font-size: 23px; }
   .frame-label { font-size: 15px; }
-  .hero { min-height: max(640px, 100svh); }
   .hero-copy { padding-top: 112px; }
-  .hero-light { min-height: 260px; }
   .hero-sub { margin-top: 22px; }
   .hero-cta { margin-top: 26px; gap: 20px; }
   .section { padding: 96px 0; }
@@ -682,3 +674,45 @@ html:not(.js) .nav-toggle, html:not(.js) .toggle, html:not(.js) .tour-tabs, html
   .toggle button { min-height: 44px; padding: 0 16px; }
   .nav-toggle { min-height: 44px; min-width: 44px; }
 }
+
+/* ---------------- Stageshow demos (stage/ builds them into stage-build/) ---------------- */
+.stage { margin: 0; position: relative; }
+.stage .stage-poster { width: 100%; height: auto; display: block; border-radius: 10px; }
+/* once the demo mounts, its own frame replaces the poster */
+.stage:has(.ss-fit) .stage-poster { display: none; }
+.stage .ss-stage { border-radius: 10px; }
+.stage--hero { margin-top: 56px; }
+.hero-caption { margin-top: 14px; }
+.hero { padding-bottom: 72px; }
+
+/* the feature grid: one wide tile, a stat, then three */
+.bento { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
+.tile { display: flex; flex-direction: column; gap: 16px; min-width: 0; }
+.tile--wide { grid-column: span 2; }
+.tile-copy { margin: 0; color: var(--fg-2); font-size: var(--t-body); max-width: 40em; }
+.tile-copy b { color: var(--fg); font-weight: 500; }
+.tile .stage .ss-stage, .tile .stage-poster { background: #000; }
+.tile--stat, .tile--statement { justify-content: center; padding: 32px 28px; background: var(--bg-2); border-radius: 10px; }
+.stat { margin: 0; display: grid; gap: 8px; }
+.stat-lead { font-size: var(--t-body); color: var(--fg-2); }
+.stat-num { font-size: clamp(64px, 6vw, 96px); line-height: 1; letter-spacing: -.05em; font-weight: 300; color: var(--fg); }
+.stat-label { font-size: var(--t-small); color: var(--fg-2); max-width: 24em; }
+.statement { margin: 0 0 14px; font-size: var(--t-head); font-weight: 300; letter-spacing: -.025em; line-height: 1.1; color: var(--fg); text-wrap: balance; }
+.tile--statement .tile-copy { font-size: var(--t-small); }
+.stage--return { max-width: 400px; margin-bottom: 20px; }
+@media (max-width: 1020px) {
+  .bento { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .tile--wide { grid-column: span 2; }
+}
+@media (max-width: 640px) {
+  .bento { grid-template-columns: 1fr; }
+  .tile--wide { grid-column: auto; }
+  .stage--hero { margin-top: 36px; }
+  .hero-copy { padding-top: 112px; }
+}
+
+/* the story, by the price */
+.story { margin-top: 72px; max-width: 42em; }
+.story h3 { font-size: var(--t-head); letter-spacing: -.025em; margin-bottom: 18px; }
+.story p { color: var(--fg-2); font-size: var(--t-lead); line-height: 1.5; }
+.story-sign { font-size: var(--t-small) !important; color: var(--fg-3) !important; }

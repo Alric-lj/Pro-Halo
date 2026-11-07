@@ -1,0 +1,98 @@
+/* Batch Mode as a grid: Halo Pro's filmstrip tiles on the app's black. The
+   geometry is examples/many-of-one's; the surfaces, ring and photo are the
+   app's. */
+.hb .ss-stage {
+  overflow: hidden;
+  background: var(--ss-well);
+}
+
+/* Five columns of 184 with 16 between, offset up and left so every edge
+   cuts a tile by a third or more */
+.hb-grid {
+  position: absolute;
+  top: -78px;
+  left: -116px;
+  display: grid;
+  grid-template-columns: repeat(5, 184px);
+  gap: 16px;
+}
+
+.hb-tile {
+  display: grid;
+  gap: 8px;
+  padding: 8px 8px 12px;
+  border-radius: 8px;
+  background: var(--ss-surface);
+  box-shadow: var(--ss-shadow-card);
+}
+
+/* The open photo: the hero shadow and the app's blue selection ring, the
+   tile itself unchanged in size and place */
+.hb-tile[data-focus] {
+  position: relative;
+  z-index: 1;
+  box-shadow: var(--ss-shadow-hero), 0 0 0 1.5px var(--ss-accent);
+}
+
+/* A thumbnail of the photo as the app shows it in the strip, on black */
+.hb-thumb {
+  height: 92px;
+  border-radius: 4px;
+  background: #000;
+  overflow: hidden;
+}
+.hb-thumb img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hb-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  min-height: 20px;
+  padding: 0 2px;
+}
+
+.hb-name {
+  color: var(--ss-text-strong);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.hb-preset {
+  padding: 0 2px;
+  color: var(--ss-text);
+  font-size: 11px;
+}
+
+/* The one action sits on the tile's lower edge, half outside, as a push
+   button does on the app's dark surfaces: raised, with a float shadow */
+.hb-apply {
+  position: absolute;
+  left: 50%;
+  bottom: -12px;
+  transform: translateX(-50%);
+  background: var(--ss-raised);
+  box-shadow: var(--ss-shadow-float), inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+}
+.hb-apply[data-hover] {
+  background: color-mix(in srgb, var(--ss-raised), #fff 6%);
+}
+
+/* A resting spot on the well, between tiles, named for the cursor */
+.hb-rest {
+  position: absolute;
+  left: 476px;
+  top: 340px;
+  width: 1px;
+  height: 1px;
+}
+
+/* Narrow: the same grid, shifted so the focus tile sits in the middle */
+.hb .ss-stage[data-layout='compact'] .hb-grid {
+  left: -321px;
+}
