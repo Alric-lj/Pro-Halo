@@ -79,14 +79,15 @@
 <header class="hero" id="top">
   <div class="hero-grain" aria-hidden="true"></div>
   <div class="wrap hero-copy">
-    <h1>Halation is light that <em class="lit"><span class="vh">comes back.</span><img src="img/light/comes-back.png" width="1200" height="340" alt="" aria-hidden="true"></em></h1>
-    <p class="hero-sub">Next-generation halation for professional work. A Mac app that forms the glow the way film does, in 32-bit float and wide-gamut colour, from the file you open to the file you export.</p>
+    <h1>Halation from the light in the photo.</h1>
+    <p class="hero-sub">Next-generation halation for professional work. A Mac app that forms the glow the way film does: a warm light glows red-orange, a blue one not at all, and the dark wall beside them stays dark. 32-bit float, wide-gamut colour, in and out.</p>
     <div class="hero-cta">
       <a class="btn btn--solid" href="https://alriclj.gumroad.com/l/HALO_PRO?variant=Halo%20Pro&amp;wanted=true">Buy Pro · €20</a>
       <a class="link" href="https://alriclj.gumroad.com/l/HALO_PRO?variant=Halo%20Pro%20-%20FREE&amp;wanted=true">Free version</a>
     </div>
     <p class="hero-note"><span>2.3 beta, for macOS on Apple Silicon</span><span>Free: every control, full-resolution export</span><span>Pro: Lightroom Mode, Batch Mode, licence for paid work</span><a href="#pricing">Compare</a></p>
   </div>
+  <div class="wrap hero-beam" aria-hidden="true"><img src="img/light/beam.png" width="2400" height="94" alt=""></div>
   <div class="wrap">
     <figure class="stage stage--hero" data-stage="halo-hero" aria-label="Halo Pro: the Amount slider is dragged up and the car's chrome strip and indicator grow their red halos; Format 16 mm widens them">
       <img class="stage-poster" src="img/stage/halo-hero.jpg" width="2400" height="1280" alt="Halo Pro's window with a photo of a car panned past a forest: a red-orange glow along its chrome strip and indicator, the Amount slider at 1, Format 16 mm" loading="eager" fetchpriority="high">
@@ -113,8 +114,9 @@
         </figure>
         <p class="tile-copy"><b>Batch Mode.</b> Up to 500 photos open at once, each with its own settings; Apply to All copies one look across the set.</p>
       </article>
-      <article class="tile tile--stat">
-        <p class="stat"><span class="stat-lead">Glow at five stops over white</span><span class="stat-num">42×</span><span class="stat-label">the glow at white, measured on 32-bit test charts. Film's glow grows with the light, about twice per stop. So does this.</span></p>
+      <article class="tile tile--statement">
+        <p class="statement">Your look before the glow, or after.</p>
+        <p class="tile-copy">On film the halo forms in the camera, before anyone grades the scan. Halo Pro keeps that order if you want it: load your look as a .cube LUT, untick “Apply before halation”, and the LUT grades the finished picture, glow included. Leave it ticked, the default, and the look goes on first with the glow laid over it. Either way the glow is measured on your photo as you opened it. Going on to another tool? Export a 32-bit float TIFF and the light above white stays in the file; only a LUT after mist, or Bloom, clips it.</p>
       </article>
       <article class="tile">
         <figure class="stage" data-stage="halo-format" aria-label="The Format menu: Super 8 to 4×5; picking a film changes how far the glow travels">
@@ -123,7 +125,7 @@
         <p class="tile-copy"><b>Format.</b> Pick the film your photo should look shot on, Super 8 to 4×5, and the glow takes that film's share of the frame.</p>
       </article>
       <article class="tile tile--statement">
-        <p class="statement">One look in sRGB, Display&nbsp;P3, Adobe&nbsp;RGB and ProPhoto&nbsp;RGB.</p>
+        <p class="statement">One look in sRGB, P3, Adobe&nbsp;RGB and ProPhoto.</p>
         <p class="tile-copy">The glow and the mist are worked out in one working colour space, so a wide-gamut file from Lightroom glows like its sRGB export. Your file keeps its profile.</p>
       </article>
       <article class="tile">
@@ -328,10 +330,6 @@
 </svg>
         <div class="fig-row">
           <span class="mono">Cross-section · layers not to scale</span>
-          <div class="toggle" role="group" aria-label="Film backing">
-            <button type="button" class="is-on" data-backing="none">No backing</button>
-            <button type="button" data-backing="remjet">With remjet</button>
-          </div>
         </div>
         <p class="fig-cap" id="backing-cap" aria-live="polite">No backing: light reflects off the back of the base and comes back up into the emulsion as the red halo. This is CineStill.</p>
       </div>
@@ -515,7 +513,7 @@
     <div class="s-head">
       <div>
         <h2 class="s-title">A halo is a gradient. <em>Gradients need float.</em></h2>
-        <p class="s-intro">The glow falls from a bright core to nothing over hundreds of pixels. Round that to 8 bits between blur passes and the falloff turns into steps. Halo Pro works in 32-bit float at every step, from opening the file until it is written out.</p>
+        <p class="s-intro">The glow falls from a bright core to nothing over hundreds of pixels. Round that to 8 bits between blur passes and the falloff turns into steps. Halo Pro works in 32-bit float at every step, from opening the file until it is written out. On the test charts in the technical note, a light five stops over white glows 42 times as much as one at white; an 8-bit file cannot even tell them apart.</p>
       </div>
     </div>
     <div class="band">
@@ -798,22 +796,18 @@
 (function () {
   const fig = document.getElementById('pathfig'); if (!fig) return;
   const steps = [...document.querySelectorAll('.step')];
-  let userTouched = false;
   function setStep(n) {
     for (let i = 1; i <= 5; i++) { fig.classList.toggle('on-' + i, i <= n); fig.classList.toggle('cur-' + i, i === n); }
     steps.forEach(s => s.classList.toggle('is-on', +s.dataset.step === n));
-    if (!userTouched) setBacking(n === 5 ? 'remjet' : 'none', false);
+    setBacking(n === 5 ? 'remjet' : 'none');
   }
-  const btns = document.querySelectorAll('[data-backing]'), cap = document.getElementById('backing-cap');
+  const cap = document.getElementById('backing-cap');
   const caps = { none: 'No backing: light reflects off the back of the base and comes back up into the emulsion as the red halo. This is CineStill.',
                  remjet: 'With remjet: the carbon-black coat absorbs the light at the back of the base, so nothing comes back and there is no halo. Motion-picture film is made this way; CineStill has it removed.' };
-  function setBacking(v, fromUser) {
-    if (fromUser) userTouched = true;
+  function setBacking(v) {
     fig.classList.toggle('remjet', v === 'remjet');
     if (cap) cap.textContent = caps[v];
-    btns.forEach(b => { b.classList.toggle('is-on', b.dataset.backing === v); b.setAttribute('aria-pressed', b.dataset.backing === v); });
   }
-  btns.forEach(b => b.addEventListener('click', () => setBacking(b.dataset.backing, true)));
   // Active step = the last one whose top has crossed a trigger line: mid-screen beside the figure,
   // or mid-way through the space left under the sticky figure once it stacks on top (≤1020px).
   const box = fig.closest('.path-fig'), stacked = matchMedia('(max-width: 1020px) and (min-height: 701px)');

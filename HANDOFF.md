@@ -177,6 +177,16 @@ app as a believable product instead of screenshots in boxes.
   Every glow is the real app's export (tools/website_shots/light.py in the app repo, LOOKS=1:1, Mist off, FORMAT
   35mm / 16mm / 4x5), reduced to `stage/halo/img/*.jpg` by a scratch script; re-render the same way if the engine
   changes. Posters are `film.mjs --still --pad 0` of `#example .ss-stage` (pad 0, or a white border is baked in).
+- Owner's second look (7 Nov, night): "Halation is light that comes back" is not a good sentence, the glowing red
+  type looked cheap, the light-bars figure is what looks premium. Hero now: plain white H1 "Halation from the light
+  in the photo." (top of a 4-writer, 3-judge panel), a sub in his words, and a single bar of light under the copy
+  (`img/light/beam.png`: a fading white bar drawn in PIL, exported through the app at Amount 2 · Size 1 · Super 8 ·
+  Warmth 0 · Mist off like the figure, made transparent by light_to_web.py). `comes-back.png` is gone. The remjet
+  toggle buttons are gone; the figure still switches to remjet at step 5 and the caption follows. The 42× stat tile
+  became "Your look before the glow, or after." (LUT order: ticked = look first, glow on top, the default; unticked =
+  the LUT grades the finished picture; 32-bit float export keeps light above white). The 42× line moved into the
+  float section's intro. Fact caught by the checker and worth remembering: the glow is measured on the photo as
+  opened, so the LUT never changes where it glows; only what grades what.
 
 ## Comparison, coming next, lamp vs shirt (5 Nov 2026)
 
