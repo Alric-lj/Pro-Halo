@@ -37,7 +37,7 @@ const W = [[96, 64], [80, 52], [104, 70], [72, 58], [90, 46]]
 export default function HaloBatch() {
   return (
     <Stage
-      width={640}
+      width={792}
       height={360}
       compact={{ below: 600, width: 358, height: 360 }}
       theme="dark"
