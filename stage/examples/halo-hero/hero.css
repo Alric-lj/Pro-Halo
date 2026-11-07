@@ -6,20 +6,20 @@
 
 .hh-win {
   position: absolute;
-  top: 40px;
-  left: 40px;
-  width: 820px;
+  top: 48px;
+  left: 48px;
+  width: 1104px;
   box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.06), 0 0 0 1px rgb(255 255 255 / 0.08);
 }
 .hh .ss-stage[data-layout='compact'] .hh-win { left: 16px; top: 14px; width: 326px; }
 
-.hh-body { display: grid; grid-template-columns: minmax(0, 1fr) 292px; min-height: 560px; }
+.hh-body { display: grid; grid-template-columns: minmax(0, 1fr) 300px; min-height: 680px; }
 /* On a phone the photo sits over the controls: one column, the pane first */
 .hh-body[data-layout='compact'] { grid-template-columns: 1fr; min-height: 380px; }
 .hh-body[data-layout='compact'] .hh-photo { margin: 14px 14px 0; aspect-ratio: 16 / 10; }
 .hh-body[data-layout='compact'] .hh-panel .halo-panel { height: auto; }
 
-.hh-photo { margin: 22px 0 22px 22px; border-radius: 2px; }
+.hh-photo { margin: 24px 0 24px 24px; border-radius: 2px; }
 
 .hh-panel { position: relative; min-width: 0; }
 .hh-panel .halo-panel { height: 100%; }

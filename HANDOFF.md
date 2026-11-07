@@ -133,6 +133,36 @@ now Why Halo Pro · Compare · Light path · Pricing · Technical note; the shar
 no longer mention a red blur before it is introduced; the red-first light-path step lost its wavelength detail;
 small fixes ("a tuned starting point", "they are for checking").
 
+## Identity redesign with stageshow (7 Nov 2026, branch `identity-stageshow`, not live)
+
+Owner: "we just need to redesign the whole thing again", with github.com/benjitaylor/skills/tree/main/stageshow, a React
+kit for faux product UI (windows, cursor stories, bento tiles) with filming and a rehearsal gate. The site now shows the
+app as a believable product instead of screenshots in boxes.
+
+- `stage/`: the kit (MIT, `LICENSE-stageshow`), `halo/look.css` + `halo/parts.tsx` (Halo Pro's look mapped from the real
+  app: black pane, #121214 column, white labels, white knobs, blue checks, orange swatch, 4px radii; its own Slider,
+  Check, Section, MenuValue, PanelTop, PanelTabs, EffectPanel), `examples/halo-*` (the demos), `site/` (the bundle entry),
+  `playground/` (the kit's preview). `npm install` there (Node 20.19+; use `--cache $TMPDIR/npm-cache` if ~/.npm is
+  read-only).
+- Preview: `.claude/launch.json` → `stage` (Vite on 5173; `?capture=halo-hero`). Build: `npm run build:site` →
+  `stage-build/` (committed; index.html loads `stage-build/halo-stage.js` + `.css`). Each `<figure data-stage="id">`
+  on the page mounts that demo; the `<img class="stage-poster">` inside is what shows until it mounts and under
+  reduced motion (filmed with `--still` into `img/stage/`).
+- Filming: `CHROME_PATH="/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" node scripts/film.mjs
+  "http://127.0.0.1:5173/?capture=<id>" --select '#example' --gate` (and `--width 390`). Chrome and Vite cannot bind
+  inside the Bash sandbox: film with the sandbox off; run Vite through the app's preview runner.
+- Demos: `halo-hero` (1200×640, compact 358×340: the Amount knob dragged up and the halos rise; Format → 16 mm
+  widens them; Preset › Default resets; phone: Amount only, dragged back as the reset), `halo-format` (Format menu
+  close-up), `halo-masking` (Sky Protection switched on), `halo-batch` (many-of-one grid, Apply to All),
+  `halo-return` (Save and return → Saved, written back to Lightroom Classic). All pass the gate at 1280/1440 and 390
+  unless noted below.
+- Page order now: hero (copy + live window) → Built for professional files (bento: batch 2/3 + 42× stat; format |
+  colour statement | masking) → What a red blur gets wrong → How it compares → Light path → Scale → Controls →
+  Precision → Pro (Lightroom Mode with `halo-return`, pricing, coming next, the story) → Development. Dropped: the
+  before/after slider (and its Saab/snow photos, rights unclear) and the screenshot tour.
+- The story under the price is the 7 Nov draft (four drafts, sentence-checked, judged by photographer readers); it
+  claims no photo as Alric's.
+
 ## Comparison, coming next, lamp vs shirt (5 Nov 2026)
 
 - `#compare` "How it compares.": a dated table of halation tools (Halo Pro, Lightroom Classic, Lightroom, Photoshop /

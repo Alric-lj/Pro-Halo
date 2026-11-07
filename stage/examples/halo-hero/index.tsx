@@ -67,7 +67,7 @@ const FORMATS = ['Super 8', '16 mm', '35 mm', '645', '6×6 / 6×7', '4×5']
 
 export default function HaloHero() {
   return (
-    <Stage<S> width={900} height={520} compact={{ below: 760, width: 358, height: 340 }} theme="dark" fidelity="standard" initial={initial} poster={poster} script={script} cursor={{ at: 'rest' }} className="look-halo hh">
+    <Stage<S> width={1200} height={640} compact={{ below: 760, width: 358, height: 340 }} theme="dark" fidelity="standard" initial={initial} poster={poster} script={script} cursor={{ at: 'rest' }} className="look-halo hh">
       {(s, _rect, layout) => (
         <Window title={layout === 'compact' ? undefined : 'Halo Pro'} className="hh-win">
           <div className="hh-body" data-layout={layout}>
