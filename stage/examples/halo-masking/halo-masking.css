@@ -17,7 +17,7 @@
 
 .hm-win {
   width: 260px;
-  height: 260px;
+  height: 340px;
   box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.06), 0 0 0 1px rgb(255 255 255 / 0.08);
 }
 
@@ -26,7 +26,7 @@
 .hm-panel {
   display: grid;
   align-content: start;
-  gap: 10px;
+  gap: 8px;
   padding: 12px 16px 18px;
   background: var(--ss-surface);
   color: var(--ss-text-strong);
@@ -34,16 +34,11 @@
   line-height: 1.3;
 }
 
-.hm-panel .ss-tabs {
-  margin-bottom: 2px;
-}
-
 .hm-group {
   display: grid;
   grid-template-columns: 1fr auto 1fr;
   align-items: center;
   gap: 10px;
-  margin-top: 2px;
 }
 
 .hm-group::before,
@@ -99,7 +94,7 @@
 .hm-rest {
   position: absolute;
   right: 36px;
-  top: 158px;
+  top: 139px;
   width: 1px;
   height: 1px;
 }
@@ -107,10 +102,9 @@
 /* Narrow: a touch less zoom, so the panel stays whole across with the same
    inset each side */
 .hm .ss-stage[data-layout='compact'] .hm-zoom {
-  left: 12px;
   transform: scale(1.3);
 }
 
 .hm .ss-stage[data-layout='compact'] .hm-win {
-  width: 257px;
+  width: 248px;
 }

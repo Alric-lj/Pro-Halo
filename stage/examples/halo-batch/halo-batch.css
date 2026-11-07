@@ -14,13 +14,16 @@
   left: -116px;
   display: grid;
   grid-template-columns: repeat(5, 184px);
-  gap: 16px;
+  gap: 20px 16px;
+  background: var(--ss-well);
 }
 
+/* A tile is the photo, edge to edge, with its caption under it, as a
+   filmstrip thumbnail reads: no frame around the picture */
 .hb-tile {
   display: grid;
-  gap: 8px;
-  padding: 8px 8px 12px;
+  gap: 6px;
+  padding: 0 0 18px;
   border-radius: 8px;
   background: var(--ss-surface);
   box-shadow: var(--ss-shadow-card);
@@ -34,10 +37,12 @@
   box-shadow: var(--ss-shadow-hero), 0 0 0 1.5px var(--ss-accent);
 }
 
-/* A thumbnail of the photo as the app shows it in the strip, on black */
+/* The photo as the app shows it in the strip, on black, flush with the
+   tile's top and sides */
 .hb-thumb {
-  height: 92px;
-  border-radius: 4px;
+  height: 100px;
+  margin-bottom: 4px;
+  border-radius: 8px 8px 0 0;
   background: #000;
   overflow: hidden;
 }
@@ -54,7 +59,15 @@
   justify-content: space-between;
   gap: 8px;
   min-height: 20px;
-  padding: 0 2px;
+  padding: 0 12px;
+}
+
+/* The preset line, inset like the row above it */
+.hb-line {
+  display: flex;
+  align-items: center;
+  min-height: 14px;
+  padding: 0 12px;
 }
 
 .hb-name {
@@ -64,18 +77,20 @@
 }
 
 .hb-preset {
-  padding: 0 2px;
   color: var(--ss-text);
   font-size: 11px;
 }
 
-/* The one action sits on the tile's lower edge, half outside, as a push
-   button does on the app's dark surfaces: raised, with a float shadow */
+/* The one action sits on the focus tile's lower edge, half outside, over
+   the tile's bottom padding and the row gap (the tile at column 2, row 1:
+   x 400 + 92, y 168 + 20 + 168), as a push button on the app's dark
+   surfaces: raised, with a float shadow */
 .hb-apply {
   position: absolute;
-  left: 50%;
-  bottom: -12px;
-  transform: translateX(-50%);
+  left: 492px;
+  top: 356px;
+  z-index: 2;
+  transform: translate(-50%, -50%);
   background: var(--ss-raised);
   box-shadow: var(--ss-shadow-float), inset 0 0 0 1px rgba(255, 255, 255, 0.1);
 }
@@ -87,12 +102,12 @@
 .hb-rest {
   position: absolute;
   left: 476px;
-  top: 340px;
+  top: 368px;
   width: 1px;
   height: 1px;
 }
 
 /* Narrow: the same grid, shifted so the focus tile sits in the middle */
 .hb .ss-stage[data-layout='compact'] .hb-grid {
-  left: -321px;
+  left: -313px;
 }

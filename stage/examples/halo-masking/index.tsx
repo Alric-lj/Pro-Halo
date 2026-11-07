@@ -14,8 +14,8 @@ import './halo-masking.css'
 // - One group acts. Luminance Range is on, as a reason the panel exists; Color
 //   Mask stays off: an accent on filler would be the heaviest mark in frame.
 //
-// Real strings: Effect, Masking, Luminance Range, Sky Protection, Color Mask,
-// and the line that changes (Off, Sky kept clear).
+// Real strings: the title, Effect, Masking, Luminance Range, Sky Protection,
+// Color Mask, and the line that changes (Off, Sky kept clear).
 
 type S = { sky: boolean }
 
@@ -40,8 +40,8 @@ export default function HaloMasking() {
   return (
     <Stage<S>
       width={400}
-      height={320}
-      compact={{ below: 400, width: 358, height: 300 }}
+      height={340}
+      compact={{ below: 400, width: 358, height: 320 }}
       theme="dark"
       fidelity="standard"
       initial={initial}
@@ -53,7 +53,7 @@ export default function HaloMasking() {
     >
       {(s) => (
         <div className="hm-zoom">
-          <Window className="hm-win">
+          <Window title="Halo Pro" className="hm-win">
             <div className="hm-panel">
               <Tabs items={['Effect', 'Masking']} value={1} />
 

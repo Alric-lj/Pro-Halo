@@ -1,0 +1,125 @@
+/* Halo Pro's Format menu as a close-up: the whole window at 1.4x on the
+   page's black, one gutter top and sides, off the bottom. The photo pane keeps
+   the left; the control column at the right holds the Glow section with the
+   Format row whole, and the menu opens upward over the sliders so it stays
+   inside the crop with a gutter from every edge. */
+.hf .ss-stage {
+  overflow: hidden;
+  background: var(--ss-well);
+}
+
+.hf-zoom {
+  position: absolute;
+  top: 18px;
+  left: 18px;
+  transform: scale(1.4);
+  transform-origin: 0 0;
+}
+
+.hf-win {
+  width: 260px;
+  box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.06), 0 0 0 1px rgb(255 255 255 / 0.08);
+}
+
+.hf-body {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 136px;
+  min-height: 240px;
+}
+
+/* The photo pane: black, the street standing beside the controls from the
+   Glow line to the Format row (a tall crop of the 3:2 file, the lamps whole),
+   so photo and column read as one block and no corner is left empty */
+.hf-pane {
+  position: relative;
+  background: #000;
+}
+.hf-photo {
+  position: absolute;
+  top: 14px;
+  left: 12px;
+  right: 12px;
+  height: 146px;
+  border-radius: 2px;
+}
+.hf .halo-photo img[data-layer] {
+  transition: opacity 0.4s ease;
+}
+/* Where the cursor rests: quiet black under the photo */
+.hf-rest {
+  position: absolute;
+  left: 50%;
+  top: 196px;
+  width: 1px;
+  height: 1px;
+}
+
+/* The control column, spaced for a close-up: the Format row lands low enough
+   that the menu above it clears the title bar */
+.hf-panel {
+  height: 100%;
+  padding: 14px 12px 16px;
+  gap: 16px;
+}
+
+.hf-value {
+  position: relative;
+  display: inline-flex;
+}
+
+/* The menu opens upward from the Format row (its top 143px into the body:
+   the panel's inset, Glow, Amount, Size and their gaps), its sides on the
+   column's content edges, 4px clear of the row */
+.hf-menu {
+  top: 11px;
+  right: 12px;
+  width: 112px;
+  padding: 4px;
+  --ss-popover-bg: var(--ss-raised);
+}
+.hf .ss-menu {
+  gap: 0;
+}
+.hf .ss-menu__item {
+  height: 20px;
+  padding: 0 8px;
+  gap: 6px;
+  font-size: 12px;
+  border-radius: var(--ss-radius-sm);
+}
+.hf .ss-menu__item[data-hover] {
+  background-color: var(--ss-accent);
+  color: #fff;
+}
+.hf-tick {
+  display: inline-flex;
+  width: 12px;
+  height: 12px;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  color: currentColor;
+}
+/* The tick stays mounted on every item and fades to the chosen one */
+.hf-tick svg {
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+.hf-tick[data-on] svg {
+  opacity: 1;
+}
+
+/* Narrow: a touch less zoom and a slightly narrower window, so it fills the
+   phone column with the same inset each side */
+.hf .ss-stage[data-layout='compact'] .hf-zoom {
+  top: 16px;
+  left: 16px;
+  transform: scale(1.3);
+}
+.hf .ss-stage[data-layout='compact'] .hf-win {
+  width: 250px;
+}
+.hf .ss-stage[data-layout='compact'] .hf-body {
+  min-height: 260px;
+}

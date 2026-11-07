@@ -1,0 +1,95 @@
+/* The Lightroom round trip as a close-up: Halo Pro's window at 1.4x on the
+   page's own black, inset one gutter top and left, running off the right and
+   the bottom. What the crop takes is filler: the photo pane's margin, the
+   column's far right and the histogram's foot. */
+.hr .ss-stage {
+  overflow: hidden;
+  background: #070707;
+}
+
+.hr-zoom {
+  position: absolute;
+  top: 18px;
+  left: 18px;
+  transform: scale(1.4);
+  transform-origin: 0 0;
+}
+
+.hr-win {
+  width: 420px;
+  height: 300px;
+  box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.06), 0 0 0 1px rgb(255 255 255 / 0.08);
+}
+
+/* A sliver of the photo pane's black margin at the window's left, then the
+   control column, as the app lays them out */
+.hr-body {
+  display: grid;
+  grid-template-columns: 24px minmax(0, 1fr);
+  min-height: 262px;
+}
+
+.hr-panel {
+  min-height: 262px;
+}
+
+.hr-preset {
+  gap: 10px;
+}
+.hr-preset .halo-panel__ms {
+  margin-left: 2px;
+}
+
+/* The app's buttons are plain text: the kit Button in its ghost variant, the
+   app's weight and size, set back by its own padding so the words sit on the
+   column's inset with "Preset". */
+.hr-actions {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-left: -12px;
+}
+.hr .ss-button {
+  font-weight: 400;
+  font-size: 13px;
+  color: var(--ss-text-strong);
+}
+.hr .ss-button[data-hover] {
+  background: rgba(255, 255, 255, 0.07);
+}
+.hr .ss-button__icon {
+  color: var(--ss-accent);
+}
+
+/* The line under the row: opens with its height, so the histogram moves down with it */
+.hr-note {
+  display: block;
+  padding-top: 6px;
+  max-width: 212px;
+  text-wrap: balance;
+  font-size: 11.5px;
+  line-height: 1.35;
+  color: var(--ss-text);
+}
+
+/* The histogram at the app's own proportion, tall enough that the bottom
+   edge takes its foot, never a row of controls */
+.hr .halo-hist {
+  height: 116px;
+}
+
+/* A resting spot for the cursor on the histogram's quiet ground */
+.hr-rest {
+  position: absolute;
+  left: 230px;
+  top: 150px;
+  width: 1px;
+  height: 1px;
+}
+
+/* Narrow: a touch less zoom, the same crop, the row still whole across */
+.hr .ss-stage[data-layout='compact'] .hr-zoom {
+  left: 12px;
+  top: 12px;
+  transform: scale(1.3);
+}

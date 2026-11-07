@@ -15,19 +15,23 @@ import './halo-batch.css'
 // Copied from examples/many-of-one: the same 5 x 4 grid of 184px tiles, the
 // same offset so every edge cuts a tile by a third or more, one tile in
 // focus a column right of centre, forward by depth only (the hero shadow and
-// the app's blue selection ring). Every tile is the same anatomy: a photo,
-// a name, a status, a preset line. The sameness is the point; only the name
-// bars vary. The photos are the app's own renders of one night street at
-// each Format, and its two light charts, repeated as a batch repeats.
+// the app's blue selection ring). Every tile is the same anatomy: the photo
+// edge to edge, then a name, a status and a preset line under it. The
+// sameness is the point; only the name bars vary. The photos are the app's
+// own renders of one night street at each Format, and its two light charts,
+// repeated as a batch repeats.
 //
 // Real strings: the focus tile's filename, its status, its preset, and the
-// one action on its lower edge, Apply to All, where the cursor rests.
+// one action, Apply to All, sitting on its lower edge, where the cursor
+// rests. The button is a sibling in the grid, placed over that edge, so
+// the tile keeps its own padding and the button clears the tile below.
 
 const COLS = 5
 const ROWS = 4
 const FOCUS = { col: 2, row: 1 }
 
-const PHOTOS = [f35, ladder, f16, f645, colours, f8, f66, f45]
+// Mostly the street at its formats; the two light charts appear once each in view
+const PHOTOS = [f35, f16, f645, f8, ladder, f66, f45, f35, colours, f16]
 const W = [[96, 64], [80, 52], [104, 70], [72, 58], [90, 46]]
 
 export default function HaloBatch() {
@@ -55,10 +59,9 @@ export default function HaloBatch() {
                 <div className="hb-thumb"><img src={f35} alt="" /></div>
                 <div className="hb-meta">
                   <Text className="hb-name">IMG_6448.tif</Text>
-                  <Badge tone="success" dot>Processed</Badge>
+                  <Badge tone="success" dot>Ready</Badge>
                 </div>
-                <Text className="hb-preset">Default</Text>
-                <Button size="small" className="hb-apply" data-target="apply">Apply to All</Button>
+                <div className="hb-line"><Text className="hb-preset">Default</Text></div>
               </div>
             ) : (
               <div key={i} className="hb-tile">
@@ -67,10 +70,11 @@ export default function HaloBatch() {
                   <Bar w={a} h={8} r={4} tone={3} />
                   <Bar w={34} h={8} r={4} tone={2} />
                 </div>
-                <Bar w={b} h={7} r={3.5} tone={2} />
+                <div className="hb-line"><Bar w={b} h={7} r={3.5} tone={2} /></div>
               </div>
             )
           })}
+          <Button size="small" className="hb-apply" data-target="apply">Apply to All</Button>
           <span className="hb-rest" data-target="rest" aria-hidden />
         </div>
       )}
