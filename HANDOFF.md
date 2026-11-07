@@ -133,7 +133,7 @@ now Why Halo Pro · Compare · Light path · Pricing · Technical note; the shar
 no longer mention a red blur before it is introduced; the red-first light-path step lost its wavelength detail;
 small fixes ("a tuned starting point", "they are for checking").
 
-## Identity redesign with stageshow (7 Nov 2026, branch `identity-stageshow`, not live)
+## Identity redesign with stageshow (7 Nov 2026; live on halopro.app since 7 Nov evening, main = b61ad06)
 
 Owner: "we just need to redesign the whole thing again", with github.com/benjitaylor/skills/tree/main/stageshow, a React
 kit for faux product UI (windows, cursor stories, bento tiles) with filming and a rehearsal gate. The site now shows the
