@@ -133,7 +133,7 @@ now Why Halo Pro · Compare · Light path · Pricing · Technical note; the shar
 no longer mention a red blur before it is introduced; the red-first light-path step lost its wavelength detail;
 small fixes ("a tuned starting point", "they are for checking").
 
-## Returned light: the identity revisit (8 Nov 2026, branch `identity-returned-light`, not live)
+## Returned light: the identity revisit (8 Nov 2026; live on halopro.app since 8 Nov 23:10, main = dc6a7e6; Gumroad page not republished)
 
 Owner, 02:30: "revisit the design in all seriousness"; the circle is not the achievement; what he liked in the old orange
 H touch icon was its colour, adultness and honesty against the "trendy" current language; the copy the same; the purpose
