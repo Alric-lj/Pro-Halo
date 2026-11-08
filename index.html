@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Halo Pro — Halation, from the physics up</title>
-  <meta name="description" content="Halo Pro is next-generation halation for professional photographers: a Mac app that forms the glow the way film does, in 32-bit float and wide-gamut colour. Pro adds the Lightroom Classic round trip and batch. Free version; Pro €20, once.">
+  <title>Halo Pro — film halation from the light in your photograph</title>
+  <meta name="description" content="Halo Pro puts film halation into a digital photograph the way film forms it: from the lights already in the picture, each glow in that light's colour and strength. A Mac app; free for personal use, €20 once for paid work.">
 
   <meta name="google-site-verification" content="m87F7Zbu0O230_lW5n8nTsTzLPGEMhRxXqTcFc4xu2E">
   <link rel="canonical" href="https://halopro.app/">
@@ -14,14 +14,14 @@
 
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://halopro.app/">
-  <meta property="og:title" content="Halo Pro — Halation, from the physics up">
-  <meta property="og:description" content="Next-generation halation for professional photographers: a glow formed the way film forms it, in 32-bit float and wide-gamut colour.">
+  <meta property="og:title" content="Halo Pro — film halation from the light in your photograph">
+  <meta property="og:description" content="Film halation from the lights already in your photograph, not a red blur over everything bright. A Mac app; free for personal use, €20 once for paid work.">
   <meta property="og:image" content="https://halopro.app/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:site_name" content="Halo Pro">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Halo Pro — Halation, from the physics up">
+  <meta name="twitter:title" content="Halo Pro — film halation from the light in your photograph">
   <meta name="twitter:description" content="Light goes in. Some of it comes back. A Mac app for film halation, built on how it forms in film.">
   <meta name="twitter:image" content="https://halopro.app/og-image.png">
 
@@ -30,7 +30,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500&family=IBM+Plex+Mono:wght@400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,500&family=IBM+Plex+Mono:wght@400&display=swap" rel="stylesheet">
   <script>document.documentElement.classList.add('js')</script>
   <link rel="stylesheet" href="style.css">
 
@@ -60,13 +60,12 @@
 <nav class="nav">
   <div class="wrap">
     <a class="brand" href="#top" aria-label="Halo Pro">
-      <svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="7.5" fill="none" stroke="#ff3d22" stroke-width="1.2" opacity=".85"/><circle cx="10" cy="10" r="2.4" fill="#fff4ea"/></svg>
+      <svg viewBox="0 0 32 32" aria-hidden="true"><defs><linearGradient id="mk-bar" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#f4efe6"/><stop offset="1" stop-color="#e8e3da" stop-opacity=".3"/></linearGradient><linearGradient id="mk-arc" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#c27a3e" stop-opacity="0"/><stop offset=".3" stop-color="#c27a3e"/><stop offset=".7" stop-color="#f2b37a"/><stop offset="1" stop-color="#c27a3e" stop-opacity="0"/></linearGradient></defs><path d="M11.5 23.5 A8.5 8.5 0 0 1 11.5 8.5" fill="none" stroke="url(#mk-arc)" stroke-width="2.6" stroke-linecap="round"/><rect x="13" y="14.2" width="17" height="3.6" rx=".6" fill="url(#mk-bar)"/></svg>
       <strong>Halo Pro</strong><span>2.3 beta</span>
     </a>
     <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="nav-links">Menu</button>
     <ul id="nav-links">
-      <li><a href="#why">Why Halo Pro</a></li>
-      <li><a href="#compare">Compare</a></li>
+      <li><a href="#what">What it does</a></li>
       <li><a href="#physics">Light path</a></li>
       <li><a href="#pricing">Pricing</a></li>
       <li><a href="notes.html">Technical note</a></li>
@@ -77,67 +76,85 @@
 
 <!-- ============ HERO ============ -->
 <header class="hero" id="top">
-  <div class="hero-grain" aria-hidden="true"></div>
   <div class="wrap hero-copy">
-    <h1>Halation from the light in the photo.</h1>
-    <p class="hero-sub">Next-generation halation for professional work. A Mac app that forms the glow the way film does: a warm light glows red-orange, a blue one not at all, and the dark wall beside them stays dark. 32-bit float, wide-gamut colour, in and out.</p>
+    <h1>Halo Pro puts film halation into your photograph.</h1>
+    <p class="hero-sub">A Mac app that forms the glow from the lights already in the picture, not from a blur over everything bright. A warm light glows warm, a blue one does not, and the dark beside them stays dark. Free for personal use, with every control; Pro, €20 once, for paid work.</p>
     <div class="hero-cta">
-      <a class="btn btn--solid" href="https://alriclj.gumroad.com/l/HALO_PRO?variant=Halo%20Pro&amp;wanted=true">Buy Pro · €20</a>
-      <a class="link" href="https://alriclj.gumroad.com/l/HALO_PRO?variant=Halo%20Pro%20-%20FREE&amp;wanted=true">Free version</a>
+      <a class="btn btn--solid" href="https://alriclj.gumroad.com/l/HALO_PRO?variant=Halo%20Pro%20-%20FREE&amp;wanted=true">Download free</a>
+      <a class="btn" href="https://alriclj.gumroad.com/l/HALO_PRO?variant=Halo%20Pro&amp;wanted=true">Buy Pro · €20</a>
+      <span class="hero-req">macOS 14 or later, Apple Silicon</span>
     </div>
-    <p class="hero-note"><span>2.3 beta, for macOS on Apple Silicon</span><span>Free: every control, full-resolution export</span><span>Pro: Lightroom Mode, Batch Mode, licence for paid work</span><a href="#pricing">Compare</a></p>
-  </div>
-  <div class="wrap hero-beam" aria-hidden="true"><img src="img/light/beam.png" width="2400" height="94" alt=""></div>
-  <div class="wrap">
-    <figure class="stage stage--hero" data-stage="halo-hero" aria-label="Halo Pro: the Amount slider is dragged up and the car's chrome strip and indicator grow their red halos; Format 16 mm widens them">
-      <img class="stage-poster" src="img/stage/halo-hero.jpg" width="2400" height="1280" alt="Halo Pro's window with a photo of a car panned past a forest: a red-orange glow along its chrome strip and indicator, the Amount slider at 1, Format 16 mm" loading="eager" fetchpriority="high">
+    <figure class="plate plate--hero">
+      <div class="plate-img">
+        <img src="img/plate/saab-before.jpg" width="2048" height="1365" alt="A black car panned past a forest, as shot" loading="eager" fetchpriority="high">
+        <img class="plate-after" src="img/plate/saab-after.jpg" width="2048" height="1365" alt="The same frame through Halo Pro: a warm glow along the chrome strip and the indicator, nothing else changed" loading="eager">
+      </div>
+      <figcaption>As shot, then Halo Pro's export, untouched. Default look, 35 mm.</figcaption>
     </figure>
-    <p class="shot-meta hero-caption">Drawn live, with the app's own controls. The photo is a real one; the glow is Halo Pro's own export of it.</p>
   </div>
 </header>
 
 <main id="main">
 
-<!-- ============ FEATURES ============ -->
-<section class="section" id="features">
+<!-- ============ WHAT IT DOES ============ -->
+<section class="section" id="what">
   <div class="wrap">
     <div class="s-head">
       <div>
-        <h2 class="s-title">Built for professional files.</h2>
-        <p class="s-intro">A glow worked out in 8 bits breaks into steps as it fades and loses the light above white. Halo Pro never leaves 32-bit float, keeps one look across wide-gamut colour spaces, and forms the glow from the light itself, the way film does.</p>
+        <h2 class="s-title">What it does.</h2>
+        <p class="s-intro">Halo Pro adds film halation, and the soft haze of a mist filter, to a digital photograph. It does not blur what is bright and tint the blur red. It reads each light in the picture in linear light, at 32-bit float, and works out what film would have bounced back from its clear base into the picture: a warm lamp gets a red-orange glow, a blue sign almost none, because film's top layer and yellow filter stop blue before it reaches the base, and the dark wall beside the lamp stays dark. The glow doubles with every stop a light is brighter than white, and spreads only as far as the format you pick lets it, Super 8 to 4×5.</p>
       </div>
     </div>
-    <div class="bento">
-      <article class="tile tile--wide">
-        <figure class="stage" data-stage="halo-batch" aria-label="Batch Mode: a grid of photos, one selected, with Apply to All">
-          <img class="stage-poster" src="img/stage/halo-batch.jpg" width="1584" height="720" alt="A grid of photo thumbnails in Halo Pro's Batch Mode, one in focus with its name and an Apply to All button" loading="lazy">
-        </figure>
-        <p class="tile-copy"><b>Batch Mode.</b> Up to 500 photos open at once, each with its own settings; Apply to All copies one look across the set.</p>
-      </article>
-      <article class="tile tile--statement">
-        <p class="statement">Your look before the glow, or after.</p>
-        <p class="tile-copy">On film the halo forms in the camera, before anyone grades the scan. Halo Pro keeps that order if you want it: load your look as a .cube LUT, untick “Apply before halation”, and the LUT grades the finished picture, glow included. Leave it ticked, the default, and the look goes on first with the glow laid over it. Either way the glow is measured on your photo as you opened it. Going on to another tool? Export a 32-bit float TIFF and the light above white stays in the file; only a LUT after mist, or Bloom, clips it.</p>
-      </article>
-      <article class="tile">
-        <figure class="stage" data-stage="halo-format" aria-label="The Format menu: Super 8 to 4×5; picking a film changes how far the glow travels">
-          <img class="stage-poster" src="img/stage/halo-format.jpg" width="800" height="640" alt="Halo Pro's Format menu open over the Glow controls, 35 mm checked, the cursor on 4×5" loading="lazy">
-        </figure>
-        <p class="tile-copy"><b>Format.</b> Pick the film your photo should look shot on, Super 8 to 4×5, and the glow takes that film's share of the frame.</p>
-      </article>
-      <article class="tile tile--statement">
-        <p class="statement">One look in sRGB, P3, Adobe&nbsp;RGB and ProPhoto.</p>
-        <p class="tile-copy">The glow and the mist are worked out in one working colour space, so a wide-gamut file from Lightroom glows like its sRGB export. Your file keeps its profile.</p>
-      </article>
-      <article class="tile">
-        <figure class="stage" data-stage="halo-masking" aria-label="Halation › Masking: Sky Protection switched on">
-          <img class="stage-poster" src="img/stage/halo-masking.jpg" width="800" height="680" alt="Halo Pro's Masking panel: Luminance Range on, Sky Protection being switched on, Color Mask off" loading="lazy">
-        </figure>
-        <p class="tile-copy"><b>Choose where it glows.</b> Keep it inside a brightness band, hold it back from the sky, or keep it to a colour you pick. Press a number key to see exactly what the engine uses.</p>
-      </article>
-    </div>
+    <figure class="stage stage--hero" data-stage="halo-hero" aria-label="Halo Pro: the Amount slider is dragged up and the car's chrome strip and indicator grow their red halos; Format 16 mm widens them">
+      <img class="stage-poster" src="img/stage/halo-hero.jpg" width="2400" height="1280" alt="Halo Pro's window with the same photo open: a warm glow along the chrome strip and indicator, the Amount slider at 1, Format 16 mm" loading="lazy">
+    </figure>
+    <p class="shot-meta">The app itself, running: the Amount slider from 0 to 1, then Format set to 16 mm. The glow is the app's own export of the photo.</p>
   </div>
 </section>
 
+<!-- ============ WHERE IT GLOWS ============ -->
+<section class="section section--demo" id="where">
+  <div class="wrap">
+    <div class="s-head">
+      <div>
+        <h2 class="s-title">Choose where it glows.</h2>
+        <p class="s-intro">Keep the glow inside a brightness band, hold it back from the sky, or keep it to a colour you pick. A number key shows exactly what the engine uses, so you are never guessing.</p>
+      </div>
+    </div>
+    <figure class="stage stage--tile" data-stage="halo-masking" aria-label="Halation › Masking: Sky Protection switched on">
+      <img class="stage-poster" src="img/stage/halo-masking.jpg" width="800" height="680" alt="Halo Pro's Masking panel: Luminance Range on, Sky Protection being switched on, Color Mask off" loading="lazy">
+    </figure>
+    <p class="shot-meta">Halation › Masking. Sky Protection goes on; the sky is kept clear.</p>
+  </div>
+</section>
+
+<!-- ============ FORMAT ============ -->
+<section class="section section--demo" id="format">
+  <div class="wrap">
+    <div class="s-head">
+      <div>
+        <h2 class="s-title">The glow belongs to the film.</h2>
+        <p class="s-intro">Pick the format your photo should look shot on, Super 8 to 4×5, and the glow takes that format's share of the frame: the same light glows wide on 16 mm and tight on 4×5. How far it travels is set by the base, not by the picture.</p>
+      </div>
+    </div>
+    <figure class="stage stage--tile" data-stage="halo-format" aria-label="The Format menu: Super 8 to 4×5; picking a film changes how far the glow travels">
+      <img class="stage-poster" src="img/stage/halo-format.jpg" width="800" height="640" alt="Halo Pro's Format menu open over the Glow controls, 35 mm checked, the cursor on 4×5" loading="lazy">
+    </figure>
+    <p class="shot-meta">Halation › Effect › Format. 35 mm, then 4×5 on the same photo.</p>
+  </div>
+</section>
+
+<!-- ============ THE LOOK AND THE GLOW ============ -->
+<section class="section" id="lut">
+  <div class="wrap">
+    <div class="s-head">
+      <div>
+        <h2 class="s-title">Your look before the glow, or after.</h2>
+        <p class="s-intro">On film the halo forms in the camera, before anyone grades the scan. Halo Pro keeps that order if you want it: load your look as a .cube LUT, untick “Apply before halation”, and the LUT grades the finished picture, glow included. Leave it ticked, the default, and the look goes on first with the glow laid over it. Either way the glow is measured on your photo as you opened it. Going on to another tool? Export a 32-bit float TIFF and the light above white stays in the file; only a LUT after mist, or Bloom, clips it. The glow and the mist are worked out in one working colour space, so a file in sRGB, Display P3, Adobe RGB or ProPhoto RGB gets the same look, and keeps its profile.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- ============ WHY IT'S DIFFERENT ============ -->
 <section class="section" id="why">
@@ -182,6 +199,8 @@
         <p class="s-intro">Halation tools for stills and video, compared from each maker's own documentation. Several work in high precision too. None of the others documents a glow worked out from the colour of the light, the way film does it, and Halo Pro is built for photographers, with a free version and a one-time €20 Pro.</p>
       </div>
     </div>
+    <details class="more">
+      <summary><span class="more-show">Read more: product by product</span><span class="more-hide">Show less</span></summary>
     <div class="cmp-table-wrap">
       <table class="cmp-table">
         <thead><tr><th scope="col"></th><th scope="col">What it is</th><th scope="col">Halation</th><th scope="col">Glow follows the light's colour</th><th scope="col">Glow size from film format</th><th scope="col">Precision and colour</th><th scope="col">Price</th></tr></thead>
@@ -202,6 +221,7 @@
     <details class="more">
       <summary><span class="more-show">Read more: sources</span><span class="more-hide">Show less</span></summary>
       <ul class="cmp-sources"><li><a href="https://helpx.adobe.com/lightroom-classic/desktop/introduction-to-lightroom-classic/release-notes.html">Lightroom Classic release notes</a></li><li><a href="https://helpx.adobe.com/lightroom/desktop/introduction/release-notes.html">Lightroom release notes</a></li><li><a href="https://helpx.adobe.com/camera-raw/desktop/edit-and-enhance-images/tone-and-color/vignette-grain-effects-camera-raw.html">Camera Raw: Glow and Halation</a></li><li><a href="https://www.dehancer.com/learn/article/halation">Dehancer: Halation</a></li><li><a href="https://www.dehancer.com/learn/article/color-spaces">Dehancer: colour spaces</a></li><li><a href="https://www.dehancer.com/pricing">Dehancer: pricing</a></li><li><a href="https://www.blackmagicdesign.com/products/davinciresolve/studio">DaVinci Resolve Studio</a></li><li><a href="https://www.blackmagicdesign.com/products/davinciresolve/color">DaVinci Resolve colour</a></li><li><a href="https://www.filmconvert.com/plugin/halation">FilmConvert Halation</a></li><li><a href="https://videovillage.com/learn/filmbox/full-guide/negative/halation">Filmbox: Halation</a></li><li><a href="https://videovillage.com/filmbox/">Filmbox</a></li><li><a href="https://vsco.co/features/halation">VSCO Halation</a></li></ul>
+    </details>
     </details>
   </div>
 </section>
@@ -645,6 +665,8 @@
     </div>
     <p class="mono asof">As of November 2026</p>
     <div class="devmap">
+    <details class="more">
+      <summary><span class="more-show">Read more: what shipped, release by release</span><span class="more-hide">Show less</span></summary>
     <div class="dev-year dev-year--now">
       <div class="dev-year-head"><span class="dev-year-num">2.x</span><span class="mono">What 2.x fixed, and what's next</span></div>
       <ul class="dev-grid">
@@ -660,6 +682,7 @@
         <li class="dev-card is-next"><span class="dev-status">Next</span><b>Colour management</b><span>More export colour spaces, EXR, and HEIC and raw photos.</span></li>
       </ul>
     </div>
+    </details>
     <details class="more">
       <summary><span class="more-show">Read more: the road from 2024, and ideas for later</span><span class="more-hide">Show less</span></summary>
     <div class="dev-year">

@@ -1,4 +1,4 @@
-import { Stage, States, Tabs, Text, Window, type Act } from '../../kit'
+import { Stage, States, Tabs, Text, type Act } from '../../kit'
 import { Check, Slider } from '../../halo/parts'
 import './halo-masking.css'
 
@@ -7,14 +7,14 @@ import './halo-masking.css'
 // Beats: the cursor clicks the Sky Protection checkbox, it turns on, the line
 // under it says what that did. Plays once; the still is the payoff.
 //
-// - The whole window is scaled, chrome and all: the traffic lights and the
-//   Effect | Masking tabs say this is a crop of the app's own panel.
-// - The window runs off the bottom only. The three group headers are whole
+// - The column is scaled with no window chrome, edge to edge in the stage:
+//   the Effect | Masking tabs say this is a crop of the app's own panel.
+// - The panel runs off the bottom only. The three group headers are whole
 //   across; the only thing the crop takes is a filler slider under Color Mask.
 // - One group acts. Luminance Range is on, as a reason the panel exists; Color
 //   Mask stays off: an accent on filler would be the heaviest mark in frame.
 //
-// Real strings: the title, Effect, Masking, Luminance Range, Sky Protection,
+// Real strings: Effect, Masking, Luminance Range, Sky Protection,
 // Color Mask, and the line that changes (Off, Sky kept clear).
 
 type S = { sky: boolean }
@@ -53,37 +53,36 @@ export default function HaloMasking() {
     >
       {(s) => (
         <div className="hm-zoom">
-          <Window title="Halo Pro" className="hm-win">
-            <div className="hm-panel">
-              <Tabs items={['Effect', 'Masking']} value={1} />
+          <div className="hm-panel">
+            <Tabs items={['Effect', 'Masking']} value={1} />
 
-              <div className="hm-group">
-                <Check on>Luminance Range</Check>
-              </div>
-              <Slider label="Luminance Floor" value={0.3} max={1} filler />
-
-              <div className="hm-group">
-                <Check on={s.sky} target="sky">Sky Protection</Check>
-              </div>
-              <div className="hm-line">
-                <span className="hm-sky" aria-hidden />
-                <States
-                  value={s.sky ? 'on' : 'off'}
-                  align="start"
-                  states={{
-                    off: <Text className="hm-state">Off</Text>,
-                    on: <Text className="hm-state">Sky kept clear</Text>,
-                  }}
-                />
-              </div>
-
-              <div className="hm-group">
-                <Check on={false}>Color Mask</Check>
-              </div>
-              <Slider label="Color Tolerance" value={0.3} max={1} filler />
+            <div className="hm-group">
+              <Check on>Luminance Range</Check>
             </div>
-            <span className="hm-rest" data-target="rest" aria-hidden />
-          </Window>
+            <Slider label="Luminance Floor" value={0.3} max={1} filler />
+
+            <div className="hm-group">
+              <Check on={s.sky} target="sky">Sky Protection</Check>
+            </div>
+            <div className="hm-line">
+              <span className="hm-sky" aria-hidden />
+              <States
+                value={s.sky ? 'on' : 'off'}
+                align="start"
+                states={{
+                  off: <Text className="hm-state">Off</Text>,
+                  on: <Text className="hm-state">Sky kept clear</Text>,
+                }}
+              />
+            </div>
+
+            <div className="hm-group">
+              <Check on={false}>Color Mask</Check>
+            </div>
+            <Slider label="Color Tolerance" value={0.3} max={1} filler />
+            <Slider label="Mask Softness" value={0.5} max={1} filler />
+          </div>
+          <span className="hm-rest" data-target="rest" aria-hidden />
         </div>
       )}
     </Stage>

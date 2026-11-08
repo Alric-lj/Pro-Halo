@@ -133,6 +133,31 @@ now Why Halo Pro · Compare · Light path · Pricing · Technical note; the shar
 no longer mention a red blur before it is introduced; the red-first light-path step lost its wavelength detail;
 small fixes ("a tuned starting point", "they are for checking").
 
+## Returned light: the identity revisit (8 Nov 2026, branch `identity-returned-light`, not live)
+
+Owner, 02:30: "revisit the design in all seriousness"; the circle is not the achievement; what he liked in the old orange
+H touch icon was its colour, adultness and honesty against the "trendy" current language; the copy the same; the purpose
+unclear. "Surprise me. Make it smarter than I could."
+
+What was done (see `DESIGN.md` for the rules):
+- Two workflows: six designers x two marks, adversarially checked, three judges (contact sheet in the session scratchpad);
+  four strategists on purpose, four designers on direction, a fashion critic, three judges. The judges' merge became the
+  system: one reading column on near-black, one warm colour that is only ever the glow, serif at regular weight (Source
+  Serif 4, the H's adultness without the H), product noun + price + Download in the first screen, limits once by the price.
+- Mark: a bar of light hot at the left and a brass arc standing off its hot end (`favicon.svg`, inline in both navs,
+  `apple-touch-icon.png`, `og-image.png` rebuilt from the Saab export). Runners-up kept in the sheet: "Stem and return"
+  (a beam folding at the critical angle), "Ceiling" (a bar past the white line; reads as a cross at 16 px).
+- Tokens: `--bg #0b0a09`, `--fg #e8e3da`, `--red #c27a3e` (brass, the one warm colour), `--amber #f2b37a` (core, figures
+  only), `--glow: none`; type sizes a step quieter; every `font-weight: 300` is now 400.
+- Page: hero = purpose line, sub, Download free / Buy Pro, then the Saab plate (as shot, Halo Pro's export fades in once);
+  then "What it does" with the live window; "Choose where it glows", "The glow belongs to the film" (text beside the app);
+  "Your look before the glow, or after"; why / compare (table folded) / light path / scale / controls / float / pro /
+  development (2.x cards folded). The bento grid, the glow headline, the beam and the red second lines are gone.
+- Copy: product noun in the headline; blue gets no glow because the top layer and yellow filter stop it; Save and return
+  writes 16-bit; meta descriptions and titles rewritten.
+- Demos: re-skinned by a subagent (stage ground `#0b0a09`, no window chrome on the four tiles, posters re-filmed).
+- Not yet: the Gumroad landing page (`gumroad/`) and the note's own styles still carry the old red; the app icon.
+
 ## Identity redesign with stageshow (7 Nov 2026; live on halopro.app since 7 Nov evening, main = b61ad06)
 
 Owner: "we just need to redesign the whole thing again", with github.com/benjitaylor/skills/tree/main/stageshow, a React

@@ -1,31 +1,24 @@
-/* The Lightroom round trip as a close-up: Halo Pro's window at 1.4x on the
-   page's own black, inset one gutter top and left, running off the right and
-   the bottom. What the crop takes is filler: the photo pane's margin, the
+/* The Lightroom round trip as a close-up: the top of Halo Pro's control
+   column at 1.4x, no window chrome, from the stage's top-left corner and
+   running off the right and the bottom. What the crop takes is filler: the
    column's far right and the histogram's foot. */
 .hr .ss-stage {
   overflow: hidden;
-  background: #070707;
+  background: #0b0a09;
 }
 
 .hr-zoom {
   position: absolute;
-  top: 18px;
-  left: 18px;
+  top: 0;
+  left: 0;
   transform: scale(1.4);
   transform-origin: 0 0;
 }
 
-.hr-win {
-  width: 420px;
-  height: 300px;
-  box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.06), 0 0 0 1px rgb(255 255 255 / 0.08);
-}
-
-/* A sliver of the photo pane's black margin at the window's left, then the
-   control column, as the app lays them out */
+/* The control column, as the app lays it out */
 .hr-body {
   display: grid;
-  grid-template-columns: 24px minmax(0, 1fr);
+  grid-template-columns: 396px;
   min-height: 262px;
 }
 
@@ -81,15 +74,13 @@
 /* A resting spot for the cursor on the histogram's quiet ground */
 .hr-rest {
   position: absolute;
-  left: 230px;
-  top: 150px;
+  left: 206px;
+  top: 112px;
   width: 1px;
   height: 1px;
 }
 
 /* Narrow: a touch less zoom, the same crop, the row still whole across */
 .hr .ss-stage[data-layout='compact'] .hr-zoom {
-  left: 12px;
-  top: 12px;
   transform: scale(1.3);
 }

@@ -1,11 +1,11 @@
-import { Icon, Menu, Popover, Roll, Stage, Text, Window, type Act } from '../../kit'
+import { Icon, Menu, Popover, Roll, Stage, Text, type Act } from '../../kit'
 import { Section, Slider } from '../../halo/parts'
 import f35 from '../../halo/img/building-35mm.jpg'
 import f45 from '../../halo/img/building-4x5.jpg'
 import './halo-format.css'
 
-// A close-up of one control: Halo Pro's Format menu, the whole window at
-// 1.4x, chrome and all, running off the bottom. Beats: the cursor clicks the
+// A close-up of one control: Halo Pro's Format menu, the app's own panes at
+// 1.4x with no window chrome, edge to edge and running off the bottom. Beats: the cursor clicks the
 // Format value, the menu opens over the Glow section (Super 8 to 4×5, 35 mm
 // checked), picks 4×5; the value rolls to 4×5 on its own row, the menu fades
 // out and the photo (the owner's lit facade at dusk, Halo Pro's own exports)
@@ -61,43 +61,41 @@ export default function HaloFormat() {
       className="look-halo hf">
       {(s) => (
         <div className="hf-zoom">
-          <Window className="hf-win">
-            <div className="hf-body">
-              <div className="hf-pane">
-                <div className="halo-photo hf-photo">
-                  <img src={f35} alt="" />
-                  <img src={f45} alt="" data-layer style={{ opacity: s.format === '4×5' ? 1 : 0 }} />
-                </div>
-                <span className="hf-rest" data-target="rest" aria-hidden />
+          <div className="hf-body">
+            <div className="hf-pane">
+              <div className="halo-photo hf-photo">
+                <img src={f35} alt="" />
+                <img src={f45} alt="" data-layer style={{ opacity: s.format === '4×5' ? 1 : 0 }} />
               </div>
-              <div className="halo-panel hf-panel">
-                <Section>Glow</Section>
-                <Slider label="Amount" value={1} max={2} filler />
-                <Slider label="Size" value={2.4} max={16} min={0.25} filler />
-                <span className="halo-menu halo-anchor hf-format">
-                  <Text>Format</Text>
-                  <b className="hf-value" data-target="format">
-                    <Roll align="start">{s.format}</Roll>
-                  </b>
-                </span>
-                <Slider label="Roll-off" value={0} max={1} filler />
-              </div>
-              {/* The menu is its own surface over the column, not a child of it, as a menu is */}
-              <Popover show={s.menu} origin="bottom left" className="hf-menu">
-                <Menu
-                  items={FORMATS.map((f) => (
-                    <>
-                      <span className="hf-tick" data-on={f === s.format || undefined}>
-                        <Icon name="check" size={12} stroke={2.4} />
-                      </span>
-                      <Text>{f}</Text>
-                    </>
-                  ))}
-                  targets={FORMATS.map((f) => (f === '4×5' ? 'fmt-4x5' : undefined))}
-                />
-              </Popover>
+              <span className="hf-rest" data-target="rest" aria-hidden />
             </div>
-          </Window>
+            <div className="halo-panel hf-panel">
+              <Section>Glow</Section>
+              <Slider label="Amount" value={1} max={2} filler />
+              <Slider label="Size" value={2.4} max={16} min={0.25} filler />
+              <span className="halo-menu halo-anchor hf-format">
+                <Text>Format</Text>
+                <b className="hf-value" data-target="format">
+                  <Roll align="start">{s.format}</Roll>
+                </b>
+              </span>
+              <Slider label="Roll-off" value={0} max={1} filler />
+            </div>
+            {/* The menu is its own surface over the column, not a child of it, as a menu is */}
+            <Popover show={s.menu} origin="bottom left" className="hf-menu">
+              <Menu
+                items={FORMATS.map((f) => (
+                  <>
+                    <span className="hf-tick" data-on={f === s.format || undefined}>
+                      <Icon name="check" size={12} stroke={2.4} />
+                    </span>
+                    <Text>{f}</Text>
+                  </>
+                ))}
+                targets={FORMATS.map((f) => (f === '4×5' ? 'fmt-4x5' : undefined))}
+              />
+            </Popover>
+          </div>
         </div>
       )}
     </Stage>

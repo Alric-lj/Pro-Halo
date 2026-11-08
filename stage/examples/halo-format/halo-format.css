@@ -1,65 +1,63 @@
-/* Halo Pro's Format menu as a close-up: the whole window at 1.4x on the
-   page's black, one gutter top and sides, off the bottom. The photo pane keeps
-   the left; the control column at the right holds the Glow section with the
-   Format row whole, and the menu opens upward over the sliders so it stays
-   inside the crop with a gutter from every edge. */
+/* Halo Pro's Format menu as a close-up: the app's own panes at 1.4x, no
+   window chrome, edge to edge in the stage and running off the bottom. The
+   photo pane keeps the left; the control column at the right holds the Glow
+   section with the Format row whole, and the menu opens upward over the
+   sliders so it stays inside the crop with a gutter from every edge. */
 .hf .ss-stage {
   overflow: hidden;
-  background: var(--ss-well);
+  background: #0b0a09;
 }
 
+/* The crop: as wide as the stage once scaled, from its top-left corner */
 .hf-zoom {
   position: absolute;
-  top: 18px;
-  left: 18px;
+  top: 0;
+  left: 0;
+  width: calc(100% / 1.4);
   transform: scale(1.4);
   transform-origin: 0 0;
-}
-
-.hf-win {
-  width: 260px;
-  box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.06), 0 0 0 1px rgb(255 255 255 / 0.08);
 }
 
 .hf-body {
   position: relative;
   display: grid;
   grid-template-columns: minmax(0, 1fr) 136px;
-  min-height: 240px;
+  min-height: 260px;
 }
 
-/* The photo pane: black, the street standing beside the controls from the
-   Glow line to the Format row (a tall crop of the 3:2 file, the lamps whole),
-   so photo and column read as one block and no corner is left empty */
+/* The photo pane: black, the lit facade standing beside the controls on the
+   app's own margin, a tall crop of the 3:2 file with the lamps whole at the
+   top and its foot running off the bottom with the pane, so photo and column
+   read as one block and no corner is left empty */
 .hf-pane {
   position: relative;
   background: #000;
 }
 .hf-photo {
   position: absolute;
-  top: 14px;
+  top: 22px;
   left: 12px;
   right: 12px;
-  height: 146px;
+  bottom: -12px;
   border-radius: 2px;
 }
 .hf .halo-photo img[data-layer] {
   transition: opacity 0.4s ease;
 }
-/* Where the cursor rests: quiet black under the photo */
+/* Where the cursor rests: the photo's dark lower-left, off the controls */
 .hf-rest {
   position: absolute;
-  left: 50%;
+  left: 30%;
   top: 196px;
   width: 1px;
   height: 1px;
 }
 
 /* The control column, spaced for a close-up: the Format row lands low enough
-   that the menu above it clears the title bar */
+   that the menu above it clears the stage's top edge by a gutter */
 .hf-panel {
   height: 100%;
-  padding: 14px 12px 16px;
+  padding: 22px 12px 16px;
   gap: 16px;
 }
 
@@ -68,11 +66,11 @@
   display: inline-flex;
 }
 
-/* The menu opens upward from the Format row (its top 143px into the body:
+/* The menu opens upward from the Format row (its top 151px into the body:
    the panel's inset, Glow, Amount, Size and their gaps), its sides on the
    column's content edges, 4px clear of the row */
 .hf-menu {
-  top: 11px;
+  top: 19px;
   right: 12px;
   width: 112px;
   padding: 4px;
@@ -110,16 +108,11 @@
   opacity: 1;
 }
 
-/* Narrow: a touch less zoom and a slightly narrower window, so it fills the
-   phone column with the same inset each side */
+/* Narrow: a touch less zoom, the same crop filling the phone column */
 .hf .ss-stage[data-layout='compact'] .hf-zoom {
-  top: 16px;
-  left: 16px;
+  width: calc(100% / 1.3);
   transform: scale(1.3);
 }
-.hf .ss-stage[data-layout='compact'] .hf-win {
-  width: 250px;
-}
 .hf .ss-stage[data-layout='compact'] .hf-body {
-  min-height: 260px;
+  min-height: 270px;
 }

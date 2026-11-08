@@ -2,7 +2,7 @@
    and right, running off the bottom only: the control column at the window's
    right is what the cursor touches, so it stays whole, and the photo pane's
    foot is the only filler the crop takes. */
-.hh .ss-stage { overflow: hidden; background: #070707; }
+.hh .ss-stage { overflow: hidden; background: #0b0a09; }
 
 .hh-win {
   position: absolute;
