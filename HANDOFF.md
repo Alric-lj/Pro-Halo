@@ -156,7 +156,10 @@ What was done (see `DESIGN.md` for the rules):
 - Copy: product noun in the headline; blue gets no glow because the top layer and yellow filter stop it; Save and return
   writes 16-bit; meta descriptions and titles rewritten.
 - Demos: re-skinned by a subagent (stage ground `#0b0a09`, no window chrome on the four tiles, posters re-filmed).
-- Not yet: the Gumroad landing page (`gumroad/`) and the note's own styles still carry the old red; the app icon.
+- Owner approved the direction (8 Nov, 23:00). Sweep done: figure glow colours on the system tokens, toggles squared, the
+  Gumroad landing source re-skinned and rebuilt (`gumroad/landing.html`, needs republishing on Gumroad with his OK). The
+  note shares the tokens. Still open: the app icon in the app repo, a fresh-eye review of the built page (the reviewer was
+  cut off by the weekly limit), and going live (fast-forward `main`, then Gumroad).
 
 ## Identity redesign with stageshow (7 Nov 2026; live on halopro.app since 7 Nov evening, main = b61ad06)
 
