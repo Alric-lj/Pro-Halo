@@ -2,19 +2,19 @@
 <html lang="en">
 <head>
 <!-- Gumroad landing page. Gumroad supplies charset, viewport and title; its sanitizer strips them here. -->
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter+Tight:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500&display=swap" rel="stylesheet">
 <style>
   :root {
     --bg: #f4f3f0; --bg-2: #ffffff; --fg: #121212; --fg-2: #5b5853; --line: rgba(0, 0, 0, .12);
-    --red: #d2321b; --glow: none; --btn-fg: #fff;
-    --sans: "Inter Tight", -apple-system, "SF Pro Display", "Helvetica Neue", Arial, sans-serif;
+    --red: #a8622a; --glow: none; --btn-fg: #fff;
+    --sans: "Source Serif 4", Georgia, "Times New Roman", serif;
     --mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
     color-scheme: light dark;
   }
   @media (prefers-color-scheme: dark) {
     :root {
-      --bg: #000; --bg-2: #0a0a0a; --fg: #f1efeb; --fg-2: #9b978f; --line: rgba(255, 255, 255, .13);
-      --red: #ff3d22; --glow: 0 0 .32em rgba(255, 61, 34, .55), 0 0 1.2em rgba(255, 61, 34, .28);
+      --bg: #0b0a09; --bg-2: #121110; --fg: #e8e3da; --fg-2: #a69f95; --line: rgba(232, 227, 218, .12);
+      --red: #c27a3e; --glow: none;
     }
   }
   * { box-sizing: border-box; }
@@ -26,9 +26,9 @@
   .mono { font: 400 12px/1.5 var(--mono); letter-spacing: .02em; color: var(--fg-2); }
   .mono b { font-weight: 500; color: var(--fg); }
   section { padding: 88px 0; border-top: 1px solid var(--line); }
-  h1, h2, h3 { font-weight: 300; letter-spacing: -.035em; margin: 0; }
-  h1 { font-size: clamp(44px, 7.4vw, 92px); line-height: .98; }
-  h2 { font-size: clamp(32px, 4.6vw, 54px); line-height: 1.02; max-width: 15em; }
+  h1, h2, h3 { font-weight: 400; letter-spacing: -.01em; margin: 0; }
+  h1 { font-size: clamp(36px, 5vw, 60px); line-height: 1.08; }
+  h2 { font-size: clamp(28px, 3.4vw, 42px); line-height: 1.1; max-width: 15em; }
   h3 { font-size: 21px; letter-spacing: -.015em; font-weight: 400; margin-bottom: 8px; }
   em.red { font-style: normal; color: var(--red); text-shadow: var(--glow); }
   p { margin: 0; }
@@ -36,7 +36,7 @@
 
   /* Buttons */
   .btn { -webkit-appearance: none; appearance: none; border: 1px solid var(--fg); background: var(--fg); color: var(--bg);
-    font: 500 15px/1 var(--sans); letter-spacing: -.005em; padding: 15px 22px; border-radius: 999px; cursor: pointer;
+    font: 500 15px/1 var(--sans); letter-spacing: -.005em; padding: 15px 22px; border-radius: 4px; cursor: pointer;
     display: inline-flex; align-items: center; gap: 10px; text-decoration: none; }
   .btn.red { background: var(--red); border-color: var(--red); color: #fff; }
   .btn.ghost { background: transparent; color: var(--fg); border-color: var(--line); }
@@ -58,9 +58,9 @@
   .ba .after { position: absolute; inset: 0; transition: opacity .35s ease; }
   .ba[data-show="before"] .after { opacity: 0; }
   .ba-bar { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; margin: 14px 0 0; }
-  .toggle { display: inline-flex; border: 1px solid var(--line); border-radius: 999px; padding: 3px; }
+  .toggle { display: inline-flex; border: 1px solid var(--line); border-radius: 4px; padding: 3px; }
   .toggle button { -webkit-appearance: none; appearance: none; background: none; border: 0; color: var(--fg-2);
-    font: 400 12px/1 var(--mono); padding: 8px 12px; border-radius: 999px; cursor: pointer; }
+    font: 400 12px/1 var(--mono); padding: 8px 12px; border-radius: 4px; cursor: pointer; }
   .toggle button[aria-pressed="true"] { background: var(--fg); color: var(--bg); }
   .toggle button:focus-visible { outline: 2px solid var(--red); outline-offset: 2px; }
 
@@ -89,7 +89,7 @@
   .tier.pro { border-color: var(--red); }
   .tier .name { font: 500 13px/1 var(--mono); letter-spacing: .04em; text-transform: uppercase; color: var(--fg-2); }
   .tier.pro .name { color: var(--red); }
-  .tier .price { font-size: 44px; font-weight: 300; letter-spacing: -.04em; line-height: 1; }
+  .tier .price { font-size: 44px; font-weight: 400; letter-spacing: -.04em; line-height: 1; }
   .tier ul { margin: 0; padding: 0; list-style: none; color: var(--fg-2); font-size: 15px; }
   .tier li { padding: 7px 0; border-top: 1px solid var(--line); }
   .tier .btn { margin-top: auto; justify-content: center; }
@@ -132,9 +132,9 @@
 
 <main>
   <div class="wrap hero">
-    <h1>Halation, the way<br><em class="red">film makes it.</em></h1>
-    <p class="lead">A Mac app that adds film halation to your photos in 32-bit float. Light scatters back the way it does
-      through film: a tight red-orange core with a soft tail, and blue light makes no glow.</p>
+    <h1>Halo Pro puts film halation<br>into your photograph.</h1>
+    <p class="lead">A Mac app that forms the glow from the lights already in the picture, not from a blur over everything
+      bright. A warm light glows warm, a blue one does not, and the dark beside them stays dark. 32-bit float throughout.</p>
     <div class="cta">
       <button type="button" class="btn red" data-gumroad-action="buy" data-gumroad-option="Halo Pro">Get Halo Pro
         <span class="p" data-gumroad-field="price" data-gumroad-option="Halo Pro">€20+</span></button>
@@ -160,7 +160,7 @@
   <section>
     <div class="wrap">
       <p class="mono">The glow</p>
-      <h2>Not a blur with a red tint. <em class="red">Light that comes back.</em></h2>
+      <h2>Not a blur with a red tint.</h2>
       <div class="grid3">
         <div>
           <h3>Built from the film up</h3>
