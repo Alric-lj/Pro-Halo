@@ -133,6 +133,39 @@ now Why Halo Pro · Compare · Light path · Pricing · Technical note; the shar
 no longer mention a red blur before it is introduced; the red-first light-path step lost its wavelength detail;
 small fixes ("a tuned starting point", "they are for checking").
 
+## The argument page (10–11 Nov 2026, branch `pro-argument`, not live)
+
+Owner, 10 Nov: the Returned-light site is "more adult and pro" but "not smart or inspiring", "the software is not
+represented through the design", and "try it on your photos" reads like a phone-app ad. He wants it to explain how well
+it does halation and why that matters to professionals in their workflows. I interviewed him (his answers are in the
+memory note `positioning-interview`): "I don't want a filter, I want an emulator"; wrong halation tints sky, grey and
+clothes on campaign work, reddens eyes, treats a T-shirt like the sun; with Halo Pro it can sit anywhere in a chain;
+mist is the poetry; the audience is colour graders, serious and analogue photographers, designers.
+
+What was built overnight (he said "Build it" to the plan, then went to bed):
+- Order: 1 "Halo Pro is a halation emulator for still images." (export + Glow Preview side by side, terms as fact, text
+  links, no "try it") · 2 What halation is (light path folded) · 3 What a red blur does to a photograph (three of his
+  photos: as opened / our red blur / Halo Pro, measured captions; comparison table folded) · 4 How Halo Pro reads the
+  file (the app's own views 0, 1, 2, 7 of the hero photo; colour chart; controls map folded) · 5 A white shirt is not a
+  lamp (ladder chart, lamp and shirt) · 6 What it leaves alone (crops with sampled values; Default look named; limits)
+  · 7 Mist · 8 Further than film (window demo, Masking and Format demos, glow colour, type; formats folded) · 9 Where
+  it sits in a chain (four chains as rows, Save and return and Batch demos, how-to folded) · 10 Files, speed and limits
+  · 11 Licence, and who made it (tiers, coming next and the release list folded).
+- Rules from the judging: one settings sheet for the argument plates (halation only: Default preset, Mist off, Warmth
+  on highlights 0, Format 35 mm, Amount 1, masks off); every picture's caption starts with what it is (Export, View,
+  Photograph, our render, Demo); limits sit beside the claim they qualify; the glow cannot be exported alone, said once.
+- Assets in `img/pro/`, all from the real app through `tools/website_shots/appshots.py` with scratch shot lists (kept
+  in the session scratchpad, not in this public repo): `plates.py` (halation-only exports, views by number key, mist,
+  glow colour, type) and the generic red blur from `tools/website_shots/note/redblur.py` (sigma 14, strength 1.6).
+  Photos used from his bank (`~/Desktop/Halo Pro – Dehancer charts/small 16`): `_MG_0158-Edit` (hero and views),
+  `_MG_5212`, `_MG_5228`, `_MG_9094` (comparison plates), `_MG_0997` (glow colour). He may swap them.
+- Measured on those files (8-bit, means over the named area): grey sky +20 red under the blur, 0.0 under Halo Pro; white
+  sky +17 vs −0.5; face crop 163 161 172 → 183 167 173 (blur) → 166 162 172 (Halo Pro); white jacket +7 vs +3.
+- Copy: eleven sections drafted, fact- and voice-checked and revised by a workflow; then a five-lens review of the
+  built page (facts, voice, desktop, phone, the owner's criteria) with each finding verified before fixing.
+- Not done: a real film frame or a real Pro-Mist pair for comparison (asked him; the judges want it); Capture One is
+  untested and not named; "composite the glow" is not promised.
+
 ## Returned light: the identity revisit (8 Nov 2026; live on halopro.app since 8 Nov 23:10, main = dc6a7e6; Gumroad page not republished)
 
 Owner, 02:30: "revisit the design in all seriousness"; the circle is not the achievement; what he liked in the old orange

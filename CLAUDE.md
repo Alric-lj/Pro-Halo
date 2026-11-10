@@ -78,7 +78,7 @@ Links: `https://alriclj.gumroad.com/l/HALO_PRO?variant=<Halo%20Pro | Halo%20Pro%
   `stage-build/` (committed; the page loads `stage-build/halo-stage.js` and `.css`). Film with
   `node scripts/film.mjs <url> --select '#example' --gate` (Chrome must run outside the Bash sandbox). Every demo passes
   the gate at desktop and 390 before it ships; posters are `--still` frames of `#example .ss-stage`.
-  Order (Nov 2026): hero with the live window → Built for professional files (feature grid of demos) → What a red blur gets wrong → How it compares → Light path → Scale → Controls → Precision & files → Pro & pricing (with the Save and return demo and the story) → Development. Long parts fold behind "Read more" (`details.more`).
+  Order (11 Nov 2026, the argument page; rules in `DESIGN.md`): what it is (export + Glow Preview) → What halation is → What a red blur does to a photograph → How Halo Pro reads the file (views 0, 1, 2, 7) → A white shirt is not a lamp → What it leaves alone → Mist → Further than film → Where it sits in a chain → Files, speed and limits → Licence. Plates in `img/pro/` are real app captures and exports of the owner's photographs. Long parts fold behind "Read more" (`details.more`).
 - `style.css` — tokens in `:root` (colours, and the six type sizes `--t-small` … `--t-display`). Fonts: Inter Tight + IBM Plex Mono (Google Fonts). Red glow (`--glow`) only on display-size red type (owner's request); the red second line only on the hero, the Light path heading and the note's title (owner, 2 Nov 2026).
 - `img/app/` — real app screenshots and exports. `img/ex*`, `hero-wave.jpg` — older images, unused by v4. `_old/` — previous versions, reference only.
 - `HANDOFF.md` — state of the v4 redesign, open decisions, publish checklist.

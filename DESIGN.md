@@ -43,18 +43,20 @@ Six sizes (`--t-small` 14, `--t-body` 17, `--t-lead` 21, `--t-head` 24–30, `--
 
 ## Layout
 
-One reading column (about 34 em for prose, 1280 max for plates). Order: purpose, buttons, the photograph; then
-what it does with the real window; then one short section per thing the app does, text beside the app; then the
-physics (light path, scale, controls, float); then price with the limits said once beside it; then the story and
-a dated development list behind Read more.
+The page is one argument, in the order a colour grader would test it, and the software is shown the way it sees a
+file. Order: what it is (the export beside Glow Preview, terms as fact, text links) · what halation is · what a red
+blur does to a photograph · how Halo Pro reads the file (the app's own views) · a white shirt is not a lamp · what it
+leaves alone · mist · further than film · where it sits in a chain · files, speed and limits · licence and who made it.
 
-A plate is one photograph or figure on the ground with a mono caption under it. No tiles, no cards for content,
-no counters, no stat set large unless it is a physical quantity that decides something. Hairlines only where a
-figure needs a baseline. Long parts fold behind "Read more" (`details.more`).
+One reading column (about 38 em for prose, 1280 max for plates). A plate is a photograph, a view or a figure on the
+ground with a mono caption that starts with what it is: Export, View, Photograph, our render, Demo. Comparisons sit
+side by side on the same file, never a screen apart. One settings sheet for the argument plates (halation only:
+Mist off, Warmth on highlights 0, Format 35 mm, Amount 1), printed once. Limits sit beside the claim they qualify.
+No tiles, no counters, no "try it": the calls to action are plain text links (Download, Buy the Pro licence, Read the
+measurements). Long parts fold behind "Read more" (`details.more`).
 
-Live demos (the stageshow kit, built into `stage-build/`) stay only where they prove a claim: the window with the
-Amount and Format story, Masking, Format, Batch, Save and return. The app's own look inside them is the app's,
-not the site's. On phones a demo is its poster plus the one control the story drags.
+Live demos (the stageshow kit, built into `stage-build/`) stay only where they show a control: the window with the
+Amount and Format story, Masking, Format, Save and return, Batch. The app's own look inside them is the app's.
 
 ## The mark
 
