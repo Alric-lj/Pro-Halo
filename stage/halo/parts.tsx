@@ -117,7 +117,7 @@ export function EffectPanel({ amount = 1, size = 1, format = '35 mm', rolloff = 
       <Slider label="Roll-off" value={rolloff} max={1} target="rolloff" />
       <Section>Start</Section>
       <Slider label="Starts at" value={startsAt} max={6} target="starts" />
-      <Slider label="Softness of start" value={1} max={2} filler />
+      <Slider label="Softness of start" value={1} max={3} filler />
       <Section>Color &amp; Landing</Section>
       <Slider label="Green return" value={1} max={2} filler />
       <Slider label="Landing" value={0.05} max={1} filler />

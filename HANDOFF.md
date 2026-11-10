@@ -163,8 +163,22 @@ What was built overnight (he said "Build it" to the plan, then went to bed):
   sky +17 vs −0.5; face crop 163 161 172 → 183 167 173 (blur) → 166 162 172 (Halo Pro); white jacket +7 vs +3.
 - Copy: eleven sections drafted, fact- and voice-checked and revised by a workflow; then a five-lens review of the
   built page (facts, voice, desktop, phone, the owner's criteria) with each finding verified before fixing.
+- Review round (11 Nov, night): 44 verified findings from five reviewers, applied. The hero's second plate is now a
+  full-size crop pair at the sun (as opened / export) so the halation is seen on the first screen; "What halation is" has
+  a still of the cross-section; the comparison plates carry their labels on every image; views are 2 x 2; the pricing
+  cards became three plain licence rows; no "try it" is left; repeated caveats were cut; export depth for the mid-grade
+  chain is stated as the setting it is (Bit Depth 32-bit Float, default 16-bit); the type plate (glow type) was removed;
+  the shirt-and-lamp chart was re-rendered on black; demos carry the app's real labels (placeholders only on rows that
+  run off the edge or at phone zoom, as the kit requires).
+- **Capture bug found and fixed in the scratch shot list:** in 2.3 there is no "Mist" checkbox, so `check('Mist', False)`
+  does nothing and the Default preset's Mist (Density 0.30) stays on. Every plate was re-captured with
+  `w.mist_settings.is_enabled = False`. The same call is in the app repo's `tools/website_shots/light.py`, so renders made
+  with it since 2.3 (the Saab, facade and Batch images of 7 Nov in `stage/halo/img/`) have Mist on at 0.30; their captions
+  make no Mist claim, but fix light.py before the next render. Mist itself is subtle: at Density 0.30 it changes about
+  1 % of pixels by more than 4 levels on these photos, which is why the Mist plate is a 1:1 crop at 0.30 and 0.80.
 - Not done: a real film frame or a real Pro-Mist pair for comparison (asked him; the judges want it); Capture One is
-  untested and not named; "composite the glow" is not promised.
+  untested and not named; "composite the glow" is not promised; the Gumroad landing and the note still carry the
+  earlier headline.
 
 ## Returned light: the identity revisit (8 Nov 2026; live on halopro.app since 8 Nov 23:10, main = dc6a7e6; Gumroad page not republished)
 

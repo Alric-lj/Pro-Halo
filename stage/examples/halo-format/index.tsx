@@ -59,7 +59,7 @@ export default function HaloFormat() {
       play="once"
       cursor={{ at: 'rest', style: 'large' }}
       className="look-halo hf">
-      {(s) => (
+      {(s, _rect, layout) => (
         <div className="hf-zoom">
           <div className="hf-body">
             <div className="hf-pane">
@@ -71,15 +71,15 @@ export default function HaloFormat() {
             </div>
             <div className="halo-panel hf-panel">
               <Section>Glow</Section>
-              <Slider label="Amount" value={1} max={2} filler />
-              <Slider label="Size" value={2.4} max={16} min={0.25} filler />
+              <Slider label="Amount" value={1} max={2} filler={layout === 'compact'} />
+              <Slider label="Size" value={1} max={16} min={0.25} filler={layout === 'compact'} />
               <span className="halo-menu halo-anchor hf-format">
                 <Text>Format</Text>
                 <b className="hf-value" data-target="format">
                   <Roll align="start">{s.format}</Roll>
                 </b>
               </span>
-              <Slider label="Roll-off" value={0} max={1} filler />
+              <Slider label="Roll-off" value={0} max={1} filler={layout === 'compact'} />
             </div>
             {/* The menu is its own surface over the column, not a child of it, as a menu is */}
             <Popover show={s.menu} origin="bottom left" className="hf-menu">

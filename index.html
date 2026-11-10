@@ -84,9 +84,9 @@
     <p class="hero-links"><a href="https://alriclj.gumroad.com/l/HALO_PRO?variant=Halo%20Pro%20-%20FREE&amp;wanted=true">Download Halo Pro 2.3 beta</a><a href="https://alriclj.gumroad.com/l/HALO_PRO?variant=Halo%20Pro&amp;wanted=true">Buy the Pro licence · €20</a><a href="notes.html">Read the measurements</a></p>
     <div class="duo">
       <figure><img src="img/pro/hero-export.jpg" width="1800" height="1200" alt="Two skiers on a ridge against a low sun, exported from Halo Pro with halation only" loading="eager">
-        <figcaption class="cap"><b>Export.</b> Two skiers on a ridge against a low sun. Halation only: Mist off, Warmth on highlights 0, Format 35 mm, Amount 1.</figcaption></figure>
-      <figure><img src="img/pro/view-7.jpg" width="1400" height="933" alt="The same frame in Halo Pro’s Glow Preview: on black, a thin red line around the two skiers and along the ridge" loading="eager">
-        <figcaption class="cap"><b>View.</b> Glow Preview, key 7, of the same file: the glow Halo Pro added, on its own, brightened to show. A view, not an export.</figcaption></figure>
+        <figcaption class="cap"><b>Export.</b> Two skiers on a ridge against a low sun. Halation only: Mist off, Warmth on highlights 0, Format 35 mm, Amount 1. The flare, the ghosts and the colours in the cloud are in the file as opened.</figcaption></figure>
+      <figure><div class="duo-crop"><img src="img/pro/hero-crop-src.jpg" width="450" height="600" alt="A crop at the sun behind the right-hand skier, as opened: dark leg, glove and poles against the bright sky, no rim" loading="eager"><img src="img/pro/hero-crop-halo.jpg" width="450" height="600" alt="The same crop from the export: a thin red-orange rim on the leg, the glove and the poles where they meet the bright sky" loading="eager"></div>
+        <figcaption class="cap"><b>Photograph, export.</b> A crop at the sun, 450 of the frame’s 2048 pixels across. Left as opened, right the export: the red-orange rim on the leg, the glove and the poles is the halation.</figcaption></figure>
     </div>
   </div>
 </header>
@@ -96,13 +96,53 @@
 <!-- ============ 2 WHAT HALATION IS ============ -->
 <section class="section" id="halation">
   <div class="wrap">
-    <div class="s-head">
+    <div class="s-head s-head--fig">
       <div>
         <h2 class="s-title">What halation is.</h2>
-        <p class="s-intro">On film, light the emulsion does not absorb goes on into the clear base. It reflects off the back of the base and exposes the film a second time, from behind. The red-sensitive layer sits closest to the base, so the returning light reaches it first. The result is a red-orange glow around the brightest lights, in proportion to the light that made it.</p>
+        <p class="s-intro">On film, light the emulsion does not absorb goes on into the clear base. It reflects off the back of the base and exposes the film a second time, from behind. The red-sensitive layer sits closest to the base, so the returning light reaches it first. The result is a red-orange glow around the brightest lights, in proportion to the light that made it. It is a beautiful phenomenon, and hard to get right.</p>
       </div>
+      <figure class="fig-still">
+        <svg viewBox="0 0 480 236" role="img" aria-label="Cross-section of colour negative film with no backing. Light enters from the top, passes the blue, green and red sensitive layers into the clear base, reflects off the back of the base and comes back up into the red-sensitive layer on both sides of where it entered.">
+          <defs>
+            <filter id="still-soft" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="3"/></filter>
+            <filter id="still-soft2" x="-50%" y="-200%" width="200%" height="500%"><feGaussianBlur stdDeviation="6"/></filter>
+          </defs>
+          <rect class="lay" x="0" y="28" width="480" height="24" fill="rgba(91,124,255,.10)"/>
+          <rect class="lay" x="0" y="52" width="480" height="8" fill="rgba(255,210,60,.10)"/>
+          <rect class="lay" x="0" y="60" width="480" height="24" fill="rgba(63,208,124,.08)"/>
+          <rect class="lay" x="0" y="84" width="480" height="24" fill="rgba(255,61,34,.12)"/>
+          <rect class="lay" x="0" y="108" width="480" height="88" fill="rgba(255,255,255,.025)"/>
+          <text class="still-full" x="226" y="44.5" text-anchor="end">Blue-sensitive</text>
+          <text class="still-full" x="226" y="76.5" text-anchor="end">Green-sensitive</text>
+          <text class="still-full" x="226" y="100.5" text-anchor="end">Red-sensitive</text>
+          <text class="still-short" x="226" y="46" text-anchor="end">Blue</text>
+          <text class="still-short" x="226" y="78" text-anchor="end">Green</text>
+          <text class="still-short" x="226" y="102" text-anchor="end">Red</text>
+          <text x="12" y="158">Base</text>
+          <line x1="240" y1="0" x2="240" y2="108" stroke="#f4efe6" stroke-width="7" opacity=".3" filter="url(#still-soft)"/>
+          <line x1="240" y1="0" x2="240" y2="108" stroke="#f4efe6" stroke-width="1.6" stroke-linecap="round"/>
+          <ellipse cx="240" cy="108" rx="14" ry="4" fill="#f4efe6" opacity=".7" filter="url(#still-soft)"/>
+          <circle cx="240" cy="108" r="3" fill="#f4efe6"/>
+          <line class="crit" x1="240" y1="108" x2="161.3" y2="196"/>
+          <line class="crit" x1="240" y1="108" x2="318.7" y2="196"/>
+          <line class="ray-down" x1="240" y1="108" x2="152" y2="196"/>
+          <line class="ray-down" x1="240" y1="108" x2="328" y2="196"/>
+          <line class="ray-down" x1="240" y1="108" x2="140" y2="196"/>
+          <line class="ray-down" x1="240" y1="108" x2="340" y2="196"/>
+          <line class="ray-up" x1="152" y1="196" x2="64" y2="108"/>
+          <line class="ray-up" x1="328" y1="196" x2="416" y2="108"/>
+          <line class="ray-up" x1="140" y1="196" x2="40" y2="108"/>
+          <line class="ray-up" x1="340" y1="196" x2="440" y2="108"/>
+          <ellipse cx="52" cy="96" rx="22" ry="7" fill="#c27a3e" opacity=".95" filter="url(#still-soft2)"/>
+          <ellipse cx="428" cy="96" rx="22" ry="7" fill="#c27a3e" opacity=".95" filter="url(#still-soft2)"/>
+          <line x1="240" y1="108" x2="240" y2="196" stroke="#ffd9c4" stroke-width="1" opacity=".4"/>
+          <path class="crit" style="stroke-dasharray:none" d="M240 148 A40 40 0 0 0 266.7 137.8"/>
+          <text class="still-crit" x="284" y="136">θc ≈ 42°</text>
+          <text class="still-hi" x="240" y="222" text-anchor="middle">No backing: the back acts as a mirror</text>
+        </svg>
+        <figcaption class="cap"><b>Cross-section.</b> Colour negative film with no backing. Layers not to scale.</figcaption>
+      </figure>
     </div>
-        <p class="s-more">Halation is a beautiful phenomenon, and hard to get right.</p>
     <details class="more">
       <summary><span class="more-show">Read more: the light path through the film, step by step</span><span class="more-hide">Show less</span></summary>
 
@@ -276,15 +316,15 @@
         <p class="s-intro">The simple way to add halation takes everything bright in the frame, blurs it, tints it red-orange and lays it on top. It works on brightness alone, so a white jacket gets the same treatment as a lamp. On a campaign the clothes and the neutrals have to hold their colour, and the tint shifts them towards red. That is a red glow, not halation.</p>
       </div>
     </div>
-        <p class="s-more">Three plates follow. Each is shown as opened, through a red blur we made, and through Halo Pro with Mist off and Warmth on highlights at 0.</p>
+        <p class="s-more">Three plates follow. Each is shown as opened, through a red blur made for this comparison, and through Halo Pro with Mist off and Warmth on highlights at 0.</p>
     <div class="tri-head mono"><span>As opened</span><span>Red blur</span><span>Halo Pro</span></div>
     <figure class="tri"><div class="tri-i" data-l="As opened"><img src="img/pro/plate-a-src.jpg" width="1200" height="800" alt="A figure in a yellow jacket on a green hill under a grey sky, as opened" loading="lazy"></div><div class="tri-i" data-l="Red blur"><img src="img/pro/plate-a-blur.jpg" width="1200" height="800" alt="The same frame through a red blur: the grey sky has turned pink" loading="lazy"></div><div class="tri-i" data-l="Halo Pro"><img src="img/pro/plate-a-halo.jpg" width="1200" height="800" alt="The same frame through Halo Pro: the sky is still grey" loading="lazy"></div>
-      <figcaption class="cap"><b>Photograph, our render, export.</b> Grey sky, yellow jacket. Under the blur the sky gains 20 levels of red (of 255); in Halo Pro it moves by less than one.</figcaption></figure>
+      <figcaption class="cap"><b>Photograph, comparison render, export.</b> Grey sky, yellow jacket. Under the blur the sky gains 20 levels of red (of 255); in Halo Pro it moves by less than one.</figcaption></figure>
     <figure class="tri tri--tall"><div class="tri-i" data-l="As opened"><img src="img/pro/plate-b-src.jpg" width="1200" height="1800" alt="A woman in a pale jacket under a white, misty forest sky, as opened" loading="lazy"></div><div class="tri-i" data-l="Red blur"><img src="img/pro/plate-b-blur.jpg" width="1200" height="1800" alt="The same frame through a red blur: the sky, her hair and her skin have turned pink" loading="lazy"></div><div class="tri-i" data-l="Halo Pro"><img src="img/pro/plate-b-halo.jpg" width="1200" height="1800" alt="The same frame through Halo Pro: sky and skin as they were, a faint warm edge where the sky meets her jacket" loading="lazy"></div>
-      <figcaption class="cap"><b>Photograph, our render, export.</b> Portrait under a white sky. The blur adds 17 levels of red to the sky and 19 to the face. Halo Pro leaves the sky within one level; the face takes a little of the sky’s glow.</figcaption></figure>
+      <figcaption class="cap"><b>Photograph, comparison render, export.</b> Portrait under a white sky. The blur adds 17 levels of red across the sky and 20 to the face. Halo Pro leaves the sky within one level; the face takes a little of the sky’s glow.</figcaption></figure>
     <figure class="tri"><div class="tri-i" data-l="As opened"><img src="img/pro/plate-c-src.jpg" width="1200" height="800" alt="A white jacket lying on dark, wet ground, as opened" loading="lazy"></div><div class="tri-i" data-l="Red blur"><img src="img/pro/plate-c-blur.jpg" width="1200" height="800" alt="The same frame through a red blur: the whole jacket is tinted pink" loading="lazy"></div><div class="tri-i" data-l="Halo Pro"><img src="img/pro/plate-c-halo.jpg" width="1200" height="800" alt="The same frame through Halo Pro: the jacket is white with a thin warm rim at its lit edges" loading="lazy"></div>
-      <figcaption class="cap"><b>Photograph, our render, export.</b> White jacket on dark ground. The blur treats the jacket as a light and lifts its red by 7 levels on average; Halo Pro by 3, at the lit edges.</figcaption></figure>
-    <p class="shot-meta">Red blur: everything above 75 per cent of white, blurred, tinted red-orange and screened on top. Made by us for this comparison; it is no particular product. Halo Pro: halation only, Warmth on highlights 0, Mist off, Format 35 mm, Amount 1. Levels are means over the named area, on the 0 to 255 scale.</p>
+      <figcaption class="cap"><b>Photograph, comparison render, export.</b> White jacket on dark ground. The blur treats the jacket as a light and lifts its red by 7 levels on average; Halo Pro by 3, at the lit edges.</figcaption></figure>
+    <p class="shot-meta">Red blur: everything above 75 per cent of white, blurred, tinted red-orange and screened on top. Made for this comparison; it is no particular product. Halo Pro: halation only, Warmth on highlights 0, Mist off, Format 35 mm, Amount 1. Levels are means over the named area, on the 0 to 255 scale.</p>
     <details class="more">
       <summary><span class="more-show">Read more: how other halation tools document theirs</span><span class="more-hide">Show less</span></summary>
     <details class="more">
@@ -305,7 +345,7 @@
         </tbody>
       </table>
     </div>
-    <p class="shot-meta">Checked 5 November 2026 against each maker's own pages; "not documented" means we found nothing either way. Something changed or wrong? <a href="mailto:alric.ljunghager@gmail.com">Tell me</a> and I'll fix it.</p>
+    <p class="shot-meta">Checked 5 November 2026 against each maker's own pages; "not documented" means I found nothing either way. If something has changed or is wrong, <a href="mailto:alric.ljunghager@gmail.com">tell me</a> and I'll fix it.</p>
     <details class="more">
       <summary><span class="more-show">Read more: sources</span><span class="more-hide">Show less</span></summary>
       <ul class="cmp-sources"><li><a href="https://helpx.adobe.com/lightroom-classic/desktop/introduction-to-lightroom-classic/release-notes.html">Lightroom Classic release notes</a></li><li><a href="https://helpx.adobe.com/lightroom/desktop/introduction/release-notes.html">Lightroom release notes</a></li><li><a href="https://helpx.adobe.com/camera-raw/desktop/edit-and-enhance-images/tone-and-color/vignette-grain-effects-camera-raw.html">Camera Raw: Glow and Halation</a></li><li><a href="https://www.dehancer.com/learn/article/halation">Dehancer: Halation</a></li><li><a href="https://www.dehancer.com/learn/article/color-spaces">Dehancer: colour spaces</a></li><li><a href="https://www.dehancer.com/pricing">Dehancer: pricing</a></li><li><a href="https://www.blackmagicdesign.com/products/davinciresolve/studio">DaVinci Resolve Studio</a></li><li><a href="https://www.blackmagicdesign.com/products/davinciresolve/color">DaVinci Resolve colour</a></li><li><a href="https://www.filmconvert.com/plugin/halation">FilmConvert Halation</a></li><li><a href="https://videovillage.com/learn/filmbox/full-guide/negative/halation">Filmbox: Halation</a></li><li><a href="https://videovillage.com/filmbox/">Filmbox</a></li><li><a href="https://vsco.co/features/halation">VSCO Halation</a></li></ul>
@@ -322,21 +362,21 @@
     <div class="s-head">
       <div>
         <h2 class="s-title">How Halo Pro reads the file.</h2>
-        <p class="s-intro">Halo Pro shows its work. On the Halation tab the number keys swap the picture for the engine’s own views of it. Four are shown here, of the photograph at the top of the page.</p>
+        <p class="s-intro">On the Halation tab the number keys swap the picture for the engine’s own views of it. Four are shown here, of the photograph at the top of the page.</p>
       </div>
     </div>
-        <p class="s-more">In Energy, the low sun and the lit cloud carry the light. The skiers and the snow in shade carry almost none, so almost none comes back to them. Each view is rendered from the data the engine uses; only Glow Preview is brightened. The views are preview only, so the glow cannot be exported on its own today.</p>
+        <p class="s-more">In Energy, the low sun and the lit cloud carry the light. The skiers and the snow in shade carry almost none, so they make almost no glow of their own. The thin red line around them in Glow Preview is light from the sky behind, spreading past their edges. Each view is rendered from the data the engine uses; only Glow Preview is brightened. The views are preview only, so the glow cannot be exported on its own today.</p>
     <div class="views">
       <figure><img src="img/pro/view-0.jpg" width="1400" height="933" alt="The photograph in Halo Pro, view 0" loading="lazy"><figcaption class="cap"><b>View.</b> Key 0, No Mask: the picture.</figcaption></figure>
-      <figure><img src="img/pro/view-1.jpg" width="1400" height="933" alt="View 1, Source: a grey image, white where the sun, the cloud and the spray are" loading="lazy"><figcaption class="cap"><b>View.</b> Key 1, Source: how strongly each part makes glow. White is fully.</figcaption></figure>
+      <figure><img src="img/pro/view-1.jpg" width="1400" height="933" alt="View 1, Source: a grey image, white where the sun, the cloud and the spray are" loading="lazy"><figcaption class="cap"><b>View.</b> Key 1, Source: where the glow is made. White makes it fully, black not at all.</figcaption></figure>
       <figure><img src="img/pro/view-2.jpg" width="1400" height="933" alt="View 2, Energy: red-orange where the sun and the lit cloud are, black elsewhere" loading="lazy"><figcaption class="cap"><b>View.</b> Key 2, Energy: the light that feeds the glow, in red and green.</figcaption></figure>
-      <figure><img src="img/pro/view-7.jpg" width="1400" height="933" alt="View 7, Glow Preview: a thin red line around the skiers and along the ridge, on black" loading="lazy"><figcaption class="cap"><b>View.</b> Key 7, Glow Preview: the glow alone, brightened to fill the range.</figcaption></figure>
+      <figure><img src="img/pro/view-7.jpg" width="1400" height="933" alt="View 7, Glow Preview: a thin red line around the skiers and along the ridge, on black" loading="lazy"><figcaption class="cap"><b>View.</b> Key 7, Glow Preview: the glow alone, brightened. A thin line where bright meets dark; black where nothing was added.</figcaption></figure>
     </div>
     <div class="why-row">
-      <div><h3>The glow takes its colour from the light.</h3><p>Nine lights of equal brightness, one of each colour. Red and warm lights glow, a blue light makes none, because on film the blue-sensitive layer and the yellow filter stop blue before it reaches the base. A red blur keys on brightness and tints them all the same.</p></div>
+      <div><h3>The glow takes its colour from the light.</h3><p>Nine lights at the same peak brightness, in different colours. In Halo Pro red and warm lights glow and a blue light makes none, because on film the blue-sensitive layer and the yellow filter stop blue before it reaches the base. A red blur keys on brightness: only the yellow and white lights clear its threshold, they get the same tint, and the red light gets nothing.</p></div>
       <figure class="why-pair">
-        <div class="why-img"><img src="img/why-colours-blur.jpg" width="1600" height="180" alt="Nine coloured lights through a red blur: faint red halos around yellow and white only; red, green, cyan, blue and magenta get none" loading="lazy"><span class="mono cmp-tag cmp-tag--l">Red blur</span></div>
-        <div class="why-img"><img src="img/why-colours-halo.jpg" width="1600" height="180" alt="The same lights through Halo Pro: strong red halos around red and magenta, orange around yellow and white, faint around green and cyan, none around blue" loading="lazy"><span class="mono cmp-tag cmp-tag--l">Halo Pro</span></div>
+        <div class="why-img"><picture><source media="(max-width: 760px)" srcset="img/why-colours-blur-narrow.jpg"><img src="img/why-colours-blur.jpg" width="1600" height="180" alt="Nine coloured lights through a red blur: faint red halos around yellow and white only; red, green, cyan, blue and magenta get none" loading="lazy"></picture><span class="mono cmp-tag cmp-tag--l">Red blur</span></div>
+        <div class="why-img"><picture><source media="(max-width: 760px)" srcset="img/why-colours-halo-narrow.jpg"><img src="img/why-colours-halo.jpg" width="1600" height="180" alt="The same lights through Halo Pro: strong red halos around red and magenta, orange around yellow and white, faint around green and cyan, none around blue" loading="lazy"></picture><span class="mono cmp-tag cmp-tag--l">Halo Pro</span></div>
       </figure>
     </div>
     <details class="more">
@@ -433,15 +473,15 @@
     <div class="why-row">
       <div><h3>Measured, stop by stop.</h3><p>Eight lights, from two stops under white to five stops over, through a red blur and through Halo Pro. The blur gives the six at white and above the same halo. Halo Pro’s grows with every stop.</p></div>
       <figure class="why-pair">
-        <div class="why-img"><img src="img/why-ladder-blur.jpg" width="1600" height="180" alt="Eight lights through a red blur: the six at or above white get the same faint halo" loading="lazy"><span class="mono cmp-tag cmp-tag--l">Red blur</span></div>
-        <div class="why-img"><img src="img/why-ladder-halo.jpg" width="1600" height="180" alt="The same lights through Halo Pro: almost no glow on the dimmest, then a red-orange halo that grows with every stop above white" loading="lazy"><span class="mono cmp-tag cmp-tag--l">Halo Pro</span></div>
+        <div class="why-img"><picture><source media="(max-width: 760px)" srcset="img/why-ladder-blur-narrow.jpg"><img src="img/why-ladder-blur.jpg" width="1600" height="180" alt="Eight lights through a red blur: the six at or above white get the same faint halo" loading="lazy"></picture><span class="mono cmp-tag cmp-tag--l">Red blur</span></div>
+        <div class="why-img"><picture><source media="(max-width: 760px)" srcset="img/why-ladder-halo-narrow.jpg"><img src="img/why-ladder-halo.jpg" width="1600" height="180" alt="The same lights through Halo Pro: almost no glow on the dimmest, then a red-orange halo that grows with every stop above white" loading="lazy"></picture><span class="mono cmp-tag cmp-tag--l">Halo Pro</span></div>
       </figure>
     </div>
     <div class="why-row">
       <div><h3>What the file can carry.</h3><p>The same scene twice: from a 32-bit float file, where the lamp still holds its stops above white, and from a clipped file, where the lamp and the shirt hold the same value.</p></div>
       <figure class="why-pair">
-        <div class="why-img"><img src="img/why-lamp-32.jpg" width="1200" height="505" alt="A white T-shirt and a bare lamp from a 32-bit file through Halo Pro: a strong red-orange halo around the lamp, a faint rim on the shirt" loading="lazy"><span class="mono cmp-tag cmp-tag--l">From a 32-bit file</span></div>
-        <div class="why-img"><img src="img/why-lamp-clip.jpg" width="1200" height="505" alt="The same scene from a clipped file: the lamp's halo is as faint as the shirt's rim" loading="lazy"><span class="mono cmp-tag cmp-tag--l">From a JPEG, clipped at white</span></div>
+        <div class="why-img"><img src="img/why-lamp-32.jpg" width="1200" height="500" alt="A white T-shirt and a bare lamp from a 32-bit file through Halo Pro: a strong red-orange halo around the lamp, a faint rim on the shirt" loading="lazy"><span class="mono cmp-tag cmp-tag--l">From a 32-bit file</span></div>
+        <div class="why-img"><img src="img/why-lamp-clip.jpg" width="1200" height="500" alt="The same scene from a clipped file: the lamp's halo is as faint as the shirt's rim" loading="lazy"><span class="mono cmp-tag cmp-tag--l">From a JPEG, clipped at white</span></div>
       </figure>
     </div>
   </div>
@@ -453,11 +493,10 @@
     <div class="s-head">
       <div>
         <h2 class="s-title">What it leaves alone.</h2>
-        <p class="s-intro">A campaign picture has to keep the colour of the product. With Warmth on highlights at 0 and Mist off, flat bright surfaces stay within half a level (of 255) of the file as opened. Light is added only where the glow spreads past a bright area. At those settings nothing is lost; halation is added.</p>
+        <p class="s-intro">With Warmth on highlights at 0 and Mist off, evenly lit bright surfaces hold: the sky and the fabric below stay within one level (of 255), and on the flat chart every patch stays within half a level. Light is added only where the glow spreads past a bright area. At those settings nothing is lost; halation is added.</p>
       </div>
     </div>
         <p class="s-more">The Default look does shift colour: it sets Warmth on highlights to 1, which makes bright surfaces a touch warmer and takes blue down by up to 6 levels (of 255), and it turns Mist on at Density 0.30.</p>
-        <p class="s-more">A known limit at any settings: fine diagonal stripes, such as blinds or grilles, can band in the glow.</p>
     <div class="crops">
       <span></span><span class="mono">As opened</span><span class="mono">Red blur</span><span class="mono">Halo Pro</span>
       <span class="mono">Sky</span><img src="img/pro/crop-sky-src.jpg" width="680" height="460" alt="A patch of white sky, as opened" loading="lazy"><img src="img/pro/crop-sky-blur.jpg" width="680" height="460" alt="The same patch through a red blur, pink" loading="lazy"><img src="img/pro/crop-sky-halo.jpg" width="680" height="460" alt="The same patch through Halo Pro, unchanged" loading="lazy">
@@ -465,15 +504,18 @@
       <span class="mono">Fabric</span><img src="img/pro/crop-fabric-src.jpg" width="680" height="460" alt="A patch of the pale jacket, as opened" loading="lazy"><img src="img/pro/crop-fabric-blur.jpg" width="680" height="460" alt="The same patch through a red blur" loading="lazy"><img src="img/pro/crop-fabric-halo.jpg" width="680" height="460" alt="The same patch through Halo Pro, unchanged" loading="lazy">
       <span></span><span class="mono val">165 166 182</span><span class="mono val">169 167 182</span><span class="mono val">165 166 182</span>
       <span class="mono">Face</span><img src="img/pro/crop-face-src.jpg" width="680" height="460" alt="The face, as opened" loading="lazy"><img src="img/pro/crop-face-blur.jpg" width="680" height="460" alt="The face through a red blur, reddened" loading="lazy"><img src="img/pro/crop-face-halo.jpg" width="680" height="460" alt="The face through Halo Pro, three levels warmer in red" loading="lazy">
-      <span></span><span class="mono val">163 161 172</span><span class="mono val">183 167 173</span><span class="mono val">166 162 172</span>
+      <span></span><span class="mono val">163 161 172</span><span class="mono val">183 167 173</span><span class="mono val">166 161 171</span>
     </div>
-    <p class="shot-meta">Crops from the portrait above; mean red, green and blue of each crop, 0 to 255. Halo Pro at halation only. The face gains three levels of red: glow from the white sky behind it, where a mask can hold it back.</p>
+    <p class="shot-meta">Crops from the portrait above; mean red, green and blue of each crop, 0 to 255. The sky crop is one of the brightest patches, so under the blur its red stops at 255 after 12 levels; the sky as a whole gains 17. The face crop takes in the hair and some sky beside it. Halo Pro at halation only. The face gains three levels of red: glow from the white sky behind it, where a mask can hold it back.</p>
     <details class="more">
       <summary><span class="more-show">Read more: the same test on flat colour charts</span><span class="more-hide">Show less</span></summary>
-    <div class="why-row">\n      <div><h3>Highlights glow. Surfaces keep their colour.</h3><p>Six flat patches, lit evenly. Through the blur the bright ones turn peach. Through Halo Pro every patch stays within half a level, and light is added only past their edges.</p></div>\n      <figure class="why-pair">
+    <div class="why-row">
+      <div><h3>Highlights glow. Surfaces keep their colour.</h3><p>Six flat patches, lit evenly. Through the blur the bright ones turn peach. Through Halo Pro every patch stays within half a level, and light is added only past their edges.</p></div>
+      <figure class="why-pair">
         <div class="why-img"><img src="img/why-surfaces-blur.jpg" width="1600" height="373" alt="Grey and coloured surfaces with small lights between them, through a red blur: the white surface turns peach, the yellow and blue ones shift, and the small lights barely glow" loading="lazy"><span class="mono cmp-tag cmp-tag--l">Red blur</span></div>
         <div class="why-img"><img src="img/why-surfaces-halo.jpg" width="1600" height="373" alt="The same chart through Halo Pro: every surface keeps its colour, a red-orange glow rims the bright surfaces against the dark, and each small light has its halo" loading="lazy"><span class="mono cmp-tag cmp-tag--l">Halo Pro</span></div>
-      </figure>\n    </div>
+      </figure>
+    </div>
     </details>
   </div>
 </section>
@@ -487,11 +529,9 @@
         <p class="s-intro">A mist filter is glass in front of the lens that scatters part of the highlight light into the shadows and lowers contrast. On set the strength is chosen once, and it is in the picture for good.</p>
       </div>
     </div>
-        <p class="s-more">Here mist is its own stage, after halation. On set it comes first, in front of the lens; in the app the order is the other way round. Density is set on the file and can be changed at any time, and Mist has its own Masking panel, separate from halation&#x27;s. The two are kept apart because they are different mechanisms: mist happens in front of the lens, halation inside the film.</p>
-    <div class="pair pair--tall">
-      <figure><img src="img/pro/plate-b-halo.jpg" width="1200" height="1800" alt="The portrait with halation only" loading="lazy"><figcaption class="cap"><b>Export.</b> Halation only.</figcaption></figure>
-      <figure><img src="img/pro/mist-on.jpg" width="1200" height="1800" alt="The same portrait with Mist added: the bright sky breathes into the trees and her hair" loading="lazy"><figcaption class="cap"><b>Export.</b> Mist added at Density 0.30, the setting in the Default look.</figcaption></figure>
-    </div>
+        <p class="s-more">Here mist is its own stage, after halation. Density is set on the file and can be changed at any time, and Mist has its own Masking panel, separate from halation&#x27;s. The two are kept apart because they are different mechanisms: mist happens in front of the lens, halation inside the film.</p>
+    <figure class="tri tri--crop"><div class="tri-i" data-l="Halation only"><img src="img/pro/mist-crop-0.jpg" width="600" height="400" alt="The bright tips of a lit facade against a dusk sky, with halation only: a thin red rim on the bright edges" loading="lazy"></div><div class="tri-i" data-l="Mist, Density 0.30"><img src="img/pro/mist-crop-30.jpg" width="600" height="400" alt="The same crop with Mist at Density 0.30: a faint pale veil around the bright edges" loading="lazy"></div><div class="tri-i" data-l="Mist, Density 0.80"><img src="img/pro/mist-crop-80.jpg" width="600" height="400" alt="The same crop with Mist at Density 0.80: a soft white glow around the bright edges" loading="lazy"></div>
+      <figcaption class="cap"><b>Exports.</b> A crop of a lit facade at dusk, 600 of the frame’s 2048 pixels across. Density 0.30 is the setting in the Default look; 0.80 is set strong to show what the stage adds.</figcaption></figure>
   </div>
 </section>
 
@@ -501,14 +541,14 @@
     <div class="s-head">
       <div>
         <h2 class="s-title">Further than film.</h2>
-        <p class="s-intro">Film cannot choose where or how it glows; in an edit you sometimes have to. Color mix moves the glow from film&#x27;s red-orange to the picked Glow color. Glow saturation takes it from neutral white at 0 to more vivid at 2. Shape, size and brightness stay the same. Amount runs from 0, no glow, to 2; 1 is the built-in look. Size goes to 16, though above about 5 it can land unevenly on faces and trees. Halo Pro takes any still image it can open, so a graphic saved as a PNG or TIFF goes through the same engine.</p>
+        <p class="s-intro">Film cannot choose where or how it glows; in an edit you sometimes have to. Color mix moves the glow from film’s red-orange to the picked Glow color; its shape, size and brightness stay the same. Halo Pro takes any still image it can open, so a graphic saved as a PNG or TIFF goes through the same engine.</p>
       </div>
     </div>
-        <p class="s-more">Masks limit where the glow comes from: a tonal range, a sky, or one chosen colour. They are off in the Default look. Luminance Range, Sky Protection and Color Mask each have a view that shows what the engine will use, so the mask can be checked before the export. The views are preview only.</p>
+        <p class="s-more">Masks limit where the glow comes from: a tonal range, a sky, or one chosen colour. They are off in the Default look. Luminance Range, Sky Protection and Color Mask each have a view that shows what the engine will use, so the mask can be checked before the export. Glow saturation takes the glow from neutral white at 0 to more vivid at 2; 1 leaves it as it is.</p>
     <figure class="stage stage--hero" data-stage="halo-hero" aria-label="Halo Pro: the Amount slider is dragged up and the car's chrome strip and indicator grow their red halos; Format 16 mm widens them">
-      <img class="stage-poster" src="img/stage/halo-hero.jpg" width="2400" height="1280" alt="Halo Pro's window with the same photo open: a warm glow along the chrome strip and indicator, the Amount slider at 1, Format 16 mm" loading="lazy">
+      <img class="stage-poster" src="img/stage/halo-hero.jpg" width="2400" height="1280" alt="Halo Pro’s window with a photograph open, a dark car panned past blurred trees: a warm glow along its chrome strip and indicator, the Amount slider at 1, Format 16 mm" loading="lazy">
     </figure>
-    <p class="shot-meta"><b>Demo.</b> The window, drawn with the app’s own controls: Amount from 0 to 1, then Format set to 16 mm. The glow layers are the app’s exports of the photo.</p>
+    <p class="shot-meta"><b>Demo.</b> The window, drawn with the app’s own controls: Amount from 0 to 1, the built-in look (the slider runs to 2), then Format set to 16 mm. The glow layers are the app’s exports of the photo.</p>
     <div class="demo-row">
       <div><figure class="stage stage--tile" data-stage="halo-masking" aria-label="Halation › Masking: Sky Protection switched on">
       <img class="stage-poster" src="img/stage/halo-masking.jpg" width="800" height="680" alt="Halo Pro's Masking panel: Luminance Range on, Sky Protection being switched on, Color Mask off" loading="lazy">
@@ -521,9 +561,8 @@
       <figure><img src="img/pro/colour-film.jpg" width="1200" height="800" alt="A lit facade at dusk with film’s red-orange glow on its bright edges" loading="lazy"><figcaption class="cap"><b>Export.</b> Film’s own colour. Halation only, Amount 1.</figcaption></figure>
       <figure><img src="img/pro/colour-picked.jpg" width="1200" height="800" alt="The same facade with the glow moved to a blue-green" loading="lazy"><figcaption class="cap"><b>Export.</b> Glow color picked, Color mix 1, Amount 1.6, Size 2, Warmth on highlights 0.</figcaption></figure>
     </div>
-    <figure class="plate plate--type"><img src="img/pro/type.jpg" width="1600" height="600" alt="The words Halo Pro set in white on black, with a red-orange glow from Halo Pro around the letters" loading="lazy"><figcaption class="cap"><b>Export.</b> Type set as a graphic and run through Halo Pro. Amount 2, Format Super 8.</figcaption></figure>
     <details class="more">
-      <summary><span class="more-show">Read more: the six formats to scale</span><span class="more-hide">Show less</span></summary>
+      <summary><span class="more-show">Read more: the formats to scale</span><span class="more-hide">Show less</span></summary>
 
     <div class="scale">
       <div>
@@ -571,14 +610,14 @@
         <p class="s-intro">The file keeps its colour profile and the maths is 32-bit float. Export is TIFF at 8, 16 or 32-bit float. The halation can go on the TIFF straight out of the raw developer, or last in the chain before grain. Halo Pro does not open raw files. There is one LUT: before the halation by default, or after the mist.</p>
       </div>
     </div>
-        <p class="s-more">From Lightroom Classic, Edit In hands over a TIFF and Save and return writes a 16-bit TIFF back. Any app that hands over a TIFF and waits for it back starts the same mode and should work the same way; only Lightroom Classic is tested. A 32-bit float TIFF opened mid-grade exports as 32-bit float (Save and return writes 16-bit), with light above white kept unless the LUT after the mist, or Bloom, clips it. Batch Mode takes up to 500 photos. Each keeps its own settings; Apply to All copies the settings of the photo on screen to the rest. The round trip and Batch Mode need Pro.</p>
+        <p class="s-more">From Lightroom Classic, Edit In hands over a TIFF and Save and return writes a 16-bit TIFF back. Any app that hands over a TIFF and waits for it back starts the same mode and should work the same way; only Lightroom Classic is tested. A 32-bit float TIFF opened mid-grade keeps its light above white when Bit Depth is set to 32-bit Float under Settings › Export Settings, unless the LUT after the mist, or Bloom, clips it. The default is 16-bit, which clips at white, and Save and return always writes 16-bit. Batch Mode takes up to 500 photos. Each keeps its own settings; Apply to All copies the settings of the photo on screen to the rest. The round trip and Batch Mode need Pro.</p>
     <div class="chains">
       <div class="chain"><span class="mono">Round trip</span><ol><li>Lightroom Classic, Edit In</li><li>TIFF</li><li class="is-halo">Halo Pro, Lightroom Mode</li><li>Save and return, 16-bit TIFF</li><li>Lightroom Classic</li></ol></div>
       <div class="chain"><span class="mono">End of chain</span><ol><li>Raw developer or retouch</li><li>16-bit TIFF</li><li class="is-halo">Halo Pro</li><li>16-bit TIFF, profile kept</li><li>Grain, delivery</li></ol></div>
-      <div class="chain"><span class="mono">Mid-grade</span><ol><li>Grade or comp</li><li>32-bit float TIFF</li><li class="is-halo">Halo Pro</li><li>32-bit float TIFF, light above white kept</li><li>Grade or comp</li></ol></div>
+      <div class="chain"><span class="mono">Mid-grade</span><ol><li>Grade or comp</li><li>32-bit float TIFF</li><li class="is-halo">Halo Pro</li><li>Export, Bit Depth 32-bit Float</li><li>Grade or comp</li></ol></div>
       <div class="chain"><span class="mono">Volume</span><ol><li>Campaign selects</li><li>Up to 500 files</li><li class="is-halo">Halo Pro, Batch Mode</li><li>Export All</li><li>Delivery</li></ol></div>
     </div>
-    <p class="shot-meta">The round trip and Batch Mode need the Pro licence. Mid-grade keeps light above white unless the LUT after the mist, or Bloom, clips it. Tested with Lightroom Classic; any app that hands over a TIFF and waits for it back should work the same way.</p>
+    <p class="shot-meta">Round trip and End of chain run on 16-bit files, which hold nothing above white: there a clipped lamp and a white shirt carry the same value, and Starts at sets where the glow begins. Mid-grade is the chain where a lamp still holds its stops above white and the glow grows with each one (<a href="#stops">A white shirt is not a lamp</a>). Batch Mode follows the files it is given.</p>
     <div class="demo-row">
       <div><figure class="stage stage--return" data-stage="halo-return" aria-label="Save and return: the edit goes back to Lightroom Classic as a 16-bit TIFF">
           <img class="stage-poster" src="img/stage/halo-return.jpg" width="800" height="600" alt="The top of Halo Pro's control column: Save and return has become Saved, and a line says a 16-bit TIFF was written back to Lightroom Classic" loading="lazy">
@@ -610,12 +649,12 @@
     <div class="s-head">
       <div>
         <h2 class="s-title">Files, speed and limits.</h2>
-        <p class="s-intro">Halo Pro opens TIFF and PNG (16-bit read at 16 bits; 32-bit and half-float TIFF too) and JPEG, up to 100 megapixels; no raw or HEIC. It exports TIFF (8, 16 or 32-bit float), PNG and JPEG. The source ICC profile is kept and the metadata copied; the app says so when a file&#x27;s could not be. A 12-megapixel export takes about 0.9 s on an M3 Max. Very fine diagonal stripes (blinds, grilles) can show a faint moiré in the glow; at Size above about 5 the glow can land unevenly on faces and trees. Around a pinpoint light, film shows a ring; this beta does not draw it yet and gives a core and tail there as well.</p>
+        <p class="s-intro">Halo Pro opens TIFF, PNG and JPEG and does not open raw or HEIC; send a 16-bit TIFF from the raw developer. Two limits are known in this beta: very fine diagonal stripes, such as blinds or grilles, can show a faint moiré in the glow, and at Size above about 5 the glow can land unevenly on faces and trees. Around a pinpoint light film shows a ring; this beta gives a core and tail there as well.</p>
       </div>
     </div>
 
       <div class="spec">
-        <div><span class="mono">In</span><h4>16-bit and 32-bit at full depth</h4><p>16-bit TIFF and PNG are read at 16 bits; 32-bit and half-float TIFFs open too. JPEG, BMP and WebP at 8 bits. Shooting raw? Send a 16-bit TIFF from your raw editor, or let Lightroom Mode (Pro) do the round trip. Transparent areas are flattened. Raw and HEIC are on the roadmap.</p></div>
+        <div><span class="mono">In</span><h4>16-bit and 32-bit at full depth</h4><p>16-bit TIFF and PNG are read at 16 bits; 32-bit and half-float TIFFs open too. JPEG, BMP and WebP at 8 bits. For raw files, send a 16-bit TIFF from your raw editor, or let Lightroom Mode (Pro) do the round trip. Transparent areas are flattened. Raw and HEIC are on the roadmap.</p></div>
         <div><span class="mono">Out</span><h4>TIFF 8, 16 or 32-bit float</h4><p>PNG 8 or 16-bit. JPEG at quality 95, full colour resolution. 8-bit files are dithered so skies don't band. A 32-bit TIFF keeps light the glow pushes above white, unless a LUT after mist, or Bloom, clips it.</p></div>
         <div><span class="mono">Colour</span><h4>Your profile stays with the pixels</h4><p>The glow and the mist look the same whether a photo is saved in sRGB, Display P3, Adobe RGB or ProPhoto RGB. The preview is colour-managed to your screen, and the export keeps the profile. ProPhoto RGB can be kept or converted to sRGB on import.</p></div>
         <div><span class="mono">Metadata</span><h4>EXIF, IPTC and XMP copied</h4><p>With a bundled ExifTool. If a file's camera metadata can't be copied, Halo Pro says so.</p></div>
@@ -655,36 +694,35 @@
     <div class="s-head">
       <div>
         <h2 class="s-title">Licence, and who made it.</h2>
-        <p class="s-intro">The Free licence has every control and exports at full resolution. It is for personal use and has no Lightroom Mode or Batch Mode. Halo Pro is 20 euros once, for paid work, and has both. Organisation is 60 euros once, for studios. Halo Pro is a digital download, so there are no refunds; the Free licence is there to test on a real file first.</p>
+        <p class="s-intro">Halo Pro is bought once. The Free licence has every control and exports at full resolution; it is there to test on a real file first, because a digital download has no refunds.</p>
       </div>
     </div>
-        <p class="s-more">I am Alric Ljunghager, a photographer in Stockholm, and I build Halo Pro alone. I started in 2024. In October 2026 I measured the engine against how the glow forms in film and rebuilt it to work in linear light. Settings › Help › Report Bug copies a report with the log, to paste into an email.</p>
-    <div class="tiers" id="pricing">
-      <div class="tier">
-        <h3>Halo Pro — Free</h3>
-        <p class="price">€0<small>personal use</small></p>
-        <ul><li>Every control and mask view</li><li>Full-resolution export, up to 32-bit float</li><li>LUTs and presets</li><li>A licence screen at each launch</li><li class="no">Lightroom Mode</li><li class="no">Batch Mode</li></ul>
-        <a class="btn" href="https://alriclj.gumroad.com/l/HALO_PRO?variant=Halo%20Pro%20-%20FREE&amp;wanted=true">Download free</a>
+        <p class="s-more">I am Alric Ljunghager, a photographer in Stockholm, and I build Halo Pro. I started in 2024. In October 2026 I measured the engine against how the glow forms in film and rebuilt it to work in linear light. Settings › Help › Report Bug copies a report with the log, to paste into an email.</p>
+    <div class="licences" id="pricing">
+      <div class="licence">
+        <h3>Free</h3>
+        <p class="licence-price">€0</p>
+        <p>Personal use. Every control and mask view, LUTs and presets, full-resolution export up to 32-bit float. A licence screen at each launch. No Lightroom Mode, no Batch Mode.</p>
+        <a href="https://alriclj.gumroad.com/l/HALO_PRO?variant=Halo%20Pro%20-%20FREE&amp;wanted=true">Download</a>
       </div>
-      <div class="tier tier--main">
+      <div class="licence">
         <h3>Halo Pro</h3>
-        <p class="price">€20<small>one-time, for one person</small></p>
-        <ul><li>Everything in Free</li><li>Lightroom Mode: Edit In, Save and return</li><li>Batch Mode</li><li>Licensed for paid work</li><li>Free updates in your Gumroad library</li></ul>
-        <a class="btn btn--solid" href="https://alriclj.gumroad.com/l/HALO_PRO?variant=Halo%20Pro&amp;wanted=true">Buy Pro · €20</a>
+        <p class="licence-price">€20, once</p>
+        <p>Paid work, for one person. Adds Lightroom Mode (Edit In, Save and return) and Batch Mode.</p>
+        <a href="https://alriclj.gumroad.com/l/HALO_PRO?variant=Halo%20Pro&amp;wanted=true">Buy the Pro licence</a>
       </div>
-      <div class="tier">
-        <h3>Halo Pro — Organisation</h3>
-        <p class="price">€60<small>one-time</small></p>
-        <ul><li>Everything in Halo Pro</li><li>Several people in a studio or company</li><li>Licensed for commercial use at scale</li><li>Free updates in your Gumroad library</li></ul>
-        <a class="btn" href="https://alriclj.gumroad.com/l/HALO_PRO?variant=Halo%20Pro%20-%20Organisation&amp;wanted=true">Buy · €60</a>
+      <div class="licence">
+        <h3>Organisation</h3>
+        <p class="licence-price">€60, once</p>
+        <p>Studios and companies, for several people. Everything in Halo Pro.</p>
+        <a href="https://alriclj.gumroad.com/l/HALO_PRO?variant=Halo%20Pro%20-%20Organisation&amp;wanted=true">Buy the Organisation licence</a>
       </div>
     </div>
     <div class="facts">
       <p><span class="mono">Requires</span>macOS 14 Sonoma or later on a Mac with Apple Silicon (M1 or newer). Up to 100&nbsp;MP and 500&nbsp;MB per file. Signed, and notarised by Apple.</p>
       <p><span class="mono">Install</span>Open the DMG from Gumroad and drag Halo Pro to Applications. To activate Pro, enter the licence key from your Gumroad download page under Settings › Help › Enter License Key. It's checked online once, then works offline.</p>
       <p><span class="mono">Beta</span>Halo Pro 2.3 is a beta, and updates are free. Two known limits: very fine diagonal stripes (blinds, grilles) can show a faint moiré in the glow, and very big glows (Size above about 5) can land unevenly on faces and trees.</p>
-      <p><span class="mono">Upgrading</span>Own 1.0 or 2.2? 2.3 is a free update in your Gumroad library, and your key still works. Looks saved in 1.x keep their mist, LUT and other settings and start with the new glow, once; the originals are kept.</p>
-      <p><span class="mono">Refunds</span>Try the free version on your own photos first: it has every control. It's a digital download, so there are no refunds.</p>
+      <p><span class="mono">Upgrading</span>2.3 is a free update for owners of 1.0 and 2.2: it is in your Gumroad library, and your key still works. Looks saved in 1.x keep their mist, LUT and other settings and start with the new glow, once; the originals are kept.</p>
     </div>
 
     <details class="more">

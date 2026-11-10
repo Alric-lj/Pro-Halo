@@ -1,4 +1,4 @@
-import { Stage, States, Tabs, Text, type Act } from '../../kit'
+import { Stage, Tabs, Text, type Act } from '../../kit'
 import { Check, Slider } from '../../halo/parts'
 import './halo-masking.css'
 
@@ -51,7 +51,7 @@ export default function HaloMasking() {
       cursor={{ at: 'rest', style: 'large' }}
       className="look-halo hm"
     >
-      {(s) => (
+      {(s, _rect, layout) => (
         <div className="hm-zoom">
           <div className="hm-panel">
             <Tabs items={['Effect', 'Masking']} value={1} />
@@ -59,28 +59,21 @@ export default function HaloMasking() {
             <div className="hm-group">
               <Check on>Luminance Range</Check>
             </div>
-            <Slider label="Luminance Floor" value={0.3} max={1} filler />
+            <Slider label="Luminance Floor" value={0.3} max={1} filler={layout === 'compact'} />
 
             <div className="hm-group">
               <Check on={s.sky} target="sky">Sky Protection</Check>
             </div>
             <div className="hm-line">
               <span className="hm-sky" aria-hidden />
-              <States
-                value={s.sky ? 'on' : 'off'}
-                align="start"
-                states={{
-                  off: <Text className="hm-state">Off</Text>,
-                  on: <Text className="hm-state">Sky kept clear</Text>,
-                }}
-              />
+              <Text className="hm-state">Sky Color</Text>
             </div>
+            <Slider label="Protection Strength" value={0.8} max={1} filler={layout === 'compact'} />
 
             <div className="hm-group">
               <Check on={false}>Color Mask</Check>
             </div>
-            <Slider label="Color Tolerance" value={0.3} max={1} filler />
-            <Slider label="Mask Softness" value={0.5} max={1} filler />
+            <Slider label="Color Tolerance" value={0.2} max={1} filler />
           </div>
           <span className="hm-rest" data-target="rest" aria-hidden />
         </div>

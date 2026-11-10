@@ -6,9 +6,9 @@
 
 .hh-win {
   position: absolute;
-  top: 48px;
-  left: 48px;
-  width: 1104px;
+  top: 16px;
+  left: 16px;
+  width: 1168px;
   box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.06), 0 0 0 1px rgb(255 255 255 / 0.08);
 }
 .hh .ss-stage[data-layout='compact'] .hh-win { left: 16px; top: 14px; width: 326px; }
