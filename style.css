@@ -704,3 +704,59 @@ html:not(.js) .nav-toggle, html:not(.js) .toggle, html:not(.js) .tour-tabs, html
 .section--demo .stage { grid-column: 2; grid-row: 1 / span 2; }
 .section--demo .shot-meta { grid-column: 2; }
 @media (max-width: 900px) { .section--demo .wrap { grid-template-columns: 1fr; } .section--demo .stage, .section--demo .shot-meta { grid-column: 1; grid-row: auto; } }
+
+/* ---------------- The argument page (Nov 2026): terms, plates, the engine's views, crops, chains ---------------- */
+.terms { margin-top: 18px; max-width: 62em; font-family: var(--mono); font-size: 13px; line-height: 1.6; color: var(--fg-3); }
+.hero-links { display: flex; flex-wrap: wrap; gap: 12px 30px; margin-top: 22px; font-size: var(--t-body); }
+.hero-links a { color: var(--fg); text-decoration: none; border-bottom: 1px solid var(--line-2); padding-bottom: 3px; }
+.hero-links a:hover { border-bottom-color: var(--red); }
+.end-links { margin-top: 56px; }
+.s-more { max-width: 38em; margin: 0 0 1em; color: var(--fg-2); }
+.s-head + .s-more { margin-top: -20px; }
+/* every picture says what it is: Export, View, Our render, Demo */
+.cap { margin-top: 10px; font-family: var(--mono); font-size: 13px; line-height: 1.5; color: var(--fg-3); }
+.cap b, .shot-meta b { font-weight: 400; color: var(--fg-2); }
+.duo, .views, .tri, .pair, .crops, .demo-row, .chains { margin-top: 44px; }
+.duo figure, .views figure, .pair figure, .tri { margin-left: 0; margin-right: 0; }
+.duo figure, .views figure, .pair figure { margin: 0; }
+.duo img, .views img, .tri img, .pair img, .crops img, .plate--type img { display: block; width: 100%; height: auto; border-radius: 3px; background: #000; }
+.duo { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.duo img { aspect-ratio: 3 / 2; object-fit: cover; }
+.views { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+.tri-head { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 44px; color: var(--fg-3); }
+.tri { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 12px; margin-bottom: 0; }
+.tri + .tri { margin-top: 36px; }
+.tri .cap { grid-column: 1 / -1; margin-top: 0; }
+.tri + .shot-meta { margin-top: 28px; max-width: 62em; }
+.pair { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.pair--tall { max-width: 760px; }
+.plate--type { margin: 44px 0 0; max-width: 520px; }
+.demo-row { display: grid; grid-template-columns: 1fr 1fr; gap: 24px 32px; align-items: start; }
+.demo-row .stage { max-width: 520px; margin: 0; }
+.demo-row > div { min-width: 0; }
+.demo-row .shot-meta { margin-top: 12px; }
+/* sampled values under each crop */
+.crops { display: grid; grid-template-columns: 5.5em repeat(3, minmax(0, 1fr)); gap: 8px 14px; align-items: center; max-width: 900px; color: var(--fg-3); }
+.crops .val { color: var(--fg-2); padding-bottom: 14px; font-variant-numeric: tabular-nums; }
+.crops + .shot-meta { margin-top: 12px; max-width: 62em; }
+/* a chain: where the file comes from, Halo Pro, where it goes */
+.chains { border-top: 1px solid var(--line); }
+.chain { display: grid; grid-template-columns: 9em 1fr; gap: 6px 24px; padding: 18px 0; border-bottom: 1px solid var(--line); align-items: baseline; color: var(--fg-3); }
+.chain ol { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 6px 0; font-family: var(--mono); font-size: 13px; color: var(--fg-2); }
+.chain li + li::before { content: "→"; margin: 0 .9em; color: var(--fg-3); }
+.chain li.is-halo { color: var(--fg); }
+.chain li.is-halo { text-decoration: underline; text-decoration-color: var(--red); text-underline-offset: 5px; text-decoration-thickness: 1px; }
+.chains + .shot-meta { margin-top: 16px; max-width: 62em; }
+#files .spec { margin-top: 8px; }
+@media (max-width: 760px) {
+  .duo, .pair, .demo-row { grid-template-columns: 1fr; }
+  .views { grid-template-columns: 1fr 1fr; }
+  .tri-head { display: none; }
+  .tri { grid-template-columns: 1fr; gap: 10px; }
+  .tri-i::after { content: attr(data-l); display: block; margin-top: 6px; font-family: var(--mono); font-size: 13px; color: var(--fg-3); }
+  .tri--tall { grid-template-columns: repeat(3, 1fr); gap: 6px; }
+  .pair--tall { grid-template-columns: 1fr 1fr; gap: 8px; }
+  .hero h1 { font-size: 29px; }
+  .crops { grid-template-columns: 3.6em repeat(3, minmax(0, 1fr)); gap: 6px 8px; }
+  .chain { grid-template-columns: 1fr; }
+}
