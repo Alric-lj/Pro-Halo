@@ -85,10 +85,12 @@ p { margin: 0 0 1em; }
 /* ---------- nav ---------- */
 .nav {
   position: fixed; top: 0; left: 0; right: 0; z-index: 30;
-  background: linear-gradient(to bottom, rgba(7,7,7,.85), rgba(7,7,7,0));
-  transition: background .3s ease, border-color .3s ease; border-bottom: 1px solid transparent;
+  background: var(--bg);
+  transition: border-color .3s ease; border-bottom: 1px solid transparent;
 }
-.nav.is-scrolled { background: rgba(7,7,7,.78); -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px); border-bottom-color: var(--line); }
+.nav.is-scrolled { border-bottom-color: var(--line); }
+.nav-get { font-size: var(--t-small); font-weight: 500; color: var(--fg); text-decoration: none; border-bottom: 1px solid var(--line-2); padding-bottom: 3px; white-space: nowrap; }
+.nav-get:hover { border-bottom-color: var(--red); }
 .nav .wrap { display: flex; align-items: center; justify-content: space-between; height: 72px; gap: 24px; }
 .brand { display: flex; align-items: center; gap: 12px; text-decoration: none; }
 .brand svg { width: 22px; height: 22px; flex: none; }
@@ -783,3 +785,80 @@ html:not(.js) .nav-toggle, html:not(.js) .toggle, html:not(.js) .tour-tabs, html
   .fig-still .still-full { display: none; }
   .fig-still .still-short { display: inline; }
 }
+
+/* ---------------- The shown page (Nov 2026): every comparison flips in place, in register ---------------- */
+/* .flip: renders of one file stacked; the labels over the frame (or a click on the picture) choose which one shows */
+.flip { margin: 44px 0 0; }
+.flip-tabs { display: flex; flex-wrap: wrap; gap: 0 22px; margin-bottom: 10px; }
+.flip-tabs button { font: 13px/1.5 var(--mono); color: var(--fg-3); background: none; border: 0; border-bottom: 1px solid var(--line-2); padding: 6px 0 5px; cursor: pointer; }
+.flip-tabs button:hover { color: var(--fg); border-bottom-color: var(--fg-3); }
+.flip-tabs button[aria-pressed="true"] { color: var(--red); border-bottom-color: var(--red); }
+.flip-frame { display: grid; border-radius: 3px; overflow: hidden; background: #000; cursor: pointer; }
+.flip-frame img { grid-area: 1 / 1; display: block; width: 100%; height: auto; }
+.js .flip-frame img:not(.is-on) { visibility: hidden; }
+.flip .cap { margin-top: 10px; max-width: 62em; }
+html:not(.js) .flip-frame { grid-auto-flow: column; grid-auto-columns: 1fr; gap: 8px; }
+html:not(.js) .flip-frame img { grid-area: auto; }
+html:not(.js) .flip-tabs { display: none; }
+/* the first screen: one sentence and the terms side by side, then the picture */
+.hero-row { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 560px); gap: 20px 72px; align-items: start; margin-top: 26px; }
+.hero-row .terms { font-family: inherit; font-size: var(--t-small); line-height: 1.55; color: var(--fg-2); max-width: 34em; }
+.hero-row .hero-sub, .hero-row .terms { margin-top: 0; }
+.hero-row .hero-links { margin-top: 16px; }
+.hero h1 { max-width: none; text-wrap: balance; }
+.hero .flip { margin-top: 32px; }
+/* text beside a picture; --flip puts the picture on the left, --after follows a full-width plate */
+.beside { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 560px); gap: 32px 72px; align-items: start; }
+.beside .s-head { margin-bottom: 24px; }
+.beside .flip { margin-top: 0; }
+.beside .s-more { margin-top: 0; }
+.beside--flip { grid-template-columns: minmax(0, 560px) minmax(0, 1fr); }
+.beside--flip > .flip { order: -1; }
+.beside--after { margin-top: 72px; }
+.trio { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; margin: 44px 0 0; }
+.trio div { min-width: 0; }
+.trio img { display: block; width: 100%; height: auto; border-radius: 3px; background: #000; }
+.trio span { display: block; margin-top: 8px; font: 13px/1.5 var(--mono); color: var(--fg-3); }
+.trio .cap { grid-column: 1 / -1; margin-top: 0; }
+.s-more + .flip, .s-more + .trio, .s-more + .stage { margin-top: 36px; }
+.s-more--lead { margin-top: 72px; }
+.flip + .s-more--lead { margin-top: 72px; }
+.end-links { margin-top: 44px; }
+.end-links + .more { margin-top: 44px; }
+/* workflow rows, licence rows and the facts under them share one label column and one text measure */
+.flows { margin-top: 44px; border-top: 1px solid var(--line); }
+.flow, #pro .facts--rows p { display: grid; grid-template-columns: calc(15em + 24px) minmax(0, 1fr); gap: 6px 24px; align-items: baseline; }
+.flow { padding: 16px 0; border-bottom: 1px solid var(--line); }
+.flow > span { font: 13px/1.6 var(--mono); color: var(--fg-3); }
+.flow p { margin: 0; color: var(--fg-2); max-width: 38em; }
+.flows + .s-more { margin-top: 28px; }
+#pro .facts--rows { margin-top: 0; padding-top: 0; border-top: 0; gap: 0; }
+#pro .facts--rows p { padding: 16px 0; border-bottom: 1px solid var(--line); max-width: none; }
+#pro .facts--rows p > :not(.mono), #pro .facts--rows p { color: var(--fg-2); }
+#pro .facts--rows p { grid-template-columns: calc(15em + 24px) minmax(0, 38em); }
+.fold-rows { border-top: 1px solid var(--line) !important; }
+.section { padding: 112px 0; }
+@media (max-width: 900px) {
+  .beside, .beside--flip { grid-template-columns: 1fr; }
+  .beside .flip { max-width: 560px; }
+  .beside--flip > .flip { order: 0; }
+  .beside--after { margin-top: 48px; }
+  .hero-row { grid-template-columns: 1fr; }
+  .section { padding: 84px 0; }
+}
+@media (max-width: 760px) {
+  .flip-tabs button { min-height: 44px; padding-top: 12px; }
+  /* phones: the picture comes straight after the two sentences, the terms and links after it */
+  .hero-copy { display: flex; flex-direction: column; }
+  .hero-row { display: contents; }
+  .hero-row .hero-sub { order: 1; margin-top: 16px; }
+  .hero .flip { order: 2; margin-top: 18px; }
+  .hero-row > div { order: 3; margin-top: 28px; }
+  .hero .flip-frame img { aspect-ratio: 4 / 3; object-fit: cover; object-position: 22% 0; }
+  .trio { grid-template-columns: 1fr; gap: 22px; }
+  /* the ridge detail is a strip on desktop; on a phone it shows the figure and the tree, taller */
+  .flip--ridge .flip-frame img { aspect-ratio: 4 / 3; object-fit: cover; object-position: 72% 50%; }
+  .flow, #pro .facts--rows p { grid-template-columns: 1fr; }
+}
+.beside .flip--inline { margin: 28px 0 32px; max-width: 520px; }
+@media (max-width: 760px) { .wide-only { display: none; } }

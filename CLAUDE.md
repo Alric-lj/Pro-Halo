@@ -25,13 +25,13 @@ Owner: Alric Ljunghager (photographer, Stockholm). Hosted on GitHub Pages from `
 Sources: lomography.com articles on the anti-halation layer, remjet, ECN-2 (linked in the footer).
 
 ## What the app actually does (don't overclaim)
-Source code lives in `~/Documents/HALOPRO3 mythos 1` (PyQt5, Metal; private repo). The site describes **Halo Pro 2.2.0
-beta** (app `main`, 2 Nov 2026; DMG in its `releases/`). Facts checked against that code and its manual
+Source code lives in `~/Documents/HALOPRO3 mythos 1` (PyQt5, Metal; private repo). The site describes **Halo Pro 2.3.0
+beta** (app `main`, 5 Nov 2026; DMG in its `releases/`; `docs/release-notes-2.3.md`). Facts checked against that code and its manual
 (`halo_pro/resources/manual.html`); the change spec and reviews are in the app repo `docs/designs/website-2.2.md`.
 - Pipeline: Exposure/Contrast → LUT if "Apply before halation" → Halation → Mist → LUT if not → Bloom/Grain.
   **One** LUT. float32 throughout. The glow is measured on the photo as opened (Exposure/LUT don't move it).
-- Halation 2.x: worked out in linear light with the file's own tone curve (the file's own primaries, so not yet the
-  same glow colour in every colour space); adds light only where the glow spreads past a bright area; tight core +
+- Halation 2.x: worked out in linear light with the file's own tone curve (one working colour space since 2.3: the same
+  glow and mist in sRGB, Display P3, Adobe RGB and ProPhoto RGB); adds light only where the glow spreads past a bright area; tight core +
   soft tail (a bell, not a TIR ring); blue light makes no glow. Default width/strength were tuned against measured
   reference looks (don't name or headline the comparison). The Default look also has Warmth on highlights 1
   (bright surfaces a touch warmer, blue down up to ~6/255) and Mist on at Density 0.30.
@@ -55,10 +55,10 @@ beta** (app `main`, 2 Nov 2026; DMG in its `releases/`). Facts checked against t
 - **No Lightroom plug-in.** "Lightroom Mode": a TIFF from Lightroom Classic's Edit In; "Save and return" writes a
   16-bit TIFF back. Pro-only. Batch Mode (2+ images, up to 500; loading stops below 1.5 GB free RAM) is the other
   Pro gate. Everything else is in Free (with a licence screen at launch). Key: on the Gumroad download page.
-- macOS 14 or later, Apple Silicon only, notarized. v1.0 8 Sep 2026; 2.0 beta 31 Oct, 2.1 1 Nov, 2.2 2 Nov 2026.
+- macOS 14 or later, Apple Silicon only, notarized. v1.0 8 Sep 2026; 2.0 beta 31 Oct, 2.1 1 Nov, 2.2 2 Nov, 2.3 5 Nov 2026.
   Known limits (say them): fine diagonal stripes can band; Size above ~5 can land unevenly on faces and trees.
 - Coming next (release notes): new control panel with Film/Creative sections and starting looks; a better big glow,
-  a halation ring, light streaks, oval glow, white bloom; colour management (same glow colour everywhere, EXR,
+  a halation ring, light streaks, oval glow, white bloom; colour management (more export colour spaces, EXR,
   HEIC, raw). Frame streaks/oval/bloom as creative tools, not physics.
 - Screenshots in `img/app/` and light renders in `img/light/` come from the real app; the capture tools live in the
   private app repo (`tools/website_shots/`) because they unlock Pro in memory. Never copy them into this public repo.
@@ -78,7 +78,7 @@ Links: `https://alriclj.gumroad.com/l/HALO_PRO?variant=<Halo%20Pro | Halo%20Pro%
   `stage-build/` (committed; the page loads `stage-build/halo-stage.js` and `.css`). Film with
   `node scripts/film.mjs <url> --select '#example' --gate` (Chrome must run outside the Bash sandbox). Every demo passes
   the gate at desktop and 390 before it ships; posters are `--still` frames of `#example .ss-stage`.
-  Order (11 Nov 2026, the argument page; rules in `DESIGN.md`): what it is (export + Glow Preview) → What halation is → What a red blur does to a photograph → How Halo Pro reads the file (views 0, 1, 2, 7) → A white shirt is not a lamp → What it leaves alone → Mist → Further than film → Where it sits in a chain → Files, speed and limits → Licence. Plates in `img/pro/` are real app captures and exports of the owner's photographs. Long parts fold behind "Read more" (`details.more`).
+  Order (10 Nov 2026, the shown page; rules in `DESIGN.md`): the look (facade at dusk, as opened / Halo Pro) → How the glow forms, and how you set it (lights at 35 mm and 16 mm; the window demo) → Bright areas keep their colour (ridge: as opened / red blur / Halo Pro; backlit hair) → Mist → Further than film (light trails, type) → Where it sits in a workflow → Licence and limits. Comparisons are `.flip` figures that switch in place. Pictures in `img/show/` are real exports of the owner's bank photographs, halation only, settings in each caption; shot lists stay out of this repo. Three folds ("Read more", `details.more`). Before showing the owner a page, give screenshots to a reader with no context and ask what each picture shows.
 - `style.css` — tokens in `:root` (colours, and the six type sizes `--t-small` … `--t-display`). Fonts: Inter Tight + IBM Plex Mono (Google Fonts). Red glow (`--glow`) only on display-size red type (owner's request); the red second line only on the hero, the Light path heading and the note's title (owner, 2 Nov 2026).
 - `img/app/` — real app screenshots and exports. `img/ex*`, `hero-wave.jpg` — older images, unused by v4. `_old/` — previous versions, reference only.
 - `HANDOFF.md` — state of the v4 redesign, open decisions, publish checklist.

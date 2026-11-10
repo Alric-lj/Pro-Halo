@@ -92,8 +92,8 @@ export function PanelTabs({ tab = 0, panel = 0 }: { tab?: number; panel?: number
 }
 
 /** The Halation › Effect panel at its real anatomy; pass values for the ones the story moves. */
-export function EffectPanel({ amount = 1, size = 1, format = '35 mm', rolloff = 0, startsAt = 1.9, compact, presetTarget, presetMenu, formatMenu, children, style }: {
-  amount?: number; size?: number; format?: string; rolloff?: number; startsAt?: number; compact?: boolean; presetTarget?: string; presetMenu?: ReactNode; formatMenu?: ReactNode; children?: ReactNode; style?: CSSProperties
+export function EffectPanel({ amount = 1, size = 1, format = '35 mm', rolloff = 0, startsAt = 1.9, compact, short, presetTarget, presetMenu, formatMenu, children, style }: {
+  amount?: number; size?: number; format?: string; rolloff?: number; startsAt?: number; compact?: boolean; short?: boolean; presetTarget?: string; presetMenu?: ReactNode; formatMenu?: ReactNode; children?: ReactNode; style?: CSSProperties
 }) {
   // The phone column shows the panel's top rows only: the Halation switch, Glow and Amount
   if (compact) {
@@ -116,11 +116,14 @@ export function EffectPanel({ amount = 1, size = 1, format = '35 mm', rolloff = 
       <MenuValue label="Format" value={format} target="format" menu={formatMenu} />
       <Slider label="Roll-off" value={rolloff} max={1} target="rolloff" />
       <Section>Start</Section>
-      <Slider label="Starts at" value={startsAt} max={6} target="starts" />
-      <Slider label="Softness of start" value={1} max={3} filler />
-      <Section>Color &amp; Landing</Section>
-      <Slider label="Green return" value={1} max={2} filler />
-      <Slider label="Landing" value={0.05} max={1} filler />
+      <Slider label="Starts at" value={startsAt} max={8} target="starts" />
+      {/* short: the panel ends on the whole Start group, inside a whole window (nothing runs off an edge) */}
+      <Slider label="Softness of start" value={1} max={3} filler={!short} />
+      {!short && <>
+        <Section>Color &amp; Landing</Section>
+        <Slider label="Green return" value={1} max={2} filler />
+        <Slider label="Landing" value={0.05} max={1} filler />
+      </>}
       {children}
     </div>
   )

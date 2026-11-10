@@ -133,7 +133,62 @@ now Why Halo Pro · Compare · Light path · Pricing · Technical note; the shar
 no longer mention a red blur before it is introduced; the red-first light-path step lost its wavelength detail;
 small fixes ("a tuned starting point", "they are for checking").
 
-## The argument page (10–11 Nov 2026, branch `pro-argument`, not live)
+## The shown page (10 Nov 2026, branch `shown-page`, not live)
+
+Alric's verdict on the argument page: "I don't think it makes sense. It's hard to follow, and the examples are not good
+and some are not even relevant." An audit (my read and two readers with no context) agreed: in every comparison the Halo
+Pro picture looked like the original, the photographs had no light sources, lab charts stood in for pictures, the same
+comparison ran three times, 11 sections and 17,000 px. He said "Rebuild it".
+
+What the page is now (seven sections, about 9,500 px at 1440, three folds; rules in `DESIGN.md`):
+1. **The look.** "Halo Pro is a halation emulator for still images.", one paragraph, terms and two links beside it, then
+   the facade at dusk as opened / Halo Pro (Format 16 mm), in the first screen on desktop and phone.
+2. **How the glow forms, and how you set it.** The physics in three sentences; a full-size detail of lights on black as
+   opened / Format 35 mm / Format 16 mm; the live window demo (facade; Amount 0 to 1, then Format to Super 8); the light
+   path in its fold (`#physics`, which the note links to; a link to a fold opens it).
+3. **Bright areas keep their colour.** A detail of the ridge photograph as opened / red blur / Halo Pro at Format 35 mm;
+   the backlit portrait as opened / Halo Pro at full width; one link to the note.
+4. **Mist, chosen after the shoot.** Lights on black, Mist off / on (Density 1.00, Spread 50, Softness 1.00), the one
+   frame in the bank where mist shows: it changes 59 % of pixels by more than 8 levels there, 13 % on the skiers against
+   the sun, under 1 % at the Default 0.30 on anything.
+5. **Further than film.** Light trails at three settings beside the text; a type graphic as saved / Halo Pro; masks in
+   one sentence.
+6. **Where it sits in a workflow.** Four rows; set-up and file specs in the fold.
+7. **Licence and limits.** The three licence rows, Requires and Beta rows in the same table, closing links, a fold with
+   install, upgrading, bug reports, coming next and the release cards.
+
+How it was made, so the next round is shorter:
+- **Render first.** 22 bank photographs through the real app at five looks each, then the strongest again halation only.
+  At Format 35 mm the glow is a hairline on these 2,048 px files, and Mist at the Default 0.30 changes almost no pixel
+  by more than 8 levels; visible pictures are Format 16 mm (said in each caption) or shown as a full-size detail.
+- **Comparisons** are `.flip` figures: renders stacked in register, labels over the frame, alternating while untouched
+  and in view. `style.css`, the block "The shown page"; the script is at the end of `index.html`.
+- **Cold reads.** Three rounds of readers with no context (colour grader, photographer, designer, a phone reader, an
+  owner stand-in) on screenshots of every state, plus fact, voice and layout checks. Rounds two and three scored 6 out of 10
+  from the four outside readers (5 from the owner stand-in in round three). By round three every comparison showed a
+  change except mist. A last pass followed and was checked by eye only, not re-read: mist moved to the lights frame at
+  the app's maximum, the window demo drawn whole, Further than film as one block, shorter copy. What holds the score
+  down is in "Not done" below: the readers want faces, lamps and a campaign frame.
+- The window demo now opens the facade (`stage/halo/img/facade-*.jpg`), is a whole window (stage 1200 × 700, the panel
+  ends on the Start group: `short` on `EffectPanel`), resets by Format and Amount, and passes the gate at 1280 and 390. The Masking, Format, Save and return and Batch demos are off the page (readers called panel fragments
+  decoration); their sources stay in `stage/examples/` and still build.
+- Shot lists, the red blur and the contact sheets are in the session scratchpad, not in this repo. The page builder was
+  `build_show.py` there; edit `index.html` directly from now on.
+- Removed from the repo: `img/pro/`, `img/why-*`, four unused demo posters, the Saab layers. `notes.html` no longer says
+  "Try Halo Pro" in its nav. `CLAUDE.md` now describes 2.3.0 (it still said 2.2).
+
+Not done, or only Alric can supply:
+- The bank has no night street, lamp or neon, no face lit by a light source, no campaign frame with clothes and greys
+  beside a light, and no 32-bit file with light above white (the seven in `small 32HDR` peak at 1.0 to 1.4 on a few
+  pixels). So skin, eyes, clothes and "a shirt is not a lamp" are said, not shown.
+- Mist is subtle in this app at any setting on a real scene. A real diffusion-filter pair, or a dark scene with point
+  lights, would make that section.
+- A real film frame with halation, beside the emulation.
+- The technical note still measures the Saab and the snow photo, not the page's new pictures; its design and the
+  Gumroad landing page are on the earlier headline.
+- The page shows the app as one drawn window. A real capture of the window, and of Glow Preview, is a small job.
+
+## The argument page (night to 10 Nov 2026, branch `pro-argument`; rejected by the owner on 10 Nov, replaced by the shown page)
 
 Owner, 10 Nov: the Returned-light site is "more adult and pro" but "not smart or inspiring", "the software is not
 represented through the design", and "try it on your photos" reads like a phone-app ad. He wants it to explain how well
@@ -163,7 +218,7 @@ What was built overnight (he said "Build it" to the plan, then went to bed):
   sky +17 vs −0.5; face crop 163 161 172 → 183 167 173 (blur) → 166 162 172 (Halo Pro); white jacket +7 vs +3.
 - Copy: eleven sections drafted, fact- and voice-checked and revised by a workflow; then a five-lens review of the
   built page (facts, voice, desktop, phone, the owner's criteria) with each finding verified before fixing.
-- Review round (11 Nov, night): 44 verified findings from five reviewers, applied. The hero's second plate is now a
+- Review round (10 Nov, early morning): 44 verified findings from five reviewers, applied. The hero's second plate is now a
   full-size crop pair at the sun (as opened / export) so the halation is seen on the first screen; "What halation is" has
   a still of the cross-section; the comparison plates carry their labels on every image; views are 2 x 2; the pricing
   cards became three plain licence rows; no "try it" is left; repeated caveats were cut; export depth for the mid-grade

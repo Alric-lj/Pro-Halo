@@ -1,7 +1,5 @@
-/* The hero: Halo Pro's window on the page's own black, one gutter top, left
-   and right, running off the bottom only: the control column at the window's
-   right is what the cursor touches, so it stays whole, and the photo pane's
-   foot is the only filler the crop takes. */
+/* The window: Halo Pro's whole window on the page's own black, one gutter on
+   every side; the panel ends on the Start group, so nothing runs off an edge. */
 .hh .ss-stage { overflow: hidden; background: #0b0a09; }
 
 .hh-win {
@@ -13,13 +11,13 @@
 }
 .hh .ss-stage[data-layout='compact'] .hh-win { left: 16px; top: 14px; width: 326px; }
 
-.hh-body { display: grid; grid-template-columns: minmax(0, 1fr) 300px; min-height: 680px; }
+.hh-body { display: grid; grid-template-columns: minmax(0, 1fr) 300px; height: 628px; overflow: hidden; }
 /* On a phone the photo sits over the controls: one column, the pane first */
-.hh-body[data-layout='compact'] { grid-template-columns: 1fr; min-height: 380px; }
+.hh-body[data-layout='compact'] { grid-template-columns: 1fr; height: auto; min-height: 380px; overflow: visible; }
 .hh-body[data-layout='compact'] .hh-photo { margin: 6px 14px 0; aspect-ratio: 2 / 1; }
 .hh-body[data-layout='compact'] .hh-panel .halo-panel { height: auto; }
 
-.hh-photo { margin: 24px 0 24px 24px; border-radius: 2px; }
+.hh-photo { margin: 24px; border-radius: 2px; }
 
 .hh-panel { position: relative; min-width: 0; }
 .hh-panel .halo-panel { height: 100%; }

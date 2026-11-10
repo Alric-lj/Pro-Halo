@@ -43,20 +43,36 @@ Six sizes (`--t-small` 14, `--t-body` 17, `--t-lead` 21, `--t-head` 24–30, `--
 
 ## Layout
 
-The page is one argument, in the order a colour grader would test it, and the software is shown the way it sees a
-file. Order: what it is (the export beside Glow Preview, terms as fact, text links) · what halation is · what a red
-blur does to a photograph · how Halo Pro reads the file (the app's own views) · a white shirt is not a lamp · what it
-leaves alone · mist · further than film · where it sits in a chain · files, speed and limits · licence and who made it.
+The page shows before it argues (rebuilt 10 Nov 2026, after the owner rejected a page whose Halo Pro pictures looked
+like the originals: "hard to follow", "the examples are not good and some are not even relevant"). Order: the look (one
+sentence, terms as fact, text links, one photograph as opened and through Halo Pro) · how the glow forms and how you
+set it (lights on black at Format 35 mm and 16 mm; the window) · bright areas keep their colour (as opened, red blur,
+Halo Pro on one frame; a backlit portrait) · mist · further than film (range, colour, type, masks in a sentence) ·
+where it sits in a workflow · licence and limits.
 
-One reading column (about 38 em for prose, 1280 max for plates). A plate is a photograph, a view or a figure on the
-ground with a mono caption that starts with what it is: Export, View, Photograph, our render, Demo. Comparisons sit
-side by side on the same file, never a screen apart. One settings sheet for the argument plates (halation only:
-Mist off, Warmth on highlights 0, Format 35 mm, Amount 1), printed once. Limits sit beside the claim they qualify.
-No tiles, no counters, no "try it": the calls to action are plain text links (Download, Buy the Pro licence, Read the
-measurements). Long parts fold behind "Read more" (`details.more`).
+Pictures:
+- Every picture shows a difference from its neighbour at the size it is displayed, or it is cut. The test: a reader
+  with no context, given screenshots, says what changed without the caption. Run it before the owner sees a page.
+- Photographs with a light in them, bright against dark: lit edges at dusk, lights on black, a sky behind a ridge,
+  backlit hair, light trails, white type on black. Fog, overcast and flat-lit clothes have nothing to halate.
+- Halation pictures are halation only (Mist off, Warmth on highlights 0), settings in the caption. At Format 35 mm the
+  glow is a hairline on a 2,000 px file at web size, so the page's pictures are Format 16 mm and say so; 35 mm is shown
+  once, in the lights comparison. What it adds comes before what it leaves alone.
+- A comparison switches in place (`.flip`: the renders stacked in register, mono labels over the frame, the selected one
+  brass; it alternates while untouched and in view, holds on a click, is static under reduced motion and a plain row
+  without JavaScript). On a phone the labels stay on one row.
+- One comparison per claim. The red blur is our own render, used once, on a frame where all three states differ.
+- No lab charts, clip art, tables of levels or panel fragments on the main page; measurements live in the technical note.
+- A picture may be reused only inside the window demo (the first photograph, open in the app).
 
-Live demos (the stageshow kit, built into `stage-build/`) stay only where they show a control: the window with the
-Amount and Format story, Masking, Format, Save and return, Batch. The app's own look inside them is the app's.
+One reading column (about 38 em for prose, 1200 for plates). Text sits beside a picture (`.beside`) where the picture
+is square or tall, and the side alternates. A caption starts with what the picture is (Photograph, Export, Graphic,
+Demo) and runs to two sentences at most. Workflow rows, licence rows and the facts under them share one label column.
+Limits sit once, by the price. No tiles, no counters, no "try it", no menu paths as decoration: the calls to action
+are plain text links, in the nav too. At most three folds ("Read more", `details.more`).
+
+The one live demo (the stageshow kit, built into `stage-build/`) is the app's window with the first photograph open:
+Amount from 0 to 1, then Format to Super 8. The app's own look inside it is the app's.
 
 ## The mark
 
