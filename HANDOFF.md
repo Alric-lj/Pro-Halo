@@ -133,6 +133,21 @@ now Why Halo Pro · Compare · Light path · Pricing · Technical note; the shar
 no longer mention a red blur before it is introduced; the red-first light-path step lost its wavelength detail;
 small fixes ("a tuned starting point", "they are for checking").
 
+## The cook page (14 Nov 2026, branch `cook-site`, live on halopro.app)
+
+Built with the cook method (github.com/Leonxlnx/cook): reference screens of strong product sites as the bar (Final Cut
+Pro, Pixelmator Pro, Hasselblad, Halide, Linear, Teenage Engineering; kept in the local, ignored `cook/` folder), eight
+rounds of build, stills and zero-context critics. Ledger: `cook/ROUNDS.md` (local).
+
+- Files: `index.html` (built from a data block; edit it directly now) and `home.css` (Inter Tight, black, pill switches).
+  `style.css` stays for `notes.html`. Pictures in `img/cook/`.
+- Sections: hero (facade, halation only, 16 mm, Roll-off 0.5) · the real window (light trails) and three facts · Made with
+  Halo Pro (fjord, lights, column, water; one switch) · Bright areas keep their colour (ridge: as opened, red blur, Halo Pro;
+  backlit hair) · Beside Lightroom's Halation (each test bar, Lightroom 10.0 Spread 0 beside Halo Pro Super 8, three measured
+  numbers) · Mist · Workflow chain and rows · Price.
+- Owner, 14 Nov: the bars are enough for Lightroom (no photo needed); campaign photos, lamps, a 32-bit file and mist come later.
+- Critic averages levelled at about 6.5/10 (imagery about 5); every reader asked for those missing photographs.
+
 ## The shown page (10 Nov 2026, branch `shown-page`, not live)
 
 Alric's verdict on the argument page: "I don't think it makes sense. It's hard to follow, and the examples are not good

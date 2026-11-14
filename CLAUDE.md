@@ -78,7 +78,8 @@ Links: `https://alriclj.gumroad.com/l/HALO_PRO?variant=<Halo%20Pro | Halo%20Pro%
   `stage-build/` (committed; the page loads `stage-build/halo-stage.js` and `.css`). Film with
   `node scripts/film.mjs <url> --select '#example' --gate` (Chrome must run outside the Bash sandbox). Every demo passes
   the gate at desktop and 390 before it ships; posters are `--still` frames of `#example .ss-stage`.
-  Order (10 Nov 2026, the shown page; rules in `DESIGN.md`): the look (facade at dusk, as opened / Halo Pro) → How the glow forms, and how you set it (lights at 35 mm and 16 mm; the window demo) → Bright areas keep their colour (ridge: as opened / red blur / Halo Pro; backlit hair) → Mist → Further than film (light trails, type) → Where it sits in a workflow → Licence and limits. Comparisons are `.flip` figures that switch in place. Pictures in `img/show/` are real exports of the owner's bank photographs, halation only, settings in each caption; shot lists stay out of this repo. Three folds ("Read more", `details.more`). Before showing the owner a page, give screenshots to a reader with no context and ask what each picture shows.
+  Since 14 Nov 2026 the main page is the cook page: `index.html` + `home.css` (Inter Tight, black), pictures in `img/cook/`;
+  `style.css` serves `notes.html` only. Order and decisions: HANDOFF.md, "The cook page".
 - `style.css` — tokens in `:root` (colours, and the six type sizes `--t-small` … `--t-display`). Fonts: Inter Tight + IBM Plex Mono (Google Fonts). Red glow (`--glow`) only on display-size red type (owner's request); the red second line only on the hero, the Light path heading and the note's title (owner, 2 Nov 2026).
 - `img/app/` — real app screenshots and exports. `img/ex*`, `hero-wave.jpg` — older images, unused by v4. `_old/` — previous versions, reference only.
 - `HANDOFF.md` — state of the v4 redesign, open decisions, publish checklist.
