@@ -5,15 +5,15 @@
 
 :root {
   /* Returned light (Nov 2026): near-black ground, warm off-white text, one warm colour that is only ever the glow */
-  --bg: #0b0a09;
-  --bg-2: #121110;
-  --bg-3: #191816;
-  --line: rgba(232, 227, 218, 0.1);
-  --line-2: rgba(232, 227, 218, 0.2);
-  --fg: #e8e3da;
-  --fg-2: #a69f95;
-  --fg-3: #837c73;  /* 5:1 on --bg */
-  --red: #c27a3e;        /* the glow: brass sampled from the chrome strip's halo; selected state, errors, the mark */
+  --bg: #000;
+  --bg-2: #0d0d0e;
+  --bg-3: #161617;
+  --line: rgba(255, 255, 255, 0.12);
+  --line-2: rgba(255, 255, 255, 0.22);
+  --fg: #f5f5f7;
+  --fg-2: #a1a1a6;
+  --fg-3: #86868b;
+  --red: #ff8a4c;        /* the glow: brass sampled from the chrome strip's halo; selected state, errors, the mark */
   --glow: none;          /* no glow on type */
   --red-2: #9a5c2a;
   --amber: #f2b37a;      /* the hot core, figures only */
@@ -21,7 +21,7 @@
   --blue-l: #5b7cff;
   --green-l: #3fd07c;
 
-  --sans: "Source Serif 4", Georgia, "Times New Roman", serif;  /* one text face at regular weight, display to body */
+  --sans: "Inter Tight", "Inter", -apple-system, "Helvetica Neue", Arial, sans-serif;  /* the main page's face (Nov 2026) */
   --mono: "IBM Plex Mono", "SF Mono", Menlo, monospace;
 
   /* six sizes, far apart; mono labels are set at 13px, which reads as the small step */
@@ -51,7 +51,7 @@ body {
 }
 a { color: inherit; }
 img, svg, canvas { display: block; max-width: 100%; }
-h1, h2, h3, h4 { margin: 0; font-weight: 400; letter-spacing: -0.01em; line-height: 1; }
+h1, h2, h3, h4 { margin: 0; font-weight: 600; letter-spacing: -0.02em; line-height: 1.05; text-wrap: balance; }
 p { margin: 0 0 1em; }
 ::selection { background: var(--red); color: #000; }
 
@@ -69,7 +69,7 @@ p { margin: 0 0 1em; }
 .btn {
   display: inline-flex; align-items: center; gap: 10px;
   font-size: var(--t-small); font-weight: 500;
-  text-decoration: none; padding: 13px 20px; border-radius: 4px;
+  text-decoration: none; padding: 13px 22px; border-radius: 980px;
   border: 1px solid var(--line-2); color: var(--fg); background: transparent;
   transition: background .2s ease, color .2s ease, border-color .2s ease;
 }
@@ -152,10 +152,10 @@ p { margin: 0 0 1em; }
 .step p { color: var(--fg-2); max-width: 26em; }
 .step p strong { color: var(--fg); font-weight: 500; }
 
-.toggle { display: inline-flex; border: 1px solid var(--line-2); border-radius: 6px; padding: 3px; }
+.toggle { display: inline-flex; background: var(--bg-3); border-radius: 980px; padding: 4px; }
 .toggle button {
   font-family: var(--sans); font-size: var(--t-small); font-weight: 500;
-  background: transparent; color: var(--fg-2); border: 0; padding: 9px 14px; border-radius: 4px; cursor: pointer;
+  background: transparent; color: var(--fg-2); border: 0; padding: 9px 14px; border-radius: 980px; cursor: pointer;
 }
 .toggle button.is-on { background: var(--fg); color: #000; }
 .fig-cap { margin: 12px 0 0; font-size: var(--t-small); color: var(--fg-2); max-width: 40em; }
