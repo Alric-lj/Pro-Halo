@@ -1,1 +1,4 @@
 .DS_Store
+# cook run state: local working files, reference screenshots of other sites, never published
+/cook/
+/cook-archive/
