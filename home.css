@@ -201,3 +201,12 @@ html:not(.js) .flip-tabs { display: none; }
 .chain li.is-hp span { color: #3a3a3c; }
 .chain li + li::before { content: ""; position: absolute; left: -10px; top: 50%; width: 7px; height: 7px; border-top: 2px solid var(--fg-2); border-right: 2px solid var(--fg-2); transform: translateY(-50%) rotate(45deg); }
 @media (max-width: 900px) { .chain { grid-template-columns: 1fr; gap: 10px; } .chain li { min-height: 0; padding: 16px 18px; } .chain li + li::before { left: 50%; top: -8px; transform: translateX(-50%) rotate(135deg); } }
+/* questions: native details, readable without script and by crawlers */
+.qas { margin-top: 48px; border-top: 1px solid var(--line); max-width: 900px; }
+.qa { border-bottom: 1px solid var(--line); }
+.qa > summary { list-style: none; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 24px; padding: 22px 0; }
+.qa > summary::-webkit-details-marker { display: none; }
+.qa > summary h3 { font-size: 21px; line-height: 1.3; font-weight: 500; letter-spacing: -.01em; }
+.qa > summary::after { content: "+"; font-size: 24px; color: var(--fg-2); flex: none; }
+.qa[open] > summary::after { content: "\2212"; }
+.qa p { margin: 0 0 24px; color: var(--fg-2); max-width: 46em; }

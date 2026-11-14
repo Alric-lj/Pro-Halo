@@ -1,0 +1,29 @@
+# Halo Pro
+
+> Halo Pro is a halation emulator for the Mac. It adds the red-orange glow that colour film puts around bright lights to digital photographs, formed beside the brightest lights in the picture, plus a mist (diffusion filter) look. Free for personal use; €20 once for paid work. By Alric Ljunghager, a photographer in Stockholm.
+
+## What it does
+- Forms film halation from the light already in the file: the glow lands beside bright lights, in the colour of the light, and stays off evenly lit surfaces. Red and orange light glow; blue light makes no glow, as in colour negative film.
+- Film formats set how far the glow spreads: Super 8, 16 mm, 35 mm, 645, 6x6 / 6x7, 4x5.
+- Mist is a separate stage after the halation, like a mist filter on the lens.
+- Processing is 32-bit float throughout. A 32-bit float TIFF export keeps light above white. The file keeps its colour profile (sRGB, Display P3, Adobe RGB, ProPhoto RGB).
+- Masks: Luminance Range, Sky Protection, Color Mask.
+
+## Compared with Lightroom's Halation
+On one test file (Lightroom 10.0, Halation at Spread 0, against Halo Pro at Format Super 8, Amount 1, halation only), Lightroom recoloured 36% of the bar pixels by more than 8 levels and turned a light grey of 210 pink (253, 213, 214); Halo Pro moved 2.7% and left the grey at 210. Lightroom gave red light no glow; Halo Pro glows red and orange and gives blue none.
+
+## Workflow
+- Stand-alone Mac app, not a plug-in. Opens TIFF, PNG, JPEG, BMP and WebP, including 16-bit and 32-bit float TIFF. No raw, DNG or HEIC yet: send a TIFF from the raw developer.
+- Lightroom Classic round trip through Edit In; Save and return writes a 16-bit TIFF back (paid licence).
+- Batch Mode for up to 500 files (paid licence).
+- A 12-megapixel export takes about 0.9 s on an M3 Max.
+
+## Requirements and price
+- macOS 14 or later, Apple Silicon (M1 or newer). Up to 100 MP and 500 MB per file. Signed and notarised by Apple.
+- Free: personal use, every control, full-resolution export. Halo Pro: €20 once, paid work, adds the Lightroom round trip and Batch Mode. Organisation: €60 once. No subscription.
+- Current version: 2.3 beta (November 2026). Known limits: very fine diagonal stripes can show bands in the glow; very big glows (Size above about 5) can land unevenly on faces and trees.
+
+## Links
+- [Halo Pro](https://halopro.app/): the main page, with examples made with Halo Pro
+- [Technical note](https://halopro.app/notes.html): how the glow was measured, with every setting printed
+- [Download and licences](https://alriclj.gumroad.com/l/HALO_PRO)
