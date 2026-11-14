@@ -12,7 +12,7 @@
   --mono: "IBM Plex Mono", ui-monospace, Menlo, monospace;
   --wrap: 1200px;
   --gut: 40px;
-  --t-hero: clamp(48px, 7.4vw, 108px);
+  --t-hero: clamp(44px, 5.6vw, 84px);
   --t-h2: clamp(36px, 5vw, 72px);
   --t-lead: clamp(19px, 1.7vw, 24px);
   --t-body: 17px;
@@ -40,7 +40,7 @@ h1, h2, h3, p { margin: 0; }
 .pill { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; padding: 0 22px; border-radius: 980px; background: var(--fg); color: #000; text-decoration: none; font-weight: 500; font-size: var(--t-body); white-space: nowrap; }
 .pill:hover { background: #fff; }
 .pill--small { min-height: 30px; padding: 0 14px; font-size: var(--t-small); }
-.textlink { text-decoration: none; color: var(--warm); font-size: var(--t-body); white-space: nowrap; }
+.textlink { text-decoration: none; color: var(--fg); font-size: var(--t-body); white-space: nowrap; }
 .textlink:hover { text-decoration: underline; text-underline-offset: 4px; }
 .textlink::after { content: " \203A"; }
 
@@ -56,16 +56,16 @@ h2 { font-size: var(--t-h2); line-height: 1.04; letter-spacing: -.03em; font-wei
 .head--c .lead { margin-left: auto; margin-right: auto; max-width: 720px; }
 .acts { display: flex; flex-wrap: wrap; align-items: center; gap: 14px 28px; margin-top: 36px; }
 .head--c .acts { justify-content: center; }
-.terms { margin-top: 18px; font-size: var(--t-small); color: var(--fg-3); }
-.cap { margin-top: 14px; font-size: var(--t-small); line-height: 1.5; color: var(--fg-3); max-width: 760px; }
+.terms { margin-top: 18px; font-size: var(--t-small); color: var(--fg-2); }
+.cap { margin-top: 14px; font-size: var(--t-small); line-height: 1.5; color: var(--fg-2); max-width: 760px; }
 .cap b { color: var(--fg-2); font-weight: 500; }
 
 /* hero */
-.hero { padding-top: 64px; }
+.hero { padding-top: 56px; }
 .hero .head { max-width: 1120px; }
 .hero .lead { max-width: 640px; }
 .hero .acts { margin-top: 28px; }
-.hero .stagewide { margin-top: 48px; }
+.hero .stagewide { margin-top: 40px; }
 
 /* full-bleed and wide plates */
 .stagewide { margin: 72px auto 0; max-width: 1600px; padding: 0 var(--gut); }
@@ -81,7 +81,7 @@ h2 { font-size: var(--t-h2); line-height: 1.04; letter-spacing: -.03em; font-wei
 .flip-tabs button { font: 500 var(--t-small)/1 var(--sans); color: var(--fg-2); background: none; border: 0; border-radius: 980px; padding: 9px 16px; cursor: pointer; }
 .flip-tabs button:hover { color: var(--fg); }
 .flip-tabs button[aria-pressed="true"] { background: var(--fg); color: #000; }
-.flip--overlay .flip-tabs { position: absolute; left: 50%; bottom: 22px; transform: translateX(-50%); margin: 0; background: rgba(22, 22, 23, .78); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); z-index: 2; }
+.flip--overlay .flip-tabs { position: absolute; left: 16px; top: 16px; margin: 0; background: rgba(22, 22, 23, .78); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); z-index: 2; }
 .flip .cap { margin-top: 14px; }
 .bleed .cap { padding: 0 var(--gut); margin-left: auto; margin-right: auto; max-width: calc(var(--wrap) + 2 * var(--gut)); }
 html:not(.js) .flip-frame { grid-auto-flow: column; grid-auto-columns: 1fr; gap: 6px; }
@@ -104,10 +104,16 @@ html:not(.js) .flip-tabs { display: none; }
 .gallery .row--12 { grid-template-columns: 1fr 2fr; align-items: start; }
 .gallery .flip-frame { border-radius: 0; }
 .gallery .flip-frame img { height: 100%; object-fit: cover; }
-.gallery .flip { position: relative; }
-.gallery .flip-tabs { position: absolute; left: 14px; bottom: 14px; margin: 0; padding: 3px; background: rgba(22, 22, 23, .74); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); z-index: 2; }
-.gallery .flip-tabs button { padding: 7px 12px; font-size: 13px; }
-.gallery figcaption { position: absolute; right: 16px; bottom: 20px; margin: 0; font-size: 13px; color: rgba(255, 255, 255, .8); text-shadow: 0 1px 8px rgba(0, 0, 0, .6); pointer-events: none; }
+.gallery .flip--quiet .flip-tabs { display: none; }
+.gallery figcaption { margin: 10px 0 0; padding: 0 var(--gut); font-size: var(--t-small); color: var(--fg-2); }
+.gallery .row--2 > .flip + .flip figcaption, .gallery .row--21 > .flip + .flip figcaption, .gallery .row--12 > .flip + .flip figcaption { padding-left: 0; }
+.flip-tabs--all { display: inline-flex; margin: 56px 0 0; }
+.flip-tabs--all + .gallery, .wrap:has(.flip-tabs--all) + .gallery { margin-top: 24px; }
+/* stacked comparison: every state visible at once */
+.stack { margin: 72px 0 0; display: grid; gap: 28px; }
+.stack-i { display: grid; grid-template-columns: 180px minmax(0, 1fr); gap: 24px; align-items: center; }
+.stack-l { font-size: var(--t-body); font-weight: 500; color: var(--fg); }
+.stack-i img { border-radius: 12px; background: #000; }
 .gallery-note { margin-top: 18px; }
 
 /* comparison sets */
@@ -125,12 +131,14 @@ html:not(.js) .flip-tabs { display: none; }
 .plans { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin-top: 64px; }
 .plan { background: var(--bg-2); border-radius: 18px; padding: 32px; display: flex; flex-direction: column; gap: 14px; }
 .plan h3 { font-size: 22px; font-weight: 600; letter-spacing: -.01em; }
-.plan .price { font-size: 44px; line-height: 1; font-weight: 600; letter-spacing: -.03em; }
+.plan .price { font-size: 44px; line-height: 1; font-weight: 600; letter-spacing: -.03em; color: var(--fg); }
 .plan .price small { font-size: var(--t-body); font-weight: 400; color: var(--fg-2); letter-spacing: 0; }
 .plan p { color: var(--fg-2); }
 .plan .pill, .plan .textlink { margin-top: auto; align-self: flex-start; }
+.pill--ghost { background: transparent; color: var(--fg); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .35); }
+.pill--ghost:hover { background: rgba(255, 255, 255, .08); }
 .plan--main { background: var(--bg-3); }
-.small-print { margin-top: 40px; color: var(--fg-3); font-size: var(--t-small); max-width: 900px; }
+.small-print { margin-top: 40px; color: var(--fg-2); font-size: var(--t-small); max-width: 900px; }
 .small-print p + p { margin-top: 8px; }
 .more { margin-top: 40px; }
 .more > summary { cursor: pointer; color: var(--warm); list-style: none; display: inline-flex; min-height: 44px; align-items: center; }
@@ -155,6 +163,8 @@ html:not(.js) .flip-tabs { display: none; }
 }
 
 @media (max-width: 900px) {
+  .stack-i { grid-template-columns: 1fr; gap: 10px; }
+  .gallery .row--2 > .flip + .flip figcaption, .gallery .row--21 > .flip + .flip figcaption, .gallery .row--12 > .flip + .flip figcaption { padding-left: var(--gut); }
   :root { --gut: 20px; --t-hero: 40px; --t-h2: 34px; }
   .sec { padding-top: 112px; }
   .nav ul { display: none; }
@@ -166,5 +176,18 @@ html:not(.js) .flip-tabs { display: none; }
   .gallery .row--2, .gallery .row--3, .gallery .row--21, .gallery .row--12 { grid-template-columns: 1fr; }
   .foot .wrap { grid-template-columns: 1fr; }
   .flip-frame { border-radius: 12px; }
+  .hero .flip-frame img { aspect-ratio: 4 / 5; object-fit: cover; object-position: 18% 50%; }
+  .flip--overlay .flip-tabs { left: 10px; top: 10px; }
+  .flip-tabs button { padding: 8px 12px; font-size: 13px; }
+  .stagewide { padding: 0 var(--gut); }
   .window img { border-radius: 8px; }
 }
+/* the chain: where Halo Pro sits */
+.chain { list-style: none; margin: 56px 0 0; padding: 0; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 12px; counter-reset: none; }
+.chain li { position: relative; background: var(--bg-2); border-radius: 14px; padding: 22px 20px; min-height: 104px; }
+.chain li b { display: block; font-size: 19px; font-weight: 600; letter-spacing: -.01em; }
+.chain li span { display: block; margin-top: 6px; font-size: var(--t-small); color: var(--fg-2); }
+.chain li.is-hp { background: var(--fg); color: #000; }
+.chain li.is-hp span { color: #3a3a3c; }
+.chain li + li::before { content: ""; position: absolute; left: -9px; top: 50%; width: 6px; height: 6px; border-top: 1.5px solid var(--fg-3); border-right: 1.5px solid var(--fg-3); transform: translateY(-50%) rotate(45deg); }
+@media (max-width: 900px) { .chain { grid-template-columns: 1fr; gap: 10px; } .chain li { min-height: 0; padding: 16px 18px; } .chain li + li::before { left: 50%; top: -8px; transform: translateX(-50%) rotate(135deg); } }
